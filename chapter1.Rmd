@@ -1,0 +1,982 @@
+--- 
+title_meta  : Chapter 1
+title       : Intro to basics
+description : "In this chapter, you will take your first steps with R. You will learn how to use the console as a calculator and how to assign variables. You will also get to know the basic data types in R. Let us get started!"
+attachments : 
+  slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch1_slides.pdf
+  
+--- type:VideoExercise xp:50
+## R: The true basics
+
+*** =video_link
+```{r,eval=FALSE}
+//player.vimeo.com/video/138173881
+```
+
+*** =video_stream
+```{r,eval=FALSE}
+https://player.vimeo.com/external/138173881.hd.mp4?s=6bece9c02e68b56b4d65dfe3f7965ca8&profile_id=119
+```
+
+*** =video_hls
+```{r,eval=FALSE}
+https://player.vimeo.com/external/138173881.m3u8?p=high,standard,mobile&s=28352a9a7913887de2bf234788e4cecc
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## How it works
+
+In the editor on the right you should type R code to solve the exercises. When you hit the 'Submit Answer' button, every line of code in the script is interpreted and executed by R and you get a message that indicates whether or not your code was correct. The output of your submission is shown in the console in the lower right corner.
+
+You can also execute R commands straight in the console. This is a good way to experiment with R code: When you type in the console, your submission will not be checked for correctness!
+
+*** =instructions
+Add another line of code to that calculates the sum of 6 and 12, and hit the 'Submit Answer' button.
+
+*** =hint
+Simply add a line of R code that calculates the sum of 6 and 12, just like the example in the sample code!
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+3 + 4
+
+
+```
+
+*** =solution
+```{r eval=FALSE}
+3 + 4
+6 + 12
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+test_output_contains("7", incorrect_msg = "Do not remove the line of R code that calculates the sum of 3 and 4. Instead, just add another line that calculates the sum of 6 and 12.")
+test_output_contains("18", incorrect_msg = "Make sure to add a line of R code, that calculates the sum of 6 and 12. Do not start the line with a <code>#</code>, otherwise your R code is not executed!")
+success_msg("Awesome! See how the console shows the result of the R code you submitted? Now that you're familiar with the interface, let's get down to R business!")
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Documenting your code
+
+Adding comments to your code is extremely important to make sure that you and others can understand what your code is about. R makes use of the `#` sign to add comments, just like Twitter!
+
+It's important to note that comments are not run as R code, so they will not influence your result. For example, _Calculate 3 + 4_ in the editor on the right is a comment and is ignored during execution.
+
+*** =instructions
+Add another comment in the editor on the right, _Calculate 6 + 12_, at the appropriate location.
+
+*** =hint
+Simply add the line `# Calculate 6 + 12` above the R code that calculates 6 + 12.
+
+*** =pre_exercise_coe
+```{r}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Calculate 3 + 4
+3 + 4
+
+
+6 + 12
+```
+
+*** =solution_code
+```{r}
+# Calculate 3 + 4
+3 + 4
+
+# Calculate 6 + 12
+6 + 12
+```
+
+*** =sct
+```{r}
+test_error()
+test_output_contains("7", incorrect_msg = "Do not remove the code that calculates 3 + 4.")
+test_student_typed("# Calculate 3 + 4", not_typed_msg = "Do not remove the comment for the code that calculates 3 + 4.")
+test_output_contains("18", incorrect_msg = "Do not remove the code that calculates 6 + 12.")
+test_student_typed(c("# Calculate 6 + 12", "# calculate 6 + 12", "#Calculate 6 + 12", "#calculate 6 + 12",
+                     "# Calculate 6+12", "# calculate 6+12", "#Calculate 6+12", "#calculate 6+12"), 
+                   not_typed_msg = "Make sure to add the comment for the code that calculates 6 + 12.")
+success_msg("Great! Looks better, doesn't it? Proceed to the next exercise.")
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Little arithmetics with R
+
+In its most basic form R can be used as a simple calculator. Consider the following arithmetic operators:
+
+- Addition: `+`
+- Subtraction: `-`
+- Multiplication: `*`
+- Division: `/`
+- Exponentiation: `^`
+- Modulo: `%%`
+
+The last two might need some explaining:
+- The `^` operator raises the number to its left to the power of the number to its right: for example `3^2` equals 9.
+- The modulo returns the remainder of the division of the number to the left by the number on its right, for example 5 modulo 3 or `5 %% 3` equals 2.
+
+*** =instructions
+- Type `2^5` in the editor to calculate 2 to the power 5.
+- Type `28 %% 6` to calculate 28 modulo 6.
+- Click 'Submit Answer' and have a look at the R output in the console.
+- Note how the `#` symbol is used to add comments on the R code.
+
+*** =hint
+Another example of the modulo operator: `9 %% 2` equals `1`.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Addition
+5 + 5 
+
+# Subtraction
+5 - 5 
+
+# Multiplication
+3 * 5
+
+ # Division
+(5 + 5) / 2 
+
+# Exponentiation
+
+
+# Modulo
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Addition
+5 + 5 
+
+# Subtraction
+5 - 5 
+
+# Multiplication
+3 * 5
+
+ # Division
+(5 + 5) / 2 
+
+# Exponentiation
+2 ^ 5
+
+# Modulo
+28 %% 6
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+msg = "Do not remove the other arithmetic examples!"
+test_output_contains("5 + 5", incorrect_msg = msg)
+test_output_contains("5 - 5", incorrect_msg = msg)
+test_output_contains("(5 + 5)/2", incorrect_msg = msg)
+test_output_contains("2^5", incorrect_msg = "The exponentiation example is not correct. Make sure to read the instructions carefully.")
+test_output_contains("28 %% 6", incorrect_msg = "There seems to be an issue with the modulo example. Make sure to read the instructions carefully.")
+success_msg("Great! Head over to the next exercise.")
+```
+
+*** =skills
+1
+
+--- type:MultipleChoiceExercise xp:50
+## R's pros and cons
+
+As Filip explained in the video, there are things that make R the awesome and immensely popular language that it is today. On the other hand, there are also aspects about R that are less attractive. Which of the following statements are true regarding this statistical programming language developed by Ihaka and Gentleman in the nineties?
+
+1. As opposed to SAS and SPSS, R is completely open-source.
+2. R is open-source, but it's hard to share your code with others since R uses a command-line interface.
+3. It typically takes a long time for new and updated R packages to be released and made available to the public.
+4. R is easy to use, but this comes at the cost of limited graphical abilities.
+5. R works well with large data sets, if the code is properly written and the data fits into the working memory. 
+
+*** =instructions
+- statements (1) and (2) are correct; the others are false.
+- statements (1) and (4) are correct; the others are false.
+- statements (1) and (5) are correct; the others are false.
+- statements (2) and (4) are correct; the others are false.
+- statements (3) and (5) are correct; the others are false.
+
+*** =hint
+Remember that your data has to fit in the working memory for R to be able to process it.
+
+*** =pre_exercise_code
+```{r, eval=FALSE}
+# no pec
+```
+
+*** =sct
+```{r, eval=FALSE}
+msg1 = "Remember that the fact that R uses a command-line interface, does not make it hard to share code. On the contrary, sharing your results becomes very straightforward because you can easily share R scripts."
+msg2 = "R is the perfect tool for creating neat and insightful visualizations. Try again."
+msg3 = "Great! Head over to the next exercise and get your hands dirty!"
+msg4 = "R uses a command-line interface, which makes it very easy to share one's code. Also, R is very suitable for creating visualizations. Try again."
+msg5 = "It's fairly straightforward to write, maintain and share R packages. Try again."
+test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4, msg5))
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Variable assignment 
+
+A basic concept in R programming is the **variable**. It allows you to store a value or an object in R. You can then later use this variable's name to easily access the value or the object that is stored within this variable. You use `<-` to assign a variable:
+
+```
+my_variable <- 4
+```
+
+*** =instructions
+Complete the code in the editor such that it assigns the value 42 to the variable `x` in the editor. Click 'Submit Answer'. Notice that when you ask R to print `x`, the value 42 appears.
+
+*** =hint
+Look at how the value 4 was assigned to `my_variable` in the exercise's assignment. Do the exact same thing in the editor, but now assign 42 to the variable `x`.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Assign the value 42 to x
+x <- 
+
+# Print out the value of the variable x
+x
+```
+
+*** =solution
+```{r eval=FALSE}
+# Assign the value 42 to x
+x <- 42
+
+# Print out the value of the variable x
+x
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+test_object("x", 
+            undefined_msg = "Make sure to define a variable <code>x</code>.",
+            incorrect_msg = "Make sure that you assign the correct value to <code>x</code>.") 
+success_msg("Good job! Notice that R does not print the value of a variable to the console when you do the assignment. <code>x <- 42</code> did not generate any output, because R assumes that you will be needing this variable in the future. Otherwise you wouldn't have stored the value in a variable in the first place, right? Proceed to the next exercise!")
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Variable assignment (2)
+
+Suppose you have a fruit basket with five apples. As a data analyst in training, you want to store the number of apples in a variable with the name `my_apples`. 
+
+*** =instructions
+- Using `<-`, assign the value 5 to `my_apples` below the first comment.
+- Type `my_apples` below the second comment. This will print out the value of `my_apples`.
+- Click 'Submit Answer', and look at the console: you see that the number 5 is printed. So R now links the variable `my_apples` to the value 5.
+
+*** =hint
+Remember that if you want to assign a number or an object to a variable in R, you can make use of the assignment operator `<-`. Alternatively, you can use `=`, but `<-` is widely preferred in the R community.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Assign the value 5 to the variable called my_apples
+
+
+# Print out the value of the variable my_apples
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Assign the value 5 to the variable called my_apples
+my_apples <- 5
+
+# Print out the value of the variable my_apples
+my_apples
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+test_object("my_apples", 
+            undefined_msg = "Please make sure to define a variable <code>my_apples</code>.",
+            incorrect_msg = "Make sure that you assign the correct value to <code>my_apples</code>.")
+test_output_contains("my_apples", 
+                     incorrect_msg = "Have you explicitly told R to print out the <code>my_apples</code> variable to the console?")
+success_msg("Great! Continue to the next exercise! You could also use <code>=</code> for variable assignment, but <code><-</code> is typically prefered.")
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Variable assignment (3)
+
+Every tasty fruit basket needs oranges, so you decide to add six oranges. As a data analyst, your reflex is to immediately create the variable `my_oranges` and assign the value 6 to it. Next, you want to calculate how many pieces of fruit you have in total. Since you have given meaningful names to these values, you can now code this in a clear way:
+
+```
+my_apples + my_oranges
+```
+
+*** =instructions
+- Assign to `my_oranges` the value 6.
+- Add the variables `my_apples` and `my_oranges` and have R simply print the result.
+- Combine the variables `my_apples` and `my_oranges` into a new variable `my_fruit`, which is the total amount of fruits in your fruit basket.
+
+*** =hint
+`my_fruit` is just the sum of `my_apples` and `my_oranges`. You can use the `+` operator to sum the two and `<-` to assign that value to the variable `my_fruit`.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Assign a value to the variables my_apples and my_oranges
+my_apples <- 5
+
+
+# Add these two variables together and print the result
+
+
+# Create the variable my_fruit
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Assign a value to the variables my_apples and my_oranges
+my_apples  <- 5
+my_oranges <- 6
+
+# Add these two variables together and print the result
+my_apples + my_oranges
+
+# Create the variable my_fruit
+my_fruit <- my_apples + my_oranges
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+test_object("my_apples", 
+            undefined_msg = "Please make sure to define a variable <code>my_apples</code>.",
+            incorrect_msg = "Do not change the assignment of the <code>my_apples</code> variable!")
+test_object("my_oranges", 
+            undefined_msg = "Have you defined a variable <code>my_oranges</code>?",
+            incorrect_msg = "Have you assigned the correct value to the variable <code>my_oranges</code>?")
+test_output_contains("my_apples + my_oranges",
+                     incorrect_msg = "The output does not contain the result of adding <code>my_apples</code> and <code>my_oranges</code> (second instruction). Try again.")
+test_object("my_fruit",
+            undefined_msg = "Please make sure to define a variable <code>my_fruit</code>.",
+            incorrect_msg = "Make sure that you assign the correct value to <code>my_fruit</code>.")
+success_msg("Nice one! The great advantage of doing calculations with variables is reusability. If you just change <code>my_apples</code> to equal 12 instead of 5 and rerun the script, <code>my_fruit</code> will automatically update as well. Continue to the next exercise.")
+```
+
+
+*** =skills
+1
+
+
+--- type:NormalExercise xp:100
+## The workspace
+
+If you assign a value to a variable, this variable is stored in the workspace. It's the place where all user-defined variables and objects live. The command [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) lists the contents of this workspace. `rm(<var_name>)` allows you to remove objects from the workspace again. Try the following code in the console:
+
+```
+a <- 1
+b <- 2
+ls()
+rm(a)
+ls()
+```
+
+The first two lines create the variables `a` and `b`. Calling [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) now shows you that `a` and `b` are in the workspace. After removing `a` using `rm(a)`, the same [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) command will show you that only `b` remains in the workspace. You could also remove both `a` and `b` in a one-liner: `rm(a,b)`.
+
+The first line of the sample code is `rm(list = ls())`. This is a very useful command to clear everything from your workspace!
+
+*** =instructions
+- List the contents of the workspace to check that the workspace is empty.
+- Create a variable, `horses`, equal to 3.
+- Create another variable, `dogs`, which you set to 7.
+- Create a new variable, `animals`, that is equal to the sum of `horses` and `dogs`.
+- Inspect the contents of the workspace again to see that indeed, these three variables are available.
+- Eliminate the `dogs` variable from the workspace.
+- Finally, inspect the objects in your workspace once more to see that only `horses` and `animals` remain.
+
+*** =hint
+All you need is a combination of [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) and [`rm()`](http://www.rdocumentation.org/packages/base/functions/rm) at the right time. Give it a try and let the feedback messages guide you.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Clear the entire workspace
+rm(list = ls())
+
+# List the contents of your workspace
+
+
+# Create the variable horses
+
+
+# Create the variable dogs
+
+
+# Create the variable animals
+
+
+# Inspect the contents of the workspace again
+
+
+# Remove dogs from the workspace
+
+
+# Inspect the objects in your workspace once more
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Clear the entire workspace
+rm(list = ls())
+
+# List the contents of your workspace
+ls()
+
+# Create the variable horses
+horses <- 3
+
+# Create the variable dogs
+dogs <- 7
+
+# Create the variable animals
+animals <- horses + dogs
+
+# Inspect the contents of the workspace again
+ls()
+
+# Remove dogs from the workspace
+rm(dogs)
+
+# Inspect the objects in your workspace once more
+ls()
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+test_output_contains("character(0)", 
+                     incorrect_msg = "Make sure to list the contents of your workspace when it is still empty! Don't remove <code>rm(list = ls())</code>, which helps you start off with a clean slate if you have been experimenting before.")
+test_object("horses")
+test_student_typed("dogs <- 7", not_typed_msg = "Make sure to assign the value 7 to a new variable <code>dogs</code>.")
+test_object("animals")
+test_output_contains('c("animals", "dogs", "horses")',
+                     incorrect_msg = "Make sure to inspect the contents of the workspace after defining the variables <code>horses</code>, <code>dogs</code> and <code>animals</code>.")
+test_function("rm", not_called_msg = "Make sure to call the function <code>rm()</code> to remove the variable <code>horses</code>.")
+test_output_contains('c("animals", "horses")',
+                     incorrect_msg = "Make sure to inspect the objects in your workspace after removing the <code>dogs</code> variable.")
+success_msg("Awesome! Now that you know how you can build up, inspect and manage your workspace, it's time for your first challenge!")
+```
+
+*** =skills
+1
+
+--- type:ChallengeExercise xp:200
+## Build and destroy your workspace
+
+Apples and oranges, dogs and horses, you can model practically everything in R. The only limit is your own imagination! However, how you create and manage the variables you're creating is always the same. If fruits are not your kind of thing, you're in luck! In this challenge, you will compute the volume of a donut. The volume of a donut can be expressed as:
+
+$$V = 2 \pi^2 r^2 R$$
+
+where $r$ is the minor radius and $R$ is the major radius. This is the same as computing the area of the cilindrical portion of the donut ($\pi r^2$) and multiplying it by the circumference of the donut ($2 \pi R$). Top off this theory with some workspace management and you've got one tasty challenge!
+
+_Type and execute code in the console. DataCamp will automatically grade each submission to see if you solved the challenge. Try not to click on the intermediate steps, as they cost you XP points. The challenge description in the goal should suffice!_
+
+*** =challenge_steps
+## Define the inner and outer radius
+Define the variable `r` and `R` and set them to 2 and 6 using the assignment operator (`<-`).
+
+## Calculate the cilinder area
+Calculate the area of the cilindrical portion of the donut as `pi*r^2` and assign the variable to `ar_donut`. Inspect the resulting variable.
+
+## Calculate the donut circumference
+Calculate the circumference of the donut as `2*pi*R` and assign the variable to `cir_donut`. Inspect the resulting variable.
+
+## Calculate the donut volume
+Calculate the volume of the donut as the product of `ar_donut` and `cir_donut` and assign the result to a variable `vol_donut`.
+
+## Clean up the workspace
+Remove all intermediary variables that you've used to calculate `vol_donut` using the [`rm()`](http://www.rdocumentation.org/packages/base/functions/rm) function. Finally, use [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) to list the resulting workspace. It should only contain `vol_donut`.
+
+*** =challenge_goal
+## Calculate the donut volume
+Create the variables `r` and `R`, equal to 2 and 6 respectively, to calculate the volume of the donut, `vol_donut`. Remove all the intermediary variables that you've used to calculate `vol_donut` such that only the variable `vol_donut` remains. Finally, inspect the workspace you end up with. One last tip: $\pi$ is available in R by default as `pi`.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =solution
+```{r eval=FALSE}
+r <- 2
+r
+R <- 6
+R
+ar_donut <- pi * r ^ 2
+ar_donut
+cir_donut <- 2 * pi * R
+cir_donut
+vol_donut <- ar_donut * cir_donut
+rm(r, R, ar_donut, cir_donut)
+ls()
+```
+
+*** =sct
+```{r eval=FALSE}
+test_instruction(1, {
+  test_error()
+  test_that("r ok", {
+    expect_true(exists("r", envir = globalenv(), inherits = FALSE))
+    expect_equal(get("r", envir = globalenv(), inherits = FALSE), 2)
+  })
+  test_that("R ok", {
+    expect_true(exists("R", envir = globalenv(), inherits = FALSE))
+    expect_equal(get("R", envir = globalenv(), inherits = FALSE), 6)
+  })
+})
+test_instruction(2, {
+  test_error()
+  test_output_contains("pi*2^2")
+})
+test_instruction(3, {
+  test_error()
+  test_output_contains("2*pi*6")
+})
+test_instruction(4, {
+  test_error()
+  test_object("vol_donut")
+})
+test_instruction(5, {
+  test_error()
+  test_object("vol_donut")
+  test_output_contains("\"vol_donut\"")
+})
+test_instruction(6, {
+  test_error()
+  test_object("vol_donut")
+  test_output_contains("\"vol_donut\"")
+})
+success_msg("Awesome! In this challenge, the true power of variables became apparent.")
+```
+
+*** =skills
+1
+
+--- type:VideoExercise xp:50
+## Basic Data Types
+
+*** =video_link
+```{r,eval=FALSE}
+//player.vimeo.com/video/138173888
+```
+
+*** =video_stream
+```{r,eval=FALSE}
+https://player.vimeo.com/external/138173888.hd.mp4?s=82fc1b03307e9160d8f00d633623de2d&profile_id=119
+```
+
+*** =video_hls
+```{r,eval=FALSE}
+https://player.vimeo.com/external/138173888.m3u8?p=high,standard,mobile&s=2fa96fc053640c9181af7546b03f6451
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Discover Basic Data Types
+
+Some of R's most basic types to get started are:
+
+- Decimals values like `4.5` are called **numerics**.
+- Natural numbers like `4L` are called **integers**. Integers are also numerics.
+- Boolean values (`TRUE` or `FALSE`) are called **logical**.
+- Text (or string) values are called **characters**.
+
+Note how the quotation marks on the right indicate that `"some text"` is a character.
+
+*** =instructions
+Change the value of the:
+- `my_numeric` variable to `42`.
+- `my_character` variable to `"forty-two"`. Note that the quotation marks indicate that `"forty-two"` is a character.
+- `my_logical` variable to `FALSE`.
+
+Note that R is case sensitive!
+
+*** =hint 
+Replace the values in the editor with the values that are provided in the exercise.
+```
+my_numeric <- 42
+```
+assigns the value 42 to the variable `my_numeric`. 
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# What is the answer to the universe?
+my_numeric <- 42.5
+
+# The quotation marks indicate that the variable is of type character
+my_character <- "some text"
+
+# Change the value of my_logical
+my_logical <- TRUE
+```
+
+*** =solution
+```{r eval=FALSE}
+# What is the answer to the universe?
+my_numeric <- 42
+
+# The quotation marks indicate that the variable is of type character
+my_character <- "forty-two"
+
+# Change the value of my_logical
+my_logical <- FALSE
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+test_object("my_numeric", 
+            undefined_msg = "Please make sure to define a variable <code>my_numeric</code>.",
+            incorrect_msg = "Make sure that you assign the correct value to <code>my_numeric.</code>")
+test_object("my_character",
+            undefined_msg = "Please make sure to define a variable <code>my_character</code>.",
+            incorrect_msg = "Make sure that you assign the correct value to <code>my_character</code>. Do not forget the quotes and beware of capitalization!")
+test_object("my_logical",
+            undefined_msg = "Please make sure to define a variable <code>my_logical</code>.",
+            incorrect_msg = "Make sure that you assign the correct value to <code>my_logical</code>.") 
+success_msg("Great work! Continue to the next exercise.")
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Back to Apples and Oranges
+
+Common knowledge tells you not to add apples and oranges. But hey, that is what you just did, no :-)? The `my_apples` and `my_oranges` variables both contained a number in the previous exercise. The `+` operator works with numeric variables in R. If you really tried to add `"apples"` and `"oranges"`, and assigned a text value to the variable `my_oranges` (see the editor), you would be trying to assign the addition of a numeric and a character variable to the variable `my_fruit`. This is not possible.
+
+*** =instructions
+- Click 'Submit Answer' and read the error message. Make sure to understand why this did not work.
+- Adjust the code so that R knows you have 6 oranges and thus a fruit basket with 11 pieces of fruit.
+
+*** =hint
+You have to assign the numeric value `6` to the `my_oranges` variable instead of the character value `"six"`. Note how the quotation marks are used to indicate that `"six"` is a character.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Assign a value to the variable called my_apples
+my_apples <- 5 
+
+# Print out the value of my_apples
+my_apples       
+
+# Assign a value to the variable my_oranges and print it out
+my_oranges <- "six" 
+my_oranges 
+
+# New variable that contains the total amount of fruit
+my_fruit <- my_apples + my_oranges 
+my_fruit
+```
+
+*** =solution
+```{r eval=FALSE}
+# Assign a value to the variable called my_apples
+my_apples <- 5  
+
+# Print out the value of answer
+my_apples  
+
+# Assign a value to the variable my_oranges and print it out
+my_oranges <- 6
+my_oranges 
+
+# New variable that contains the total amount of fruit
+my_fruit <- my_apples + my_oranges 
+my_fruit
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+test_object("my_oranges",
+            undefined_msg = "Please make sure to define a variable <code>my_oranges</code>.",
+            incorrect_msg = "Make sure that you assign the correct value to <code>my_oranges</code>. Strings and numbers are different things!")
+test_output_contains("my_apples + my_oranges", 
+                     incorrect_msg = "The output does not contain the result of adding <code>my_apples</code> and <code>my_oranges</code>.")
+test_object("my_fruit", 
+            undefined_msg = "Please make sure to define a variable <code>my_fruit</code>.",
+            incorrect_msg = "Make sure that you assign the correct value to <code>my_fruit</code>.")
+success_msg("Awesome, keep up the good work! Continue to the next exercise.")
+```
+
+*** =skills
+1
+
+--- type:MultipleChoiceExercise xp:50
+## What's that data type?
+
+Do you remember that when you added `5 + "six"`, you got an error due to a mismatch in data types? You can avoid such embarrassing situations by checking the data type of a variable beforehand. You can do this as follows:
+
+```
+class(some_variable_name)
+```
+
+In the workspace (you can inspect it by typing [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) in the console), some variables have already been defined. Which statement concerning these variables are correct?
+
+*** =instructions
+- `a`'s class is `integer`, `b` is a `character`, `c` is a `boolean`.
+- `a`'s class is `character`, `b` is a `character` as well, `c` is a `logical`.
+- `a`'s class is `numeric`, `b` is a `string`, `c` is a `logical`.
+- `a`'s class is `numeric`, `b` is a `character`, `c` is a `logical`.
+
+*** =hint
+You can find out the data type of the `a` variable for example by typing `class(a)`. You can do similar things for `b` and `c`.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+a <- 42
+b <- "forty-two"
+c <- FALSE
+```
+
+*** =sct
+```{r eval=FALSE}
+msg1 <- "<code>boolean</code> is not the class for logical values. Try again."
+msg2 <- "<code>a</code> is of the class <code>numeric</code>, give it another go."
+msg3 <- "<code>string</code> is not a class in R. <code>character</code> is!"
+msg4 <- "Nice one. Let's step it up a notch and start coercing variables!"
+test_mc(correct = 4, feedback_msgs = c(msg1, msg2, msg3, msg4))
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Coercion: Taming your data
+
+As Filip explained in the video, coercion to transform your data from one type to the other is possible. Next to the [`class()`](http://www.rdocumentation.org/packages/base/functions/class) function and the `is.*()` functions, you can use the `as.*()` functions to enforce data to change types. For example, 
+
+```
+as.numeric("3")
+```
+
+converts the character string `"3"` to a numeric, `3`. Beware however, that it is not always possible to convert the types without information loss or errors:
+
+```
+as.integer("4.5")
+as.numeric("three")
+```
+
+*** =instructions
+- Convert `var1`, a logical, to a character and assign it to the variable `var1_char`.
+- Next, see whether `var1_char` actually is a character by using the [`is.character()`](http://www.rdocumentation.org/packages/base/functions/character) function on it.
+- Convert `var2`, a numeric, to a logical and assign it to the variable `var2_log`.
+- Inspect the class of `var2_log` using [`class()`](http://www.rdocumentation.org/packages/base/functions/class).
+- Finally, try to coerce `var3` to a numeric and assign the result to `var3_num`. Was it successful?
+
+*** =hints
+Use the [`as.character()`](http://www.rdocumentation.org/packages/base/functions/character) function to convert `var1` to a character. For the two other variables, use [`as.logical()`](http://www.rdocumentation.org/packages/base/functions/logical) and [`as.numeric()`](http://www.rdocumentation.org/packages/base/functions/numeric), respectively.
+
+*** =sample_code
+```{r}
+# Create variables var1, var2 and var3
+var1 <- TRUE
+var2 <- 0.3
+var3 <- "i"
+
+# Convert var1 to a character: var1_char
+
+
+# See whether var1_char is a character
+
+
+# Convert var2 to a logical: var2_log
+
+
+# Inspect the class of var2_log
+
+
+# Coerce var3 to a numeric: var3_num
+  
+```
+
+*** =solution
+```{r}
+# Create variables var1, var2 and var3
+var1 <- TRUE
+var2 <- 0.3
+var3 <- "i"
+
+# Convert var1 to a character: var1_char
+var1_char <- as.character(var1)
+
+# See whether var1_char is a character
+is.character(var1_char)
+
+# Convert var2 to a logical: var2_log
+var2_log <- as.logical(var2)
+
+# Inspect the class of var2_log
+class(var2_log)
+
+# Coerce var3 to a numeric: var3_num
+var3_num <- as.numeric(var3)
+```
+
+*** =sct
+```{r}
+test_error()
+msg <- "Do not remove or change the definition of the variables <code>var1</code>, <code>var2</code> and <code>var3</code>."
+test_object("var1", undefined_msg = msg, incorrect_msg = msg)
+test_object("var2", undefined_msg = msg, incorrect_msg = msg)
+test_object("var3", undefined_msg = msg, incorrect_msg = msg)
+test_function("as.character", "x", 
+              not_called_msg = "Make sure to call the function <code>as.character()</code> to convert <code>var1</code> to a character.",
+              incorrect_msg = "Have you passed the correct variable to the function <code>as.character()</code>?")
+test_object("var1_char")
+test_function("is.character", "x", 
+              not_called_msg = "Make sure to call the function <code>is.character()</code> to see whether <code>var1_char</code> is in fact a character.",
+              incorrect_msg = "Have you passed the correct variable to the function <code>is.character()</code>?")
+test_function("as.logical", "x",
+              not_called_msg = "Make sure to call the function <code>as.logical()</code> to convert <code>var2</code> to a logical.",
+              incorrect_msg = "Have you passed the correct variable to the function <code>as.logical()</code>")
+test_object("var2_log")
+test_function("class", "x", 
+              not_called_msg = "Make sure to call the function <code>class()</code> to inspect the class of <code>var2_log</code>.",
+              incorrect_msg = "Have you passed the correct variable to the function <code>class()/<code>?")
+test_function("as.numeric", "x",
+              not_called_msg = "Make sure to call the function <code>as.numeric()</code> to convert <code>var3</code> to a numeric.",
+              incorrect_msg = "Have you passed the correct variable to the function <code>as.numeric()</code>?")
+test_object("var3_num")
+success_msg("Bellissimo! The final coercion you tried did not succeed, hence the warning. Head over to the challenge that concludes this chapter.")
+```
+
+*** =skills
+1
+
+--- type:ChallengeExercise xp:200
+## Coercion for the sake of cleaning
+
+Coercion can come in pretty handy when you're dealing with messy datasets where supposedly numerical variables have been stored as character strings, logicals have been stored as numerics etc. To prepare you for such problems, take this challenge: your first modest steps in data cleaning! In the workspace, some variables concerning the answers on a questionnaire have been defined; have a look with [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls).
+
+_Type and execute code in the console. DataCamp will automatically grade each submission to see if you solved the challenge. Try not to click on the intermediate steps, as they cost you XP points. The challenge description in the goal should suffice!_
+
+*** =challenge_steps
+## Convert the age to a numeric
+Use [`as.numeric()`](http://www.rdocumentation.org/packages/base/functions/numeric) to convert the character `age`; assign the result to a new variable `age_clean`.
+
+## Convert employed to a logical
+With the help of [`as.logical()`](http://www.rdocumentation.org/packages/base/functions/logical), convert the numeric `employed` and store the result to a new variable `employed_clean`.
+
+## Convert the salary to a numeric
+Using the [`as.numeric()`](http://www.rdocumentation.org/packages/base/functions/numeric) function, convert the respondent's `salary` to a numeric; assign the resulting numeric to the variable `salary_clean`.
+
+*** =challenge_goal
+## Clean the questionnaire data
+In the questionnaire data, there are three variables that do not have the correct types. Create three new variables, `age_clean`, `employed_clean` and `salary_clean` that contain the correct information in the most meaningful format (e.g. numeric for numbers).
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+age <- "29"
+employed <- 1
+location <- "Paris"
+salary <- "63394.12"
+```
+
+*** =solution
+```{r eval=FALSE}
+age_clean <- as.numeric(age)
+employed_clean <- as.logical(employed)
+salary_clean <- as.numeric(salary)
+```
+
+*** =sct
+```{r eval=FALSE}
+test_instruction(1, {
+  test_error()
+  test_object("age_clean")
+})
+test_instruction(2, {
+  test_error()
+  test_object("employed_clean")
+})
+test_instruction(3, {
+  test_error()
+  test_object("salary_clean")
+})
+test_instruction(4, {
+  test_error()
+  test_object("age_clean")
+  test_object("employed_clean")
+  test_object("salary_clean")
+})
+success_msg("Perfect! Sit back and relax for a while after this first introduction to R, but not for too long: there is much more to come!")
+```
+
+*** =skills
+1

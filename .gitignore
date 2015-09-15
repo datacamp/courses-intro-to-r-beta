@@ -1,0 +1,6 @@
+*
+!*.Rmd
+!*.yml
+!README.md
+!.gitignore
+.Rproj.user

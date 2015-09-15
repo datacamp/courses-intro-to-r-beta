@@ -1,0 +1,29 @@
+id: 732
+title: Introduction to R
+author_field: Filip Schouwenaars
+author_university: DataCamp
+difficulty_level: 1
+time_needed: 5 hours
+author_bio: Next to being the main developer of DataCamp's interactive courses, Filip
+  is responsible for everything related to R. Under the motto 'Eat your own dog food',
+  he leverages the techniques DataCamp teaches its students to perform data analysis
+  for DataCamp. Filip holds degrees in Electrical Engineering and Artificial Intelligence.
+  <br><br>This course is a rework of the earlier introduction to R course,
+  built by Jonathan Cornelissen and Martijn Theuwissen, co-founders of DataCamp. The
+  course now features video lectures, challenges, and a chapter on graphics.
+description: With over 2 million users worldwide R is rapidly becoming the leading
+  programming language in statistics and data science. Every year, the number of R
+  users grows by 40%, and an increasing number of organizations are using it in their
+  day-to-day activities.<br>In this introduction to R, you will master the basics
+  of this beautiful open source language such as factors, lists and data frames. With
+  the knowledge gained in this course, you will be ready to undertake your first very
+  own data analysis.
+chapters:
+  chapter1.Rmd: 1720
+  chapter2.Rmd: 1721
+  chapter3.Rmd: 1722
+  chapter4.Rmd: 1723
+  chapter5.Rmd: 1724
+  chapter6.Rmd: 1725
+  chapter7.Rmd: 1726
+

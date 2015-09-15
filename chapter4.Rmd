@@ -1,0 +1,605 @@
+--- 
+title_meta  : Chapter 4
+title       : Factors
+description : Very often, data falls into a limited number of categories.In R, categorical data is stored in factors. Given the importance of these factors in data analysis, you should start learning how to create, subset and compare them now!
+attachments : 
+  slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch4_slides.pdf
+
+--- type:VideoExercise xp:50
+## Factors
+
+*** =video_link
+```{r,eval=FALSE}
+//player.vimeo.com/video/138173962
+```
+
+*** =video_stream
+```{r,eval=FALSE}
+https://player.vimeo.com/external/138173962.hd.mp4?s=856deee2057ce6a19841d395b5117a48&profile_id=119
+```
+
+*** =video_hls
+```{r,eval=FALSE}
+https://player.vimeo.com/external/138173962.m3u8?p=high,standard,mobile&s=8e92ffa33fe5363ce2c6f05c1d69a415
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Vector to factor
+
+In this and the following exercises, we'll be working with handedness as a categorical variable that can be either "Left" or "Right". In general, you're either left-handed, or you're right-handed and nothing else, so this complies with the conditions of a categorical variable.
+
+To create factors in R, you make use of the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor). The first thing you do is creating a vector that contains all the observations that belong to a limited number of categories. For example, `hand_vector` contains the handedness of 5 different individuals. Next, you pass this vector to the function `factor()`.
+
+*** =instructions
+- Assign to `hand_factor` the character vector `hand_vector` converted to a factor. Look at the console and note that R prints out the factor levels below the actual values.
+- Have a look at the underlying structure of `hand_factor` using `str()`.
+
+*** =hint
+Simply use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) on `hand_vector`. Have a look at the assignment, the answer is already there somewhere...
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Definition of hand_vector
+hand_vector <- c("Right", "Left", "Left", "Right", "Left")
+
+# Convert hand_vector to a factor: hand_factor
+
+
+# Display the structure of hand_factor
+```
+
+*** =solution
+```{r eval=FALSE}
+# Definition of hand_vector
+hand_vector <- c("Right", "Left", "Left", "Right", "Left")
+
+# Convert hand_vector to a factor: hand_factor
+hand_factor <- factor(hand_vector)
+
+# Display the structure of hand_factor
+str(hand_factor)
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+test_object("hand_factor",
+            incorrect_msg = "Did you correctly convert <code>hand_vector</code> to a factor and assign the result to <code>hand_factor</code>?")
+test_function("str", "object",
+              not_called_msg = "Make sure to use the <code>str()</code> to show the structure of <code>hand_factor</code>",
+              incorrect_msg = "Have you correctly passed <code>hand_factor</code> to <code>str()</code>?")
+success_msg("Great! If you want to find out more about the <code>factor()</code> function, do not hesitate to type <code>?factor</code> in the console. This will open up a help page. Continue to the next exercise.");
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Factor levels
+
+When you first get a data set, you will often notice that it contains factors with specific factor levels. Of course, you can also change these factor levels. You can either do this with the `levels()` function, after you defined the factor, or using the `labels` argument inside `factor()`. The following options are equivalent:
+
+```
+my_vector <- c("L", "S", "L", "M", "M")
+
+# Option 1
+my_factor <- factor(my_vector)
+levels(my_factor) <- c("Large", "Medium", "Small")
+
+# Option 2
+my_factor <- factor(my_vector, 
+                    levels = c("S", "M", "L"),
+                    labels = c("Small", "Medium", "Large"))
+```
+
+Notice from the first option here, that you have to pass the levels in alphabetical order. To not make mistakes, you better use the second option, but that's up to you!
+
+You performed a street questionnaire, and recorded the respondents' handedness using the letters "R" and "L". This information is stored in a vector `survey_vector`, which is already coded on the right.
+
+*** =instructions
+- Convert the character vector `survey_vector` into a factor vector, `survey_factor`, with the levels "Right" and "Left".
+- Print `survey_factor` to inspect its contents.
+
+*** =hint
+If you're using the first approach outlined above, mind the order in which you have to type in the factor levels.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Definition of survey_vector
+survey_vector <- c("R", "L", "L", "R", "R")
+
+# Encode survey_vector as a factor with the correct names: survey_factor
+
+
+# Print survey_factor
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Definition of survey_vector
+survey_vector <- c("R", "L", "L", "R", "R")
+
+# Encode survey_vector as a factor with the correct names: survey_factor
+survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
+
+# Print survey_factor
+survey_factor
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+msg = "Do not change the definition of <code>survey_vector</code>!"
+test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
+test_student_typed(c("survey_factor <- factor(survey_vector, levels = c('R', 'L'), labels = c('Right', 'Left'))
+", "survey_factor <- factor(survey_vector, levels = c('L', 'R'), labels = c('Left', 'Right'))
+"), not_typed_msg = "Have you correctly converted <code>survey_vector</code> to a factor? Make sure to correctly specify the new factor levels (R is case sensitive!).")
+test_output_contains("survey_factor", incorrect_msg = "Don't forget to print <code>survey_factor</code>!")
+success_msg("Wonderful! Proceed to the next exercise.")
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Summarizing a factor
+
+After finishing this course, one of your favourite functions in R will be [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary). This will give you a quick overview of `some_variable`: 
+
+```
+summary(some_variable)
+``` 
+
+Going back to our survey, you would like to know how many `"Right"` responses you have in your study, and how many `"Left"` responses. The [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) function gives you the answer to this question.
+
+*** =instructions
+Ask a [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) of `survey_vector` and `survey_factor`. Interpret the results of both vectors. Are they both equally useful in this case?
+
+*** =hint
+Call the [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) function on both `survey_vector` and `survey_factor`, it's as simple as that!
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Defintion of survey_vector and survey_factor
+survey_vector <- c("R", "L", "L", "R", "R")
+survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
+
+# Summarize survey_vector
+
+
+# Summarize survey_factor
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Defintion of survey_vector and survey_factor
+survey_vector <- c("R", "L", "L", "R", "R")
+survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
+
+# Summarize survey_vector
+summary(survey_vector)
+
+# Summarize survey_factor
+summary(survey_factor)
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+msg = "Do not change anything about the first four lines that define <code>survey_vector</code> and <code>survey_factor</code>."
+test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
+test_object("survey_factor", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
+test_output_contains("summary(survey_vector)", incorrect_msg = "Make sure to summarize <code>survey_vector</code>")
+test_output_contains("summary(survey_factor)", incorrect_msg = "Make sure to summarize <code>survey_factor</code>")
+success_msg("Nice! Have a look at the output. The fact that you identified <code>\"Right\"</code> and <code>\"Left\"</code> as factor levels in <code>survey_factor</code> enables R to show the number of elements for each category.")
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Nominal versus Ordinal, Unordered versus Ordered
+
+Remember that there are two types of categorical variables? On the one hand there's the _nominal categorical variable_, which does not have an implied order. The _ordinal categorical variable_, on the other hand, does have a natural ordering.
+
+By default, the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) transforms a vector into an unordered factor. To create an ordered factor, you have to add two additional arguments: `ordered` and `levels`. 
+
+```
+factor(some_vector, 
+       ordered = TRUE, 
+       levels = c("Level_1", "Level_2" ...))
+``` 
+
+By setting the argument `ordered` to `TRUE`, you indicate that the factor is ordered. With the argument `levels` you give the values of the factor in the correct order.
+
+*** =instructions
+- Convert `animal_vector` to a factor, `animal_factor`. Make it an ordered factor if that's appropriate.
+- Encode `temperature_vector` as a factor called `temperature_factor`. Again, order this factor if that makes sense.
+- Print out both factors and compare the outputs.
+
+*** =hint
+`animal_factor` should not be ordered; `temperature_factor` should!
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Definition of animal_vector and temperature_vector
+animal_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
+temperature_vector <- c("High", "Low", "High", "Low", "Medium")
+
+# Convert animal_vector to a factor: animal_factor
+
+
+# Encode temperature_vector as a factor: temperature_factor
+
+
+# Print out animal_factor and temperature_factor
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Definition of animal_vector and temperature_vector
+animal_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
+temperature_vector <- c("High", "Low", "High", "Low", "Medium")
+
+# Convert animal_vector to a factor: animal_factor
+animal_factor <- factor(animal_vector)
+
+# Encode temperature_vector as a factor: temperature_factor
+temperature_factor <- factor(temperature_vector, order = TRUE, levels = c("Low", "Medium", "High"))
+
+# Print out animal_factor and temperature_factor
+animal_factor
+temperature_factor
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+msg = "Do not change or remove the code that defines <code>animal_vector</code> and <code>temperature_vector</code>!"
+test_object("animal_vector", undefined_msg = msg, incorrect_msg = msg)
+test_object("temperature_vector", undefined_msg = msg, incorrect_msg = msg)
+
+test_object("animal_factor", eq_condition = "equal",
+            incorrect_msg = "Have you correctly converted <code>animal_vector</code> to a factor? You shouldn't order this factor!")
+
+test_object("temperature_factor", eq_condition = "equal",
+            incorrect_msg = "Have you correctly encoded <code>temperature_vector</code> as a factor? In this case, an ordered factor makes sense!")
+
+msg <- "Don't forget to print out both <code>animal_factor</code> and <code>temperature_factor</code>."
+test_output_contains("animal_factor", incorrect_msg = msg)
+test_output_contains("temperature_factor", incorrect_msg = msg)
+
+success_msg("Awesome! You correctly figured out that <code>animal_factor</code> shouldn't be ordered while <code>temperature_factor</code> should.")
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Left better than right?
+
+_"All animals are equal, but some animals are more equal than others." -- George Orwell_
+
+In `survey_factor` you have a two-level factor, containing "Left" and "Right". But how does R value these relatively to each other? In other words, who does R think is better, left or right?
+
+*** =instructions
+- Select the first element from `survey_factor` and store it in the variable `right`.
+- Select the second element form `survey_factor` and store it in the variable `left`.
+- Using the greater than sign, find out whether `right` is greater than `left`.
+
+*** =hint
+You can subset factors exactly the same as you subset vectors: using square brackets. To select the fourth element from `survey_factor`, you can type `survey_factor[4]`.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Definition of survey_vector and survey_factor
+survey_vector <- c("R", "L", "L", "R", "R")
+survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
+
+# First element from survey_factor: right
+
+
+# Second element from survey_factor: left
+
+
+# Right 'greater than' left?
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Definition of survey_vector and survey_factor
+survey_vector <- c("R", "L", "L", "R", "R")
+survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
+
+# First element from survey_factor: right
+right <- survey_factor[1] 
+
+# Second element from survey_factor: left
+left <- survey_factor[2] 
+
+# Right 'greater than' left?
+right > left
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+msg = "Do not change anything about the first lines that define <code>survey_vector</code> and <code>survey_factor</code>."
+test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
+test_object("survey_factor", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
+test_output_contains("survey_factor[1] > survey_factor[2]", incorrect_msg = "Make sure to correctly perform the comparison between right and left; we want the battle of dexterity be sorted once and for all!")
+success_msg("Phew, it seems that R is neutral ;-).")
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Ordered factors
+
+Since `"Right"` and `"Left"` are unordered (or nominal) factor levels, R returned a warning message, telling you that the greater than operator is not meaningful. As seen before, R attaches an equal value to the levels for such factors. 
+
+But this is not always the case! Sometimes you will also deal with factors that do have a natural ordering between its categories. If this is the case, we have to make sure that we pass this information to R.
+
+Let us say that you are leading a research team of five data analysts and that you want to evaluate their performance. To do this, you track their speed, evaluate each analyst as `"Slow"`, `"OK"` or `"Fast"`, and save the results in `speed_vector`.
+
+*** =instructions
+As a first step, assign `speed_vector` knowing that: 
+
+- Analyst 1 is OK, 
+- Analyst 2 is Slow, 
+- Analyst 3 is Slow,
+- Analyst 4 is OK and
+- Analyst 5 is Fast.
+
+No need to specify these are factors yet.
+
+*** =hint
+Assign to `speed_vector` a vector containing character strings, `"Fast"`, `"Slow"` ...
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Create speed_vector
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Create speed_vector
+speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast")
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+test_object("speed_vector", 
+            incorrect_msg = "Make sure that you assigned the correct vector to speed_vector. Remember that R is case sensitive!")
+success_msg("A job well done! Continue to the next exercise.")
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Ordered factors (2)
+
+`speed_vector` should be converted to an ordinal factor since its categories have a natural ordening. You already know how to do this. Here's a template to define an ordered factor once more:
+
+```
+factor(some_vector, ordered = TRUE, levels = c("Level_1", "Level_2" ...))
+``` 
+
+*** =instructions
+- Use the example code above to define `speed_factor`, that contains the speed information as an ordered factor.
+- Print `speed_factor` to the console.
+- Generate a summary of `speed_factor`: automagically, R prints the factor levels in the right order.
+
+*** =hint
+Use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) to create `factor_speed_vector` based on `speed_character_vector`. The argument order should be set to `TRUE` since there is a natural ordering. The factor levels are in this case: `c("Slow", "Fast", "Ultra-fast")`.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Create speed_vector
+speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast") 
+
+# Convert speed_vector to ordered speed_factor
+
+
+# Print speed_factor
+
+
+# Summarize speed_factor
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Create speed_vector
+speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast") 
+
+# Convert speed_vector to ordered speed_factor
+speed_factor <- factor(speed_vector, ordered = TRUE, levels= c("Slow", "OK", "Fast"))
+
+# Print speed_factor
+speed_factor
+
+# Summarize speed_factor
+summary(speed_factor)
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+msg = "Do not change anything about the command that specifies the <code>speed_vector</code> variable."
+test_object("speed_vector", undefined_msg = msg, incorrect_msg = msg)
+test_correct({
+  test_object("speed_factor", eq_condition = "equal",
+              incorrect_msg = "Make sure that you assigned the correct factor to <code>speed_factor<code>. Pay attention to the correct order of the <code>levels</code> argument.")
+},{
+  test_function("factor", "x")
+  test_function("factor", "levels")
+  test_function("factor", "ordered")
+})
+success_msg("Great! Have a look at the console. It is now indicated that the Levels indeed have an order associated, with the <code><</code> sign. Continue to the next exercise.");
+```
+
+*** =skills
+1
+
+--- type:NormalExercise xp:100
+## Comparing ordered factors
+
+Having a bad day at work, 'data analyst number two' enters your office and starts complaining that 'data analyst number five' is slowing down the entire project. Since you know that 'data analyst number two' has the reputation of being a smarty-pants, you first decide to check if his statement is true. 
+
+The fact that `speed_factor` is now ordered enables us to compare different elements (the data analysts in this case). You can simply do this by using the well-known operators.
+
+*** =instructions
+Check whether data analyst 2 is faster than data analyst 5 and assign the result to `compare_them`. Remember the `>` operator allows you to check whether one element is larger than the other.
+
+*** =hint
+You can compare the elements of the vector with the `>` operator. Relevant for this case: 
+```
+vector[1] > vector[2]
+``` 
+checks whether the first element of vector is larger than the second element.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Definition of speed_vector and speed_factor
+speed_vector <- c("Fast", "Slow", "Slow", "Fast", "Ultra-fast")
+factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("Slow", "Fast", "Ultra-fast"))
+
+# Compare DA2 with DA5: compare_them
+
+
+# Print compare_them: Is DA2 faster than DA5?
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Definition of speed_vector and speed_factor
+speed_vector <- c("Fast", "Slow", "Slow", "Fast", "Ultra-fast")
+factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("Slow", "Fast", "Ultra-fast"))
+
+# Compare DA2 with DA5: compare_them
+compare_them <- factor_speed_vector[2] > factor_speed_vector[5] 
+
+# Print compare_them: Is DA2 faster than DA5?
+compare_them
+```
+
+*** =sct
+```{r eval=FALSE}
+test_error()
+msg = "Do not change anything about the commands that define <code>speed_vector</code> and <code>factor_speed_vector</code>!"
+test_object("speed_vector", undefined_msg = msg, incorrect_msg = msg)
+test_object("factor_speed_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
+test_object("compare_them",
+            undefined_msg = "Please make sure to define a variable <code>compare_them</code>.",
+            incorrect_msg = "It looks like <code>compare_them</code> does not compare the data analysts correctly. Make sure to check the indices again.");
+success_msg("Bellissimo! What does the result tell you? Data analyst two is complaining about the data analyst five while in fact he or she is the one slowing everything down! This concludes the chapter on factors. With a solid basis in vector, matrices and factors, you're ready to dive into the wonderful world of lists, a very important data structure in R!")
+```
+
+*** =skills
+1
+
+--- type:ChallengeExercise xp:200
+## Flying high in factor space
+
+As a data analyst, you decide to join Rways, a new airline that only offers flights and services based on data-driven decisions. Business is going well, and the management is considering to extend the offer from only economy class to business and first class as well. You are supposed to process the results of a questionnaire that polls for the preferred class of the respondents. The results for 50 of these respondents can be found in a character vector `fly_class`.
+
+*** =challenge_steps
+## Encode fly_class as a factor
+Using the `factor()` function, convert `fly_class` to a factor, `fly_class_factor`.
+
+## Set the correct factor levels and order the factor
+By specifying more arguments inside the `factor()` function, i.e. `levels`, `ordered` and `labels`, change the display names of the factor levels and add an order the factor, going from "economy" to "first". Again, store the result in a factor `fly_class_factor`.
+
+*** =challenge_goal
+## Factorize the questionnaire data
+Convert the `fly_class` vector to a factor, `fly_class_factor`. The display names of the different categories should be `"economy"`, `"business"` and `"first"`. Use a combination of `levels` and `labels` to achieve this. Finally, order the factors if this is appropriate in this context.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+set.seed(123)
+fly_class <- c("eco", "bus", "fir")[sample(x = c(1,2,3), 50, prob = c(0.7, 0.2, 0.1), replace = TRUE)]
+```
+
+*** =solution
+```{r eval=FALSE}
+fly_class_factor <- factor(fly_class, 
+                           levels = c("eco", "bus", "fir"), 
+                           ordered = TRUE, 
+                           labels = c("economy", "business", "first"))
+```
+
+*** =sct
+```{r eval=FALSE}
+test_instruction(1, {
+  test_error()
+  test_that("first instruction", {
+    expect_that(exists("fly_class_factor", envir = globalenv(), inherits = FALSE), is_true())
+    expect_true(is.factor(get("fly_class_factor", envir = globalenv(), inherits = FALSE)))
+  })
+})
+test_instruction(2, {
+  test_error()
+  test_object("fly_class_factor", eq_condition = "equal")
+})
+test_instruction(3, {
+  test_error()
+  test_object("fly_class_factor", eq_condition = "equal")
+})
+success_msg("Factiolicious! This challenge shows the true power of the <code>factor()</code> function: if you want, you can create a factor, but also order and rename the factor levels, all in a single command.")
+```
+
+*** =skills
+1
