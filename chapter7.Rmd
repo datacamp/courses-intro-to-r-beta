@@ -237,10 +237,10 @@ in the console, and an RDocumentation page will pop up!
 *** =instructions
 - Create a boxplot - a visualzation of the four quartiles of a vector - of the `runtime` variable with the [`boxplot()`](http://www.rdocumentation.org/packages/graphics/functions/boxplot) function.
 - It's also possible to plot an entire data frame with [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot). Try it out on a subset of the `movies` data frame that only contains the columns `rating`, `votes` and `runtime`. Can you analyze the resulting plot?
-- Use the [`table()`](http://www.rdocumentation.org/packages/base/functions/table) function to build a table of counts of the genres in `movies`. Use the resulting table to create a pie chart with [`boxplot()`](http://www.rdocumentation.org/packages/graphics/functions/pie).
+- Use the [`table()`](http://www.rdocumentation.org/packages/base/functions/table) function to build a table of counts of the genres in `movies`. Use the resulting table to create a pie chart with [`pie()`](http://www.rdocumentation.org/packages/graphics/functions/pie).
 
 *** =hint
-To create `genre_counts`, use `table(movies$genre)`.
+Use `table(movies$genre)` inside the [`pie()`](http://www.rdocumentation.org/packages/graphics/functions/pie) function.
 
 *** =pre_exercise_code
 ```{r, eval=FALSE}
