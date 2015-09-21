@@ -274,7 +274,7 @@ movies$genre <- factor(movies$genre)
 boxplot(movies$runtime)
 
 # Subset the dateframe and plot it entirely
-plot(movies[,c("rating", "votes", "runtime")] )
+plot(movies[,c("rating", "votes", "runtime")])
 
 # Create a pie chart of the table of counts of the genres
 pie(table(movies$genre))
