@@ -361,7 +361,7 @@ big_matrix <- cbind(matrix1, matrix2, vector1 ...)
 ```
 
 *** =instructions
-Add `worldwide_vector` as a new column to the `star_wars_matrix` and assign the result to `star_wars_ext`. Use the [`cbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) function.
+Add `worldwide_vector` as a new column at the end of the `star_wars_matrix` matrix and assign the result to `star_wars_ext`. Use the [`cbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) function.
 
 *** =hint
 Bind the `worldwide_vector` to the `star_wars_matrix` with the `cbind()` function:

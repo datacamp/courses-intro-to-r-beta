@@ -1000,8 +1000,8 @@ In the 90s, it was still widely believed that Pluto was the ninth planet of our 
 
 *** =instructions
 - The data for `pluto` is already there; you just have to add the appropriate names such that it matches the names of `planets_df`. You can choose how.
-- Add the `pluto` data frame to `planets_df` and assign to `planets_df_ext`.
-- Inspect the resulting data frame by printing it.
+- Add the `pluto` data frame to `planets_df` and assign the result to `planets_df_ext`.
+- Inspect the resulting data frame by printing it out.
 
 *** =hint
 `pluto` should have the names "name", "type", "diameter", "rotation" and "has_rings".
@@ -1029,6 +1029,8 @@ pluto <- data.frame("Pluto", "Terrestrial planet", 0.18, -6.38, FALSE)
 
 # Bind planets_df and pluto together: planets_df_ext
 
+# Print out planets_df_ext
+
 ```
 
 *** =solution
@@ -1040,6 +1042,9 @@ pluto <- data.frame(name = "Pluto", type = "Terrestrial planet", diameter = 0.18
 
 # Bind planets_df and pluto together: planets_df_ext
 planets_df_ext <- rbind(planets_df, pluto)
+
+# Print out planets_df_ext
+planets_df_ext
 ```
 
 *** =sct
@@ -1053,6 +1058,8 @@ test_object("pluto", eq_condition = "equal",
             incorrect_msg = "Make sure to assign the correct names to the different columns in <code>pluto</code>. The hint can help you out.")
 
 test_function("planets_df_ext", incorrect_msg = "Have you correctly used <code>rbind()</code> to bind together <code>planets_df</code> and <code>pluto</code>?")
+
+test_output_contains("planets_df_ext", incorrect_msg = "Don't forget to print out <code>planets_df_ext</code>!")
 
 success_msg("Perfect! Subsetting and extending dataframes has no mysteries anymore! Let's train our sorting skills now!")
 ```

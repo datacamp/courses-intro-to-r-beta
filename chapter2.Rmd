@@ -938,7 +938,7 @@ Now, selecting multiple successive elements of `poker_vector` with `c(2,3,4)` is
 So, another way to find the mid-week results is `poker_vector[2:4]`. Notice how the vector `2:4` is placed between the square brackets to select element 2 up to 4. You don't have to use the [`c()`](http://www.rdocumentation.org/packages/base/functions/c) function if you're using the shortcut with the colon.
 
 *** =instructions
-- Assign the results to `roulette_subset` the roulette results from Tuesday to Friday inclusive by making use of `:`.
+- Assign to `roulette_subset` the roulette results from Tuesday to Friday inclusive by making use of `:`.
 - Print the resulting variable to the console.
 
 *** =hint
@@ -1157,7 +1157,6 @@ poker_vector[c(TRUE, FALSE, TRUE, FALSE, FALSE)]
 *** =instructions
 - Assign the roulette results from the first, third and fifth day to `roulette_subset`.
 - Select the first three days from `poker_vector` using a vector of logicals. Assign the result to `poker_start`.
-Try to use logical vectors to perform the comparison.
 
 *** =hint
 The logical vector to use inside square brackets for the first instruction is `c(TRUE, FALSE, TRUE, FALSE, TRUE)`.

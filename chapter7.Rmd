@@ -196,7 +196,7 @@ movies$genre <- factor(movies$genre)
 # Create a histogram for rating
 
 
-# Create a histogram for rating, with 6 bins
+# Create a histogram for rating, with 20 bins
 
 ```
 
@@ -216,6 +216,10 @@ hist(movies$rating, breaks = 20)
 test_error()
 msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
+
+test_function_v2("hist", "x", index = 1)
+test_function_v2("hist", "x", index = 2)
+test_function_v2("hist", "breaks", index = 2)
 
 success_msg("Nice! The histograms give you quite a good idea of the <code>rating</code> variable. Compare both histograms, which one do you find most informative? Whatever your taste: choosing a suitable number of bins is important!")
 ```
