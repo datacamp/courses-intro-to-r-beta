@@ -528,7 +528,7 @@ Apples and oranges, dogs and horses, you can model practically everything in R. 
 
 $$V = 2 \pi^2 r^2 R$$
 
-where $r$ is the minor radius and $R$ is the major radius. This is the same as computing the area of the cilindrical portion of the donut ($\pi r^2$) and multiplying it by the circumference of the donut ($2 \pi R$). Top off this theory with some workspace management and you've got one tasty challenge!
+where $r$ is the minor radius and $R$ is the major radius. This is the same as computing the area of the cylindrical portion of the donut ($\pi r^2$) and multiplying it by the circumference of the donut ($2 \pi R$). Top off this theory with some workspace management and you've got one tasty challenge! One last tip: $\pi$ is available in R by default as `pi`.
 
 _Type and execute code in the console. DataCamp will automatically grade each submission to see if you solved the challenge. Try not to click on the intermediate steps, as they cost you XP points. The challenge description in the goal should suffice!_
 
@@ -550,7 +550,7 @@ Remove all intermediary variables that you've used to calculate `vol_donut` usin
 
 *** =challenge_goal
 ## Calculate the donut volume
-Create the variables `r` and `R`, equal to 2 and 6 respectively, to calculate the volume of the donut, `vol_donut`. Remove all the intermediary variables that you've used to calculate `vol_donut` such that only the variable `vol_donut` remains. Finally, inspect the workspace you end up with. One last tip: $\pi$ is available in R by default as `pi`.
+Create the variables `r` and `R`, equal to 2 and 6 respectively, to calculate the volume of the donut, `vol_donut`. Remove all the intermediary variables that you've used to calculate `vol_donut` such that only the variable `vol_donut` remains. Finally, inspect the workspace you end up with.
 
 *** =pre_exercise_code
 ```{r eval=FALSE}
