@@ -576,14 +576,12 @@ ls()
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_that("r ok", {
-    expect_true(exists("r", envir = globalenv(), inherits = FALSE))
-    expect_equal(get("r", envir = globalenv(), inherits = FALSE), 2)
-  })
-  test_that("R ok", {
-    expect_true(exists("R", envir = globalenv(), inherits = FALSE))
-    expect_equal(get("R", envir = globalenv(), inherits = FALSE), 6)
-  })
+  assign("r", 2, envir = get_solution_env())
+  test_object("r")
+  rm(r, envir = get_solution_env())
+  assign("R", 6, envir = get_solution_env())
+  test_object("R")
+  rm(R, envir = get_solution_env())
 })
 test_instruction(2, {
   test_error()
