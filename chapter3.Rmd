@@ -1088,7 +1088,7 @@ success_msg("Awesome! If you look at the results, you'll see that Dave is the tr
 1
 
 --- type:VideoExercise xp:50
-## Matrix Calculus
+## Matrix Arithmetic
 
 *** =video_link
 ```{r,eval=FALSE}

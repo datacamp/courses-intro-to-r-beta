@@ -351,21 +351,21 @@ test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 1
 
 --- type:VideoExercise xp:50
-## Vector Calculus
+## Vector Arithmetic
 
 *** =video_link
 ```{r,eval=FALSE}
-//player.vimeo.com/video/138173904
+//player.vimeo.com/video/141163398
 ```
 
 *** =video_stream
 ```{r,eval=FALSE}
-https://player.vimeo.com/external/138173904.hd.mp4?s=30786451cfd2829cf4a9aad81c665652&profile_id=119
+https://player.vimeo.com/external/141163398.hd.mp4?s=89a4fcf84cb5a297243c77db9de7dafb&profile_id=119
 ```
 
 *** =video_hls
 ```{r,eval=FALSE}
-https://player.vimeo.com/external/138173904.m3u8?p=high,standard,mobile&s=3cd9c5ece89691b44e37cabdcab126c3
+https://player.vimeo.com/external/141163398.m3u8?p=high,standard,mobile&s=e62fc2293d8e4b3cbe3201cdab3e0639
 ```
 
 *** =skills
