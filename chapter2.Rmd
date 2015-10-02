@@ -1,7 +1,7 @@
 --- 
 title_meta  : Chapter 2
 title       : Vectors
-description : In this chapter, you will take your first steps with R. You will learn how to use the console as a calculator and how to assign variables. You will also get to know the basic data types in R. Let us get started!
+description : We take you on a trip to Vegas, where you will learn how to analyze your gambling results using vectors in R! After completing this chapter, you will be able to create vectors in R, name them, select elements from them and compare different vectors.
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch2_slides.pdf
   
