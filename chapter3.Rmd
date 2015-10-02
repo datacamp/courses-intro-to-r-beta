@@ -1313,13 +1313,13 @@ test_instruction(1, {
   test_error()
   test_object("star_wars_matrix")
   test_object("commission_rates")
-  test_output_contains("star_wars_matrix - commission_rates*star_wars_matrix")
+  test_object("remaining")
 })
 test_instruction(2, {
   test_error()
   test_object("star_wars_matrix")
   test_object("commission_rates")
-  test_output_contains("rowSums(star_wars_matrix - commission_rates*star_wars_matrix)")
+  test_object("remaining_tot")
 })
 test_instruction(3, {
   test_error()
