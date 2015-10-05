@@ -1092,17 +1092,17 @@ success_msg("Awesome! If you look at the results, you'll see that Dave is the tr
 
 *** =video_link
 ```{r,eval=FALSE}
-//player.vimeo.com/video/138173951
+//player.vimeo.com/video/141163423
 ```
 
 *** =video_stream
 ```{r,eval=FALSE}
-https://player.vimeo.com/external/138173951.hd.mp4?s=5c9f1a640ded0a56a358e2dc6a6df631&profile_id=119
+https://player.vimeo.com/external/141163423.hd.mp4?s=3f9ae748e4e3963e56ffb00e378e5024&profile_id=119
 ```
 
 *** =video_hls
 ```{r,eval=FALSE}
-https://player.vimeo.com/external/138173951.m3u8?p=high,standard,mobile&s=9a428c89cacaf17e439c16e077cae1cc
+https://player.vimeo.com/external/141163423.m3u8?p=high,standard,mobile&s=0974086d522c182240fe598daa26b529
 ```
 
 *** =skills
