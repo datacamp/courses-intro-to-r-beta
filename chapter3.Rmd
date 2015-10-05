@@ -584,18 +584,20 @@ Using `rbind()` and the four vectors that are already in your workspace, create 
 Use `rowSums()` to calculate the row-wise sums of the matrix that contains all the voting results. Assign the result to a variable `row_scores`.
 
 ## Merge the row scores with the theater matrix
-Use `cbind()`, this time to paste the matrix of the theater scores with the row-wise sums. Store the resulting matrix, which has an extra column when comparing to the original matrix that contained single scores, in a variable `scores`.
+Use `cbind()`, this time to paste the matrix of the theater scores with the row-wise sums. It should be added as the last column of `scores`.
 
 ## Name the scores matrix
 Use the `colnames()` and `rownames()` functions to name the scores. For the rows, you'll need a vector of length 4 to set the names; for the columns, you'll need a vector of length 7.
 
 *** =challenge_goal
 ## Build and name the scores matrix
-Create a new matrix, `scores`, with the following properties:
-- 4 rows, corresponding to the 4 rows in your home theater.
-- 7 columns: the 6 first columns correspond to the 6 seats per row and contains their scores; the 7th column corresponds to the sum of the row's scores.
-- row names: "row1", "row2", "row3" and "row4".
-- column names: "c1", "c2", "c3", "c4", "c5", "c6" and "total".
+Create a new matrix, `scores`, by following these instructions:
+- Make a matrix containing 4 rows, corresponding to the 4 rows in your home theater. Call it `scores`.
+- Make a vector containing the sums of the scores in each row. Call it `row_scores`.
+- Add `row_scores` as a column in `scores`.
+- Name `scores`:
+  + Rows: "row1", "row2", "row3" and "row4".
+  + Columns: "c1", "c2", "c3", "c4", "c5", "c6" and "total".
 
 *** =pre_exercise_code
 ```{r eval=FALSE}
@@ -618,23 +620,23 @@ colnames(scores) <- c("c1", "c2", "c3","c4", "c5", "c6", "total")
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_object('theater')
+  test_an_object('theater','')
 })
 test_instruction(2, {
   test_error()
-  test_object('row_scores')
+  test_an_object('row_scores','')
 })
 test_instruction(3, {
   test_error()
-  test_object('scores')
+  test_an_object('scores','')
 })
 test_instruction(4, {
   test_error()
-  test_object('scores', eq_condition = "equal")
+  test_an_object('scores', '', eq_condition = "equal")
 })
 test_instruction(5, {
   test_error()
-  test_object('scores', eq_condition = "equal")
+  test_an_object('scores', '', eq_condition = "equal")
 })
 success_msg("Bellissimo! It seems that the people in front clearly enjoyed the videos more, it's all about the details in Japanese horror! Although vector are very similar to matrices, subsetting is quite different because of the additional dimension.")
 ```
