@@ -545,7 +545,7 @@ test_object("factor_speed_vector", eq_condition = "equal", undefined_msg = msg, 
 test_object("compare_them",
             undefined_msg = "Please make sure to define a variable <code>compare_them</code>.",
             incorrect_msg = "It looks like <code>compare_them</code> does not compare the data analysts correctly. Make sure to check the indices again.");
-success_msg("Bellissimo! What does the result tell you? Data analyst two is complaining about the data analyst five while in fact he or she is the one slowing everything down! This concludes the chapter on factors. With a solid basis in vector, matrices and factors, you're ready to dive into the wonderful world of lists, a very important data structure in R!")
+success_msg("Bellissimo! What does the result tell you? Data analyst two is complaining about the data analyst five while in fact he or she is the one slowing everything down!")
 ```
 
 *** =skills
@@ -586,8 +586,8 @@ fly_class_factor <- factor(fly_class,
 test_instruction(1, {
   test_error()
   test_that("first instruction", {
-    expect_that(exists("fly_class_factor", envir = globalenv(), inherits = FALSE), is_true())
-    expect_true(is.factor(get("fly_class_factor", envir = globalenv(), inherits = FALSE)))
+    expect_that(exists("fly_class_factor", envir = globalenv(), inherits = FALSE), is_true(), failure_msg = "none")
+    expect_true(is.factor(get("fly_class_factor", envir = globalenv(), inherits = FALSE)), failure_msg = "none")
   })
 })
 test_instruction(2, {
