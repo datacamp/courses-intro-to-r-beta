@@ -586,8 +586,8 @@ fly_class_factor <- factor(fly_class,
 test_instruction(1, {
   test_error()
   test_that("first instruction", {
-    expect_that(exists("fly_class_factor", envir = globalenv(), inherits = FALSE), is_true())
-    expect_true(is.factor(get("fly_class_factor", envir = globalenv(), inherits = FALSE)))
+    expect_that(exists("fly_class_factor", envir = globalenv(), inherits = FALSE), is_true(), failure_msg = "None")
+    expect_true(is.factor(get("fly_class_factor", envir = globalenv(), inherits = FALSE)), failure_msg = "None")
   })
 })
 test_instruction(2, {
