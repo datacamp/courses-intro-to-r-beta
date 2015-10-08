@@ -585,18 +585,16 @@ fly_class_factor <- factor(fly_class,
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_that("first instruction", {
-    expect_that(exists("fly_class_factor", envir = globalenv(), inherits = FALSE), is_true(), failure_msg = "None")
-    expect_true(is.factor(get("fly_class_factor", envir = globalenv(), inherits = FALSE)), failure_msg = "None")
-  })
+  test_object("fly_class_factor", eval = FALSE)
+  test_what(expect_true(is.factor(get("fly_class_factor", envir = globalenv(), inherits = FALSE))), feedback_msg = "FALSE")
 })
 test_instruction(2, {
   test_error()
-  test_object("fly_class_factor", eq_condition = "equal")
+  test_what(expect_equal(levels(get("fly_class_factor", envir = globalenv(), inherits = FALSE)), c("economy", "business", "first")), feedback_msg = "FALSE")
 })
 test_instruction(3, {
   test_error()
-  test_object("fly_class_factor", eq_condition = "equal")
+  test_what(expect_equal(levels(get("fly_class_factor", envir = globalenv(), inherits = FALSE)), c("economy", "business", "first")), feedback_msg = "FALSE")
 })
 success_msg("Factiolicious! This challenge shows the true power of the <code>factor()</code> function: if you want, you can create a factor, but also order and rename the factor levels, all in a single command.")
 ```
