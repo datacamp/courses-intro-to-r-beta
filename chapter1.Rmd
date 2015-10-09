@@ -585,11 +585,21 @@ test_instruction(1, {
 })
 test_instruction(2, {
   test_error()
-  test_output_contains("pi*2^2")
+  assign("ar_donut", pi*2^2, envir = get_solution_env())
+  test_or(
+    test_an_object("ar_donut"),
+    test_output_contains("pi*2^2")
+  )
+  rm(ar_donut, envir = get_solution_env())
 })
 test_instruction(3, {
   test_error()
-  test_output_contains("2*pi*6")
+  assign("cir_donut", 2*pi*6, envir = get_solution_env())
+  test_or(
+    test_an_object("cir_donut"),
+    test_output_contains("2*pi*6")
+  )
+  rm(cir_donut, envir = get_solution_env())
 })
 test_instruction(4, {
   test_error()

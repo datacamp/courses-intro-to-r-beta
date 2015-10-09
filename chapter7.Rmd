@@ -340,7 +340,7 @@ hist(salaries_educ$salary, breaks = 10)
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_object("salaries_educ")
+  test_an_object("salaries_educ")
 })
 test_instruction(2, {
   test_error()
@@ -705,11 +705,11 @@ plot(salaries_educ$experience, salaries_educ$salary,
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_object("salaries")
+  test_an_object("salaries")
 })
 test_instruction(2, {
   test_error()
-  test_object("salaries_educ")
+  test_an_object("salaries_educ")
 })
 test_instruction(3, {
   test_error()

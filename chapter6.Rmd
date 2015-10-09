@@ -443,20 +443,29 @@ str(countries_df)
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_object("continents_factor")
+  test_an_object("continents_factor")
 })
 test_instruction(2, {
   test_error()
-  test_object("countries_df")
+  test_an_object("countries_df")
 })
 test_instruction(3, {
   test_error()
-  test_object("countries_df", eq_condition = "equal")
+  test_an_object("countries_df", eq_condition = "equal")
 })
 test_instruction(4, {
   test_error()
-  test_object("countries_df", eq_condition = "equal")
-  test_output_contains("str(countries_df)")
+  test_or(
+    test_function("str","object"),
+    test_output_contains("str(data.frame(name = countries, cont = factor(continents), GDP = gdp, HDI = hdi, has_president = president, stringsAsFactors=FALSE))")
+  )
+})
+test_instruction(5, {
+  test_error()
+  test_or(
+    test_function("str","object"),
+    test_output_contains("str(data.frame(name = countries, cont = factor(continents), GDP = gdp, HDI = hdi, has_president = president, stringsAsFactors=FALSE))")
+  )
 })
 success_msg("Congratulations!")
 ```
@@ -1246,21 +1255,19 @@ countries_df2[order(countries_df2$population,decreasing=TRUE), ]
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_object("countries_df_dem")
+  test_an_object("countries_df_dem")
 })
 test_instruction(2, {
   test_error()
-  test_object("countries_df2")
+  test_an_object("countries_df2")
 })
 test_instruction(3, {
   test_error()
-  test_object("countries_df2")
-  test_output_contains("countries_df2[order(countries_df2$population,decreasing=TRUE), ]")
+  test_output_contains("countries_df2[order(countries_df2$population,decreasing=TRUE), ]", env = get_solution_env())
 })
 test_instruction(4, {
   test_error()
-  test_object("countries_df2")
-  test_output_contains("countries_df2[order(countries_df2$population,decreasing=TRUE), ]")
+  test_output_contains("countries_df2[order(countries_df2$population,decreasing=TRUE), ]", env = get_solution_env())
 })
 success_msg("Perfect! This challenge concludes the chapter on data frames. Remember that data frames are extremely important in R, you will need them all the time! Next stop: basic graphics in R!")
 ```

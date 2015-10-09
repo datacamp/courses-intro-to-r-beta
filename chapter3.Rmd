@@ -620,23 +620,23 @@ colnames(scores) <- c("c1", "c2", "c3","c4", "c5", "c6", "total")
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_an_object('theater', undefined_msg = 'theater not found')
+  test_an_object("theater")
 })
 test_instruction(2, {
   test_error()
-  test_an_object('row_scores', undefined_msg = 'row_scores not found')
+  test_an_object("row_scores")
 })
 test_instruction(3, {
   test_error()
-  test_an_object('scores', undefined_msg = 'scores not found')
+  test_an_object("scores")
 })
 test_instruction(4, {
   test_error()
-  test_an_object('scores', undefined_msg = 'scores not correct', eq_condition = "equal")
+  test_an_object("scores", eq_condition = "equal")
 })
 test_instruction(5, {
   test_error()
-  test_an_object('scores', undefined_msg = 'scores not correct', eq_condition = "equal")
+  test_an_object("scores", eq_condition = "equal")
 })
 success_msg("Bellissimo! It seems that the people in front clearly enjoyed the videos more, it's all about the details in Japanese horror! Although vector are very similar to matrices, subsetting is quite different because of the additional dimension.")
 ```
@@ -1069,19 +1069,39 @@ total_views_loud <- colSums(view_count_loud)
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_object("view_count_all")
+  test_object("view_count_1")
+  test_object("view_count_2")
+  test_or(
+    test_an_object("view_count_all"),
+    test_output_contains("cbind(view_count_1, view_count_2)")
+  )
 })
 test_instruction(2, {
   test_error()
-  test_object("view_count_loud")
+  test_object("view_count_1")
+  test_object("view_count_2")
+  test_or(
+    test_an_object("view_count_loud"),
+    test_output_contains("cbind(view_count_1, view_count_2)[,c(3,6,7)]")
+  )
 })
 test_instruction(3, {
   test_error()
-  test_object("total_views_loud")
+  test_object("view_count_1")
+  test_object("view_count_2")
+  test_or(
+    test_an_object("view_count_loud"),
+    test_output_contains("colSums(cbind(view_count_1, view_count_2)[,c(3,6,7)])")
+  )
 })
 test_instruction(4, {
   test_error()
-  test_object("total_views_loud")
+  test_object("view_count_1")
+  test_object("view_count_2")
+  test_or(
+    test_an_object("view_count_loud"),
+    test_output_contains("colSums(cbind(view_count_1, view_count_2)[,c(3,6,7)])")
+  )
 })
 success_msg("Awesome! If you look at the results, you'll see that Dave is the true Star Wars connaisseur here! Up to the next video on matrices!")
 ```
@@ -1273,7 +1293,7 @@ The commission rates that theaters ask for the three different films differ per 
 
 *** =challenge_steps
 ## Subtract the commission
-Using `star_wars_matrix`, `commission_rates`, multiplication and subtraction, calculate the money that remains after the theaters' commission is subtracted. Store the result in a variable `remaining` and print it.
+Using `star_wars_matrix`, `commission_rates`, multiplication and subtraction, calculate the money that remains after the theaters' commission is subtracted. Store the result in a variable `remaining`. The commision on a film can be calculated by multiplying the movie box office figure with the commission rate.
 
 ## Calculate the remaining income per film
 Using `rowSums()` on `remaining`, calculate the total remaning income per film and assign the outcome to a new vector, `remaining_tot`. Print it out to have a look.
@@ -1315,27 +1335,39 @@ test_instruction(1, {
   test_error()
   test_object("star_wars_matrix")
   test_object("commission_rates")
-  test_object("remaining")
+  test_or(
+    test_an_object("remaining"),
+    test_output_contains("star_wars_matrix - commission_rates * star_wars_matrix")
+  )
 })
 test_instruction(2, {
   test_error()
   test_object("star_wars_matrix")
   test_object("commission_rates")
-  test_object("remaining_tot")
+  test_or(
+    test_an_object("remaining_tot"),
+    test_output_contains("rowSums(star_wars_matrix - commission_rates * star_wars_matrix)")
+  )
 })
 test_instruction(3, {
   test_error()
   test_object("star_wars_matrix")
   test_object("commission_rates")
   test_object("budget")
-  test_object("profit")
+  test_or(
+    test_an_object("profit"),
+    test_output_contains("rowSums(star_wars_matrix - commission_rates * star_wars_matrix) - budget")
+  )
 })
 test_instruction(4, {
   test_error()
   test_object("star_wars_matrix")
   test_object("commission_rates")
   test_object("budget")
-  test_object("profit")
+  test_or(
+    test_an_object("profit"),
+    test_output_contains("rowSums(star_wars_matrix - commission_rates * star_wars_matrix) - budget")
+  )
 })
 success_msg("Now that's true R force! Great! This challenge concludes the part on matrices. Next up: factors!")
 ```

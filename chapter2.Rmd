@@ -711,7 +711,7 @@ Use the [`sum()`](http://www.rdocumentation.org/packages/base/functions/sum) fun
 *** =challenge_goal
 ## Compare your past performance to your current performance
 To better compare your performance, perform the following calculations:
-- Calculate the total gains for your entire past week in Vegas and assign the result to `total_past`.
+- Calculate what you have earned (or lost) on roulette and poker in the past week. Assign the result to `total_past`.
 - Find the daily difference in poker performance between your current week and the past week; store the result in a variable `diff_poker`.
 - Create a logical that tells whether your total winnings of roulette winnings in the past were higher than your total winnings in the current week. Assign the result to `roulette_worsened`.
 
@@ -737,24 +737,24 @@ roulette_worsened <- sum(roulette_past) > sum(roulette_present)
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_object("total_past")
+  test_an_object("total_past")
 })
 test_instruction(2, {
   test_error()
-  test_object("total_past")
-  test_object("diff_poker")
+  test_an_object("total_past")
+  test_an_object("diff_poker")
 })
 test_instruction(3, {
   test_error()
-  test_object("total_past")
-  test_object("diff_poker")
-  test_object("roulette_worsened")
+  test_an_object("total_past")
+  test_an_object("diff_poker")
+  test_an_object("roulette_worsened")
 })
 test_instruction(4, {
   test_error()
-  test_object("total_past")
-  test_object("diff_poker")
-  test_object("roulette_worsened")
+  test_an_object("total_past")
+  test_an_object("diff_poker")
+  test_an_object("roulette_worsened")
 })
 success_msg("Awesome! It seems that indeed, your roulette skills have worsened if you compare to your previous week in Vegas.")
 ```
@@ -1404,21 +1404,24 @@ n_low_score <- sum(player < 18)
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_object("player_third")
+  test_an_object("player_third")
 })
 test_instruction(2, {
   test_error()
-  test_object("winning_scores")
+  test_an_object("player_third")
+  test_an_object("winning_scores")
 })
 test_instruction(3, {
   test_error()
-  test_object("n_low_score")
+  test_an_object("player_third")
+  test_an_object("winning_scores")
+  test_an_object("n_low_score")
 })
 test_instruction(4, {
   test_error()
-  test_object("player_third")
-  test_object("winning_scores")
-  test_object("n_low_score")
+  test_an_object("player_third")
+  test_an_object("winning_scores")
+  test_an_object("n_low_score")
 })
 success_msg("Awesome! Given that you've solved this challenge so gracefully, you might consider adding Blackjack to your playlist on your next trip to Vegas! This challenge concludes the chapter on vectors. The next chapter will introduce you to the two-dimensional version of vectors: matrices.")
 ```
