@@ -620,23 +620,23 @@ colnames(scores) <- c("c1", "c2", "c3","c4", "c5", "c6", "total")
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_an_object('theater','')
+  test_an_object('theater', undefined_msg = 'theater not found')
 })
 test_instruction(2, {
   test_error()
-  test_an_object('row_scores','')
+  test_an_object('row_scores', undefined_msg = 'row_scores not found')
 })
 test_instruction(3, {
   test_error()
-  test_an_object('scores','')
+  test_an_object('scores', undefined_msg = 'scores not found')
 })
 test_instruction(4, {
   test_error()
-  test_an_object('scores', '', eq_condition = "equal")
+  test_an_object('scores', undefined_msg = 'scores not correct', eq_condition = "equal")
 })
 test_instruction(5, {
   test_error()
-  test_an_object('scores', '', eq_condition = "equal")
+  test_an_object('scores', undefined_msg = 'scores not correct', eq_condition = "equal")
 })
 success_msg("Bellissimo! It seems that the people in front clearly enjoyed the videos more, it's all about the details in Japanese horror! Although vector are very similar to matrices, subsetting is quite different because of the additional dimension.")
 ```
