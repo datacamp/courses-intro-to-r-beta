@@ -820,7 +820,7 @@ After correctly performing all subsetting operations, combine the calls inside t
 Use subsetting techniques to select the following elements from `skills` (in this order):
 - The second element of the `topics` vector,
 - The second element of the `context` factor,
-- The entire logical vector inside the `list_info`.
+- The last element of the logical vector inside the `list_info`.
 
 Finally group the elements you selected in the previous steps in a new list, `key_skills`.
 
@@ -841,10 +841,12 @@ rm(top, cont, rwnms, clnms, prop, lst)
 
 *** =solution
 ```{r eval=FALSE}
+passed1 <- runif(10)
+passed2 <- runif(10)
 s1 <- skills$topics[2]
 s2 <- skills$context[2]
-s3 <- skills$list_info[[2]]
-key_skills <- list(skills$topics[2], skills$context[2], skills$list_info[[2]])
+s3 <- skills$list_info[[2]][4]
+key_skills <- list(skills$topics[2], skills$context[2], skills$list_info[[2]][4])
 ```
 
 *** =sct
@@ -855,28 +857,39 @@ test_instruction(1, {
     test_an_object("s1"),
     test_output_contains("skills$topics[2]")
   )
+  # Need feature to check whether previous instrctuions are passed. This solution is dirty.
+  assign("passed1", get("passed1", get_solution_env()), .GlobalEnv)
 })
 test_instruction(2, {
   test_error()
+  test_object("passed1")
   test_or(
     test_an_object("s2"),
     test_output_contains("skills$context[2]")
   )
+  assign("passed2", get("passed2", get_solution_env()), .GlobalEnv)
 })
 test_instruction(3, {
   test_error()
+  test_object("passed2")
   test_or(
     test_an_object("s3"),
-    test_output_contains("skills$list_info[[2]]")
+    test_output_contains("skills$list_info[[2]][4]")
   )
 })
 test_instruction(4, {
   test_error()
-  test_an_object("key_skills")
+  test_or(
+    test_an_object("key_skills"),
+    test_output_contains("list(skills$topics[2], skills$context[2], skills$list_info[[2]][4])")
+  )
 })
 test_instruction(5, {
   test_error()
-  test_an_object("key_skills")
+  test_or(
+    test_an_object("key_skills"),
+    test_output_contains("list(skills$topics[2], skills$context[2], skills$list_info[[2]][4])")
+  )
 })
 success_msg("Great! Quite some skills you've got there! Learn all about data frames in the next chapter")
 ```
