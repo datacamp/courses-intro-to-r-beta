@@ -829,15 +829,18 @@ test_mc(correct = 4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 As Filip explained in the video, coercion to transform your data from one type to the other is possible. Next to the [`class()`](http://www.rdocumentation.org/packages/base/functions/class) function and the `is.*()` functions, you can use the `as.*()` functions to enforce data to change types. For example, 
 
 ```
-as.numeric("3")
+var <- "3"
+var_num <- as.numeric(var)
 ```
 
-converts the character string `"3"` to a numeric, `3`. Beware however, that it is not always possible to convert the types without information loss or errors:
+converts the character string `"3"` in `var` to a numeric `3` and assigns it to `var_num`. Beware however, that it is not always possible to convert the types without information loss or errors:
 
 ```
 as.integer("4.5")
 as.numeric("three")
 ```
+
+The first line will convert the character string `"4.5"` to the integer `4`. The second one will convert the character string `"three"` to an `NA`.
 
 *** =instructions
 - Convert `var1`, a logical, to a character and assign it to the variable `var1_char`.
