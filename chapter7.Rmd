@@ -674,7 +674,7 @@ Time to build an awesome plot:
 
 *** =challenge_goal
 ## Plot the relation between salary and experience
-Extend the `salaries` data frame, by adding the `exp` vector as a new column, `experience`. Next, build a new data frame `salaries_educ`, that contains only the observations for people who did a higher education (`degree = 3`).
+Extend the `salaries` data frame, by adding the `exp` vector as a new column, `experience`. Next, build a new data frame `salaries_educ`, that contains only the observations for people who did a higher education (`degree == 3`).
 Next, make a plot of the `salary` (y-axis) and `experience` (x-axis) columns of `salaries_educ` with the following properties:
 - The plot is titled "Does experience matter?".
 - The x-axis and y-axis are labelled "Work experience" and "Salary", respectively.
@@ -717,7 +717,6 @@ test_instruction(3, {
 })
 test_instruction(4, {
   test_error()
-  test_object("salaries_educ")
   test_function("plot", c("x","main", "xlab", "ylab", "cex.axis"))
 })
 success_msg("Great work! You are now able to play around with plots in R! You clearly see a positive correlation between work experience and salary, right? It's time for the final part of this introductory course! Let's finish this thing!")
