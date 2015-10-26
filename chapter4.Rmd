@@ -68,13 +68,13 @@ str(hand_factor)
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
+
 test_object("hand_factor",
-            incorrect_msg = "Did you correctly convert <code>hand_vector</code> to a factor and assign the result to <code>hand_factor</code>?")
+            incorrect_msg = "Did you correctly convert `hand_vector` to a factor and assign the result to `hand_factor`?")
 test_function("str", "object",
-              not_called_msg = "Make sure to use the <code>str()</code> to show the structure of <code>hand_factor</code>",
-              incorrect_msg = "Have you correctly passed <code>hand_factor</code> to <code>str()</code>?")
-success_msg("Great! If you want to find out more about the <code>factor()</code> function, do not hesitate to type <code>?factor</code> in the console. This will open up a help page. Continue to the next exercise.");
+              not_called_msg = "Make sure to use the `str()` to show the structure of `hand_factor`",
+              incorrect_msg = "Have you correctly passed `hand_factor` to `str()`?")
+success_msg("Great! If you want to find out more about the `factor()` function, do not hesitate to type `?factor` in the console. This will open up a help page. Continue to the next exercise.");
 ```
 
 
@@ -96,7 +96,7 @@ my_factor <- factor(my_vector,
                     labels = c("Small", "Medium", "Large"))
 ```
 
-Notice from the first option here, that you have to pass the levels in alphabetical order. To not make mistakes, you better use the second option, but that's up to you!
+In the first option, you have to pass the levels in alphabetical order. To not make mistakes, you better use the second option, but that's up to you!
 
 You performed a street questionnaire, and recorded the respondents' handedness using the letters "R" and "L". This information is stored in a vector `survey_vector`, which is already coded on the right.
 
@@ -138,13 +138,13 @@ survey_factor
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not change the definition of <code>survey_vector</code>!"
+
+msg = "Do not change the definition of `survey_vector`!"
 test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
 test_student_typed(c("survey_factor <- factor(survey_vector, levels = c('R', 'L'), labels = c('Right', 'Left'))
 ", "survey_factor <- factor(survey_vector, levels = c('L', 'R'), labels = c('Left', 'Right'))
-"), not_typed_msg = "Have you correctly converted <code>survey_vector</code> to a factor? Make sure to correctly specify the new factor levels (R is case sensitive!).")
-test_output_contains("survey_factor", incorrect_msg = "Don't forget to print <code>survey_factor</code>!")
+"), not_typed_msg = "Have you correctly converted `survey_vector` to a factor? Make sure to correctly specify the new factor levels (R is case sensitive!).")
+test_output_contains("survey_factor", incorrect_msg = "Don't forget to print `survey_factor`!")
 success_msg("Wonderful! Proceed to the next exercise.")
 ```
 
@@ -199,13 +199,13 @@ summary(survey_factor)
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not change anything about the first four lines that define <code>survey_vector</code> and <code>survey_factor</code>."
+
+msg = "Do not change anything about the first four lines that define `survey_vector` and `survey_factor`."
 test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("survey_factor", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
-test_output_contains("summary(survey_vector)", incorrect_msg = "Make sure to summarize <code>survey_vector</code>")
-test_output_contains("summary(survey_factor)", incorrect_msg = "Make sure to summarize <code>survey_factor</code>")
-success_msg("Nice! Have a look at the output. The fact that you identified <code>\"Right\"</code> and <code>\"Left\"</code> as factor levels in <code>survey_factor</code> enables R to show the number of elements for each category.")
+test_output_contains("summary(survey_vector)", incorrect_msg = "Make sure to summarize `survey_vector`")
+test_output_contains("summary(survey_factor)", incorrect_msg = "Make sure to summarize `survey_factor`")
+success_msg("Nice! Have a look at the output. The fact that you identified `\"Right\"` and `\"Left\"` as factor levels in `survey_factor` enables R to show the number of elements for each category.")
 ```
 
 
@@ -272,22 +272,22 @@ temperature_factor
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not change or remove the code that defines <code>animal_vector</code> and <code>temperature_vector</code>!"
+
+msg = "Do not change or remove the code that defines `animal_vector` and `temperature_vector`!"
 test_object("animal_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("temperature_vector", undefined_msg = msg, incorrect_msg = msg)
 
 test_object("animal_factor", eq_condition = "equal",
-            incorrect_msg = "Have you correctly converted <code>animal_vector</code> to a factor? You shouldn't order this factor!")
+            incorrect_msg = "Have you correctly converted `animal_vector` to a factor? You shouldn't order this factor!")
 
 test_object("temperature_factor", eq_condition = "equal",
-            incorrect_msg = "Have you correctly encoded <code>temperature_vector</code> as a factor? In this case, an ordered factor makes sense!")
+            incorrect_msg = "Have you correctly encoded `temperature_vector` as a factor? In this case, an ordered factor makes sense!")
 
-msg <- "Don't forget to print out both <code>animal_factor</code> and <code>temperature_factor</code>."
+msg <- "Don't forget to print out both `animal_factor` and `temperature_factor`."
 test_output_contains("animal_factor", incorrect_msg = msg)
 test_output_contains("temperature_factor", incorrect_msg = msg)
 
-success_msg("Awesome! You correctly figured out that <code>animal_factor</code> shouldn't be ordered while <code>temperature_factor</code> should.")
+success_msg("Awesome! You correctly figured out that `animal_factor` shouldn't be ordered while `temperature_factor` should.")
 ```
 
 
@@ -345,8 +345,8 @@ right > left
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not change anything about the first lines that define <code>survey_vector</code> and <code>survey_factor</code>."
+
+msg = "Do not change anything about the first lines that define `survey_vector` and `survey_factor`."
 test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("survey_factor", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_output_contains("survey_factor[1] > survey_factor[2]", incorrect_msg = "Make sure to correctly perform the comparison between right and left; we want the battle of dexterity be sorted once and for all!")
@@ -396,7 +396,7 @@ speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast")
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
+
 test_object("speed_vector", 
             incorrect_msg = "Make sure that you assigned the correct vector to speed_vector. Remember that R is case sensitive!")
 success_msg("A job well done! Continue to the next exercise.")
@@ -457,18 +457,18 @@ summary(speed_factor)
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not change anything about the command that specifies the <code>speed_vector</code> variable."
+
+msg = "Do not change anything about the command that specifies the `speed_vector` variable."
 test_object("speed_vector", undefined_msg = msg, incorrect_msg = msg)
 test_correct({
   test_object("speed_factor", eq_condition = "equal",
-              incorrect_msg = "Make sure that you assigned the correct factor to <code>speed_factor<code>. Pay attention to the correct order of the <code>levels</code> argument.")
+              incorrect_msg = "Make sure that you assigned the correct factor to `speed_factor`. Pay attention to the correct order of the `levels` argument.")
 },{
   test_function("factor", "x")
   test_function("factor", "levels")
   test_function("factor", "ordered")
 })
-success_msg("Great! Have a look at the console. It is now indicated that the Levels indeed have an order associated, with the <code><</code> sign. Continue to the next exercise.");
+success_msg("Great! Have a look at the console. It is now indicated that the Levels indeed have an order associated, with the `<` sign. Continue to the next exercise.");
 ```
 
 
@@ -522,13 +522,13 @@ compare_them
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not change anything about the commands that define <code>speed_vector</code> and <code>factor_speed_vector</code>!"
+
+msg = "Do not change anything about the commands that define `speed_vector` and `factor_speed_vector`!"
 test_object("speed_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("factor_speed_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_object("compare_them",
-            undefined_msg = "Please make sure to define a variable <code>compare_them</code>.",
-            incorrect_msg = "It looks like <code>compare_them</code> does not compare the data analysts correctly. Make sure to check the indices again.");
+            undefined_msg = "Please make sure to define a variable `compare_them`.",
+            incorrect_msg = "It looks like `compare_them` does not compare the data analysts correctly. Make sure to check the indices again.");
 success_msg("Bellissimo! What does the result tell you? Data analyst two is complaining about the data analyst five while in fact he or she is the one slowing everything down!")
 ```
 

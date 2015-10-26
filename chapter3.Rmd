@@ -68,13 +68,13 @@ star_wars_matrix <- matrix(box, nrow = 3, byrow = TRUE)
 
 *** =sct
 ```{r, eval=FALSE}
-test_error()
-msg = "Do not change or remove the definition of <code>box</code>!"
+
+msg = "Do not change or remove the definition of `box`!"
 test_object("box", undefined_msg = msg, incorrect_msg = msg)
 test_correct({
   test_object("star_wars_matrix",
-              undefined_msg = "Please make sure to define a variable <code>star_wars_matrix</code>.",
-              incorrect_msg = "Did you assign the correct matrix containing the vector that holds all three movies to <code>star_wars_matrix</code>?")
+              undefined_msg = "Please make sure to define a variable `star_wars_matrix`.",
+              incorrect_msg = "Did you assign the correct matrix containing the vector that holds all three movies to `star_wars_matrix`?")
 }, {
   test_function("matrix", "data")
   test_function("matrix", "nrow")
@@ -124,17 +124,17 @@ star_wars_matrix <- rbind(new_hope, empire_strikes, return_jedi)
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not change anything about the box office variables <code>new_hope</code>, <code>empire_strikes</code> and <code>return_jedi</code>!"
+
+msg = "Do not change anything about the box office variables `new_hope`, `empire_strikes` and `return_jedi`!"
 test_object("new_hope", undefined_msg = msg, incorrect_msg = msg)
 test_object("empire_strikes", undefined_msg = msg, incorrect_msg = msg)
 test_object("return_jedi", undefined_msg = msg, incorrect_msg = msg)
 test_correct({
   test_object("star_wars_matrix",
-            undefined_msg = "Please make sure to define a variable <code>star_wars_matrix</code>.",
-            incorrect_msg = "Did you assign the correct matrix containing the vector that holds all three movies to <code>star_wars_matrix</code>?")
+            undefined_msg = "Please make sure to define a variable `star_wars_matrix`.",
+            incorrect_msg = "Did you assign the correct matrix containing the vector that holds all three movies to `star_wars_matrix`?")
 }, {
-  test_function("rbind", not_called_msg = "You should use the <code>rbind()</code> function to create the matrix.")
+  test_function("rbind", not_called_msg = "You should use the `rbind()` function to create the matrix.")
 })
 success_msg("The force is actually with you! Continue to the next exercise.")
 ```
@@ -198,75 +198,18 @@ rownames(star_wars_matrix) <- c("A New Hope", "The Empire Strikes Back", "Return
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not change anything about the box office variables <code>new_hope</code>, <code>empire_strikes</code> and <code>return_jedi</code>!"
+
+msg = "Do not change anything about the box office variables `new_hope`, `empire_strikes` and `return_jedi`!"
 test_object("new_hope", undefined_msg = msg, incorrect_msg = msg)
 test_object("empire_strikes", undefined_msg = msg, incorrect_msg = msg)
 test_object("return_jedi", undefined_msg = msg, incorrect_msg = msg)
-msg <- "Do not change anything about the creation of <code>star_wars_matrix</code>."
+msg <- "Do not change anything about the creation of `star_wars_matrix`."
 test_object("star_wars_matrix", undefined_msg = msg, incorrect_msg = msg)
 
 test_object("star_wars_matrix", eq_condition = "equal",
-            incorrect_msg = "Did you set the row and column names of <code>star_wars_matrix</code> correctly? Have another look at your code.")
-success_msg("Great! You're on the way of becoming an R jedi! Remember that there are also other ways of naming your matrix. In the next exercise, you'll be asked to tell which ones are any good.")
+            incorrect_msg = "Did you set the row and column names of `star_wars_matrix` correctly? Have another look at your code.")
+success_msg("Great! You're on the way of becoming an R jedi!")
 ```
-
-
---- type:MultipleChoiceExercise xp:50 skills:1
-## Valid syntax or not?
-
-As Filip mentioned in the video, there are different ways to name a matrix. Which one of the following code chunks actually lead to the correct matrix with the correct naming as in the previous exercise? `new_hope`, `empire_strikes` and `return_jedi` are available in the workspace so you can experiment with it.
-
-```
-# option A
-star_wars_matrix <- rbind(new_hope, empire_strikes, return_jedi)
-rownames(star_wars_matrix) <- c("US", "non-US")
-colnames(star_wars_matrix) <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
-
-# option B
-col <- c("US", "non-US")
-row <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
-rbind(new_hope, empire_strikes, return_jedi, names = c(col, row))
-
-# option C
-col <- c("US", "non-US")
-row <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
-star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), 
-                           byrow = TRUE, nrow = 3, dimnames = list(col, row))
-                           
-# option D
-col <- c("US", "non-US")
-row <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
-star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), 
-                           byrow = TRUE, nrow = 3, dimnames = list(row, col))
-```
-
-*** =instructions
-- Only A correctly creates and names the matrix.
-- Both A and C do the trick.
-- B and D are the chosen ones.
-- Only D is valid syntax that leads to the correct result.
-
-*** =hint
-When in doubt, you can always try out the different statements in the console on the right and see which ones work.
-
-*** =pre_exercise_code
-```{r, eval=FALSE}
-# Star Wars box office in millions (!)
-new_hope <- c(460.998, 314.4)
-empire_strikes <- c(290.475, 247.900)
-return_jedi <- c(309.306, 165.8)
-```
-
-*** =sct
-```{r, eval=FALSE}
-msg1 <- "Option A has mixed up row names and column names, so this one won't work. Try again."
-msg2 <- "Both option A and C have switched rows and column, so these generate an error. Give it another go."
-msg3 <- "Option B is completely invalid syntax. <code>rbind()</code> has no <code>names</code> argument!"
-msg4 <- "Great! Using <code>dimnames</code> inside <code>matrix()</code> you can construct and name <code>star_wars_matrix</code> at the same time."
-test_mc(4, feedback_msgs = c(msg1, msg2, msg3, msg4))
-```
-
 
 --- type:NormalExercise xp:100 skills:1
 ## Calculating the worldwide box office 
@@ -322,17 +265,17 @@ worldwide_vector <- rowSums(star_wars_matrix)
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not change anything about the construction and naming of <code>star_wars_matrix</code>!"
+
+msg = "Do not change anything about the construction and naming of `star_wars_matrix`!"
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("rowSums", "x", 
-              not_called_msg = "Have you used the function <code>rowSums()</code?",
-              incorrect_msg = "Did you use the <code>rowSums()</code> function on the correct vector?")
+              not_called_msg = "Have you used the function `rowSums()</code?",
+              incorrect_msg = "Did you use the `rowSums()` function on the correct vector?")
 
 test_object("worldwide_vector",
-            undefined_msg = "Please make sure to define a variable <code>worldwide_vector</code>.",
-            incorrect_msg = "Have you specified <code>worldwide_vector</code> correctly?")
+            undefined_msg = "Please make sure to define a variable `worldwide_vector`.",
+            incorrect_msg = "Have you specified `worldwide_vector` correctly?")
 success_msg("Well done! Continue to the next exercise.")
 ```
 
@@ -398,15 +341,15 @@ star_wars_ext <- cbind(star_wars_matrix, worldwide_vector)
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not change anything about the construction and naming of <code>star_wars_matrix</code>!"
+
+msg = "Do not change anything about the construction and naming of `star_wars_matrix`!"
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
-msg <- "The calculation of <code>world_wide_vector</code> has already been coded for you; don't change it."
+msg <- "The calculation of `world_wide_vector` has already been coded for you; don't change it."
 test_object("worldwide_vector", undefined_msg = msg, incorrect_msg = msg)
 
 test_object("star_wars_ext",
-            undefined_msg = "Please make sure to define a variable <code>star_wars_ext</code>.",
-            incorrect_msg = "Did you use the <code>cbind()</code> function with the correct arguments to build <code>star_wars_ext</code>?")
+            undefined_msg = "Please make sure to define a variable `star_wars_ext`.",
+            incorrect_msg = "Did you use the `cbind()` function with the correct arguments to build `star_wars_ext`?")
 
 success_msg("Nice job! After adding column to a matrix, the logical next step is adding rows. Learn how in the next exercise.");
 ```
@@ -476,16 +419,16 @@ all_wars_matrix <- rbind(star_wars_matrix, star_wars_matrix2)
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not override the variables that have been defined for you in the workspace (<code>star_wars_matrix</code> and <code>star_wars_matrix2</code>)."
+
+msg = "Do not override the variables that have been defined for you in the workspace (`star_wars_matrix` and `star_wars_matrix2`)."
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_object("star_wars_matrix2", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 
 test_object("all_wars_matrix", 
-            undefined_msg = "Please make sure to define a variable <code>all_wars_matrix</code>.",
-            incorrect_msg = "Did you use the <code>rbind()</code> function with the correct arguments to build <code>all_wars_matrix</code>?")
+            undefined_msg = "Please make sure to define a variable `all_wars_matrix`.",
+            incorrect_msg = "Did you use the `rbind()` function with the correct arguments to build `all_wars_matrix`?")
 
-success_msg("Wonderful! Continue with the next exercise and see how you can combine the results of the <code>rbind()</code> function with the <code>colSums()</code> function!")
+success_msg("Wonderful! Continue with the next exercise and see how you can combine the results of the `rbind()` function with the `colSums()` function!")
 ```
 
 
@@ -542,13 +485,13 @@ total_revenue_vector <- colSums(all_wars_matrix)
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
+
 msg = "Do not override the variables that have been defined for you in the workspace."
 test_object("all_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
-test_function("colSums", "x", incorrect_msg = "Did you use the <code>colSums()</code> function on the all_wars_matrix?")
+test_function("colSums", "x", incorrect_msg = "Did you use the `colSums()` function on the all_wars_matrix?")
 test_object("total_revenue_vector",
-            undefined_msg = "Please make sure to define a variable <code>total_revenue_vector</code>.",
-            incorrect_msg = "Have you correctly assigned the result of <code>colSums()</code> to <code>total_revenue_factor?</code>");
+            undefined_msg = "Please make sure to define a variable `total_revenue_vector`.",
+            incorrect_msg = "Have you correctly assigned the result of `colSums()` to `total_revenue_factor?`");
 success_msg("Wonderful!")
 ```
 
@@ -627,8 +570,8 @@ star_wars_matrix[1,2]
 
 *** =sct
 ```{r, eval=FALSE}
-test_error()
-msg <- "Do not remove or override <code>star_wars_matrix</code>, it has already been defined for you!"
+
+msg <- "Do not remove or override `star_wars_matrix`, it has already been defined for you!"
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 msg <- "Have another look at the %s instruction. Are you sure you selected the correct element(s)?"
 test_output_contains("star_wars_matrix[2,1]", incorrect_msg = sprintf(msg, "first"))
@@ -711,18 +654,18 @@ non_us_some <- mean(star_wars_matrix[1:2,2])
 
 *** =sct
 ```{r, eval=FALSE}
-test_error()
-msg <- "Do not remove or override <code>star_wars_matrix</code>, it has already been defined for you!"
+
+msg <- "Do not remove or override `star_wars_matrix`, it has already been defined for you!"
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 msg <- "Have another look at the %s instruction. Are you sure you selected the correct element(s)?"
 test_output_contains("star_wars_matrix[,1]", incorrect_msg = sprintf(msg, "first"))
 test_output_contains("star_wars_matrix[1,]", incorrect_msg = sprintf(msg, "second"))
 test_object("non_us_all",
-            undefined_msg = "Please make sure to define a variable <code>non_us_all</code>.",
-            incorrect_msg = "Did you assign to <code>non_us_all</code> the mean of the correct sub vector?")
+            undefined_msg = "Please make sure to define a variable `non_us_all`.",
+            incorrect_msg = "Did you assign to `non_us_all` the mean of the correct sub vector?")
 test_object("non_us_some",
-            undefined_msg = "Please make sure to define a variable <code>non_us_some</code>.",
-            incorrect_msg = "Did you assign to <code>non_us_some</code> the mean of the correct sub vector?");
+            undefined_msg = "Please make sure to define a variable `non_us_some`.",
+            incorrect_msg = "Did you assign to `non_us_some` the mean of the correct sub vector?");
 success_msg("Great! Continue to the next exercise.")
 ```
 
@@ -772,11 +715,11 @@ star_wars_matrix[c(1,3), ]         # option 2
 
 *** =sct
 ```{r, eval=FALSE}
-test_error()
-msg <- "Do not remove or override <code>star_wars_matrix</code>, it has already been defined for you!"
+
+msg <- "Do not remove or override `star_wars_matrix`, it has already been defined for you!"
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_output_contains("star_wars_matrix[c(1,3), c(1,2)]", incorrect_msg = "Hmm, that's not totally correct. Make sure you end up with another matrix, containing 4 elements in total.")
-success_msg("Nice one! You could have used both <code>star_wars_matrix[c(1,3), c(1,2)]</code> and <code>star_wars_matrix[c(1,3), ]</code> to solve this exercise. Not defining any index for a dimension, is actually keeping all the indices for that dimension.")
+success_msg("Nice one! You could have used both `star_wars_matrix[c(1,3), c(1,2)]` and `star_wars_matrix[c(1,3), ]` to solve this exercise. Not defining any index for a dimension, is actually keeping all the indices for that dimension.")
 ```
 
 
@@ -835,79 +778,15 @@ star_wars_matrix[2, "non-US"]
 
 *** =sct
 ```{r, eval=FALSE}
-test_error()
-msg <- "Do not remove or override <code>star_wars_matrix</code>, it has already been defined for you!"
+
+msg <- "Do not remove or override `star_wars_matrix`, it has already been defined for you!"
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 msg <- "Have another look at the %s instruction. Are you sure you selected the correct element(s) using the correct methods?"
 test_output_contains("star_wars_matrix[c(\"A New Hope\", \"The Empire Strikes Back\"), \"US\"]", incorrect_msg = sprintf(msg, "first"))
 test_output_contains("star_wars_matrix[c(FALSE, TRUE, TRUE), c(TRUE, TRUE)]", incorrect_msg = sprintf(msg, "second"))
 test_output_contains("star_wars_matrix[2, \"non-US\"]", incorrect_msg = sprintf(msg, "third"))
 
-success_msg("Awesome! Remember that you can combine subsetting by indices, by names and using logical vectors: you can for example select the rows using indices, but the columns using a vector of <code>TRUE</code>s and <code>FALSE</code>s. You name it, R can handle it!")
-```
-
-
---- type:MultipleChoiceExercise xp:50 skills:1
-## Be selective
-
-The workspace already contains the matrix `all_wars_matrix`, containing the box office figures for the six Star Wars movies. It also contains the total revenue for each movie, regardless of the geographical region. 
-
-Have a look at the following R commands:
-
-```
-# option A
-all_wars_matrix[seq(2, 6, by = 2), "total"]
-
-# option B
-all_wars_matrix[c(F,T,F,T,F,T), c(F,T)]
-
-# option C
-all_wars_matrix[c("The Empire Strikes Back", 4, 6), c(T,T,F)]
-
-# option D
-all_wars_matrix[c(F,T), "total"]
-```
-
-Which one of these calls selects the total revenue for the second, fourth and sixth movie in the matrix?
-
-*** =instructions
-- A and B
-- All four work fine
-- A and D
-- C and D
-- Only B
-
-*** =hint
-Just try out the different calls and see which ones give you the selection that is asked for! `all_wars_matrix` is already available in the workspace.
-
-*** =pre_exercise_code
-```{r, eval=FALSE}
-# Star Wars box office in millions (!)
-new_hope <- c(460.998, 314.4)
-empire_strikes <- c(290.475, 247.900)
-return_jedi <- c(309.306, 165.8)
-star_wars_matrix <- rbind(new_hope, empire_strikes, return_jedi)
-colnames(star_wars_matrix) <- c("US", "non-US")
-rownames(star_wars_matrix) <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
-
-# Construct matrix2
-box_office_all2 <- c(474.5, 552.5, 310.7, 338.7, 380.3, 468.5)
-movie_names2 <- c("The Phantom Menace", "Attack of the Clones", "Revenge of the Sith")
-star_wars_matrix2 <- matrix(box_office_all2, nrow=3, byrow = TRUE)
-colnames(star_wars_matrix2) <- c("US", "non-US")
-rownames(star_wars_matrix2) <- c("The Phantom Menace", "Attack of the Clones", "Revenge of the Sith")
-
-# Combine both Star Wars trilogies in one matrix
-all_wars_matrix <- rbind(star_wars_matrix, star_wars_matrix2)
-all_wars_matrix <- cbind(all_wars_matrix, total = rowSums(all_wars_matrix))
-rm(star_wars_matrix, star_wars_matrix2)
-```
-
-*** =sct
-```{r, eval=FALSE}
-nok_msg <- "Incorrect. <code>all_wars_matrix</code> is available for you to play with, so simply try out the different statements."
-ok_msg <- "Great! Notice form code chunk C that it is not possible to combine names and indices in the same vector to perform selection. Up to the next video tutorial!"
-test_mc(3, feedback_msgs = c(nok_msg, nok_msg, ok_msg, nok_msg, nok_msg))
+success_msg("Awesome! Remember that you can combine subsetting by indices, by names and using logical vectors: you can for example select the rows using indices, but the columns using a vector of `TRUE`s and `FALSE`s. You name it, R can handle it!")
 ```
 
 
@@ -985,14 +864,14 @@ visitors
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg <- "Do not remove or override <code>star_wars_matrix</code>, it has already been defined for you!"
+
+msg <- "Do not remove or override `star_wars_matrix`, it has already been defined for you!"
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_object("visitors",
-            undefined_msg = "Please make sure to define a variable <code>visitors</code>.",
-            incorrect_msg = "It looks like <code>visitors</code> does not contain the correct value. Remember that operations on matrices are element-wise.")
+            undefined_msg = "Please make sure to define a variable `visitors`.",
+            incorrect_msg = "It looks like `visitors` does not contain the correct value. Remember that operations on matrices are element-wise.")
 test_output_contains("visitors", 
-                     incorrect_msg = "Don't forget to also print the variable <code>visitors</code> to the console.")
+                     incorrect_msg = "Don't forget to also print the variable `visitors` to the console.")
 success_msg("Great! What do these results tell you? A staggering 92 million people went to see A New Hope in theaters! Continue to the next exercise.");
 ```
 
@@ -1063,19 +942,19 @@ average_non_us_visitors <- mean(visitors[ ,2])
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
+
 msg <- "Do not change anything about the preset variables!"
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_object("ticket_prices_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_object("visitors",
-            undefined_msg = "Please make sure to define a variable <code>visitors</code>.",
-            incorrect_msg = "It looks like <code>visitors</code> does not contain the correct value. Remember that you can divide two matrices.")
+            undefined_msg = "Please make sure to define a variable `visitors`.",
+            incorrect_msg = "It looks like `visitors` does not contain the correct value. Remember that you can divide two matrices.")
 test_object("average_us_visitors",
-            undefined_msg = "Please make sure to define a variable <code>average_us_visitors</code>.",
-            incorrect_msg = "It looks like <code>average_us_visitors</code> does not contain the average of the US visitors.")
+            undefined_msg = "Please make sure to define a variable `average_us_visitors`.",
+            incorrect_msg = "It looks like `average_us_visitors` does not contain the average of the US visitors.")
 test_object("average_non_us_visitors",
-            undefined_msg = "Please make sure to define a variable <code>average_non_us_visitors</code>.",
-            incorrect_msg = "It looks like <code>average_non_us_visitors</code> does not contain the average of the US visitors.")
+            undefined_msg = "Please make sure to define a variable `average_non_us_visitors`.",
+            incorrect_msg = "It looks like `average_non_us_visitors` does not contain the average of the US visitors.")
 success_msg("It's a fact: the R force is with you! You are now ready for the final exercise on matrices!")
 ```
 
