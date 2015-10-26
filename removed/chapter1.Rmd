@@ -1,0 +1,36 @@
+--- type:MultipleChoiceExercise xp:50 skills:1
+## R's pros and cons
+
+As Filip explained in the video, there are things that make R the awesome and immensely popular language that it is today. On the other hand, there are also aspects about R that are less attractive. Which of the following statements are true regarding this statistical programming language?
+
+1. As opposed to SAS and SPSS, R is completely open-source.
+2. R is open-source, but it's hard to share your code with others since R uses a command-line interface.
+3. It typically takes a long time for new and updated R packages to be released and made available to the public.
+4. R is easy to use, but this comes at the cost of limited graphical abilities.
+5. R works well with large data sets, if the code is properly written and the data fits into the working memory. 
+
+*** =instructions
+- Statements (1) and (2) are correct; the others are false.
+- Statements (1) and (4) are correct; the others are false.
+- Statements (1) and (5) are correct; the others are false.
+- Statements (2) and (4) are correct; the others are false.
+- Statements (3) and (5) are correct; the others are false.
+
+*** =hint
+Remember that your data has to fit in the working memory for R to be able to process it.
+
+*** =pre_exercise_code
+```{r, eval=FALSE}
+# no pec
+```
+
+*** =sct
+```{r, eval=FALSE}
+msg1 = "Remember that the fact that R uses a command-line interface, does not make it hard to share code. On the contrary, sharing your results becomes very straightforward because you can easily share R scripts."
+msg2 = "R is the perfect tool for creating neat and insightful visualizations. Try again."
+msg3 = "Great! Head over to the next exercise and get your hands dirty!"
+msg4 = "R uses a command-line interface, which makes it very easy to share one's code. Also, R is very suitable for creating visualizations. Try again."
+msg5 = "It's fairly straightforward to write, maintain and share R packages. Try again."
+test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4, msg5))
+```
+
