@@ -29,13 +29,11 @@ https://player.vimeo.com/external/138173896.m3u8?p=high,standard,mobile&s=63b526
 --- type:NormalExercise xp:100
 ## Create a vector (1)
 
-Feeling lucky? 
+Feeling lucky? You better, because we'll take you on a trip to Las Vegas!
 
-You better, because this chapter takes you on a trip to Sin City, also known as *"Statisticians Paradise"* ;-).
+Thanks to R and your new data science skills, you will learn how to uplift your performance at the tables and fire off your career as a professional gambler. This chapter will show how you can easily keep track of your betting progress and how you can do some simple analyses on past actions.
 
-Thanks to R and your new data science skills, you will learn how to uplift your performance at the tables and fire off your career as a professional gambler. This chapter will show how you can easily keep track of your betting progress and how you can do some simple analyses on past actions. Next Stop, Vegas Baby... VEGAS!!
-
-On your way from rags to riches, you will make extensive use of vectors. As Filip explained you, vectors are one dimensional arrays that can hold numeric data, character data, or logical data. You create a vector with the combine function [`c()`](http://www.rdocumentation.org/packages/base/functions/c). You place the vector elements separated by a comma between the brackets. For example:
+You will do this with vectors. As Filip explained you, vectors are one dimensional arrays that can hold numeric data, character data, or logical data. You create a vector with the combine function [`c()`](http://www.rdocumentation.org/packages/base/functions/c). You place the vector elements separated by a comma between the brackets. For example:
 
 ```
 numeric_vector <- c(1, 2, 3)
@@ -687,76 +685,7 @@ test_object("choose_poker",
             undefined_msg = "Please make sure to define a variable <code>choose_poker</code>.",
             incorrect_msg = "It looks like the <code>choose_poker</code> variable does not contain the correct answer. Make sure to read the assignment carefully.")
 test_output_contains("choose_poker", incorrect_msg = "Don't forget to print <code>choose_poker</code> to the console.")
-success_msg("Great! Your hunch seemed to be right. It appears that the poker game is more your cup of tea than roulette. Ready for a challenge? Head over to the next exercise!")
-```
-
-*** =skills
-1
-
---- type:ChallengeExercise xp:200
-## First steps in rational gambling
-
-In the previous exercise, you found out that roulette is not really your forte. However, you have some vague memories from visits in Vegas where you actually excelled at this game. You plan to dig through your receipts of when you withdrew and cashed chips and found out about your actual performance in the previous week you were in Sin City. In that week, you also only played poker and roulette; the information is stored in `poker_past` and `roulette_past`. The information for the current week, with which you have been working all along, is in `poker_present` and `roulette_present`. All these variables are available in your workspace.
-
-*** =challenge_steps
-## Calculate the total gains for the past
-Use the [`sum()`](http://www.rdocumentation.org/packages/base/functions/sum) function twice in combination with the `+` operator to calculate the total gains for your entire past week in Vegas (this means for both poker and roulette). Assign the result to `total_past`
-
-## Calculate difference of past to present poker performance
-Using the `-` operator, subtract `poker_past` from `poker_present`, to calculate `diff_poker`.
-
-## Were you better at roulette before?
-Use the [`sum()`](http://www.rdocumentation.org/packages/base/functions/sum) function twice and the `>` operator to see whether you were better in roulette in the past than you are in the current week. Assign the result to `roulette_worsened`.
-
-*** =challenge_goal
-## Compare your past performance to your current performance
-To better compare your performance, perform the following calculations:
-- Calculate what you have earned (or lost) on roulette and poker in the past week. Assign the result to `total_past`.
-- Find the daily difference in poker performance between your current week and the past week; store the result in a variable `diff_poker`.
-- Create a logical that tells whether your total winnings of roulette winnings in the past were higher than your total winnings in the current week. Assign the result to `roulette_worsened`.
-
-*** =pre_exercise_code
-```{r eval=FALSE}
-days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-poker_present <- c(140, -50, 20, -120, 240)
-names(poker_present) <- days_vector
-roulette_present <- c(-24, -50, 100, -350, 10)
-names(roulette_present) <- days_vector
-poker_past <- c(-70, 90, 110, -120, 30)
-roulette_past <- c(20, 45, 120, -230, 40)
-```
-
-*** =solution
-```{r eval=FALSE}
-total_past <- sum(poker_past) + sum(roulette_past)
-diff_poker <- poker_present - poker_past
-roulette_worsened <- sum(roulette_past) > sum(roulette_present)
-```
-
-*** =sct
-```{r eval=FALSE}
-test_instruction(1, {
-  test_error()
-  test_an_object("total_past")
-})
-test_instruction(2, {
-  test_error()
-  test_an_object("total_past")
-  test_an_object("diff_poker")
-})
-test_instruction(3, {
-  test_error()
-  test_an_object("total_past")
-  test_an_object("diff_poker")
-  test_an_object("roulette_worsened")
-})
-test_instruction(4, {
-  test_error()
-  test_an_object("total_past")
-  test_an_object("diff_poker")
-  test_an_object("roulette_worsened")
-})
-success_msg("Awesome! It seems that indeed, your roulette skills have worsened if you compare to your previous week in Vegas.")
+success_msg("Great! Your hunch seemed to be right. It appears that the poker game is more your cup of tea than roulette. Time to learn some more about vector subsetting.")
 ```
 
 *** =skills
@@ -1293,7 +1222,7 @@ success_msg("Great! Continue to the next exercise!")
 --- type:NormalExercise xp:100
 ## Selection by logicals (3)
 
-To fully prepare you for the challenge that's coming, you'll do a final analysis of your casino ventures. This time, you'll use your newly acquired skills to perform advanced selection on `roulette_vector`. 
+In this exercise, you'll do a final analysis of your casino ventures. This time, you'll use your newly acquired skills to perform advanced selection on `roulette_vector`. 
 
 Along the way, you'll need the [`sum()`](http://www.rdocumentation.org/packages/base/functions/sum) function. You used it before to calculate the total winnings, so an a numeric vector. However, you can also use [`sum()`](http://www.rdocumentation.org/packages/base/functions/sum) on a logical vector; it simply counts the number of vector elements that are `TRUE`.
 
@@ -1364,67 +1293,3 @@ success_msg("Awesome! If you inspect the variable num_profitable_days, you'll se
 *** =skills
 1
 
---- type:ChallengeExercise xp:200
-## Vectors: place your bets!
-
-By now, you should have gained some insights on how your casino habits are actually working out for you. In fact, why not decide on changing your game completely? Let's dive into the world of Blackjack for once, and analyze some game outcomes here. In short, blackjack is a game where you have to ask for cards until you arrive at a sum that is as close to 21 as possible. However, if you exceed 21, you've lost. You can be greedy and go for 21, or you can be careful and settle for 16 or so. A player wins when his or her sum, or score, exceeds that of the house. 
-
-The sums for the player's last 7 games are stored in `player`; the house's scores are contained in `house`. Both are available in the workspace. In both cases, the scores were never higher than 21.
-
-*** =challenge_steps
-## Select player score for the third game
-With square brackets, select the player's score for the third game, using any of the techniques that you've learned about. Store the result in `player_third`.
-
-## Select winning scores
-Subset the `player` vector to only select the scores that exceeded the scores of `house`, so the scores that had the player win. Use subsetting in combination with the relational operator `>`. Assign the subset to the variable `winning_scores`.
-
-## Count poor scores
-Count the number of times the score inside `player` was lower than 18. This time, you should use a relational operator in combination with [`sum()`](http://www.rdocumentation.org/packages/base/functions/sum). Save the resulting value in a new variable, `n_low_score`.
-
-*** =challenge_goal
-## Analyze the Blackjack results
-- Select the player's score for the third game; store the result in `player_third`.
-- Subset `player` to select only scores that led to the player winning from the house. Save the result in `winning_scores`.
-- Count the number of times the player had a score lower than 18 and save this value in `n_low_score`.  
-
-*** =pre_exercise_code
-```{r eval=FALSE}
-player <- c(14,17,20,21,20,18,14)
-house <- c(20,15,21,20,20,17,19)
-```
-
-*** =solution
-```{r eval=FALSE}
-player_third <- player[3]
-winning_scores <- player[player > house]
-n_low_score <- sum(player < 18)
-```
-
-*** =sct
-```{r eval=FALSE}
-test_instruction(1, {
-  test_error()
-  test_an_object("player_third")
-})
-test_instruction(2, {
-  test_error()
-  test_an_object("player_third")
-  test_an_object("winning_scores")
-})
-test_instruction(3, {
-  test_error()
-  test_an_object("player_third")
-  test_an_object("winning_scores")
-  test_an_object("n_low_score")
-})
-test_instruction(4, {
-  test_error()
-  test_an_object("player_third")
-  test_an_object("winning_scores")
-  test_an_object("n_low_score")
-})
-success_msg("Awesome! Given that you've solved this challenge so gracefully, you might consider adding Blackjack to your playlist on your next trip to Vegas! This challenge concludes the chapter on vectors. The next chapter will introduce you to the two-dimensional version of vectors: matrices.")
-```
-
-*** =skills
-1

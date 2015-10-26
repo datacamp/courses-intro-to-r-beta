@@ -9,8 +9,7 @@ author_bio: Next to being the main developer of DataCamp's interactive courses, 
   he leverages the techniques DataCamp teaches its students to perform data analysis
   for DataCamp. Filip holds degrees in Electrical Engineering and Artificial Intelligence.
   <br><br>This course is a rework of the earlier introduction to R course,
-  built by Jonathan Cornelissen and Martijn Theuwissen, co-founders of DataCamp. The
-  course now features video lectures, challenges, and a chapter on graphics.
+  built by Jonathan Cornelissen and Martijn Theuwissen, co-founders of DataCamp.
 description: With over 2 million users worldwide R is rapidly becoming the leading
   programming language in statistics and data science. Every year, the number of R
   users grows by 40%, and an increasing number of organizations are using it in their
@@ -25,5 +24,4 @@ chapters:
   chapter4.Rmd: 1723
   chapter5.Rmd: 1724
   chapter6.Rmd: 1725
-  chapter7.Rmd: 1726
 

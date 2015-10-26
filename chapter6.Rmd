@@ -384,95 +384,11 @@ test_object("planets_df", eq_condition = "equal",
             undefined_msg = msg, incorrect_msg = "Are you sure you have correctly renamed the columns of <code>planets_df</code>? The hint might be able to help you out.")
 
 test_output_contains("planets_df", incorrect_msg = "Don't forget to print <code>planets_df</code>.")
-success_msg("Nice one! This is going fast! Get ready for a challenge!")
+success_msg("Nice one! This is going fast!")
 ```
 
 *** =skills
 1
-
---- type:ChallengeExercise xp:200
-## Rule the world!
-
-You have now gained the power to create, name and present your own data frame, congratulations! Now let's put those skills to the test.
-
-Suppose you have made a selection of countries throughout the whole world. For these countries you have collected some key variables (geographical, economical and political):
-
-- Name of the country (`countries`),
-- Continent in which the country lies (`continents`),
-- Nominal GDP per capita of the country (`gdp`),
-- Human Development Index of the country (`hdi`),
-- Whether the country has a president (`president`)
-
-After consulting the all-knowing oracle (Wikipedia) again, you managed to create some vectors (listed inside parentheses). All these vectors are already available in the workspace. That means that everything is set now to create your own dataset, Let's make this happen!
-
-*** =challenge_steps
-## Encode continents as a factor
-The continent information is categorical: create a new variable `continents_factor` that is the result of encoding `continents`.
-
-## Create countries_df
-Using the `data.frame()` function, build a data frame, `countries_df`, with all the listed variables. Make sure to use `continents_factor` instead of `continents` here! Specify the `stringsAsFactors` argument correctly.
-
-## Name countries_df appropriately
-Either by adapting the `data.frame()` function call or by using the `names()` function, give the appropriate names to all columns in `countries_df`.
-
-## Display the structure of countries_df
-As you already did countless times before, display the structure of `countries_df` with the `str()` function to assert that you have correctly created the data frame.
-
-*** =challenge_goal
-## Create the countries data frame
-Create a new data frame, `countries_df`, containing all the listed information in that order. Name the column names "name", "cont", "GDP", "HDI" and "has_president", respectively. Make sure that the first column is a character vector, while the second one is a factor. To finish off, display the structure of the structure of `countries_df`.
-
-*** =pre_exercise_code
-```{r eval=FALSE}
-countries <-c("Canada", "United States", "France", "Belgium", "India", "China", "United Kingdom", "Russia")
-continents <-c("North-America", "North-America", "Europe", "Europe", "Asia", "Asia", "Europe", "Asia")
-gdp <- c(44843, 54596, 44538, 47787, 1808, 8154, 45653, 8184)
-hdi <- c(0.902, 0.914, 0.884, 0.881, 0.586, 0.719, 0.892, 0.778)
-president <- c(F, T, T, F, T, T, F, T)
-```
-
-
-*** =solution
-```{r eval=FALSE}
-continents_factor <- factor(continents)
-countries_df <- data.frame(name = countries, cont = continents_factor, GDP = gdp, HDI = hdi, has_president = president, stringsAsFactors=FALSE)
-str(countries_df)
-```
-
-*** =sct
-```{r eval=FALSE}
-test_instruction(1, {
-  test_error()
-  test_an_object("continents_factor")
-})
-test_instruction(2, {
-  test_error()
-  test_an_object("countries_df")
-})
-test_instruction(3, {
-  test_error()
-  test_an_object("countries_df", eq_condition = "equal")
-})
-test_instruction(4, {
-  test_error()
-  test_or(
-    test_function("str","object"),
-    test_output_contains("str(data.frame(name = countries, cont = factor(continents), GDP = gdp, HDI = hdi, has_president = president, stringsAsFactors=FALSE))")
-  )
-})
-test_instruction(5, {
-  test_error()
-  test_or(
-    test_function("str","object"),
-    test_output_contains("str(data.frame(name = countries, cont = factor(continents), GDP = gdp, HDI = hdi, has_president = president, stringsAsFactors=FALSE))")
-  )
-})
-success_msg("Congratulations!")
-```
-
-*** =skills
-1
-
 
 --- type:VideoExercise xp:50
 ## Subset, Extend & Sort Data Frames
@@ -1199,78 +1115,9 @@ test_object("largest_first_df",
             undefined_msg = "Please make sure to define a variable <code>largest_first_df</code>.",
             incorrect_msg = "It looks like <code>largest_first_df</code> does not contain the positions of the ordered <code>planets_df</code>.")
 test_output_contains("largest_first_df")
-success_msg("Wonderful! What does the resulting data frame look like? Order prevailed! It's about time that you combined everything you've learned on data frames in the final challenge!")
+success_msg("Wonderful! What does the resulting data frame look like? Order prevailed!")
 ```
 
 *** =skills
 1
 
---- type:ChallengeExercise xp:200
-## Rule the world: part II 
-Remember that in the previous challenge you created your own data frame, `countries_df`? Well, in this challenge you will get to play around with this data frame some more! Suppose you are no longer interested in the economic variables `gdp` and `hdi`. Instead you want to learn more about the demography of the countries. Also, since you are planning a trip to Brazil this summer, you want to include some information on this country to your data frame. Finally, you want to keep the overview and have the countries with the largest population appear first in your data frame. Sounds like an easy job after completing the previous set of exercises, right?
-
-*** =challenge_steps
-## Remove and add columns
-Subset `countries_df` to drop the columns `gdp` and `hdi`. You can use single brackets for this. Next, add the variable `population` to your dataframe. Again, there are several ways to do this; one way is to use the `cbind()` function. Store the resulting data frame again `countries_df_dem`.
-
-## Add brazil to the data frame
-Include the data on your future holiday destination: Brazil. This comes down to adding a new observation, so you have to make sure that the names of `brazil` match those in `countries_df_dem`. Next you can use the `rbind()` function to merge the dataframes into the new dataframe `countries_df2`.
-
-## Sort your data frame
-All that is left to do is sort the observations according to population size. Note that you want the largest population to be represented first. Therefore, you'll need `order()` with the `decreasing` argument equal to `TRUE`. Just print it, do not overwrite the `countries_df2` dataframe.
-
-*** =challenge_goal
-## Subset and extend your data frame
-Create a new data frame, `countries_df_dem`, that no longer contains the economic variables `gdp` and `hdi`, but has the additional `population` column (a vector `population` is available in the workspace). Extend `countries_df_dem` further by adding the information on Brazil (a data frame `brazil` is available in the workspace but it is not named correctly yet). Call the resulting data frame `countries_df2`. Finally, print a sorted version `countries_df2` such that the country with the largest population comes first. Just print it; do not overwrite the `countries_df2` dataframe.
-
-*** =pre_exercise_code
-```{r eval=FALSE}
-countries <-c("Canada", "United States", "France", "Belgium", "India", "China", "United Kingdom", "Russia")
-continents <-c("North-America", "North-America", "Europe", "Europe", "Asia", "Asia", "Europe", "Asia")
-gdp <- c(44843, 54596, 44538, 47787, 1808, 8154, 45653, 8184)
-hdi <- c(0.902, 0.914, 0.884, 0.881, 0.586, 0.719, 0.892, 0.778)
-president <- c(F, T, T, F, T, T, F, T)
-continents_factor <- factor(continents)
-countries_df <- data.frame(name = countries, continent = continents_factor, gdp = gdp, HDI = hdi, has_president = president, stringsAsFactors=FALSE)
-rm(countries, continents, gdp, hdi, president, continents_factor)
-population<-c(35749600, 321163157, 66616416, 11239755, 1210193422, 1357380000, 64511000, 143975923)
-brazil<-data.frame("Brazil", "South-America", TRUE, 202768562)
-```
-
-*** =solution
-```{r eval=FALSE}
-# Remove economic variables and add population.
-countries_df_dem <- countries_df[ , c(1, 2, 5)]
-countries_df_dem$population <- population
-
-# Add brazil
-names(brazil) <- c("name", "continent", "has_president", "population")
-countries_df2 <- rbind(countries_df_dem,brazil)
-
-# Sort by population
-countries_df2[order(countries_df2$population,decreasing=TRUE), ]
-```
-
-*** =sct
-```{r eval=FALSE}
-test_instruction(1, {
-  test_error()
-  test_an_object("countries_df_dem")
-})
-test_instruction(2, {
-  test_error()
-  test_an_object("countries_df2")
-})
-test_instruction(3, {
-  test_error()
-  test_output_contains("countries_df2[order(countries_df2$population,decreasing=TRUE), ]", env = get_solution_env())
-})
-test_instruction(4, {
-  test_error()
-  test_output_contains("countries_df2[order(countries_df2$population,decreasing=TRUE), ]", env = get_solution_env())
-})
-success_msg("Perfect! This challenge concludes the chapter on data frames. Remember that data frames are extremely important in R, you will need them all the time! Next stop: basic graphics in R!")
-```
-
-*** =skills
-1

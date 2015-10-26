@@ -414,7 +414,7 @@ success_msg("Nice one! The great advantage of doing calculations with variables 
 1
 
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## The workspace
 
 If you assign a value to a variable, this variable is stored in the workspace. It's the place where all user-defined variables and objects live. The command [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) lists the contents of this workspace. `rm(<var_name>)` allows you to remove objects from the workspace again. Try the following code in the console:
@@ -515,111 +515,8 @@ test_output_contains('c("animals", "dogs", "horses")',
 test_function("rm", not_called_msg = "Make sure to call the function <code>rm()</code> to remove the variable <code>horses</code>.")
 test_output_contains('c("animals", "horses")',
                      incorrect_msg = "Make sure to inspect the objects in your workspace after removing the <code>dogs</code> variable.")
-success_msg("Awesome! Now that you know how you can build up, inspect and manage your workspace, it's time for your first challenge!")
+success_msg("Awesome! You can now build, inspect and manage your workspace, great!")
 ```
-
-*** =skills
-1
-
---- type:ChallengeExercise xp:200
-## Build and destroy your workspace
-
-Apples and oranges, dogs and horses, you can model practically everything in R. The only limit is your own imagination! However, how you create and manage the variables you're creating is always the same. If fruits are not your kind of thing, you're in luck! In this challenge, you will compute the volume of a donut. The volume of a donut can be expressed as:
-
-$$V = 2 \pi^2 r^2 R$$
-
-where $r$ is the minor radius and $R$ is the major radius. This is the same as computing the area of the cylindrical portion of the donut ($\pi r^2$) and multiplying it by the circumference of the donut ($2 \pi R$). Top off this theory with some workspace management and you've got one tasty challenge! One last tip: $\pi$ is available in R by default as `pi`.
-
-_Type and execute code in the console. DataCamp will automatically grade each submission to see if you solved the challenge. Try not to click on the intermediate steps, as they cost you XP points. The challenge description in the goal should suffice!_
-
-*** =challenge_steps
-## Define the inner and outer radius
-Define the variable `r` and `R` and set them to 2 and 6 using the assignment operator (`<-`).
-
-## Calculate the cilinder area
-Calculate the area of the cilindrical portion of the donut as `pi*r^2` and assign the variable to `ar_donut`. Inspect the resulting variable.
-
-## Calculate the donut circumference
-Calculate the circumference of the donut as `2*pi*R` and assign the variable to `cir_donut`. Inspect the resulting variable.
-
-## Calculate the donut volume
-Calculate the volume of the donut as the product of `ar_donut` and `cir_donut` and assign the result to a variable `vol_donut`.
-
-## Clean up the workspace
-Remove all intermediary variables that you've used to calculate `vol_donut` using the [`rm()`](http://www.rdocumentation.org/packages/base/functions/rm) function. Finally, use [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) to list the resulting workspace. It should only contain `vol_donut`.
-
-*** =challenge_goal
-## Calculate the donut volume
-Create the variables `r` and `R`, equal to 2 and 6 respectively, to calculate the volume of the donut, `vol_donut`. Remove all the intermediary variables that you've used to calculate `vol_donut` such that only the variable `vol_donut` remains. Finally, inspect the workspace you end up with.
-
-*** =pre_exercise_code
-```{r eval=FALSE}
-# no pec
-```
-
-*** =solution
-```{r eval=FALSE}
-r <- 2
-r
-R <- 6
-R
-ar_donut <- pi * r ^ 2
-ar_donut
-cir_donut <- 2 * pi * R
-cir_donut
-vol_donut <- ar_donut * cir_donut
-rm(r, R, ar_donut, cir_donut)
-ls()
-```
-
-*** =sct
-```{r eval=FALSE}
-test_instruction(1, {
-  test_error()
-  assign("r", 2, envir = get_solution_env())
-  test_object("r")
-  rm(r, envir = get_solution_env())
-  assign("R", 6, envir = get_solution_env())
-  test_object("R")
-  rm(R, envir = get_solution_env())
-})
-test_instruction(2, {
-  test_error()
-  assign("ar_donut", pi*2^2, envir = get_solution_env())
-  test_or(
-    test_an_object("ar_donut"),
-    test_output_contains("pi*2^2")
-  )
-  rm(ar_donut, envir = get_solution_env())
-})
-test_instruction(3, {
-  test_error()
-  assign("cir_donut", 2*pi*6, envir = get_solution_env())
-  test_or(
-    test_an_object("cir_donut"),
-    test_output_contains("2*pi*6")
-  )
-  rm(cir_donut, envir = get_solution_env())
-})
-test_instruction(4, {
-  test_error()
-  test_object("vol_donut")
-})
-test_instruction(5, {
-  test_error()
-  test_object("vol_donut")
-  test_output_contains("\"vol_donut\"")
-})
-test_instruction(6, {
-  test_error()
-  test_object("vol_donut")
-  test_output_contains("\"vol_donut\"")
-})
-success_msg("Awesome! In this challenge, the true power of variables became apparent.")
-```
-
-*** =skills
-1
 
 --- type:VideoExercise xp:50
 ## Basic Data Types
@@ -923,70 +820,7 @@ test_function("as.numeric", "x",
               not_called_msg = "Make sure to call the function <code>as.numeric()</code> to convert <code>var3</code> to a numeric.",
               incorrect_msg = "Have you passed the correct variable to the function <code>as.numeric()</code>?")
 test_object("var3_num")
-success_msg("Bellissimo! The final coercion you tried did not succeed, hence the warning. Head over to the challenge that concludes this chapter.")
-```
-
-*** =skills
-1
-
---- type:ChallengeExercise xp:200
-## Coercion for the sake of cleaning
-
-Coercion can come in pretty handy when you're dealing with messy datasets where supposedly numerical variables have been stored as character strings, logicals have been stored as numerics etc. To prepare you for such problems, take this challenge: your first modest steps in data cleaning! In the workspace, some variables concerning the answers on a questionnaire have been defined; have a look with [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls).
-
-_Type and execute code in the console. DataCamp will automatically grade each submission to see if you solved the challenge. Try not to click on the intermediate steps, as they cost you XP points. The challenge description in the goal should suffice!_
-
-*** =challenge_steps
-## Convert the age to a numeric
-Use [`as.numeric()`](http://www.rdocumentation.org/packages/base/functions/numeric) to convert the character `age`; assign the result to a new variable `age_clean`.
-
-## Convert employed to a logical
-With the help of [`as.logical()`](http://www.rdocumentation.org/packages/base/functions/logical), convert the numeric `employed` and store the result to a new variable `employed_clean`.
-
-## Convert the salary to a numeric
-Using the [`as.numeric()`](http://www.rdocumentation.org/packages/base/functions/numeric) function, convert the respondent's `salary` to a numeric; assign the resulting numeric to the variable `salary_clean`.
-
-*** =challenge_goal
-## Clean the questionnaire data
-In the questionnaire data, there are three variables that do not have the correct types. Create three new variables, `age_clean`, `employed_clean` and `salary_clean` that contain the correct information in the most meaningful format (e.g. numeric for numbers).
-
-*** =pre_exercise_code
-```{r eval=FALSE}
-# no pec
-age <- "29"
-employed <- 1
-location <- "Paris"
-salary <- "63394.12"
-```
-
-*** =solution
-```{r eval=FALSE}
-age_clean <- as.numeric(age)
-employed_clean <- as.logical(employed)
-salary_clean <- as.numeric(salary)
-```
-
-*** =sct
-```{r eval=FALSE}
-test_instruction(1, {
-  test_error()
-  test_object("age_clean")
-})
-test_instruction(2, {
-  test_error()
-  test_object("employed_clean")
-})
-test_instruction(3, {
-  test_error()
-  test_object("salary_clean")
-})
-test_instruction(4, {
-  test_error()
-  test_object("age_clean")
-  test_object("employed_clean")
-  test_object("salary_clean")
-})
-success_msg("Perfect! Sit back and relax for a while after this first introduction to R, but not for too long: there is much more to come!")
+success_msg("Bellissimo! The final coercion you tried did not succeed, hence the warning.")
 ```
 
 *** =skills
