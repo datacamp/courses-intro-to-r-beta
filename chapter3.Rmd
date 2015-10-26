@@ -5,7 +5,7 @@ description : In this chapter you will learn how to work with matrices in R. By 
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch3_slides.pdf
   
---- type:VideoExercise xp:50
+--- type:VideoExercise xp:50 skills:1
 ## Create and Name Matrices
 
 *** =video_link
@@ -23,10 +23,8 @@ https://player.vimeo.com/external/138173926.hd.mp4?s=5bb9cc0b2f6770f94d752fd0c00
 https://player.vimeo.com/external/138173926.m3u8?p=high,standard,mobile&s=b0266dc35613e177f39724b5ec0033e9
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Analyzing matrices, you shall
 
 It is now time to get your hands dirty. In the following exercises you will analyze the box office numbers of the Star Wars franchise. May the force be with you!
@@ -85,10 +83,8 @@ test_correct({
 success_msg("Great, head over to the next exercise!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Analyzing matrices, you shall (2)
 
 Instead of as a single vector, the box office numbers for the three Star Wars movies are represented as three vectors. Remember the `rbind()` function to paste together different vectors as if they were rows of a matrix? Try it out on these astronomical numbers!
@@ -143,10 +139,8 @@ test_correct({
 success_msg("The force is actually with you! Continue to the next exercise.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Naming a matrix
 
 To help you remember what is stored in `star_wars_matrix`, you would like to add the names of the movies for the rows. Not only does this help you to read the data, but it is also useful to select certain elements from the matrix later. 
@@ -217,10 +211,8 @@ test_object("star_wars_matrix", eq_condition = "equal",
 success_msg("Great! You're on the way of becoming an R jedi! Remember that there are also other ways of naming your matrix. In the next exercise, you'll be asked to tell which ones are any good.")
 ```
 
-*** =skills
-1
 
---- type:MultipleChoiceExercise xp:50
+--- type:MultipleChoiceExercise xp:50 skills:1
 ## Valid syntax or not?
 
 As Filip mentioned in the video, there are different ways to name a matrix. Which one of the following code chunks actually lead to the correct matrix with the correct naming as in the previous exercise? `new_hope`, `empire_strikes` and `return_jedi` are available in the workspace so you can experiment with it.
@@ -275,10 +267,8 @@ msg4 <- "Great! Using <code>dimnames</code> inside <code>matrix()</code> you can
 test_mc(4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Calculating the worldwide box office 
 
 The single most important thing for a movie in order to become an instant legend in Tinseltown is its worldwide box office figures. 
@@ -346,10 +336,8 @@ test_object("worldwide_vector",
 success_msg("Well done! Continue to the next exercise.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Adding a column for the Worldwide box office 
 
 In the previous exercise you calculated the vector that contained the worldwide box office receipt for each of the three Star Wars movies. However, this vector is not yet part of `star_wars_matrix`.
@@ -423,10 +411,8 @@ test_object("star_wars_ext",
 success_msg("Nice job! After adding column to a matrix, the logical next step is adding rows. Learn how in the next exercise.");
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Adding a row
 
 Just like every action has a reaction, every [`cbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) has an [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind). We admit, we are pretty bad with metaphors.
@@ -502,10 +488,8 @@ test_object("all_wars_matrix",
 success_msg("Wonderful! Continue with the next exercise and see how you can combine the results of the <code>rbind()</code> function with the <code>colSums()</code> function!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## The total box office revenue for the entire saga
 
 Just like every [`cbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) has a [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind), every [`colSums()`](http://www.rdocumentation.org/packages/base/functions/colSums) has a [`rowSums()`](http://www.rdocumentation.org/packages/base/functions/colSums). Your R workspace already contains the `all_wars_matrix` that you constructed in the previous exercise. Let us now calculate the total box office revenue for the entire saga.
@@ -568,10 +552,8 @@ test_object("total_revenue_vector",
 success_msg("Wonderful!")
 ```
 
-*** =skills
-1
 
---- type:VideoExercise xp:50
+--- type:VideoExercise xp:50 skills:1
 ## Subsetting Matrices
 
 *** =video_link
@@ -589,10 +571,8 @@ https://player.vimeo.com/external/138173935.hd.mp4?s=cf3719be84388d2bf6965e010c8
 https://player.vimeo.com/external/138173935.m3u8?p=high,standard,mobile&s=0eba10e37f782888aa15ca500e94a25f
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Select elements
 
 In the previous video, Filip explained how subsetting, using square brackets, extended from vectors to matrices. In general, the following line selects an element that's on row `i` and column `j` from a matrix `m`:
@@ -656,10 +636,8 @@ test_output_contains("star_wars_matrix[1,2]", incorrect_msg = sprintf(msg, "seco
 success_msg("Great! That wasn't too hard was it? Head over to the next exercise.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Select rows and columns
 
 In the previous exercise, you covered the selection of a single element from a matrix. The result was a vector of length 1. However, as the matrix is two-dimensional, you can also extract one-dimensional parts from it. More specifically, to select all elements on row `i` of a matrix `m`, you use:
@@ -748,10 +726,8 @@ test_object("non_us_some",
 success_msg("Great! Continue to the next exercise.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Create submatrices
 
 Last but not least, there's the selection of entire matrices from bigger matrices. As soon as a vector is not sufficient to store the information you're selecting, you're ending up with a new matrix. If you want to a submatrix that comprises rows 1 and 4 and columns 2 and 3 of a matrix `m`, to following call will help you out:
@@ -803,10 +779,8 @@ test_output_contains("star_wars_matrix[c(1,3), c(1,2)]", incorrect_msg = "Hmm, t
 success_msg("Nice one! You could have used both <code>star_wars_matrix[c(1,3), c(1,2)]</code> and <code>star_wars_matrix[c(1,3), ]</code> to solve this exercise. Not defining any index for a dimension, is actually keeping all the indices for that dimension.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Alternative ways of subsetting
 
 Just as with vectors, you can also subset matrices using names and logical vectors. Of course, you can only subset by name if the matrix you're working with actually has names associated with it. Logical vectors on the other hand, can always be used to select the element(s) of interest.
@@ -872,10 +846,8 @@ test_output_contains("star_wars_matrix[2, \"non-US\"]", incorrect_msg = sprintf(
 success_msg("Awesome! Remember that you can combine subsetting by indices, by names and using logical vectors: you can for example select the rows using indices, but the columns using a vector of <code>TRUE</code>s and <code>FALSE</code>s. You name it, R can handle it!")
 ```
 
-*** =skills
-1
 
---- type:MultipleChoiceExercise xp:50
+--- type:MultipleChoiceExercise xp:50 skills:1
 ## Be selective
 
 The workspace already contains the matrix `all_wars_matrix`, containing the box office figures for the six Star Wars movies. It also contains the total revenue for each movie, regardless of the geographical region. 
@@ -938,10 +910,8 @@ ok_msg <- "Great! Notice form code chunk C that it is not possible to combine na
 test_mc(3, feedback_msgs = c(nok_msg, nok_msg, ok_msg, nok_msg, nok_msg))
 ```
 
-*** =skills
-1
 
---- type:VideoExercise xp:50
+--- type:VideoExercise xp:50 skills:1
 ## Matrix Arithmetic
 
 *** =video_link
@@ -959,10 +929,8 @@ https://player.vimeo.com/external/141163423.hd.mp4?s=3f9ae748e4e3963e56ffb00e378
 https://player.vimeo.com/external/141163423.m3u8?p=high,standard,mobile&s=0974086d522c182240fe598daa26b529
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Arithmetic with matrices
 
 Similar to what you have learned with vectors, the standard operators like `+`, `-`, `/`, `*`, etc. work in an element-wise way on matrices in R. 
@@ -1028,10 +996,8 @@ test_output_contains("visitors",
 success_msg("Great! What do these results tell you? A staggering 92 million people went to see A New Hope in theaters! Continue to the next exercise.");
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Arithmetic with matrices (2)
 
 Just like `2 * my_matrix` multiplies every element of `my_matrix` by 2, `my_matrix1 * my_matrix2` creates a matrix where each element is the product of the corresponding elements in `my_matrix1` and `my_matrix2`. 
@@ -1113,5 +1079,3 @@ test_object("average_non_us_visitors",
 success_msg("It's a fact: the R force is with you! You are now ready for the final exercise on matrices!")
 ```
 
-*** =skills
-1

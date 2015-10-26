@@ -5,7 +5,7 @@ description : "In this chapter, you will take your first steps with R. You will 
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch1_slides.pdf
   
---- type:VideoExercise xp:50
+--- type:VideoExercise xp:50 skills:1
 ## R: The true basics
 
 *** =video_link
@@ -23,10 +23,8 @@ https://player.vimeo.com/external/138173881.hd.mp4?s=6bece9c02e68b56b4d65dfe3f79
 https://player.vimeo.com/external/138173881.m3u8?p=high,standard,mobile&s=28352a9a7913887de2bf234788e4cecc
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## How it works
 
 In the editor on the right you should type R code to solve the exercises. When you hit the 'Submit Answer' button, every line of code in the script is interpreted and executed by R and you get a message that indicates whether or not your code was correct. The output of your submission is shown in the console in the lower right corner.
@@ -65,10 +63,8 @@ test_output_contains("18", incorrect_msg = "Make sure to add a line of R code, t
 success_msg("Awesome! See how the console shows the result of the R code you submitted? Now that you're familiar with the interface, let's get down to R business!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Documenting your code
 
 Adding comments to your code is extremely important to make sure that you and others can understand what your code is about. R makes use of the `#` sign to add comments, just like Twitter!
@@ -116,10 +112,7 @@ test_student_typed(c("# Calculate 6 + 12", "# calculate 6 + 12", "#Calculate 6 +
 success_msg("Great! Looks better, doesn't it? Proceed to the next exercise.")
 ```
 
-*** =skills
-1
-
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Little arithmetics with R
 
 In its most basic form R can be used as a simple calculator. Consider the following arithmetic operators:
@@ -203,10 +196,8 @@ test_output_contains("28 %% 6", incorrect_msg = "There seems to be an issue with
 success_msg("Great! Head over to the next exercise.")
 ```
 
-*** =skills
-1
 
---- type:MultipleChoiceExercise xp:50
+--- type:MultipleChoiceExercise xp:50 skills:1
 ## R's pros and cons
 
 As Filip explained in the video, there are things that make R the awesome and immensely popular language that it is today. On the other hand, there are also aspects about R that are less attractive. Which of the following statements are true regarding this statistical programming language developed by Ihaka and Gentleman in the nineties?
@@ -242,10 +233,8 @@ msg5 = "It's fairly straightforward to write, maintain and share R packages. Try
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4, msg5))
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Variable assignment 
 
 A basic concept in R programming is the **variable**. It allows you to store a value or an object in R. You can then later use this variable's name to easily access the value or the object that is stored within this variable. You use `<-` to assign a variable:
@@ -292,10 +281,8 @@ test_object("x",
 success_msg("Good job! Notice that R does not print the value of a variable to the console when you do the assignment. <code>x <- 42</code> did not generate any output, because R assumes that you will be needing this variable in the future. Otherwise you wouldn't have stored the value in a variable in the first place, right? Proceed to the next exercise!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Variable assignment (2)
 
 Suppose you have a fruit basket with five apples. As a data analyst in training, you want to store the number of apples in a variable with the name `my_apples`. 
@@ -341,10 +328,7 @@ test_output_contains("my_apples",
 success_msg("Great! Continue to the next exercise! You could also use <code>=</code> for variable assignment, but <code><-</code> is typically prefered.")
 ```
 
-*** =skills
-1
-
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Variable assignment (3)
 
 Every tasty fruit basket needs oranges, so you decide to add six oranges. As a data analyst, your reflex is to immediately create the variable `my_oranges` and assign the value 6 to it. Next, you want to calculate how many pieces of fruit you have in total. Since you have given meaningful names to these values, you can now code this in a clear way:
@@ -408,10 +392,6 @@ test_object("my_fruit",
             incorrect_msg = "Make sure that you assign the correct value to <code>my_fruit</code>.")
 success_msg("Nice one! The great advantage of doing calculations with variables is reusability. If you just change <code>my_apples</code> to equal 12 instead of 5 and rerun the script, <code>my_fruit</code> will automatically update as well. Continue to the next exercise.")
 ```
-
-
-*** =skills
-1
 
 
 --- type:NormalExercise xp:100 skills:1
@@ -518,7 +498,7 @@ test_output_contains('c("animals", "horses")',
 success_msg("Awesome! You can now build, inspect and manage your workspace, great!")
 ```
 
---- type:VideoExercise xp:50
+--- type:VideoExercise xp:50 skills:1
 ## Basic Data Types
 
 *** =video_link
@@ -536,10 +516,7 @@ https://player.vimeo.com/external/138173888.hd.mp4?s=82fc1b03307e9160d8f00d63362
 https://player.vimeo.com/external/138173888.m3u8?p=high,standard,mobile&s=2fa96fc053640c9181af7546b03f6451
 ```
 
-*** =skills
-1
-
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Discover Basic Data Types
 
 Some of R's most basic types to get started are:
@@ -610,10 +587,7 @@ test_object("my_logical",
 success_msg("Great work! Continue to the next exercise.")
 ```
 
-*** =skills
-1
-
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Back to Apples and Oranges
 
 Common knowledge tells you not to add apples and oranges. But hey, that is what you just did, no :-)? The `my_apples` and `my_oranges` variables both contained a number in the previous exercise. The `+` operator works with numeric variables in R. If you really tried to add `"apples"` and `"oranges"`, and assigned a text value to the variable `my_oranges` (see the editor), you would be trying to assign the addition of a numeric and a character variable to the variable `my_fruit`. This is not possible.
@@ -678,9 +652,6 @@ test_object("my_fruit",
 success_msg("Awesome, keep up the good work! Continue to the next exercise.")
 ```
 
-*** =skills
-1
-
 --- type:MultipleChoiceExercise xp:50
 ## What's that data type?
 
@@ -717,10 +688,7 @@ msg4 <- "Nice one. Let's step it up a notch and start coercing variables!"
 test_mc(correct = 4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 ```
 
-*** =skills
-1
-
---- type:NormalExercise xp:100
+--- type:NormalExercise xp:100 skills:1
 ## Coercion: Taming your data
 
 As Filip explained in the video, coercion to transform your data from one type to the other is possible. Next to the [`class()`](http://www.rdocumentation.org/packages/base/functions/class) function and the `is.*()` functions, you can use the `as.*()` functions to enforce data to change types. For example, 
@@ -822,6 +790,3 @@ test_function("as.numeric", "x",
 test_object("var3_num")
 success_msg("Bellissimo! The final coercion you tried did not succeed, hence the warning.")
 ```
-
-*** =skills
-1
