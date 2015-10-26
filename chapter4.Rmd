@@ -74,7 +74,7 @@ test_object("hand_factor",
 test_function("str", "object",
               not_called_msg = "Make sure to use the `str()` to show the structure of `hand_factor`",
               incorrect_msg = "Have you correctly passed `hand_factor` to `str()`?")
-success_msg("Great! If you want to find out more about the `factor()` function, do not hesitate to type `?factor` in the console. This will open up a help page. Continue to the next exercise.");
+success_msg("Great! If you want to find out more about the `factor()` function, do not hesitate to type `?factor` in the console.");
 ```
 
 
@@ -131,6 +131,7 @@ survey_vector <- c("R", "L", "L", "R", "R")
 
 # Encode survey_vector as a factor with the correct names: survey_factor
 survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
+survey_factor_2 <- factor(survey_vector, levels = c("L", "R"), labels = c("Left", "Right")) # also possible
 
 # Print survey_factor
 survey_factor
@@ -138,12 +139,12 @@ survey_factor
 
 *** =sct
 ```{r eval=FALSE}
-
-msg = "Do not change the definition of `survey_vector`!"
+msg <- "Do not change the definition of `survey_vector`!"
 test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
-test_student_typed(c("survey_factor <- factor(survey_vector, levels = c('R', 'L'), labels = c('Right', 'Left'))
-", "survey_factor <- factor(survey_vector, levels = c('L', 'R'), labels = c('Left', 'Right'))
-"), not_typed_msg = "Have you correctly converted `survey_vector` to a factor? Make sure to correctly specify the new factor levels (R is case sensitive!).")
+msg <- "Have you correctly converted `survey_vector` to a factor? Make sure to correctly specify the new factor levels (R is case sensitive!)."
+test_object("survey_factor", eval = FALSE)
+test_or(test_object("survey_factor", eq_condition = "equal", undefined_msg = msg),
+        test_an_object("survey_factor_2", eq_condition = "equal", undefined_msg =  msg))
 test_output_contains("survey_factor", incorrect_msg = "Don't forget to print `survey_factor`!")
 success_msg("Wonderful! Proceed to the next exercise.")
 ```
@@ -199,7 +200,6 @@ summary(survey_factor)
 
 *** =sct
 ```{r eval=FALSE}
-
 msg = "Do not change anything about the first four lines that define `survey_vector` and `survey_factor`."
 test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("survey_factor", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
@@ -294,8 +294,6 @@ success_msg("Awesome! You correctly figured out that `animal_factor` shouldn't b
 --- type:NormalExercise xp:100 skills:1
 ## Left better than right?
 
-_"All animals are equal, but some animals are more equal than others." -- George Orwell_
-
 In `survey_factor` you have a two-level factor, containing "Left" and "Right". But how does R value these relatively to each other? In other words, who does R think is better, left or right?
 
 *** =instructions
@@ -345,7 +343,6 @@ right > left
 
 *** =sct
 ```{r eval=FALSE}
-
 msg = "Do not change anything about the first lines that define `survey_vector` and `survey_factor`."
 test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("survey_factor", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
