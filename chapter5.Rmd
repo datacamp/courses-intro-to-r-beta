@@ -77,12 +77,11 @@ my_list <- list(my_vector, my_matrix, my_factor)
 *** =sct
 ```{r eval=FALSE}
 test_error()
-msg = "Do not remove or change the definition of the variables <code>my_vector</code>, <code>my_matrix</code> or <code>my_factor</code>!"
+msg = "Do not remove or change the definition of the variables `my_vector`, `my_matrix` or `my_factor`!"
 test_object("my_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("my_matrix", undefined_msg = msg, incorrect_msg = msg)
 test_object("my_factor", undefined_msg = msg, incorrect_msg = msg)
-test_object("my_list",
-            incorrect_msg = "It looks like <code>my_list</code> does not contain the correct elements. Have another look.")
+test_object("my_list", incorrect_msg = "It looks like `my_list` does not contain the correct elements. Have another look.")
 success_msg("Wonderful! Your skillset is growing at a staggering pace! Head over to the next exercise.")
 ```
 
@@ -149,14 +148,14 @@ str(my_super_list)
 *** =sct
 ```{r eval=FALSE}
 test_error()
-msg = "Do not remove or change the definition of the variables <code>my_vector</code>, <code>my_matrix</code>, <code>my_factor</code> or <code>my_list</code>!"
+msg = "Do not remove or change the definition of the variables `my_vector`, `my_matrix`, `my_factor` or `my_list`!"
 test_object("my_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("my_matrix", undefined_msg = msg, incorrect_msg = msg)
 test_object("my_factor", undefined_msg = msg, incorrect_msg = msg)
 test_object("my_list", undefined_msg = msg, incorrect_msg = msg)
 test_object("my_super_list",
-            incorrect_msg = "It looks like <code>my_super_list</code> does not contain the correct elements. It's also possible that the order is not correct. Have another look.")
-test_output_contains("str(my_super_list)", incorrect_msg = "Don't forget to display the structure of <code>my_super_list</code> using the <code>str()</code> function.")
+            incorrect_msg = "It looks like `my_super_list` does not contain the correct elements. It's also possible that the order is not correct. Have another look.")
+test_output_contains("str(my_super_list)", incorrect_msg = "Don't forget to display the structure of `my_super_list` using the `str()` function.")
 success_msg("Nice one! Can you see from the displayed structure how the vector, matrix and ordered factor appear twice: once in the top-level list and once in the embedded list. Next!")
 ```
 
@@ -205,7 +204,7 @@ my_matrix <- matrix(1:9, ncol = 3)
 # Factor of sizes
 my_factor <- factor(c("M","S","L","L","M"), ordered = TRUE, levels = c("S","M","L"))
 
-# Construct my_list with these different elements
+# Adapt code to add names to elements in my_list
 my_list <- list(my_vector, my_matrix, my_factor)
 
 # Print my_list to the console
@@ -223,7 +222,7 @@ my_matrix <- matrix(1:9, ncol = 3)
 # Factor of sizes
 my_factor <- factor(c("M","S","L","L","M"), ordered = TRUE, levels = c("S","M","L"))
 
-# Construct my_list with these different elements
+# Adapt code to add names to elements in my_list
 my_list <- list(vec = my_vector, mat = my_matrix, fac = my_factor)
 
 # Print my_list to the console
@@ -233,15 +232,15 @@ my_list
 *** =sct
 ```{r eval=FALSE}
 test_error()
-msg = "Do not remove or change the definition of the variables <code>my_vector</code>, <code>my_matrix</code> or <code>my_factor</code>!"
+msg = "Do not remove or change the definition of the variables `my_vector`, `my_matrix` or `my_factor`!"
 test_object("my_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("my_matrix", undefined_msg = msg, incorrect_msg = msg)
 test_object("my_factor", undefined_msg = msg, incorrect_msg = msg)
 test_object("my_list",
-            incorrect_msg = "It looks like <code>my_list</code> does not contain the correct elements.")
+            incorrect_msg = "It looks like `my_list` does not contain the correct elements.")
 test_object("my_list", eq_condition = "equal",
-            incorrect_msg = "It looks like <code>my_list</code> does not contain the correct naming for the components.");
-test_output_contains("my_list", incorrect_msg = "Don't forget to print <code>my_list</code> to the console! Simply add <code>my_list</code> on a new line in the editor.")
+            incorrect_msg = "It looks like `my_list` does not contain the correct naming for the components.");
+test_output_contains("my_list", incorrect_msg = "Don't forget to print `my_list` to the console! Simply add `my_list` on a new line in the editor.")
 success_msg("Great! Not only do you know how to construct lists now, you can also name them; a skill that will prove most useful in practice. Continue to the next exercise.")
 ```
 
@@ -297,10 +296,9 @@ msg = "Do not remove or change the definition of the pre-set variables!"
 test_object("actors_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("reviews_factor", undefined_msg = msg, incorrect_msg = msg)
 test_object("shining_list",
-            incorrect_msg = "It looks like <code>shining_list</code> does not contain the correct elements.")
+            incorrect_msg = "It looks like `shining_list` does not contain the correct elements.")
 test_object("shining_list", eq_condition = "equal",
-            incorrect_msg = "It looks like <code>shining_list</code> does not contain the correct naming for the components.")
-
+            incorrect_msg = "It looks like `shining_list` does not contain the correct naming for the components.")
 success_msg("Perfect!")
 ```
 
@@ -354,12 +352,7 @@ For the first instruction you need double brackets (or the `$`), for the second 
 
 *** =pre_exercise_code
 ```{r, eval=FALSE}
-# Create shining_list
-actors_vector <- c("Jack Nicholson","Shelley Duvall","Danny Lloyd","Scatman Crothers","Barry Nelson")
-reviews_factor <- factor(c("Good", "OK", "Good", "Perfect", "Bad", "Perfect", "Good"), 
-                  ordered = TRUE, levels = c("Bad", "OK", "Good", "Perfect"))
-shining_list <- list(title = "The Shining", actors = actors_vector, reviews = reviews_factor)
-rm(actors_vector, reviews_factor)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/chapter5.RData"))
 ```
 
 *** =sample_code
@@ -393,14 +386,14 @@ str(sublist)
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg = "Do not remove or override <code>shining_list</code>."
+msg = "Do not remove or override `shining_list`."
 test_object("shining_list", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 
-test_object("act", incorrect_msg = "Have you correctly selected the actors from <code>shining_list</code>?")
-test_object("sublist", incorrect_msg = "Have you correctly selected the title and reviews from <code>shining_list</code>? Use single brackets in combination with a vector to select multiple elements.")
-test_output_contains("str(sublist)", incorrect_msg = "Don't forget to display the structure of <code>sublist</code>!")
+test_object("act", incorrect_msg = "Have you correctly selected the actors from `shining_list`?")
+test_object("sublist", incorrect_msg = "Have you correctly selected the title and reviews from `shining_list`? Use single brackets in combination with a vector to select multiple elements.")
+test_output_contains("str(sublist)", incorrect_msg = "Don't forget to display the structure of `sublist`!")
 
-success_msg("Nice! That was still pretty easy, right? Always be aware of this difference between <code>[</code> and <code>[[</code>!")
+success_msg("Nice! That was still pretty easy, right? Always be aware of this difference between `[` and `[[`!")
 ```
 
 
@@ -427,12 +420,7 @@ you select from the second component, actors (`shining_list[[2]]`), the first el
 
 *** =pre_exercise_code
 ```{r eval=FALSE}
-# Create shining_list
-actors_vector <- c("Jack Nicholson","Shelley Duvall","Danny Lloyd","Scatman Crothers","Barry Nelson")
-reviews_factor <- factor(c("Good", "OK", "Good", "Perfect", "Bad", "Perfect", "Good"), 
-                  ordered = TRUE, levels = c("Bad", "OK", "Good", "Perfect"))
-shining_list <- list(title = "The Shining", actors = actors_vector, reviews = reviews_factor)
-rm(actors_vector, reviews_factor)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/chapter5.RData"))
 ```
 
 *** =sample_code
@@ -460,62 +448,18 @@ second_review <- shining_list$reviews[2]
 *** =sct
 ```{r eval=FALSE}
 test_error()
-msg = "Do not remove or override <code>shining_list</code>."
+msg = "Do not remove or override `shining_list`."
 test_object("shining_list", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 
 test_object("last_actor", 
-            incorrect_msg = "Looks like <code>last_actor</code> does not equal the last actor.")
+            incorrect_msg = "Looks like `last_actor` does not equal the last actor.")
 test_object("second_review",
-            incorrect_msg = "It looks like <code>second_review</code> does not contain the factor that corresponds to the second review.")
+            incorrect_msg = "It looks like `second_review` does not contain the factor that corresponds to the second review.")
 success_msg("Great! Selecting elements from lists is rather easy isn't it? Continue to the next exercise.")
 ```
 
-
---- type:MultipleChoiceExercise xp:50 skills:1
-## Vector Subsetting vs. List Subsetting
-
-All these single and double square brackets to perform subsetting on vectors, matrices, factors and now also lists might lead to some confusion. As a summarizing exercise on vector subsetting, consider the following 4 commands.
-
-`shining_list` has been extended with even more information (source: imagination); the list is available in the workspace. Which of the following statements are correct?
-
- A) `shining_list$box[1,2]` gives the non-US box office of the first release.  
- B) `shining_list[[c(2,4)]]` creates a list containing the actors vector and the box office matrix.  
- C) `shining_list[[c(2,4)]]` returns "Scatman Crothers".  
- D) `shining_list$reviews[1] > shining_list[[3]][3]` is invalid syntax.
-
-*** =instructions
-- A and B are correct
-- A and C are correct
-- A and D are correct
-- C and D are correct
-- B and D are correct
-
-*** =hint
-The dollar sign notation does not need the full name of the element you want to select. `box` is sufficient to refer to the `boxoffice` element of `shining_list`.
-
-*** =pre_exercise_code
-```{r, eval=FALSE}
-actors_vector <- c("Jack Nicholson","Shelley Duvall","Danny Lloyd","Scatman Crothers","Barry Nelson")
-reviews_factor <- factor(c("Good", "OK", "Good", "Perfect", "Bad", "Perfect", "Good"), 
-                  ordered = TRUE, levels = c("Bad", "OK", "Good", "Perfect"))
-revenue <- matrix(c(39, 47, 18, 14), nrow = 2, byrow = TRUE, dimnames = list(c("First release", "Director's cut"), c("US", "Non-US")))
-shining_list <- list(title = "The Shining", actors = actors_vector, reviews = reviews_factor, boxoffice = revenue)
-rm(actors_vector, reviews_factor, revenue)
-```
-
-*** =sct
-```{r, eval=FALSE}
-msg1 <- "Wrong. Statement B is false, as you'd need single brackets to subset a list to end up with a new list. Also, remember that <code>shining_list[[c(2,4)]]</code> is equivalent to <code>shining_list[[2]][[4]]</code>."
-msg2 <- "Correct! Next to subsetting lists, you'll also often want to extend lists. Get some hands-on experience in the following exercises."
-msg3 <- "Incorrect. The code in statement D is perfectly valid, as you are selecting two ordered factors."
-msg4 <- msg3
-msg5 <- "Incorrect. Both B and D are false."
-test_mc(2, feedback_msgs = c(msg1, msg2, msg3, msg4, msg5))
-```
-
-
 --- type:NormalExercise xp:100 skills:1
-## Extending a list (1)
+## Extending a list
 
 You already know that the `$` as well as `[[` can be used to select elements from lists. They can also be used to extend lists. To extend `shining_list` with some personal opinion, you could do one of the following things:
 
@@ -536,7 +480,7 @@ Being proud of your first list, you shared it with the members of your movie hob
 
 *** =instructions
 - Add the release year to `shining_list` under the name "year".
-- Add the director to the list with the name "director".
+- Add the director to the list, `"Stanley Kubrick"`, with the name "director".
 - Finally, inspect the structure of `shining_list`.
 
 *** =hint
@@ -544,12 +488,7 @@ Let the examples in the assignment guide you to list extension mastery! Remember
 
 *** =pre_exercise_code
 ```{r, eval = FALSE}
-# Create shining_list
-actors_vector <- c("Jack Nicholson","Shelley Duvall","Danny Lloyd","Scatman Crothers","Barry Nelson")
-reviews_factor <- factor(c("Good", "OK", "Good", "Perfect", "Bad", "Perfect", "Good"), 
-                  ordered = TRUE, levels = c("Bad", "OK", "Good", "Perfect"))
-shining_list <- list(title = "The Shining", actors = actors_vector, reviews = reviews_factor)
-rm(actors_vector, reviews_factor)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/chapter5.RData"))
 ```
 
 *** =sample_code
@@ -586,103 +525,11 @@ str(shining_list)
 ```{r eval=FALSE}
 test_error()
 test_object("shining_list", 
-            incorrect_msg = paste("Have you correctly added both the year and the director to <code>shining_list</code>?",
+            incorrect_msg = paste("Have you correctly added both the year and the director to `shining_list`?",
                                   "Make sure to use the correct names (\"year\" and \"director\"). Remember that R is case sensitive!"))
 
 test_output_contains("str(shining_list)", 
-                     incorrect_msg = "Do not forget to inspect the structure of <code>shining_list</code> using the <code>str()</code> function.")
+                     incorrect_msg = "Do not forget to inspect the structure of `shining_list` using the `str()` function.")
 
-success_msg("Awesome! Adding information one after the other can be pretty tedious; head over to the next exercise to learn about a more efficient way of adding more information to your list in a one-liner!")
-```
-
-
---- type:NormalExercise xp:100 skills:1
-## Extending a list (2)
-
-To extend a list with multiple elements at the same time, you can again use the combine function. To add both my opinion and your opinion on the movie:
-
-```
-c(shining_list, 
-  my_opinion = "Love it!", 
-  your_opinion = "Hate it!")
-```
-
-This works fine, but what if you want to add an entire vector as an element to the list:
-
-```
-c(shining_list,
-  opinions = c("Love it!", "Hate it!"))
-```
-
-You'll see that a different list element per vector element was created. To fix this, you better surround the elements you want to add to the list in another `list()` function. That way, the combine function will simply paste together two lists (try it out in the console!):
-
-```
-c(shining_list, 
-  list(my_opinion = "Love it!",
-       your_opinion = "Hate it!"))
-                     
-c(shining_list, 
-  list(c("Love it!", "Hate it"!)))
-```
-
-*** =instructions
-- Add both the year (1980) and director (Stanley Kubrick) to `shining_list` again. Try to do it in a one-liner this time, and save the result in a new variable, `shining_list_ext`.
-- Again, have a look at the structure of `shining_list_ext`.
-
-*** =hint
-Have a look at the example code in the exercise assignment. Maybe this can help you start:
-```
-shining_list <- c(shining_list, ...)
-```
-You still have to add some code where the three dots are.
-
-*** =pre_exercise_code
-```{r, eval = FALSE}
-# Create shining_list
-actors_vector <- c("Jack Nicholson","Shelley Duvall","Danny Lloyd","Scatman Crothers","Barry Nelson")
-reviews_factor <- factor(c("Good", "OK", "Good", "Perfect", "Bad", "Perfect", "Good"), 
-                  ordered = TRUE, levels = c("Bad", "OK", "Good", "Perfect"))
-shining_list <- list(title = "The Shining", actors = actors_vector, reviews = reviews_factor)
-rm(actors_vector, reviews_factor)
-```
-
-*** =sample_code
-
-```{r eval=FALSE}
-# shining_list is already defined in the workspace
-
-# Add both the year and director to shining_list: shining_list_ext
-
-
-# Have a look at the structure of shining_list_ext
-
-```
-
-*** =solution
-
-```{r eval=FALSE}
-# shining_list is already defined in the workspace
-
-# Add both the year and director to shining_list: shining_list_ext
-shining_list_ext <- c(shining_list, year = 1980, director = "Stanley Kubrick")
-shining_list_ext <- c(shining_list, list(year = 1980, director = "Stanley Kubrick"))  # also works
-
-# Have a look at the structure of shining_list_ext
-str(shining_list_ext)
-```
-
-*** =sct
-```{r eval=FALSE}
-test_error()
-msg = "Do not remove or override <code>shining_list</code>."
-test_object("shining_list", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
-
-test_object("shining_list_ext",
-            incorrect_msg = "It looks like <code>shining_list_ext</code> does not contain all the correct elements. It should contain both the year (1980) as well as the director (Stanley Kubrick)! Make sure to adopt the same order.")
-test_object("shining_list_ext", eq_condition = "equal",
-            incorrect_msg = "It looks like <code>shining_list_ext</code> does not contain the correct naming for all the components.");
-
-test_output_contains("str(shining_list_ext)", incorrect_msg = "Make sure to inspect the structure of <code>shining_list_ext</code>.")
-
-success_msg("Great!")
+success_msg("Congratulations on finishing up on this chapter!")
 ```

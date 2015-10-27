@@ -82,18 +82,18 @@ plot(movies$genre, movies$rating)
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
-test_output_contains("str(movies)", incorrect_msg = "Start with displaying the structure of the <code>movies</code> data frame.")
+test_output_contains("str(movies)", incorrect_msg = "Start with displaying the structure of the `movies` data frame.")
 
 test_function("plot", "x", index = 1, 
-              not_called_msg = "Make sure to use the <code>plot()</code> function with a single argument for the first instruction!",
-              incorrect_msg = "Have you passed the correct data to the first <code>plot()</code> function? You can use the dollar sign notation to select the <code>genre</code> column.")
+              not_called_msg = "Make sure to use the `plot()` function with a single argument for the first instruction!",
+              incorrect_msg = "Have you passed the correct data to the first `plot()` function? You can use the dollar sign notation to select the `genre` column.")
 
 test_function("plot", args = c("x","y"), index = 2,
-              not_called_msg = "Make sure to use the <code>plot()</code> function with two argument for the second instruction!",
-              incorrect_msg = "Have you passed the correct data to the second <code>plot()</code> function? First comes the <code>genre</code>, next the <code>rating</code>.")
+              not_called_msg = "Make sure to use the `plot()` function with two argument for the second instruction!",
+              incorrect_msg = "Have you passed the correct data to the second `plot()` function? First comes the `genre`, next the `rating`.")
 success_msg("Great! Use the _Next Plot_ and _Previous Plot_ buttons in the graphical window to inspect the different plots you've created. In the second plot, R realized that you passed a factor for the horizontal axis and a numerical vector for the vertical axis. R created a boxplot of the numerical values, for each category separately. Pretty cool if you ask me!")
 ```
 
@@ -146,18 +146,18 @@ plot(movies$rating, movies$runtime)
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function_v2("plot", "x", index = 1, 
-              not_called_msg = "Make sure to use the <code>plot()</code> function with a single argument for the first instruction!",
-              incorrect_msg = "Have you passed the correct data to the first <code>plot()</code> function? You can use the dollar sign notation to select the <code>runtime</code> column.")
+              not_called_msg = "Make sure to use the `plot()` function with a single argument for the first instruction!",
+              incorrect_msg = "Have you passed the correct data to the first `plot()` function? You can use the dollar sign notation to select the `runtime` column.")
 
 test_function_v2("plot", args = c("x","y"), index = 2,
-              not_called_msg = "Make sure to use the <code>plot()</code> function with two argument for the second instruction!",
-              incorrect_msg = "Have you passed the correct data to the second <code>plot()</code> function? First comes <code>rating</code>, next <code>runtime</code>.")
+              not_called_msg = "Make sure to use the `plot()` function with two argument for the second instruction!",
+              incorrect_msg = "Have you passed the correct data to the second `plot()` function? First comes `rating`, next `runtime`.")
 
-success_msg("Nice! If you use <code>plot()</code> with a single argument, you'll get an index plot, while with two arguments you'll get a classical scatterplot. From the second plot, there seems to be a light correlation between the length of a movie and its rating.")
+success_msg("Nice! If you use `plot()` with a single argument, you'll get an index plot, while with two arguments you'll get a classical scatterplot. From the second plot, there seems to be a light correlation between the length of a movie and its rating.")
 ```
 
 *** =skills
@@ -214,14 +214,14 @@ hist(movies$rating, breaks = 20)
 *** =sct
 ```{r, eval = FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function_v2("hist", "x", index = 1)
 test_function_v2("hist", "x", index = 2)
 test_function_v2("hist", "breaks", index = 2)
 
-success_msg("Nice! The histograms give you quite a good idea of the <code>rating</code> variable. Compare both histograms, which one do you find most informative? Whatever your taste: choosing a suitable number of bins is important!")
+success_msg("Nice! The histograms give you quite a good idea of the `rating` variable. Compare both histograms, which one do you find most informative? Whatever your taste: choosing a suitable number of bins is important!")
 ```
 
 *** =skills
@@ -283,20 +283,20 @@ pie(table(movies$genre))
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("boxplot", "x",
-              incorrect_msg = paste("Have you correctly possed the <code>runtime</code> variable of",
-                                    "<code>movies</code> to the <code>boxplot()</code> function?"))
+              incorrect_msg = paste("Have you correctly possed the `runtime` variable of",
+                                    "`movies` to the `boxplot()` function?"))
 
 test_function("plot", "x", 
-              incorrect_msg = paste("Have you passed the correct data frame to the <code>plot()</code> function?",
+              incorrect_msg = paste("Have you passed the correct data frame to the `plot()` function?",
                                     "Make sure that it's an entire data frame, containing the three columns in the listed order!"))
 
 test_function("pie", "x", 
               incorrect_msg = paste("Have you created a table of genre counts and subsequently",
-                                    "passed it to the <code>pie()</code> function? Try again."))
+                                    "passed it to the `pie()` function? Try again."))
 
 success_msg("Perfect! Know that there are many more functions to create the plots that you need in R!")
 ```
@@ -427,7 +427,7 @@ plot(movies$votes, movies$runtime,
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("plot", "x")
@@ -502,7 +502,7 @@ plot(movies$votes, movies$runtime,
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("plot", c("x","y","main","xlab","ylab","sub"))
@@ -566,7 +566,7 @@ plot(movies$votes, movies$year,
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("plot", c("x","y"))
@@ -634,7 +634,7 @@ hist(movies$runtime,
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("hist", "x")
@@ -812,7 +812,7 @@ hist(movies$votes)
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("par")
@@ -884,7 +884,7 @@ boxplot(movies$runtime)
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_object("grid")
@@ -892,7 +892,7 @@ test_function("layout")
 test_function_v2("plot", c("x","y"), index = 1)
 test_function_v2("plot", c("x","y"), index = 2)
 test_function("boxplot", "x")
-success_msg("Great! Feel free to experiment some more with the <code>layout()</code> function. It's great way of building very insightful plots.")
+success_msg("Great! Feel free to experiment some more with the `layout()` function. It's great way of building very insightful plots.")
 ```
 
 *** =skills
@@ -958,7 +958,7 @@ boxplot(movies$runtime, main = "Boxplot of Runtime", border = "darkgray")
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_object("grid")
@@ -1039,14 +1039,14 @@ abline(coef(movies_lm))
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_data_frame("movies_lm", "coefficients", 
-                undefined_msg = "Have you defined <code>movies_lm</code>?", 
-                undefined_cols_msg = paste0("There should be a <code>coefficients</code> element in",
-                                            " the <code>movies_lm</code> model, but it wasn't found. Try again."),
-                incorrect_msg = "There's something wrong with the linear model you coded. Simply use <code>lm(movies$rating ~ movies$votes)</code>")
+                undefined_msg = "Have you defined `movies_lm`?", 
+                undefined_cols_msg = paste0("There should be a `coefficients` element in",
+                                            " the `movies_lm` model, but it wasn't found. Try again."),
+                incorrect_msg = "There's something wrong with the linear model you coded. Simply use `lm(movies$rating ~ movies$votes)`")
 test_function("plot", c("x","y"))
 test_function("coef")
 test_function("abline")
@@ -1131,9 +1131,9 @@ text(xco, yco, label = "More votes? Higher rating!")
 *** =sct
 ```{r, eval=FALSE}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
-msg1 <- "Do not change how <code>movies_lm</code> is calculated!"
+msg1 <- "Do not change how `movies_lm` is calculated!"
 test_object("movies_lm", undefined_msg = msg1, incorrect_msg = msg1)
 
 test_function("plot", c("x","y"))
@@ -1149,7 +1149,7 @@ test_function("abline", "lwd")
 test_function("abline", "col")
 test_function("abline", c("lwd","col"))
 
-msg2 <- "Don't change the variables <code>xco</code> and <code>yco</code>."
+msg2 <- "Don't change the variables `xco` and `yco`."
 test_object("xco", undefined_msg = msg2, incorrect_msg = msg2)
 test_object("yco", undefined_msg = msg2, incorrect_msg = msg2)
 

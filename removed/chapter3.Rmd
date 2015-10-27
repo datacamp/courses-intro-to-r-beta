@@ -48,8 +48,8 @@ return_jedi <- c(309.306, 165.8)
 ```{r, eval=FALSE}
 msg1 <- "Option A has mixed up row names and column names, so this one won't work. Try again."
 msg2 <- "Both option A and C have switched rows and column, so these generate an error. Give it another go."
-msg3 <- "Option B is completely invalid syntax. <code>rbind()</code> has no <code>names</code> argument!"
-msg4 <- "Great! Using <code>dimnames</code> inside <code>matrix()</code> you can construct and name <code>star_wars_matrix</code> at the same time."
+msg3 <- "Option B is completely invalid syntax. `rbind()` has no `names` argument!"
+msg4 <- "Great! Using `dimnames` inside `matrix()` you can construct and name `star_wars_matrix` at the same time."
 test_mc(4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 ```
 
@@ -111,7 +111,7 @@ rm(star_wars_matrix, star_wars_matrix2)
 
 *** =sct
 ```{r, eval=FALSE}
-nok_msg <- "Incorrect. <code>all_wars_matrix</code> is available for you to play with, so simply try out the different statements."
+nok_msg <- "Incorrect. `all_wars_matrix` is available for you to play with, so simply try out the different statements."
 ok_msg <- "Great! Notice form code chunk C that it is not possible to combine names and indices in the same vector to perform selection. Up to the next video tutorial!"
 test_mc(3, feedback_msgs = c(nok_msg, nok_msg, ok_msg, nok_msg, nok_msg))
 ```

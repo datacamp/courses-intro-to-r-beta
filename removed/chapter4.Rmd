@@ -1,0 +1,57 @@
+--- type:NormalExercise xp:100 skills:1
+## Summarizing a factor
+
+After finishing this course, one of your favourite functions in R will be [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary). This will give you a quick overview of `some_variable`: 
+
+```
+summary(some_variable)
+``` 
+
+Going back to our survey, you would like to know how many `"Right"` responses you have in your study, and how many `"Left"` responses. The [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) function gives you the answer to this question.
+
+*** =instructions
+Ask a [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) of `survey_vector` and `survey_factor`. Interpret the results of both vectors. Are they both equally useful in this case?
+
+*** =hint
+Call the [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) function on both `survey_vector` and `survey_factor`, it's as simple as that!
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# Defintion of survey_vector and survey_factor
+survey_vector <- c("R", "L", "L", "R", "R")
+survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
+
+# Summarize survey_vector
+
+
+# Summarize survey_factor
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# Defintion of survey_vector and survey_factor
+survey_vector <- c("R", "L", "L", "R", "R")
+survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
+
+# Summarize survey_vector
+summary(survey_vector)
+
+# Summarize survey_factor
+summary(survey_factor)
+```
+
+*** =sct
+```{r eval=FALSE}
+msg = "Do not change anything about the first four lines that define `survey_vector` and `survey_factor`."
+test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
+test_object("survey_factor", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
+test_output_contains("summary(survey_vector)", incorrect_msg = "Make sure to summarize `survey_vector`")
+test_output_contains("summary(survey_factor)", incorrect_msg = "Make sure to summarize `survey_factor`")
+success_msg("Nice! Have a look at the output. The fact that you identified `\"Right\"` and `\"Left\"` as factor levels in `survey_factor` enables R to show the number of elements for each category.")
+```

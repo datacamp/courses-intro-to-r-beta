@@ -8,3 +8,6 @@
 !removed/*.Rmd
 !scripts/
 !scripts/*.md
+!datasets/
+!datasets/*.R
+!datasets/*.RData
