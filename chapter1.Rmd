@@ -3,14 +3,24 @@ title_meta  : Chapter 1
 title       : Intro to basics
 description : "In this chapter, you will take your first steps with R. You will learn how to use the console as a calculator and how to assign variables. You will also get to know the basic data types in R. Let us get started!"
 attachments : 
-  slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch1_slides.pdf
+  slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch1_slides_v2.pdf
   
 --- type:VideoExercise xp:50 skills:1
 ## Meet R
 
 *** =video_link
 ```{r,eval=FALSE}
-//player.vimeo.com/video/143724629
+//player.vimeo.com/video/144351865
+```
+
+*** =video_stream
+```{r,eval=FALSE}
+https://player.vimeo.com/external/144351865.hd.mp4?s=9956831b02e36428470cd9bdce79bdbc&profile_id=119
+```
+
+*** =video_hls
+```{r,eval=FALSE}
+https://player.vimeo.com/external/144351865.m3u8?p=high,standard,mobile&s=211e71cbc69a0d43b11ab1a1b9d3c7aa
 ```
 
 --- type:NormalExercise xp:100 skills:1
@@ -58,11 +68,21 @@ success_msg("Great!")
 
 *** =video_link
 ```{r,eval=FALSE}
-//player.vimeo.com/video/143724629
+//player.vimeo.com/video/144351866
+```
+
+*** =video_stream
+```{r,eval=FALSE}
+https://player.vimeo.com/external/144351866.hd.mp4?s=692f6fcc48e294ae10ab9f0f30876ab5&profile_id=119
+```
+
+*** =video_hls
+```{r,eval=FALSE}
+https://player.vimeo.com/external/144351866.m3u8?p=high,standard,mobile&s=92850798bd07b64f778d571bd3683363
 ```
 
 --- type:NormalExercise xp:100 skills:1
-## How it works
+## Your first R script
 
 In the script on the right you should type R code to solve the exercises. When you hit the _Submit Answer_ button, every line of code in the script is interpreted and executed by R and you get a message that indicates whether or not your code was correct. The output of your submission is shown in the R console.
 
@@ -82,8 +102,6 @@ Simply add a line of R code that calculates the sum of 6 and 12, just like the e
 *** =sample_code
 ```{r eval=FALSE}
 3 + 4
-
-
 ```
 
 *** =solution
