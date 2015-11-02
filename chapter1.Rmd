@@ -6,33 +6,70 @@ attachments :
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch1_slides.pdf
   
 --- type:VideoExercise xp:50 skills:1
-## R: The true basics
+## Meet R
 
 *** =video_link
 ```{r,eval=FALSE}
-//player.vimeo.com/video/138173881
+//player.vimeo.com/video/143724629
 ```
 
-*** =video_stream
+--- type:NormalExercise xp:100 skills:1
+## Experiment in the console
+
+For this first interactive exercise, simply experiment with code in the console, on the bottom right. 
+
+Try, for example, to type in
+
+```
+3 * 4
+```
+
+and hit Enter. R should print out
+
+```
+[1] 12
+```
+
+*** =instructions
+If you're done experimenting, click _Submit Answer_.
+
+*** =hint
+Simply experiment in the console on the bottom right by typing in simple calculations.
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+```
+
+*** =sample_code
+```{r eval=FALSE}
+```
+
+*** =solution
+```{r eval=FALSE}
+```
+
+*** =sct
+```{r eval=FALSE}
+success_msg("Great!")
+```
+
+--- type:VideoExercise xp:50 skills:1
+## Variables and scripts
+
+*** =video_link
 ```{r,eval=FALSE}
-https://player.vimeo.com/external/138173881.hd.mp4?s=6bece9c02e68b56b4d65dfe3f7965ca8&profile_id=119
+//player.vimeo.com/video/143724629
 ```
-
-*** =video_hls
-```{r,eval=FALSE}
-https://player.vimeo.com/external/138173881.m3u8?p=high,standard,mobile&s=28352a9a7913887de2bf234788e4cecc
-```
-
 
 --- type:NormalExercise xp:100 skills:1
 ## How it works
 
-In the script on the right you should type R code to solve the exercises. When you hit the 'Submit Answer' button, every line of code in the script is interpreted and executed by R and you get a message that indicates whether or not your code was correct. The output of your submission is shown in the R console.
+In the script on the right you should type R code to solve the exercises. When you hit the _Submit Answer_ button, every line of code in the script is interpreted and executed by R and you get a message that indicates whether or not your code was correct. The output of your submission is shown in the R console.
 
-You can also execute R commands straight in the console. This is a good way to experiment with R code: When you type in the console, your submission will not be checked for correctness!
+You can also execute R commands straight in the console. When you type in the console, your submission will not be checked for correctness!
 
 *** =instructions
-Add another line of code to that calculates the sum of 6 and 12, and hit the 'Submit Answer' button.
+In the editor, add another line of code that calculates the sum of 6 and 12, and hit the _Submit Answer_ button.
 
 *** =hint
 Simply add a line of R code that calculates the sum of 6 and 12, just like the example in the sample code!
@@ -57,8 +94,6 @@ Simply add a line of R code that calculates the sum of 6 and 12, just like the e
 
 *** =sct
 ```{r eval=FALSE}
-
-test_output_contains("7", incorrect_msg = "Do not remove the line of R code that calculates the sum of 3 and 4. Instead, just add another line that calculates the sum of 6 and 12.")
 test_output_contains("18", incorrect_msg = "Make sure to add a line of R code, that calculates the sum of 6 and 12.")
 success_msg("Awesome! See how the console shows the result of the R code you submitted?")
 ```
@@ -102,7 +137,6 @@ Simply add the line `# Calculate 6 + 12` above the R code that calculates 6 + 12
 
 *** =sct
 ```{r}
-
 test_output_contains("7", incorrect_msg = "Do not remove the code that calculates 3 + 4.")
 test_student_typed("# Calculate 3 + 4", not_typed_msg = "Do not remove the comment for the code that calculates 3 + 4.")
 test_output_contains("18", incorrect_msg = "Do not remove the code that calculates 6 + 12.")
@@ -113,7 +147,7 @@ success_msg("Great! Looks better, doesn't it?")
 ```
 
 --- type:NormalExercise xp:100 skills:1
-## Little arithmetics with R
+## R as a calculator
 
 In its most basic form R can be used as a scientific calculator. Consider the following arithmetic operators:
 
@@ -310,7 +344,9 @@ success_msg("Nice one! The great advantage of doing calculations with variables 
 --- type:NormalExercise xp:100 skills:1
 ## The workspace
 
-If you assign a value to a variable, this variable is stored in the workspace. It's the place where all user-defined variables live. The command [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) lists the contents of this workspace. `rm(<var_name>)` allows you to remove objects from the workspace again. Try the following code in the console:
+If you assign a value to a variable, this variable is stored in the workspace. It's the place where all user-defined variables live. The command [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) lists the contents of this workspace. 
+
+`rm(<var_name>)` allows you to remove objects from the workspace again. Try the following code in the console:
 
 ```
 a <- 1
@@ -384,7 +420,6 @@ ls()
 
 *** =sct
 ```{r eval=FALSE}
-
 test_output_contains("character(0)", 
                      incorrect_msg = "Make sure to list the contents of your workspace when it is still empty! Don't remove `rm(list = ls())`, which helps you start off with a clean slate if you have been experimenting before.")
 test_object("horses")
