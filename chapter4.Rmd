@@ -81,7 +81,6 @@ success_msg("Great! If you want to find out more about the <code>factor()</code>
 
 
 
-
 --- type:NormalExercise xp:100 skills:1
 ## Factor levels
 
@@ -100,7 +99,7 @@ my_factor <- factor(my_vector,
                     labels = c("Small", "Medium", "Large"))
 ```
 
-Notice from the first option here, that you have to pass the levels in alphabetical order. To not make mistakes, you better use the second option, but that's up to you!
+In the first option, you have to pass the levels in alphabetical order. To not make mistakes, you better use the second option, but that's up to you!
 
 You performed a street questionnaire, and recorded the respondents' handedness using the letters "R" and "L". This information is stored in a vector `survey_vector`, which is already coded on the right.
 
@@ -135,6 +134,7 @@ survey_vector <- c("R", "L", "L", "R", "R")
 
 # Encode survey_vector as a factor with the correct names: survey_factor
 survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
+survey_factor_2 <- factor(survey_vector, levels = c("L", "R"), labels = c("Left", "Right")) # also possible
 
 # Print survey_factor
 survey_factor
@@ -142,20 +142,24 @@ survey_factor
 
 *** =sct
 ```{r eval=FALSE}
-test_error()
-msg = "Do not change the definition of <code>survey_vector</code>!"
+msg <- "Do not change the definition of `survey_vector`!"
 test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
-test_student_typed(c("survey_factor <- factor(survey_vector, levels = c('R', 'L'), labels = c('Right', 'Left'))
-", "survey_factor <- factor(survey_vector, levels = c('L', 'R'), labels = c('Left', 'Right'))
-"), not_typed_msg = "Have you correctly converted <code>survey_vector</code> to a factor? Make sure to correctly specify the new factor levels (R is case sensitive!).")
-test_output_contains("survey_factor", incorrect_msg = "Don't forget to print <code>survey_factor</code>!")
+msg <- "Have you correctly converted `survey_vector` to a factor? Make sure to correctly specify the new factor levels (R is case sensitive!)."
+test_object("survey_factor", eval = FALSE)
+test_or(test_object("survey_factor", eq_condition = "equal", undefined_msg = msg),
+        test_an_object("survey_factor_2", eq_condition = "equal", undefined_msg =  msg))
+test_output_contains("survey_factor", incorrect_msg = "Don't forget to print `survey_factor`!")
 success_msg("Wonderful! Proceed to the next exercise.")
 ```
 
+<<<<<<< HEAD
 
 
 
 --- type:NormalExercise xp:100 skills:1
+=======
+--- type:NormalExercise xp:100
+>>>>>>> b7b15f250cc54e18f78a36bbd432ce4e87583617
 ## Summarizing a factor
 
 After finishing this course, one of your favourite functions in R will be [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary). This will give you a quick overview of `some_variable`: 

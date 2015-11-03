@@ -728,6 +728,9 @@ roulette_past <- c(20, 45, 120, -230, 40)
 
 *** =solution
 ```{r eval=FALSE}
+passed1 <- runif(10)
+passed2 <- runif(10)
+passed3 <- runif(10)
 total_past <- sum(poker_past) + sum(roulette_past)
 diff_poker <- poker_present - poker_past
 roulette_worsened <- sum(roulette_past) > sum(roulette_present)
@@ -737,24 +740,45 @@ roulette_worsened <- sum(roulette_past) > sum(roulette_present)
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_an_object("total_past")
+  test_or(
+    test_an_object("total_past"),
+    {
+      test_object("roulette_past")
+      test_object("poker_past")
+      test_output_contains("sum(poker_past) + sum(roulette_past)")
+    }
+  )
+  assign("passed1", get("passed1", get_solution_env()), .GlobalEnv)
 })
 test_instruction(2, {
   test_error()
-  test_an_object("total_past")
-  test_an_object("diff_poker")
+  test_or(
+    test_an_object("diff_poker"),
+    {
+      test_object("poker_present")
+      test_object("poker_past")
+      test_output_contains("poker_present - poker_past")
+    }
+  )
+  assign("passed2", get("passed2", get_solution_env()), .GlobalEnv)
 })
 test_instruction(3, {
   test_error()
-  test_an_object("total_past")
-  test_an_object("diff_poker")
-  test_an_object("roulette_worsened")
+  test_or(
+    test_an_object("roulette_worsened"),
+    {
+      test_an_object("roulette_past")
+      test_an_object("roulette_present")
+      test_output_contains("sum(roulette_past) > sum(roulette_present)")
+    }
+  )
+  assign("passed3", get("passed3", get_solution_env()), .GlobalEnv)
 })
 test_instruction(4, {
   test_error()
-  test_an_object("total_past")
-  test_an_object("diff_poker")
-  test_an_object("roulette_worsened")
+  test_object("passed1")
+  test_object("passed2")
+  test_object("passed3")
 })
 success_msg("Awesome! It seems that indeed, your roulette skills have worsened if you compare to your previous week in Vegas.")
 ```
