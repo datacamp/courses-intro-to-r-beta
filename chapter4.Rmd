@@ -152,14 +152,9 @@ test_output_contains("survey_factor", incorrect_msg = "Don't forget to print `su
 success_msg("Wonderful! Proceed to the next exercise.")
 ```
 
-<<<<<<< HEAD
-
 
 
 --- type:NormalExercise xp:100 skills:1
-=======
---- type:NormalExercise xp:100
->>>>>>> b7b15f250cc54e18f78a36bbd432ce4e87583617
 ## Summarizing a factor
 
 After finishing this course, one of your favourite functions in R will be [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary). This will give you a quick overview of `some_variable`: 
