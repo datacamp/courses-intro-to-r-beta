@@ -1,4 +1,4 @@
---- type:MultipleChoiceExercise xp:50 skills:1
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1
 ## Valid syntax or not?
 
 As Filip mentioned in the video, there are different ways to name a matrix. Which one of the following code chunks actually lead to the correct matrix with the correct naming as in the previous exercise? `new_hope`, `empire_strikes` and `return_jedi` are available in the workspace so you can experiment with it.
@@ -37,7 +37,7 @@ star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi),
 When in doubt, you can always try out the different statements in the console on the right and see which ones work.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 # Star Wars box office in millions (!)
 new_hope <- c(460.998, 314.4)
 empire_strikes <- c(290.475, 247.900)
@@ -45,7 +45,7 @@ return_jedi <- c(309.306, 165.8)
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 msg1 <- "Option A has mixed up row names and column names, so this one won't work. Try again."
 msg2 <- "Both option A and C have switched rows and column, so these generate an error. Give it another go."
 msg3 <- "Option B is completely invalid syntax. `rbind()` has no `names` argument!"
@@ -53,7 +53,7 @@ msg4 <- "Great! Using `dimnames` inside `matrix()` you can construct and name `s
 test_mc(4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 ```
 
---- type:MultipleChoiceExercise xp:50 skills:1
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1
 ## Be selective
 
 The workspace already contains the matrix `all_wars_matrix`, containing the box office figures for the six Star Wars movies. It also contains the total revenue for each movie, regardless of the geographical region. 
@@ -87,7 +87,7 @@ Which one of these calls selects the total revenue for the second, fourth and si
 Just try out the different calls and see which ones give you the selection that is asked for! `all_wars_matrix` is already available in the workspace.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 # Star Wars box office in millions (!)
 new_hope <- c(460.998, 314.4)
 empire_strikes <- c(290.475, 247.900)
@@ -110,7 +110,7 @@ rm(star_wars_matrix, star_wars_matrix2)
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 nok_msg <- "Incorrect. `all_wars_matrix` is available for you to play with, so simply try out the different statements."
 ok_msg <- "Great! Notice form code chunk C that it is not possible to combine names and indices in the same vector to perform selection. Up to the next video tutorial!"
 test_mc(3, feedback_msgs = c(nok_msg, nok_msg, ok_msg, nok_msg, nok_msg))

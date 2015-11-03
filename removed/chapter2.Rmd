@@ -1,4 +1,4 @@
---- type:MultipleChoiceExercise xp:100
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1
 ## Different ways to create and name vectors
 
 The previous exercises outlined different ways of creating and naming vectors. Have a look at this chunk of code:
@@ -34,7 +34,7 @@ Just try the different code chunks one after the other in the console, and check
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg1 <- "The code to define `poker_vector2` is not invalid; try it out in the console!"
 msg2 <- "If you use the `length()` function to inspect the length of both `poker_vector1` and `poker_vector2`, you'll see that they both have length 5."
 msg3 <- "Correct! You might expect that the names of the vectors `roulette_vector1` and `roulette_vector2` are named the same; but the different approaches treat missing name information differently. Also, notice here how you can also use `names()` to <i>get</i> the names of a vector!"
@@ -43,7 +43,7 @@ test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Summing and subtracting vectors
 
 Now that you have the poker and roulette winnings nicely as a named vector, you can start doing some data science magic. 
@@ -71,12 +71,12 @@ c(5, 7, 9)
 Use the `+` operator to sum `A_vector` and `B_vector`. Use `<-` to assign the result to `total_vector`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # A_vector and B_vector have already been defined for you
 A_vector <- c(1, 2, 3)
 B_vector <- c(4, 5, 6)
@@ -95,7 +95,7 @@ B_vector <- c(4, 5, 6)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # A_vector and B_vector have already been defined for you
 A_vector <- c(1, 2, 3)
 B_vector <- c(4, 5, 6)
@@ -114,7 +114,7 @@ diff_vector
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg <- "Do not remove or change the definition of the vectors `A_vector` and `B_vector`. These have already been defined for you."
 test_object("A_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("B_vector", undefined_msg = msg, incorrect_msg = msg)
@@ -126,7 +126,7 @@ success_msg("Good job! Continue to the next exercise.")
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Selection by index (3) 
 
 Now, selecting multiple successive elements of `poker_vector` with `c(2,3,4)` is not very convenient. Many statisticians are lazy people by nature, so they created an easier way to do this: `c(2,3,4)` can be abbreviated to `2:4`, which generates a vector with all natural numbers from 2 up to 4. Try it out in the console!
@@ -142,7 +142,7 @@ Assign a selection of `roulette_vector` to `roulette_subset` by placing `2:5` be
 
 *** =sample_code
 
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -159,7 +159,7 @@ names(roulette_vector) <- days_vector
 
 *** =solution
 
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -175,7 +175,7 @@ roulette_subset
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg = "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
 test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("poker_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
@@ -187,7 +187,7 @@ test_output_contains("roulette_subset", incorrect_msg = "Don't forget to print o
 success_msg("Awesome! The colon operator is extremely useful and very often used in R programming, so remember it well. Have you noticed that the elements in `poker_vector` and `roulette_vector` also have names associated with them? You can also subset vectors using these names, remember?")
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Selection by name (2)
 
 Just like selecting single elements using numerics extends naturally to selecting multiple elements, you can also use a vector of names. As an example, try
@@ -206,12 +206,12 @@ Of course you can't use the colon trick here: `"Monday":"Wednesday"` will genera
 You can use `mean(my_vector)` to get the mean of the vector `my_vector`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -227,7 +227,7 @@ names(roulette_vector) <- days_vector
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -243,7 +243,7 @@ avg_poker_start <- mean(poker_start)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 
 msg = "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
 test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
@@ -256,7 +256,7 @@ test_object("avg_poker_start",
 success_msg("Good job! Next to subsetting vectors by index or by name, you can also use logical vectors. The next exercises will test you on this.");
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Selection by logicals (3)
 
 In this exercise, you'll do a final analysis of your casino ventures. This time, you'll use your newly acquired skills to perform advanced selection on `roulette_vector`. 
@@ -272,12 +272,12 @@ Along the way, you'll need the [`sum()`](http://www.rdocumentation.org/packages/
 For the first instruction, you can use the exact same technique as in the previous exercise. However, there's no need to specify a selection vector first; you can directly place the comparison inside the square brackets!
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -296,7 +296,7 @@ names(roulette_vector) <- days_vector
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -315,7 +315,7 @@ num_profitable_days <- sum(roulette_vector > 0)
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 
 msg = "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
 test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)

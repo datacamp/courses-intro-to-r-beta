@@ -1,4 +1,4 @@
---- type:MultipleChoiceExercise xp:50 skills:1
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1
 ## Vector Subsetting vs. List Subsetting
 
 All these single and double square brackets to perform subsetting on vectors, matrices, factors and now also lists might lead to some confusion. As a summarizing exercise on vector subsetting, consider the following 4 commands.
@@ -21,7 +21,7 @@ All these single and double square brackets to perform subsetting on vectors, ma
 The dollar sign notation does not need the full name of the element you want to select. `box` is sufficient to refer to the `boxoffice` element of `shining_list`.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 actors_vector <- c("Jack Nicholson","Shelley Duvall","Danny Lloyd","Scatman Crothers","Barry Nelson")
 reviews_factor <- factor(c("Good", "OK", "Good", "Perfect", "Bad", "Perfect", "Good"), 
                   ordered = TRUE, levels = c("Bad", "OK", "Good", "Perfect"))
@@ -31,7 +31,7 @@ rm(actors_vector, reviews_factor, revenue)
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 msg1 <- "Wrong. Statement B is false, as you'd need single brackets to subset a list to end up with a new list. Also, remember that `shining_list[[c(2,4)]]` is equivalent to `shining_list[[2]][[4]]`."
 msg2 <- "Correct! Next to subsetting lists, you'll also often want to extend lists. Get some hands-on experience in the following exercises."
 msg3 <- "Incorrect. The code in statement D is perfectly valid, as you are selecting two ordered factors."
@@ -41,7 +41,7 @@ test_mc(2, feedback_msgs = c(msg1, msg2, msg3, msg4, msg5))
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Extending a list (2)
 
 To extend a list with multiple elements at the same time, you can again use the combine function. To add both my opinion and your opinion on the movie:
@@ -82,7 +82,7 @@ shining_list <- c(shining_list, ...)
 You still have to add some code where the three dots are.
 
 *** =pre_exercise_code
-```{r, eval = FALSE}
+```{r}
 # Create shining_list
 actors_vector <- c("Jack Nicholson","Shelley Duvall","Danny Lloyd","Scatman Crothers","Barry Nelson")
 reviews_factor <- factor(c("Good", "OK", "Good", "Perfect", "Bad", "Perfect", "Good"), 
@@ -93,7 +93,7 @@ rm(actors_vector, reviews_factor)
 
 *** =sample_code
 
-```{r eval=FALSE}
+```{r}
 # shining_list is already defined in the workspace
 
 # Add both the year and director to shining_list: shining_list_ext
@@ -105,7 +105,7 @@ rm(actors_vector, reviews_factor)
 
 *** =solution
 
-```{r eval=FALSE}
+```{r}
 # shining_list is already defined in the workspace
 
 # Add both the year and director to shining_list: shining_list_ext
@@ -117,7 +117,7 @@ str(shining_list_ext)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_error()
 msg = "Do not remove or override `shining_list`."
 test_object("shining_list", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)

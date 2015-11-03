@@ -1,4 +1,4 @@
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Selection of data frame elements (2)
 
 Instead of using numerics to select elements of a data frame, you can also use the variable names to select columns of a data frame. 
@@ -24,7 +24,7 @@ planets_df[1:3,"type"]
 You select elements of a data frame conveniently with the square brackets. Select `3:8` for the rows, and `"diameter"` for the columns.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 planets <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
 type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
           "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
@@ -38,7 +38,7 @@ rm(planets, type, diameter, rotation, rings, type_factor)
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # planets_df is pre-loaded
 
 # Diameter and rotation for Earth: earth_data 
@@ -51,7 +51,7 @@ rm(planets, type, diameter, rotation, rings, type_factor)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # planets_df is pre-loaded
 
 # Diameter and rotation for Earth: earth_data 
@@ -65,7 +65,7 @@ furthest_planets_diameter
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_error()
 msg <- "Do not remove or overwrite the `planets_df` data frame!"
 test_object("planets_df", undefined_msg = msg, incorrect_msg = msg)
@@ -81,7 +81,7 @@ test_output_contains("furthest_planets_diameter", incorrect_msg = "Don't forget 
 success_msg("Nice one! Continue to the next exercise!")
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Add observations
 
 Next to adding new variables to a data frame, you can also add observations. You can use the `rbind()` function for this. The `rbind()` function is capable of pasting together two data frames. The merge can only be successful when the names of both the data frames match, otherwise an error occurs. Suppose you have two data frames containing three columns each:
@@ -108,7 +108,7 @@ In the 90s, it was still widely believed that Pluto was the ninth planet of our 
 `pluto` should have the names "name", "type", "diameter", "rotation" and "has_rings".
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 planets <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
 type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
           "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
@@ -122,7 +122,7 @@ rm(planets, type, diameter, rotation, rings, type_factor)
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # planets_df is pre-loaded (without the columns moon and mass)
 
 # Name pluto correctly
@@ -135,7 +135,7 @@ pluto <- data.frame("Pluto", "Terrestrial planet", 0.18, -6.38, FALSE)
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # planets_df is pre-loaded (without the columns moon and mass)
 
 # Name pluto correctly
@@ -149,7 +149,7 @@ planets_df_ext
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 msg <- "Do not remove or overwrite the `planets_df` data frame!"
 test_object("planets_df", undefined_msg = msg, incorrect_msg = msg)
 

@@ -1,4 +1,4 @@
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Summarizing a factor
 
 After finishing this course, one of your favourite functions in R will be [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary). This will give you a quick overview of `some_variable`: 
@@ -16,12 +16,12 @@ Ask a [`summary()`](http://www.rdocumentation.org/packages/base/functions/summar
 Call the [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) function on both `survey_vector` and `survey_factor`, it's as simple as that!
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Defintion of survey_vector and survey_factor
 survey_vector <- c("R", "L", "L", "R", "R")
 survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
@@ -34,7 +34,7 @@ survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right",
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Defintion of survey_vector and survey_factor
 survey_vector <- c("R", "L", "L", "R", "R")
 survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
@@ -47,7 +47,7 @@ summary(survey_factor)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg = "Do not change anything about the first four lines that define `survey_vector` and `survey_factor`."
 test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("survey_factor", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)

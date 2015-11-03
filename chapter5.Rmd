@@ -5,26 +5,20 @@ description : Lists, as opposed to vectors, can hold components of different typ
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch5_slides.pdf
 
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Create and Name Lists
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/138173972
-```
 
 *** =video_stream
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173972.hd.mp4?s=baaba36b2ddda17534c620c66348395e&profile_id=119
-```
 
 *** =video_hls
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173972.m3u8?p=high,standard,mobile&s=48efa63afdd7737a82bca112459502a3
-```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Create a list
 
 Just a quick refresher: A list in R allows you to gather a variety of objects in an ordered way. These objects can be matrices, vectors, factors, data frames, even other lists, etc. It is not even required that these objects are related to each other. You can construct a list with the [`list()`](http://www.rdocumentation.org/packages/base/functions/list) function:
@@ -40,12 +34,12 @@ Construct a list, named `my_list`, that contains the variables `my_vector`, `my_
 Use the [`list()`](http://www.rdocumentation.org/packages/base/functions/list) function with `my_vector`, `my_matrix` and `my_factor` as arguments separated by a comma.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Numeric vector: 1 up to 10
 my_vector <- 1:10 
 
@@ -60,7 +54,7 @@ my_factor <- factor(c("M","S","L","L","M"), ordered = TRUE, levels = c("S","M","
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Numeric vector: 1 up to 10
 my_vector <- 1:10 
 
@@ -75,7 +69,7 @@ my_list <- list(my_vector, my_matrix, my_factor)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_error()
 msg = "Do not remove or change the definition of the variables `my_vector`, `my_matrix` or `my_factor`!"
 test_object("my_vector", undefined_msg = msg, incorrect_msg = msg)
@@ -86,7 +80,7 @@ success_msg("Wonderful! Your skillset is growing at a staggering pace! Head over
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Listception: lists in lists
 
 As mentioned before, lists can also contain other lists. This works just the same as storing other types of R objects in a list. Next to the variables `my_vector`, `my_matrix` and `my_factor` from the previous exercise, now also `my_list` is predefined. Up to you to merge them in a new list; a super list!
@@ -99,12 +93,12 @@ As mentioned before, lists can also contain other lists. This works just the sam
 Just as in the previous exercise, use the [`list()`](http://www.rdocumentation.org/packages/base/functions/list) function. This time you have to add four components.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Numeric vector: 1 up to 10
 my_vector <- 1:10 
 
@@ -125,7 +119,7 @@ my_list <- list(my_vector, my_matrix, my_factor)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Numeric vector: 1 up to 10
 my_vector <- 1:10 
 
@@ -146,7 +140,7 @@ str(my_super_list)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_error()
 msg = "Do not remove or change the definition of the variables `my_vector`, `my_matrix`, `my_factor` or `my_list`!"
 test_object("my_vector", undefined_msg = msg, incorrect_msg = msg)
@@ -160,7 +154,7 @@ success_msg("Nice one! Can you see from the displayed structure how the vector, 
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Create a named list
 
 Well done! Let us keep this train going! To make the elements of your list clearer, you'll often want to name them: 
@@ -189,12 +183,12 @@ my_list <- list(vec = my_vector)
 Add the other two components in a similar fashion.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Numeric vector: 1 up to 10
 my_vector <- 1:10 
 
@@ -212,7 +206,7 @@ my_list <- list(my_vector, my_matrix, my_factor)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Numeric vector: 1 up to 10
 my_vector <- 1:10 
 
@@ -230,7 +224,7 @@ my_list
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_error()
 msg = "Do not remove or change the definition of the variables `my_vector`, `my_matrix` or `my_factor`!"
 test_object("my_vector", undefined_msg = msg, incorrect_msg = msg)
@@ -245,7 +239,7 @@ success_msg("Great! Not only do you know how to construct lists now, you can als
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Create a named list (2)
 
 Being a huge movie fan, you decide to start storing information on good movies with the help of lists. 
@@ -263,12 +257,12 @@ shining_list <- list(moviename = "The Shining")
 Can you complete the rest? You still have to add `actors_vector` and `reviews_factor` with the appropriate names.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Create actors and reviews
 actors_vector <- c("Jack Nicholson","Shelley Duvall","Danny Lloyd","Scatman Crothers","Barry Nelson")
 reviews_factor <- factor(c("Good", "OK", "Good", "Perfect", "Bad", "Perfect", "Good"), 
@@ -279,7 +273,7 @@ reviews_factor <- factor(c("Good", "OK", "Good", "Perfect", "Bad", "Perfect", "G
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Create actors and reviews
 actors_vector <- c("Jack Nicholson","Shelley Duvall","Danny Lloyd","Scatman Crothers","Barry Nelson")
 reviews_factor <- factor(c("Good", "OK", "Good", "Perfect", "Bad", "Perfect", "Good"), 
@@ -290,7 +284,7 @@ shining_list <- list(title = "The Shining", actors = actors_vector, reviews = re
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_error()
 msg = "Do not remove or change the definition of the pre-set variables!"
 test_object("actors_vector", undefined_msg = msg, incorrect_msg = msg)
@@ -303,26 +297,19 @@ success_msg("Perfect!")
 ```
 
 
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Subset and Extend Lists
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/138173990
-```
 
 *** =video_stream
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173990.hd.mp4?s=f2e7e474ca57f40e44d005a8eb33ce67&profile_id=119
-```
 
 *** =video_hls
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173990.m3u8?p=high,standard,mobile&s=12d421864a1e5cf5487ab091b3ffcb06
-```
 
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Selecting elements from a list
 
 Your list will often be built out of numerous elements and components. Therefore, getting a single element, multiple elements, or a component out of it is not always straightforward.
@@ -351,12 +338,12 @@ shining_list[c(F,T,T)]
 For the first instruction you need double brackets (or the `$`), for the second one the single brackets will do.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/chapter5.RData"))
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # shining_list is already defined in the workspace
 
 # Actors from shining_list: act
@@ -370,7 +357,7 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/c
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # shining_list is already defined in the workspace
 
 # Actors from shining_list: act
@@ -384,7 +371,7 @@ str(sublist)
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
 msg = "Do not remove or override `shining_list`."
 test_object("shining_list", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
@@ -397,7 +384,7 @@ success_msg("Nice! That was still pretty easy, right? Always be aware of this di
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Chaining your selections
 
 Besides selecting entire list elements, it's also possible that you have to access specific parts of these components themselves. It's perfectly possible to _chain your subsetting operations_ in R.
@@ -419,12 +406,12 @@ you select from the second component, actors (`shining_list[[2]]`), the first el
 - You can select the information of the second review with `shining_list$reviews[2, ]`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/chapter5.RData"))
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # shining_list is already defined in the workspace
 
 # Select the last actor: last_actor
@@ -435,7 +422,7 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/c
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # shining_list is already defined in the workspace
 
 # Select the last actor: last_actor
@@ -446,7 +433,7 @@ second_review <- shining_list$reviews[2]
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_error()
 msg = "Do not remove or override `shining_list`."
 test_object("shining_list", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
@@ -458,7 +445,7 @@ test_object("second_review",
 success_msg("Great! Selecting elements from lists is rather easy isn't it? Continue to the next exercise.")
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Extending a list
 
 You already know that the `$` as well as `[[` can be used to select elements from lists. They can also be used to extend lists. To extend `shining_list` with some personal opinion, you could do one of the following things:
@@ -487,13 +474,13 @@ Being proud of your first list, you shared it with the members of your movie hob
 Let the examples in the assignment guide you to list extension mastery! Remember that R is case sensitive!
 
 *** =pre_exercise_code
-```{r, eval = FALSE}
+```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/chapter5.RData"))
 ```
 
 *** =sample_code
 
-```{r eval=FALSE}
+```{r}
 # shining_list is already defined in the workspace
 
 # Add the release year to shining_list
@@ -508,7 +495,7 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/c
 
 *** =solution
 
-```{r eval=FALSE}
+```{r}
 # shining_list is already defined in the workspace
 
 # Add the release year to shining_list
@@ -522,7 +509,7 @@ str(shining_list)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_error()
 test_object("shining_list", 
             incorrect_msg = paste("Have you correctly added both the year and the director to `shining_list`?",

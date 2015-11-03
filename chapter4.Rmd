@@ -5,26 +5,19 @@ description : Very often, data falls into a limited number of categories.In R, c
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch4_slides.pdf
 
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Factors
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/138173962
-```
 
 *** =video_stream
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173962.hd.mp4?s=856deee2057ce6a19841d395b5117a48&profile_id=119
-```
 
 *** =video_hls
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173962.m3u8?p=high,standard,mobile&s=8e92ffa33fe5363ce2c6f05c1d69a415
-```
 
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Vector to factor
 
 In this and the following exercises, we'll be working with handedness as a categorical variable that can be either "Left" or "Right". In general, you're either left-handed, or you're right-handed and nothing else, so this complies with the conditions of a categorical variable.
@@ -39,12 +32,12 @@ To create factors in R, you make use of the function [`factor()`](http://www.rdo
 Simply use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) on `hand_vector`. Have a look at the assignment, the answer is already there somewhere...
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Definition of hand_vector
 hand_vector <- c("Right", "Left", "Left", "Right", "Left")
 
@@ -55,7 +48,7 @@ hand_vector <- c("Right", "Left", "Left", "Right", "Left")
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Definition of hand_vector
 hand_vector <- c("Right", "Left", "Left", "Right", "Left")
 
@@ -67,7 +60,7 @@ str(hand_factor)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 
 test_object("hand_factor",
             incorrect_msg = "Did you correctly convert `hand_vector` to a factor and assign the result to `hand_factor`?")
@@ -78,7 +71,7 @@ success_msg("Great! If you want to find out more about the `factor()` function, 
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Factor levels
 
 When you first get a data set, you will often notice that it contains factors with specific factor levels. Of course, you can also change these factor levels. You can either do this with the `levels()` function, after you defined the factor, or using the `labels` argument inside `factor()`. The following options are equivalent:
@@ -108,12 +101,12 @@ You performed a street questionnaire, and recorded the respondents' handedness u
 If you're using the first approach outlined above, mind the order in which you have to type in the factor levels.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Definition of survey_vector
 survey_vector <- c("R", "L", "L", "R", "R")
 
@@ -125,7 +118,7 @@ survey_vector <- c("R", "L", "L", "R", "R")
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Definition of survey_vector
 survey_vector <- c("R", "L", "L", "R", "R")
 
@@ -138,18 +131,18 @@ survey_factor
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg <- "Do not change the definition of `survey_vector`!"
 test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
 msg <- "Have you correctly converted `survey_vector` to a factor? Make sure to correctly specify the new factor levels (R is case sensitive!)."
-test_object("survey_factor", eval = FALSE)
+test_object("survey_factor")
 test_or(test_object("survey_factor", eq_condition = "equal", undefined_msg = msg),
         test_an_object("survey_factor_2", eq_condition = "equal", undefined_msg =  msg))
 test_output_contains("survey_factor", incorrect_msg = "Don't forget to print `survey_factor`!")
 success_msg("Wonderful! Proceed to the next exercise.")
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Nominal versus Ordinal, Unordered versus Ordered
 
 Remember that there are two types of categorical variables? On the one hand there's the _nominal categorical variable_, which does not have an implied order. The _ordinal categorical variable_, on the other hand, does have a natural ordering.
@@ -173,12 +166,12 @@ By setting the argument `ordered` to `TRUE`, you indicate that the factor is ord
 `animal_factor` should not be ordered; `temperature_factor` should!
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Definition of animal_vector and temperature_vector
 animal_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
 temperature_vector <- c("High", "Low", "High", "Low", "Medium")
@@ -194,7 +187,7 @@ temperature_vector <- c("High", "Low", "High", "Low", "Medium")
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Definition of animal_vector and temperature_vector
 animal_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
 temperature_vector <- c("High", "Low", "High", "Low", "Medium")
@@ -211,7 +204,7 @@ temperature_factor
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg <- "Do not change or remove the code that defines `animal_vector` and `temperature_vector`!"
 test_object("animal_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("temperature_vector", undefined_msg = msg, incorrect_msg = msg)
@@ -230,7 +223,7 @@ success_msg("Awesome! You correctly figured out that `animal_factor` shouldn't b
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Left better than right?
 
 In `survey_factor` you have a two-level factor, containing "Left" and "Right". But how does R value these relatively to each other? In other words, who does R think is better, left or right?
@@ -244,12 +237,12 @@ In `survey_factor` you have a two-level factor, containing "Left" and "Right". B
 You can subset factors exactly the same as you subset vectors: using square brackets. To select the fourth element from `survey_factor`, you can type `survey_factor[4]`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Definition of survey_vector and survey_factor
 survey_vector <- c("R", "L", "L", "R", "R")
 survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
@@ -265,7 +258,7 @@ survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right",
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Definition of survey_vector and survey_factor
 survey_vector <- c("R", "L", "L", "R", "R")
 survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
@@ -281,7 +274,7 @@ right > left
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg = "Do not change anything about the first lines that define `survey_vector` and `survey_factor`."
 test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("survey_factor", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
@@ -290,7 +283,7 @@ success_msg("Phew, it seems that R is neutral ;-).")
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Ordered factors
 
 Since `"Right"` and `"Left"` are unordered (or nominal) factor levels, R returned a warning message, telling you that the greater than operator is not meaningful. As seen before, R attaches an equal value to the levels for such factors. 
@@ -314,24 +307,24 @@ No need to specify these are factors yet.
 Assign to `speed_vector` a vector containing character strings, `"Fast"`, `"Slow"` ...
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Create speed_vector
 
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Create speed_vector
 speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast")
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 
 test_object("speed_vector", 
             incorrect_msg = "Make sure that you assigned the correct vector to speed_vector. Remember that R is case sensitive!")
@@ -339,7 +332,7 @@ success_msg("A job well done! Continue to the next exercise.")
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Ordered factors (2)
 
 `speed_vector` should be converted to an ordinal factor since its categories have a natural ordening. You already know how to do this. Here's a template to define an ordered factor once more:
@@ -357,12 +350,12 @@ factor(some_vector, ordered = TRUE, levels = c("Level_1", "Level_2" ...))
 Use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) to create `factor_speed_vector` based on `speed_character_vector`. The argument order should be set to `TRUE` since there is a natural ordering. The factor levels are in this case: `c("Slow", "Fast", "Ultra-fast")`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Create speed_vector
 speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast") 
 
@@ -377,7 +370,7 @@ speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast")
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Create speed_vector
 speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast") 
 
@@ -392,7 +385,7 @@ summary(speed_factor)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 
 msg = "Do not change anything about the command that specifies the `speed_vector` variable."
 test_object("speed_vector", undefined_msg = msg, incorrect_msg = msg)
@@ -408,7 +401,7 @@ success_msg("Great! Have a look at the console. It is now indicated that the Lev
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Comparing ordered factors
 
 Having a bad day at work, 'data analyst number two' enters your office and starts complaining that 'data analyst number five' is slowing down the entire project. Since you know that 'data analyst number two' has the reputation of being a smarty-pants, you first decide to check if his statement is true. 
@@ -426,12 +419,12 @@ vector[1] > vector[2]
 checks whether the first element of vector is larger than the second element.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Definition of speed_vector and speed_factor
 speed_vector <- c("Fast", "Slow", "Slow", "Fast", "Ultra-fast")
 factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("Slow", "Fast", "Ultra-fast"))
@@ -444,7 +437,7 @@ factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("Slow", "
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Definition of speed_vector and speed_factor
 speed_vector <- c("Fast", "Slow", "Slow", "Fast", "Ultra-fast")
 factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("Slow", "Fast", "Ultra-fast"))
@@ -457,7 +450,7 @@ compare_them
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg <- "Do not change anything about the commands that define `speed_vector` and `factor_speed_vector`!"
 test_object("speed_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("factor_speed_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)

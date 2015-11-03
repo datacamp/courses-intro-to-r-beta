@@ -5,25 +5,19 @@ description : "In this chapter, you will take your first steps with R. You will 
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch1_slides_v2.pdf
   
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Meet R
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/144351865
-```
 
 *** =video_stream
-```{r,eval=FALSE}
 https://player.vimeo.com/external/144351865.hd.mp4?s=9956831b02e36428470cd9bdce79bdbc&profile_id=119
-```
 
 *** =video_hls
-```{r,eval=FALSE}
 https://player.vimeo.com/external/144351865.m3u8?p=high,standard,mobile&s=211e71cbc69a0d43b11ab1a1b9d3c7aa
-```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Experiment in the console
 
 For this first interactive exercise, simply experiment with code in the console, on the bottom right. 
@@ -47,41 +41,35 @@ If you're done experimenting, click _Submit Answer_.
 Simply experiment in the console on the bottom right by typing in calculations.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 success_msg("Great!")
 ```
 
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Variables and scripts
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/144351866
-```
 
 *** =video_stream
-```{r,eval=FALSE}
 https://player.vimeo.com/external/144351866.hd.mp4?s=692f6fcc48e294ae10ab9f0f30876ab5&profile_id=119
-```
 
 *** =video_hls
-```{r,eval=FALSE}
 https://player.vimeo.com/external/144351866.m3u8?p=high,standard,mobile&s=92850798bd07b64f778d571bd3683363
-```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Your first R script
 
 In the script on the right you should type R code to solve the exercises. When you hit the _Submit Answer_ button, every line of code in the script is interpreted and executed by R and you get a message that indicates whether or not your code was correct. The output of your submission is shown in the R console.
@@ -95,29 +83,29 @@ In the editor, add another line of code that calculates the sum of 6 and 12, and
 Simply add a line of R code that calculates the sum of 6 and 12, just like the example in the sample code!
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 3 + 4
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 3 + 4
 6 + 12
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_output_contains("18", incorrect_msg = "Make sure to add a line of R code, that calculates the sum of 6 and 12.")
 success_msg("Awesome! See how the console shows the result of the R code you submitted?")
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Documenting your code
 
 Adding comments to your code is extremely important to make sure that you and others can understand what your code is about. R makes use of the `#` sign to add comments, just like Twitter!
@@ -136,7 +124,7 @@ Simply add the line `# Calculate 6 + 12` above the R code that calculates 6 + 12
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Calculate 3 + 4
 3 + 4
 
@@ -164,7 +152,7 @@ test_student_typed(c("# Calculate 6 + 12", "# calculate 6 + 12", "#Calculate 6 +
 success_msg("Great! Looks better, doesn't it?")
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## R as a calculator
 
 In its most basic form R can be used as a scientific calculator. Consider the following arithmetic operators:
@@ -189,12 +177,12 @@ The last two might need some explaining:
 Another example of the modulo operator: `9 %% 2` equals `1`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Addition
 5 + 5 
 
@@ -215,7 +203,7 @@ Another example of the modulo operator: `9 %% 2` equals `1`.
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Addition
 5 + 5 
 
@@ -236,7 +224,7 @@ Another example of the modulo operator: `9 %% 2` equals `1`.
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 
 msg <- "Do not remove the examples that have already been coded for you!"
 test_output_contains("5 + 5", incorrect_msg = msg)
@@ -248,7 +236,7 @@ test_output_contains("28 %% 6", incorrect_msg = "Have another look at the use of
 success_msg("Nice one!")
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Variable assignment
 
 A variable allows you store a value or an object in R. You can then later use this variable's name to easily access the value or the object that is stored within this variable. You use `<-` to assign a variable:
@@ -268,11 +256,11 @@ Suppose you have a fruit basket with five apples. You want to store the number o
 Remember that if you want to assign a number or an object to a variable in R, you can make use of the assignment operator `<-`. Alternatively, you can use `=`, but `<-` is widely preferred in the R community.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Assign the value 5 to the variable called my_apples
 
 
@@ -281,7 +269,7 @@ Remember that if you want to assign a number or an object to a variable in R, yo
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Assign the value 5 to the variable called my_apples
 my_apples <- 5
 
@@ -290,13 +278,13 @@ my_apples
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_object("my_apples", incorrect_msg = "Have you correctly assigned 5 to `my_apples`? Write `my_apples <- 5` on a new line in the script.")
 test_output_contains("my_apples", incorrect_msg = "Have you explicitly told R to print out the `my_apples` variable to the console? Simply type `my_apples` on a new line.")
 success_msg("Great! You could also use `=` for variable assignment, but `<-` is typically prefered.")
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Variable assignment (2)
 
 Every tasty fruit basket needs oranges, so you decide to add six oranges. You decide to create the variable `my_oranges` and assign the value 6 to it. Next, you want to calculate how many pieces of fruit you have in total. Since you have given meaningful names to these values, you can now code this in a clear way:
@@ -314,12 +302,12 @@ my_apples + my_oranges
 `my_fruit` is just the sum of `my_apples` and `my_oranges`. You can use the `+` operator to sum the two and `<-` to assign that value to the variable `my_fruit`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Assign 5 to my_apples
 my_apples <- 5
 
@@ -334,7 +322,7 @@ my_apples <- 5
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Assign 5 to my_apples
 my_apples <- 5
 
@@ -349,7 +337,7 @@ my_fruit <- my_apples + my_oranges
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_object("my_apples", incorrect_msg = "Do not change the assignment of the `my_apples` variable!")
 test_object("my_oranges")
 test_output_contains("my_apples + my_oranges",
@@ -359,7 +347,7 @@ success_msg("Nice one! The great advantage of doing calculations with variables 
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## The workspace
 
 If you assign a value to a variable, this variable is stored in the workspace. It's the place where all user-defined variables live. The command [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) lists the contents of this workspace. 
@@ -389,12 +377,12 @@ The first line of the sample code is `rm(list = ls())`. This is a very useful co
 All you need is a combination of [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) and [`rm()`](http://www.rdocumentation.org/packages/base/functions/rm) at the right time. Give it a try and let the feedback messages guide you.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Clear the entire workspace
 rm(list = ls())
 
@@ -415,7 +403,7 @@ rm(list = ls())
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Clear the entire workspace
 rm(list = ls())
 
@@ -437,7 +425,7 @@ ls()
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_output_contains("character(0)", 
                      incorrect_msg = "Make sure to list the contents of your workspace when it is still empty! Don't remove `rm(list = ls())`, which helps you start off with a clean slate if you have been experimenting before.")
 test_object("horses")
@@ -449,25 +437,19 @@ test_output_contains('"horses"', incorrect_msg = "Make sure to inspect the objec
 success_msg("Awesome! You can now build, inspect and manage your workspace, great!")
 ```
 
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Basic Data Types
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/138173888
-```
 
 *** =video_stream
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173888.hd.mp4?s=82fc1b03307e9160d8f00d633623de2d&profile_id=119
-```
 
 *** =video_hls
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173888.m3u8?p=high,standard,mobile&s=2fa96fc053640c9181af7546b03f6451
-```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Discover Basic Data Types
 
 Some of R's most basic types to get started are:
@@ -493,12 +475,12 @@ my_numeric <- 42
 assigns the value 42 to the variable `my_numeric`. 
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # What is the answer to the universe?
 my_numeric <- 42.5
 
@@ -510,7 +492,7 @@ my_logical <- TRUE
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # What is the answer to the universe?
 my_numeric <- 42
 
@@ -522,7 +504,7 @@ my_logical <- FALSE
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_object("my_numeric", 
             incorrect_msg = "Make sure that you assign the correct value to `my_numeric.`")
 test_object("my_character",
@@ -534,7 +516,7 @@ test_object("my_logical",
 success_msg("Great work! Continue to the next exercise.")
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Back to Apples and Oranges
 
 Common knowledge tells you not to add apples and oranges. But hey, that is what you just did! The `my_apples` and `my_oranges` variables both contained a number in the previous exercise. The `+` operator works with numeric variables in R. 
@@ -549,12 +531,12 @@ However, If you try to add a numeric and a character string, R will complain.
 You have to assign the numeric value `6` to the `my_oranges` variable instead of the character value `"six"`. Notice how the quotation marks are used to indicate that `"six"` is a character.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Assign a value to the variable my_apples and print it out
 my_apples <- 5
 my_apples       
@@ -569,7 +551,7 @@ my_fruit
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Assign a value to the variable my_apples and print it out
 my_apples <- 5  
 my_apples  
@@ -584,7 +566,7 @@ my_fruit
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_object("my_apples", incorrect_msg = "Don't change the code that assigns 5 to `my_apples`.")
 test_object("my_oranges", incorrect_msg = "Change the assignment of the `my_oranges` variable such that the code runs without errors.")
 test_object("my_fruit", 
@@ -594,7 +576,7 @@ test_output_contains("my_fruit", incorrect_msg = "The output does not contain th
 success_msg("Awesome, keep up the good work!")
 ```
 
---- type:MultipleChoiceExercise xp:50
+--- type:MultipleChoiceExercise lang:r xp:50
 ## What's that data type?
 
 When you added the variables containing `5` and `"six"`, you got an error due to a mismatch in data types. You can avoid such embarrassing situations by checking the data type of a variable beforehand:
@@ -615,14 +597,14 @@ In the workspace (you can see what it contains by typing [`ls()`](http://www.rdo
 You can find out the data type of the `a` variable for example by typing `class(a)`. You can do similar things for `b` and `c`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 a <- 42
 b <- "forty-two"
 c <- FALSE
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg1 <- "`boolean` is not the class for logical values. Try again."
 msg2 <- "`a` is of the class `numeric`, give it another go."
 msg3 <- "`string` is not a class in R. `character` is!"
@@ -630,7 +612,7 @@ msg4 <- "Nice one. Let's step it up a notch and start coercing variables!"
 test_mc(correct = 4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Coercion: Taming your data
 
 As Filip explained in the video, coercion to transform your data from one type to another is perfectly possible. Next to the [`class()`](http://www.rdocumentation.org/packages/base/functions/class) function and the `is.*()` functions, you can use the `as.*()` functions to enforce data to change types. For example, 

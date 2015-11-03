@@ -1,4 +1,4 @@
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## Build and destroy your workspace
 
 Apples and oranges, dogs and horses, you can model practically everything in R. The only limit is your own imagination! However, how you create and manage the variables you're creating is always the same. If fruits are not your kind of thing, you're in luck! In this challenge, you will compute the volume of a donut. The volume of a donut can be expressed as:
@@ -30,12 +30,12 @@ Remove all intermediary variables that you've used to calculate `vol_donut` usin
 Create the variables `r` and `R`, equal to 2 and 6 respectively, to calculate the volume of the donut, `vol_donut`. Remove all the intermediary variables that you've used to calculate `vol_donut` such that only the variable `vol_donut` remains. Finally, inspect the workspace you end up with.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 r <- 2
 r
 R <- 6
@@ -50,7 +50,7 @@ ls()
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   assign("r", 2, envir = get_solution_env())
@@ -96,7 +96,7 @@ success_msg("Awesome! In this challenge, the true power of variables became appa
 ```
 
 
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## Coercion for the sake of cleaning
 
 Coercion can come in pretty handy when you're dealing with messy datasets where supposedly numerical variables have been stored as character strings, logicals have been stored as numerics etc. To prepare you for such problems, take this challenge: your first modest steps in data cleaning! In the workspace, some variables concerning the answers on a questionnaire have been defined; have a look with [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls).
@@ -118,7 +118,7 @@ Using the [`as.numeric()`](http://www.rdocumentation.org/packages/base/functions
 In the questionnaire data, there are three variables that do not have the correct types. Create three new variables, `age_clean`, `employed_clean` and `salary_clean` that contain the correct information in the most meaningful format (e.g. numeric for numbers).
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 age <- "29"
 employed <- 1
@@ -127,14 +127,14 @@ salary <- "63394.12"
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 age_clean <- as.numeric(age)
 employed_clean <- as.logical(employed)
 salary_clean <- as.numeric(salary)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_object("age_clean")
@@ -157,7 +157,7 @@ success_msg("Perfect! Sit back and relax for a while after this first introducti
 ```
 
 
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## First steps in rational gambling
 
 In the previous exercise, you found out that roulette is not really your forte. However, you have some vague memories from visits in Vegas where you actually excelled at this game. You plan to dig through your receipts of when you withdrew and cashed chips and found out about your actual performance in the previous week you were in Sin City. In that week, you also only played poker and roulette; the information is stored in `poker_past` and `roulette_past`. The information for the current week, with which you have been working all along, is in `poker_present` and `roulette_present`. All these variables are available in your workspace.
@@ -180,7 +180,7 @@ To better compare your performance, perform the following calculations:
 - Create a logical that tells whether your total winnings of roulette winnings in the past were higher than your total winnings in the current week. Assign the result to `roulette_worsened`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 poker_present <- c(140, -50, 20, -120, 240)
 names(poker_present) <- days_vector
@@ -191,14 +191,14 @@ roulette_past <- c(20, 45, 120, -230, 40)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 total_past <- sum(poker_past) + sum(roulette_past)
 diff_poker <- poker_present - poker_past
 roulette_worsened <- sum(roulette_past) > sum(roulette_present)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_an_object("total_past")
@@ -223,7 +223,7 @@ test_instruction(4, {
 success_msg("Awesome! It seems that indeed, your roulette skills have worsened if you compare to your previous week in Vegas.")
 ```
 
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## Vectors: place your bets!
 
 By now, you should have gained some insights on how your casino habits are actually working out for you. In fact, why not decide on changing your game completely? Let's dive into the world of Blackjack for once, and analyze some game outcomes here. In short, blackjack is a game where you have to ask for cards until you arrive at a sum that is as close to 21 as possible. However, if you exceed 21, you've lost. You can be greedy and go for 21, or you can be careful and settle for 16 or so. A player wins when his or her sum, or score, exceeds that of the house. 
@@ -247,20 +247,20 @@ Count the number of times the score inside `player` was lower than 18. This time
 - Count the number of times the player had a score lower than 18 and save this value in `n_low_score`.  
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 player <- c(14,17,20,21,20,18,14)
 house <- c(20,15,21,20,20,17,19)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 player_third <- player[3]
 winning_scores <- player[player > house]
 n_low_score <- sum(player < 18)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_an_object("player_third")
@@ -285,7 +285,7 @@ test_instruction(4, {
 success_msg("Awesome! Given that you've solved this challenge so gracefully, you might consider adding Blackjack to your playlist on your next trip to Vegas! This challenge concludes the chapter on vectors. The next chapter will introduce you to the two-dimensional version of vectors: matrices.")
 ```
 
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## Matrices: Move it up a notch
 
 You'll be surprised of all the matrix magic that you can already perform after these exercises. Suppose that next to being a huge Star Wars fan, you also relish Japanese horror movies. The interest for this genre is rather limited though. To share your passion you decide to convert your garage to a home theater with 24 seats, 4 rows of 6 seats each. After showing your all-time favorites, you ask the audience to grade the movies they saw. The voting results for each row are stored in the vectors `first_row`, `second_row`, `third_row` and `fourth_row`. Up to you to do some analysis on them!
@@ -314,7 +314,7 @@ Create a new matrix, `scores`, by following these instructions:
   + Columns: "c1", "c2", "c3", "c4", "c5", "c6" and "total".
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 first_row <- c(6,8,7,9,9,10)
 second_row <- c(6,8,7,5,9,6)
 third_row <- c(5,4,6,6,7,8)
@@ -322,7 +322,7 @@ fourth_row <- c(4,5,3,4,6,8)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 theater <- rbind(first_row, second_row, third_row, fourth_row)
 row_scores <- rowSums(theater)
 scores <- cbind(theater, row_scores)
@@ -331,7 +331,7 @@ colnames(scores) <- c("c1", "c2", "c3","c4", "c5", "c6", "total")
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_an_object("theater")
@@ -355,7 +355,7 @@ test_instruction(5, {
 success_msg("Bellissimo! It seems that the people in front clearly enjoyed the videos more, it's all about the details in Japanese horror! Although vector are very similar to matrices, subsetting is quite different because of the additional dimension.")
 ```
 
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## Subsetting: The final challenge
 
 After all these exercises on Star Wars, you start a conversation about it with your friends. Before you realize it, a big discussion has started about who is the biggest fan, with three people claiming to be true adepts. Time to sort this out. You decide to collect data by asking everyone how often they have seen each of the movies. To keep things structured, you stored the information in two parts. The view counts for four people are in `view_count_1`, the counts for four other people are in `view_count_2`.
@@ -376,7 +376,7 @@ Use the function `colSums()` to calculate the total number of times the loud deb
 Using a combination of matrix operations, create a vector, `total_views_loud`, that contains the total number of times each one of the 3 loudest debaters - Rachel, Walter and Dave - have seen the Star Wars movies.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 movie_names <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi","The Phantom Menace", "Attack of the Clones", "Revenge of the Sith")
 Mark <- c(1,2,1,1,1,0)
 Laurent <- c(3,4,3,2,1,1)
@@ -400,14 +400,14 @@ rm(movie_names, Mark, Laurent, Rachel, Pierre, Christel, Walter, Dave, Monica, f
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 view_count_all <- cbind(view_count_1, view_count_2)
 view_count_loud <- view_count_all[,c(3,6,7)]
 total_views_loud <- colSums(view_count_loud)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_object("view_count_1")
@@ -447,7 +447,7 @@ test_instruction(4, {
 success_msg("Awesome! If you look at the results, you'll see that Dave is the true Star Wars connaisseur here! Up to the next video on matrices!")
 ```
 
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## May the matrix force be with you!
 
 After these analyses, you sure have gained some more insights in the movie-making business! But box office figures don't tell the whole story, do they? Up to you to take into account the actual budget that went into creating the films, together with commissions by the movie theaters worldwide. That way, you'll have a better idea about the actual profits StarWarsStudios has realized.
@@ -473,7 +473,7 @@ Calculate the amount of money StarWarsStudios made per film by
 Store the final result in a variable `profit`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 box_office_all <- c(461, 314.4, 290.5, 247.9, 309.3, 165.8)
 movie_names <- c("A New Hope","The Empire Strikes Back","Return of the Jedi")
 col_titles <- c("US","non-US")
@@ -484,7 +484,7 @@ names(budget) <- movie_names
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 remaining <- star_wars_matrix - commission_rates * star_wars_matrix
 remaining
 remaining_tot <- rowSums(remaining)
@@ -493,7 +493,7 @@ profit <- remaining_tot - budget
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_object("star_wars_matrix")
@@ -535,7 +535,7 @@ test_instruction(4, {
 success_msg("Now that's true R force! Great! This challenge concludes the part on matrices. Next up: factors!")
 ```
 
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## Flying high in factor space
 
 As a data analyst, you decide to join Rways, a new airline that only offers flights and services based on data-driven decisions. Business is going well, and the management is considering to extend the offer from only economy class to business and first class as well. You are supposed to process the results of a questionnaire that polls for the preferred class of the respondents. The results for 50 of these respondents can be found in a character vector `fly_class`.
@@ -552,13 +552,13 @@ By specifying more arguments inside the `factor()` function, i.e. `levels`, `ord
 Convert the `fly_class` vector to a factor, `fly_class_factor`. The display names of the different categories should be `"economy"`, `"business"` and `"first"`. Use a combination of `levels` and `labels` to achieve this. Finally, order the factors if this is appropriate in this context.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 set.seed(123)
 fly_class <- c("eco", "bus", "fir")[sample(x = c(1,2,3), 50, prob = c(0.7, 0.2, 0.1), replace = TRUE)]
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 fly_class_factor <- factor(fly_class, 
                            levels = c("eco", "bus", "fir"), 
                            ordered = TRUE, 
@@ -566,26 +566,26 @@ fly_class_factor <- factor(fly_class,
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
-  test_object("fly_class_factor", eval = FALSE)
+  test_object("fly_class_factor")
   test_what(expect_true(is.factor(get("fly_class_factor", envir = globalenv(), inherits = FALSE))), feedback_msg = "none")
 })
 test_instruction(2, {
   test_error()
-  test_object("fly_class_factor", eval = FALSE)
+  test_object("fly_class_factor")
   test_what(expect_equal(levels(get("fly_class_factor", envir = globalenv(), inherits = FALSE)), c("economy", "business", "first")), feedback_msg = "FALSE")
 })
 test_instruction(3, {
   test_error()
-  test_object("fly_class_factor", eval = FALSE)
+  test_object("fly_class_factor")
   test_what(expect_equal(levels(get("fly_class_factor", envir = globalenv(), inherits = FALSE)), c("economy", "business", "first")), feedback_msg = "FALSE")
 })
 success_msg("Factiolicious! This challenge shows the true power of the `factor()` function: if you want, you can create a factor, but also order and rename the factor levels, all in a single command.")
 ```
 
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## List your skills
 
 Your R skills are growing at a staggering pace. Time to list them all! The topics that have been covered so far are contained in the vector `top`. There's also a factor, `cont`, that tells whether these skills relate to a data structure or more to R in general. Finally, the matrix `prop` summarizes some properties of vectors, matrices, factors and lists. 
@@ -613,7 +613,7 @@ Use the `str()` function on `skills` to display the structure.
 - Finally, displays the structure of `skills`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 top <- c("basic data type","vectors","matrices","factors","lists")
 cont <- factor(c("core", "data", "data", "data", "data"))
 rwnms <- c("1D", "heterogeneous", "subsetting", "calculus")
@@ -626,14 +626,14 @@ rm(rwnms, clnms)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 lst <- list(top[5], prop[, 4])
 skills <- list(topics = top, context = cont, properties = prop, list_info = lst)
 str(skills)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_object("top")
@@ -669,7 +669,7 @@ test_instruction(4, {
 success_msg("Congratulations! You nailed yet another challenge!")
 ```
 
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## List your skills (2)
 
 Remember the `skills` list that you coded in the previous challenge? It contains a vector, a factor, a matrix and another list. It can't get any more diverse, can it? The `skills` list is already available in your workspace, with the appropriate naming. Now it's your turn: rebuild the list and select all necessary bits and pieces from it.
@@ -697,7 +697,7 @@ Use subsetting techniques to select the following elements from `skills` (in thi
 Finally group the elements you selected in the previous steps in a new list, `key_skills`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 top <- c("basic data type","vectors","matrices","factors","lists")
 cont <- factor(c("core", "data", "data", "data", "data"))
 rwnms <- c("1D", "heterogeneous", "subsetting", "calculus")
@@ -712,7 +712,7 @@ rm(top, cont, rwnms, clnms, prop, lst)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 passed1 <- runif(10)
 passed2 <- runif(10)
 s1 <- skills$topics[2]
@@ -722,7 +722,7 @@ key_skills <- list(skills$topics[2], skills$context[2], skills$list_info[[2]][4]
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_or(
@@ -766,7 +766,7 @@ test_instruction(5, {
 success_msg("Great! Quite some skills you've got there! Learn all about data frames in the next chapter")
 ```
 
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## Rule the world!
 
 You have now gained the power to create, name and present your own data frame, congratulations! Now let's put those skills to the test.
@@ -799,7 +799,7 @@ As you already did countless times before, display the structure of `countries_d
 Create a new data frame, `countries_df`, containing all the listed information in that order. Name the column names "name", "cont", "GDP", "HDI" and "has_president", respectively. Make sure that the first column is a character vector, while the second one is a factor. To finish off, display the structure of the structure of `countries_df`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 countries <-c("Canada", "United States", "France", "Belgium", "India", "China", "United Kingdom", "Russia")
 continents <-c("North-America", "North-America", "Europe", "Europe", "Asia", "Asia", "Europe", "Asia")
 gdp <- c(44843, 54596, 44538, 47787, 1808, 8154, 45653, 8184)
@@ -809,14 +809,14 @@ president <- c(F, T, T, F, T, T, F, T)
 
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 continents_factor <- factor(continents)
 countries_df <- data.frame(name = countries, cont = continents_factor, GDP = gdp, HDI = hdi, has_president = president, stringsAsFactors=FALSE)
 str(countries_df)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_an_object("continents_factor")
@@ -846,7 +846,7 @@ test_instruction(5, {
 success_msg("Congratulations!")
 ```
 
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## Rule the world: part II 
 Remember that in the previous challenge you created your own data frame, `countries_df`? Well, in this challenge you will get to play around with this data frame some more! Suppose you are no longer interested in the economic variables `gdp` and `hdi`. Instead you want to learn more about the demography of the countries. Also, since you are planning a trip to Brazil this summer, you want to include some information on this country to your data frame. Finally, you want to keep the overview and have the countries with the largest population appear first in your data frame. Sounds like an easy job after completing the previous set of exercises, right?
 
@@ -865,7 +865,7 @@ All that is left to do is sort the observations according to population size. No
 Create a new data frame, `countries_df_dem`, that no longer contains the economic variables `gdp` and `hdi`, but has the additional `population` column (a vector `population` is available in the workspace). Extend `countries_df_dem` further by adding the information on Brazil (a data frame `brazil` is available in the workspace but it is not named correctly yet). Call the resulting data frame `countries_df2`. Finally, print a sorted version `countries_df2` such that the country with the largest population comes first. Just print it; do not overwrite the `countries_df2` dataframe.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 countries <-c("Canada", "United States", "France", "Belgium", "India", "China", "United Kingdom", "Russia")
 continents <-c("North-America", "North-America", "Europe", "Europe", "Asia", "Asia", "Europe", "Asia")
 gdp <- c(44843, 54596, 44538, 47787, 1808, 8154, 45653, 8184)
@@ -879,7 +879,7 @@ brazil<-data.frame("Brazil", "South-America", TRUE, 202768562)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Remove economic variables and add population.
 countries_df_dem <- countries_df[ , c(1, 2, 5)]
 countries_df_dem$population <- population
@@ -893,7 +893,7 @@ countries_df2[order(countries_df2$population,decreasing=TRUE), ]
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_an_object("countries_df_dem")

@@ -1,4 +1,4 @@
---- type:MultipleChoiceExercise xp:50 skills:1
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1
 ## R's pros and cons
 
 As Filip explained in the video, there are things that make R the awesome and immensely popular language that it is today. On the other hand, there are also aspects about R that are less attractive. Which of the following statements are true regarding this statistical programming language?
@@ -20,12 +20,12 @@ As Filip explained in the video, there are things that make R the awesome and im
 Remember that your data has to fit in the working memory for R to be able to process it.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 msg1 = "Remember that the fact that R uses a command-line interface, does not make it hard to share code. On the contrary, sharing your results becomes very straightforward because you can easily share R scripts."
 msg2 = "R is the perfect tool for creating neat and insightful visualizations. Try again."
 msg3 = "Great! Head over to the next exercise and get your hands dirty!"

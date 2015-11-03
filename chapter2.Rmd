@@ -5,26 +5,19 @@ description : We take you on a trip to Vegas, where you will learn how to analyz
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch2_slides.pdf
   
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Create and Name Vectors
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/138173896
-```
 
 *** =video_stream
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173896.hd.mp4?s=ad1bb666a7bd15a35883ae2f912ba5f6&profile_id=119
-```
 
 *** =video_hls
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173896.m3u8?p=high,standard,mobile&s=63b5262a0f30b79551e2bcb3e484e3b0
-```
 
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Create a vector (1)
 
 Feeling lucky? You better, because we'll take you on a trip to Las Vegas!
@@ -46,12 +39,12 @@ Create a vector, `logical_vector`, that contains the three elements: `TRUE`, `FA
 Assign `c(TRUE, FALSE, TRUE)` to the variable `logical_vector` with the `<-` operator.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 numeric_vector <- c(1, 10, 49)
 character_vector <- c("x", "y", "z")
 
@@ -60,7 +53,7 @@ character_vector <- c("x", "y", "z")
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 numeric_vector <- c(1, 10, 49)
 character_vector <- c("x", "y", "z")
 
@@ -69,7 +62,7 @@ logical_vector <- c(TRUE, FALSE, TRUE)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg <- "Do not change how `numeric_vector` and `character_vector` are created!"
 lapply(c("numeric_vector", "character_vector"), test_object, undefined_msg = msg, incorrect_msg = msg)
 test_object("logical_vector", incorrect_msg = "Make sure that you assign the correct values to `logical_vector`. The order matters!")
@@ -77,7 +70,7 @@ success_msg("Perfect! Let's practice some more with vector creation.")
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Create a vector (2)
 
 After one week in Las Vegas and still zero Ferraris in your garage, you decide that it is time to start using your data science superpowers.
@@ -108,7 +101,7 @@ To help you with this step, the editor already contains the code for creating `p
 
 *** =sample_code
 
-```{r eval=FALSE}
+```{r}
 # Poker winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 
@@ -118,7 +111,7 @@ poker_vector <- c(140, -50, 20, -120, 240)
 
 *** =solution
 
-```{r eval=FALSE}
+```{r}
 # Poker winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 
@@ -127,14 +120,14 @@ roulette_vector <- c(-24, -50, 100, -350, 10)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_object("poker_vector", incorrect_msg = "Don't change how `poker_vector` is defined.")
 test_object("roulette_vector", incorrect_msg = "Make sure that you assign a vector with the correct values to `roulette_vector`.")
 success_msg("Very good! To check out the contents of your vectors, remember that you can always simply type the variable in the console and hit Enter. Proceed to the next exercise!")
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Naming a vector (1)
 
 As a data analyst, it is important to have a clear view on the data that you are using. Understanding what each element refers to is essential. 
@@ -162,11 +155,11 @@ c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 ```
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Poker winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 
@@ -178,7 +171,7 @@ roulette_vector <- c(-24, -50, 100, -350, 10)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Poker winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 
@@ -191,7 +184,7 @@ names(roulette_vector) <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 
 msg <- "Do not change the values inside `%s`; they were already coded for you."
 test_object("poker_vector", incorrect_msg = sprintf(msg, "poker_vector"))
@@ -203,7 +196,7 @@ success_msg("Well done!")
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Naming a vector (2)
 
 If you want to become a good statistician, you have to become lazy. (If you are already lazy, chances are high you are one of those exceptional, natural-born statistical talents.)
@@ -220,12 +213,12 @@ Just like you did with your poker and roulette returns, you can also create a va
 You can use `names(poker_vector)` to set the names of the variable `poker_vector`. Make sure not to forget the parentheses around the days of the week.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Poker winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 
@@ -240,7 +233,7 @@ roulette_vector <- c(-24, -50, 100, -350, 10)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Poker winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 
@@ -256,7 +249,7 @@ names(roulette_vector) <- days_vector
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg <- "Do not change the values inside `%s`; they were already coded for you."
 test_object("poker_vector", incorrect_msg = sprintf(msg, "poker_vector"))
 test_object("roulette_vector", incorrect_msg = sprintf(msg, "roulette_vector"))
@@ -267,25 +260,19 @@ test_object("roulette_vector", eq_condition = "equal", incorrect_msg = sprintf(m
 success_msg("Nice one! A word of advice: try to avoid code duplication at all times.")
 ```
 
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Vector Arithmetic
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/141163398
-```
 
 *** =video_stream
-```{r,eval=FALSE}
 https://player.vimeo.com/external/141163398.hd.mp4?s=89a4fcf84cb5a297243c77db9de7dafb&profile_id=119
-```
 
 *** =video_hls
-```{r,eval=FALSE}
 https://player.vimeo.com/external/141163398.m3u8?p=high,standard,mobile&s=e62fc2293d8e4b3cbe3201cdab3e0639
-```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Calculate your earnings
 
 Now that you understand how R does arithmetic calculations with vectors, it is time to get those Ferraris in your garage! First, you need to understand what the overall profit or loss per day of the week was. The total daily profit is the sum of the profit/loss you realized on poker per day, and the profit/loss you realized on roulette per day.
@@ -306,12 +293,12 @@ c(5, 7, 9)
 Similar to the previous exercise, assign the sum of two vectors to a new variable, `total_daily`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -326,7 +313,7 @@ names(roulette_vector) <- days_vector
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -342,7 +329,7 @@ total_daily
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg = "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
 test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("poker_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
@@ -354,7 +341,7 @@ success_msg("Great! Continue to the next exercise.")
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Calculate total winnings: sum()
 
 Based on the previous analysis, it looks like you had a mix of good and bad days. This is not what your ego expected, and you wonder if there may be a (very very very) tiny chance you have lost money over the week in total? 
@@ -370,12 +357,12 @@ You can answer this question using the [`sum()`](http://www.rdocumentation.org/p
 Use the [`sum()`](http://www.rdocumentation.org/packages/base/functions/sum) function to get the total of the `poker_vector`. Do the same thing for `roulette_vector`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -394,7 +381,7 @@ names(roulette_vector) <- days_vector
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -413,7 +400,7 @@ total_roulette + total_poker
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg <- "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
 test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("poker_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
@@ -429,7 +416,7 @@ success_msg("Oops, it seems like you are losing money. Time to rethink and adapt
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Comparing total winnings
 
 The previous exercise showed that you are losing money, now what? After a short brainstorm in your hotel's jacuzzi, you realize that a possible explanation might be that your skills in roulette are not as well developed as your skills in poker. You choose to use the `>` operator to reveal this.
@@ -445,12 +432,12 @@ You partly calculated the answer to this question in the previous exercise alrea
 To check if 6 is larger than 5, you type `6 > 5`. This returns a variable with data type Logical (`TRUE` or `FALSE`).
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -470,7 +457,7 @@ total_roulette <- sum(roulette_vector)
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -490,7 +477,7 @@ total_poker > total_roulette
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg <- "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
 test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("poker_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
@@ -508,26 +495,20 @@ success_msg("Great! Your hunch seemed to be right. It appears that the poker gam
 ```
 
 
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Vector Subsetting
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/138173916
-```
 
 *** =video_stream
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173916.hd.mp4?s=84a72eef2563eb9f94b97ba1b626815f&profile_id=119
-```
 
 *** =video_hls
-```{r,eval=FALSE}
 https://player.vimeo.com/external/138173916.m3u8?p=high,standard,mobile&s=d1f7079f7e71a3cd4fdc4f34046b514f
-```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Selection by index (1)
 
 After you figured that roulette is not your forte, you decide to compare your performance at the beginning of the working week compared to the end of it. You did have a couple of Margarita cocktails at the end of the week...
@@ -542,12 +523,12 @@ To answer that question, you only want to focus on a selection of the `total_vec
 Wednesday is the third element of `poker_vector`, and can thus be selected with `poker_vector[3]`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -563,7 +544,7 @@ names(roulette_vector) <- days_vector
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -579,7 +560,7 @@ roulette_friday <- roulette_vector[5]
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 
 msg = "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
 test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
@@ -593,7 +574,7 @@ success_msg("Great! R also makes it possible to select multiple elements from a 
 ```
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Selection by index (2) 
 
 How about analyzing your midweek results? 
@@ -615,12 +596,12 @@ selects the first and the fifth element of `poker_vector`.
 Use the vector `c(2,3,4)` between square brackets to select the correct elements of `poker_vector`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ``` 
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -637,7 +618,7 @@ names(roulette_vector) <- days_vector
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -653,7 +634,7 @@ roulette_endweek <- roulette_vector[c(4,5)]
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 
 msg <- "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
 test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
@@ -669,7 +650,7 @@ test_object("roulette_endweek",
 success_msg("Well done! Another way to find the mid-week results is `poker_vector[2:4]`. Continue to the next exercise to specialize in vector selection some more!");
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Selection by name
 
 Another way to tackle the previous exercise is by using the names of the vector elements (Monday, Tuesday, ...) instead of their numeric positions. For example, 
@@ -688,12 +669,12 @@ will select the first element of `poker_vector` since `"Monday"` is the name of 
 You can use `mean(my_vector)` to get the mean of the vector `my_vector`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -709,7 +690,7 @@ names(roulette_vector) <- days_vector
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -725,7 +706,7 @@ poker_tuesday <- poker_vector["Tuesday"]
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg <- "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
 test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("poker_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
@@ -736,7 +717,7 @@ test_object("poker_tuesday")
 success_msg("Good job! Head over to the next exercise. Just like selecting single elements using numerics extends naturally to selecting multiple elements, you can also use a vector of names.");
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Selection by logicals (1)
 
 There are basically three ways to subset vectors: by using the indices, by using the names (if the vectors are named) and by using logical vectors. Filip already told you about the internals in the instructional video. As a refresher, have a look at the following statements to select elements from `poker_vector`, which are all equivalent:
@@ -760,12 +741,12 @@ poker_vector[c(TRUE, FALSE, TRUE, FALSE, FALSE)]
 The logical vector to use inside square brackets for the first instruction is `c(TRUE, FALSE, TRUE, FALSE, TRUE)`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -780,7 +761,7 @@ names(roulette_vector) <- days_vector
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -796,7 +777,7 @@ poker_start <- poker_vector[c(TRUE, TRUE, TRUE, FALSE, FALSE)]
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg = "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
 test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("poker_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
@@ -806,7 +787,7 @@ test_object("poker_start")
 success_msg("Nice one! Using logical vectors to perform subsetting might seem somewhat tedious, but its true power will become clear in the next exercise!")
 ```
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Selection by logicals (2)
 
 By making use of a combination of comparison operators and subsetting using logicals, you can investigate your casino performance in a more pro-active way.
@@ -829,12 +810,12 @@ Experiment with these operators in the console. The result will be a logical vec
 - In order to check for which days your poker gains are positive, R should check for each element of `poker_vector` whether it is larger than zero. `some_vector > 0` is the way to tell R what you are after.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 # no pec
 ```
 
 *** =sample_code
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -850,7 +831,7 @@ names(roulette_vector) <- days_vector
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 # Casino winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
@@ -866,7 +847,7 @@ poker_profits <- poker_vector[selection_vector]
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg = "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
 test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
 test_object("poker_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
