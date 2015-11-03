@@ -5,7 +5,7 @@ description : R is known for its great graphical capabilities. This chapter fami
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch7_slides.pdf
 
---- type:VideoExercise xp:50
+--- type:VideoExercise xp:50 skills:1
 ## Basic Graphics
 
 *** =video_link
@@ -23,10 +23,10 @@ https://player.vimeo.com/external/138174024.hd.mp4?s=734830b880a47e7cd6ec947f9de
 https://player.vimeo.com/external/138174024.m3u8?p=high,standard,mobile&s=120262a983107c7eeb7c48a38f11c7e8
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Plotting factors
 
 To create basic visualizations in R, a great place to start is the [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot) function. This function is very generic, as the graphs it creates are different depending on the type of input information. 
@@ -97,10 +97,10 @@ test_function("plot", args = c("x","y"), index = 2,
 success_msg("Great! Use the _Next Plot_ and _Previous Plot_ buttons in the graphical window to inspect the different plots you've created. In the second plot, R realized that you passed a factor for the horizontal axis and a numerical vector for the vertical axis. R created a boxplot of the numerical values, for each category separately. Pretty cool if you ask me!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Plotting numerics
 
 In the previous exercise, you already saw that the combination of a factor and a numeric vector already gave the surprising result of a categorized set of boxplots. But what happens if you pass the [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot) function a single numeric vector? And what if you pass two vectors to [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot)? No theory on this one, let's simply learn by doing!
@@ -160,10 +160,10 @@ test_function_v2("plot", args = c("x","y"), index = 2,
 success_msg("Nice! If you use <code>plot()</code> with a single argument, you'll get an index plot, while with two arguments you'll get a classical scatterplot. From the second plot, there seems to be a light correlation between the length of a movie and its rating.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Create a Histogram
 
 Another function that Filip introduced in the video, is [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist). Basically, the [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist) function visualizes the distribution of your data by placing all values in bins and displaying the bin frequencies of each bin. Have a look at the usage of the [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist) function:
@@ -224,10 +224,10 @@ test_function_v2("hist", "breaks", index = 2)
 success_msg("Nice! The histograms give you quite a good idea of the <code>rating</code> variable. Compare both histograms, which one do you find most informative? Whatever your taste: choosing a suitable number of bins is important!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Other graphics functions
 
 Apart from the [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot) and [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist) function, there are many more easy-to-use and very useful functions in the `graphics` package. You'll experiment with just a few in this exercise. Giving you a full overview would take us too far, but feel free to check out the documentation on the functions if you are interested in learning more. To get more insight into the [`boxplot()`](http://www.rdocumentation.org/packages/graphics/functions/boxplot) function for example, simply type:
@@ -301,10 +301,10 @@ test_function("pie", "x",
 success_msg("Perfect! Know that there are many more functions to create the plots that you need in R!")
 ```
 
-*** =skills
-1
 
---- type:ChallengeExercise xp:200
+
+
+--- type:ChallengeExercise xp:200 skills:1
 ## How does your salary compare?
 For your first visualization challenge, a new data set is available in the workspace: `salaries`. It contains the gross hourly salary in US Dollars (`salary`), according to your eduction (`degree`: 1 = did not finish high school, 2= Finished high school, 3= Higher Education) and experience in years (`experience`) of 65 different people. 
 
@@ -357,10 +357,10 @@ test_instruction(4, {
 success_msg("Great! As you can see, there aren't that many people that make more than 100$, so you are right there among the top of your education class!")
 ```
 
-*** =skills
-1
 
---- type:VideoExercise xp:50
+
+
+--- type:VideoExercise xp:50 skills:1
 ## Customizing Plots
 
 *** =video_link
@@ -378,10 +378,10 @@ https://player.vimeo.com/external/138174037.hd.mp4?s=5c7a41a07567150c8aebdbb78b8
 https://player.vimeo.com/external/138174037.m3u8?p=high,standard,mobile&s=7d2b41f7bad7599feccf26780f171518
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Title and axis labels
 
 When you use the [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot) function by simply passing it the data you want to plot, you'll end up with a plot that is not very nice to look at. To make your plot more interpretable, a clear plot title as well as well-chosen axis labels are very important. You can use the arguments `main`, `xlab` and `ylab` for this. To add a subtitle to your plot, use `sub`.
@@ -441,10 +441,10 @@ test_function("plot", c("x","y","main","xlab","ylab","sub"))
 success_msg("That's already much better, but there's more you can do!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Colors and shapes
 
 By default, R prints rather dark colors: scatter plots have dots, axis, labels and titles that are all black. Histograms have a grayish fill if you do not manually specify the options. 
@@ -514,10 +514,10 @@ test_function("plot", c("x","y","main","xlab","ylab","sub","pch","col","col.main
 success_msg("Great! Can you still remember the basic plot, without titles or labels and simple black dots? What a difference!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Customize Everything!
 
 The last argument that Filip talked about was the `cex` argument and the other related `cex.*` arguments. With `cex.axis` for example, you can specify how much the font of the axis ticks should be made smaller or larger with respect to the general font size. You can do similar things with `cex.main` and `cex.lab`.
@@ -581,10 +581,10 @@ test_function("plot", c("x","y","main","xlab","ylab","col","pch","cex.axis"))
 success_msg("Cool! It seems that indeed more recent movies have gotten more votes overall. This makes perfect sense because there wasn't anything like IMDb in the seventies..")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Customizing Histograms
 
 Apart from specifying how many bins a histogram should contain, there are many other things you can specify. On the one hand, there are bin calculation related arguments, but there are also options to make your histogram better looking, like you did before with [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot).
@@ -649,10 +649,10 @@ test_function("plot", c("x","breaks", "xlim", "main", "xlab", "col", "border"))
 success_msg("Nice! Can you see how a change of any of the arguments affects the histogram? Feel free to experiment some more before you head over to the challenge!")
 ```
 
-*** =skills
-1
 
---- type:ChallengeExercise xp:200
+
+
+--- type:ChallengeExercise xp:200 skills:1
 ## Does work experience influence your salary?
 Remember how you tried to figure out if you were making enough money based on your education? Well, in this challenge you will work with the same dataset, but this time you want to figure out whether experience has an important role in determining someone's salary. This data is however no longer available in the `salaries` dataframe, but in the vector `exp`. You will have to add it back into the dataframe `salaries`. 
 
@@ -723,10 +723,10 @@ test_instruction(4, {
 success_msg("Great work! You are now able to play around with plots in R! You clearly see a positive correlation between work experience and salary, right? It's time for the final part of this introductory course! Let's finish this thing!")
 ```
 
-*** =skills
-1
 
---- type:VideoExercise xp:50
+
+
+--- type:VideoExercise xp:50 skills:1
 ## Multiple Plots
 
 *** =video_link
@@ -744,11 +744,11 @@ https://player.vimeo.com/external/138174049.hd.mp4?s=7d6009c52ac0fd2552108c337e4
 https://player.vimeo.com/external/138174049.m3u8?p=high,standard,mobile&s=aa1672c0b88109eb9a4e9d3805c10c4b
 ```
 
-*** =skills
-1
 
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Multiple plots with par()
 
 In publications or reports, it's often a good idea to combine different plots; this saves space but also allows readers to easily compare the plots. As Filip explained in the instructional video, you can use the [`par()`](http://www.rdocumentation.org/packages/graphics/functions/par) function to specify the `mfrow` argument. If you for example execute
@@ -822,10 +822,10 @@ test_function("hist", "x")
 success_msg("Nice! Notice how your plots appear in a vertical arrangement: the plot that you generated first, comes on top.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Complex layouts!
 
 The `mfrow` and `mfcol` functions work perfectly if you want to place your different subplots on a rectangular grid. But it's still a grid. With the [`layout()`](http://www.rdocumentation.org/packages/graphics/functions/layout) function, you can define more complex plot arrangements. In its most minimal use, [`layout()`](http://www.rdocumentation.org/packages/graphics/functions/layout) simply requires a matrix, that defines where each plot should be placed.
@@ -895,10 +895,10 @@ test_function("boxplot", "x")
 success_msg("Great! Feel free to experiment some more with the <code>layout()</code> function. It's great way of building very insightful plots.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Complex layouts with customized plots
 
 Being able to place different subplots in fancy arrangements with [`layout()`](http://www.rdocumentation.org/packages/graphics/functions/layout) is a great tool to pimp your reports and publications, but of course you shouldn't forget about the plot customization you learned about before. `xlab`, `ylab`, `main`, `pch`, you name it: they can all facilitate a better understanding of the message you're trying to convey with your figures!
@@ -983,10 +983,10 @@ test_function("boxplot", c("x","main","border"))
 success_msg("Nice! Instead of having very interpretable, clean plots, the different colors actually made a mess of it. Remember that interpretability is the holy grail when you're building visualizations!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Plot a linear regression
 
 Next to creating different plot arrangements with `mfrow`, `mfcol` or with the [`layout()`](http://www.rdocumentation.org/packages/graphics/functions/layout) function, the video also talked about adding layers to your plots. There are functions such as [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot) and [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist) that build new figures, but there are also functions such as [`abline()`](http://www.rdocumentation.org/packages/graphics/functions/abline), [`text()`](http://www.rdocumentation.org/packages/graphics/functions/text), [`lines()`](http://www.rdocumentation.org/packages/graphics/functions/lines), [`segments()`](http://www.rdocumentation.org/packages/graphics/functions/segments). These functions add graphical elements to the current figure, instead of creating a new figure. These are great to add more information to your plots.
@@ -1053,10 +1053,10 @@ test_function("abline")
 success_msg("Great! There seems to be a positive correlation between the number of votes a movie received and its rating. Head over to the next exercise to customize these plots some more!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Customize your linear regression plot
 
 The scatter plot with an overlayed linear regression line that you built in the previous figure is a great start. But again, some customizations here and there wouldn't hurt right? And what about some text in your plot that gives some more information?
@@ -1160,10 +1160,10 @@ test_function("text", c("x", "labels"))
 success_msg("Awesome! This is a plot that would fit right into one of IMDb's reports, if you ask me! Head over the final exercise of this introduction to R course!")
 ```
 
-*** =skills
-1
 
---- type:MultipleChoiceExercise xp:100
+
+
+--- type:MultipleChoiceExercise xp:100 skills:1
 ## Multiple plots with different layers
 
 The previous exercises taught you how to make multiple plots in the same graphical window as well as to add more layers to the same plot. 
@@ -1231,6 +1231,6 @@ msg3 <- "You have been mislead! Everything in the code seems correct. But look a
 test_mc(2, feedback_msgs = c(msg1, msg2, msg3))
 ```
 
-*** =skills
-1
+
+
 

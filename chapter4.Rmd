@@ -5,7 +5,7 @@ description : Very often, data falls into a limited number of categories.In R, c
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch4_slides.pdf
 
---- type:VideoExercise xp:50
+--- type:VideoExercise xp:50 skills:1
 ## Factors
 
 *** =video_link
@@ -23,10 +23,10 @@ https://player.vimeo.com/external/138173962.hd.mp4?s=856deee2057ce6a19841d395b51
 https://player.vimeo.com/external/138173962.m3u8?p=high,standard,mobile&s=8e92ffa33fe5363ce2c6f05c1d69a415
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Vector to factor
 
 In this and the following exercises, we'll be working with handedness as a categorical variable that can be either "Left" or "Right". In general, you're either left-handed, or you're right-handed and nothing else, so this complies with the conditions of a categorical variable.
@@ -79,10 +79,10 @@ test_function("str", "object",
 success_msg("Great! If you want to find out more about the <code>factor()</code> function, do not hesitate to type <code>?factor</code> in the console. This will open up a help page. Continue to the next exercise.");
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Factor levels
 
 When you first get a data set, you will often notice that it contains factors with specific factor levels. Of course, you can also change these factor levels. You can either do this with the `levels()` function, after you defined the factor, or using the `labels` argument inside `factor()`. The following options are equivalent:
@@ -152,10 +152,10 @@ test_output_contains("survey_factor", incorrect_msg = "Don't forget to print <co
 success_msg("Wonderful! Proceed to the next exercise.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Summarizing a factor
 
 After finishing this course, one of your favourite functions in R will be [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary). This will give you a quick overview of `some_variable`: 
@@ -214,10 +214,10 @@ test_output_contains("summary(survey_factor)", incorrect_msg = "Make sure to sum
 success_msg("Nice! Have a look at the output. The fact that you identified <code>\"Right\"</code> and <code>\"Left\"</code> as factor levels in <code>survey_factor</code> enables R to show the number of elements for each category.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Nominal versus Ordinal, Unordered versus Ordered
 
 Remember that there are two types of categorical variables? On the one hand there's the _nominal categorical variable_, which does not have an implied order. The _ordinal categorical variable_, on the other hand, does have a natural ordering.
@@ -298,10 +298,10 @@ test_output_contains("temperature_factor", incorrect_msg = msg)
 success_msg("Awesome! You correctly figured out that <code>animal_factor</code> shouldn't be ordered while <code>temperature_factor</code> should.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Left better than right?
 
 _"All animals are equal, but some animals are more equal than others." -- George Orwell_
@@ -363,10 +363,10 @@ test_output_contains("survey_factor[1] > survey_factor[2]", incorrect_msg = "Mak
 success_msg("Phew, it seems that R is neutral ;-).")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Ordered factors
 
 Since `"Right"` and `"Left"` are unordered (or nominal) factor levels, R returned a warning message, telling you that the greater than operator is not meaningful. As seen before, R attaches an equal value to the levels for such factors. 
@@ -414,10 +414,10 @@ test_object("speed_vector",
 success_msg("A job well done! Continue to the next exercise.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Ordered factors (2)
 
 `speed_vector` should be converted to an ordinal factor since its categories have a natural ordening. You already know how to do this. Here's a template to define an ordered factor once more:
@@ -485,10 +485,10 @@ test_correct({
 success_msg("Great! Have a look at the console. It is now indicated that the Levels indeed have an order associated, with the <code><</code> sign. Continue to the next exercise.");
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Comparing ordered factors
 
 Having a bad day at work, 'data analyst number two' enters your office and starts complaining that 'data analyst number five' is slowing down the entire project. Since you know that 'data analyst number two' has the reputation of being a smarty-pants, you first decide to check if his statement is true. 
@@ -548,10 +548,10 @@ test_object("compare_them",
 success_msg("Bellissimo! What does the result tell you? Data analyst two is complaining about the data analyst five while in fact he or she is the one slowing everything down!")
 ```
 
-*** =skills
-1
 
---- type:ChallengeExercise xp:200
+
+
+--- type:ChallengeExercise xp:200 skills:1
 ## Flying high in factor space
 
 As a data analyst, you decide to join Rways, a new airline that only offers flights and services based on data-driven decisions. Business is going well, and the management is considering to extend the offer from only economy class to business and first class as well. You are supposed to process the results of a questionnaire that polls for the preferred class of the respondents. The results for 50 of these respondents can be found in a character vector `fly_class`.
@@ -601,5 +601,4 @@ test_instruction(3, {
 success_msg("Factiolicious! This challenge shows the true power of the <code>factor()</code> function: if you want, you can create a factor, but also order and rename the factor levels, all in a single command.")
 ```
 
-*** =skills
-1
+

@@ -5,7 +5,7 @@ description : Lists, as opposed to vectors, can hold components of different typ
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch5_slides.pdf
 
---- type:VideoExercise xp:50
+--- type:VideoExercise xp:50 skills:1
 ## Create and Name Lists
 
 *** =video_link
@@ -23,10 +23,10 @@ https://player.vimeo.com/external/138173972.hd.mp4?s=baaba36b2ddda17534c620c6634
 https://player.vimeo.com/external/138173972.m3u8?p=high,standard,mobile&s=48efa63afdd7737a82bca112459502a3
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Create a list
 
 Just a quick refresher: A list in R allows you to gather a variety of objects in an ordered way. These objects can be matrices, vectors, factors, data frames, even other lists, etc. It is not even required that these objects are related to each other. You can construct a list with the [`list()`](http://www.rdocumentation.org/packages/base/functions/list) function:
@@ -88,10 +88,10 @@ test_object("my_list",
 success_msg("Wonderful! Your skillset is growing at a staggering pace! Head over to the next exercise.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Listception: lists in lists
 
 As mentioned before, lists can also contain other lists. This works just the same as storing other types of R objects in a list. Next to the variables `my_vector`, `my_matrix` and `my_factor` from the previous exercise, now also `my_list` is predefined. Up to you to merge them in a new list; a super list!
@@ -164,10 +164,10 @@ test_output_contains("str(my_super_list)", incorrect_msg = "Don't forget to disp
 success_msg("Nice one! Can you see from the displayed structure how the vector, matrix and ordered factor appear twice: once in the top-level list and once in the embedded list. Next!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Create a named list
 
 Well done! Let us keep this train going! To make the elements of your list clearer, you'll often want to name them: 
@@ -251,10 +251,10 @@ test_output_contains("my_list", incorrect_msg = "Don't forget to print <code>my_
 success_msg("Great! Not only do you know how to construct lists now, you can also name them; a skill that will prove most useful in practice. Continue to the next exercise.")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Create a named list (2)
 
 Being a huge movie fan, you decide to start storing information on good movies with the help of lists. 
@@ -312,10 +312,10 @@ test_object("shining_list", eq_condition = "equal",
 success_msg("Wonderful! Head over to the challenge to finish up on list creation in style!")
 ```
 
-*** =skills
-1
 
---- type:ChallengeExercise xp:200
+
+
+--- type:ChallengeExercise xp:200 skills:1
 ## List your skills
 
 Your R skills are growing at a staggering pace. Time to list them all! The topics that have been covered so far are contained in the vector `top`. There's also a factor, `cont`, that tells whether these skills relate to a data structure or more to R in general. Finally, the matrix `prop` summarizes some properties of vectors, matrices, factors and lists. 
@@ -399,10 +399,10 @@ test_instruction(4, {
 success_msg("Congratulations! You nailed yet another challenge!")
 ```
 
-*** =skills
-1
 
---- type:VideoExercise xp:50
+
+
+--- type:VideoExercise xp:50 skills:1
 ## Subset and Extend Lists
 
 *** =video_link
@@ -420,10 +420,10 @@ https://player.vimeo.com/external/138173990.hd.mp4?s=f2e7e474ca57f40e44d005a8eb3
 https://player.vimeo.com/external/138173990.m3u8?p=high,standard,mobile&s=12d421864a1e5cf5487ab091b3ffcb06
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Selecting elements from a list
 
 Your list will often be built out of numerous elements and components. Therefore, getting a single element, multiple elements, or a component out of it is not always straightforward.
@@ -502,10 +502,10 @@ test_output_contains("str(sublist)", incorrect_msg = "Don't forget to display th
 success_msg("Nice! That was still pretty easy, right? Always be aware of this difference between <code>[</code> and <code>[[</code>!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Chaining your selections
 
 Besides selecting entire list elements, it's also possible that you have to access specific parts of these components themselves. It's perfectly possible to _chain your subsetting operations_ in R.
@@ -571,10 +571,10 @@ test_object("second_review",
 success_msg("Great! Selecting elements from lists is rather easy isn't it? Continue to the next exercise.")
 ```
 
-*** =skills
-1
 
---- type:MultipleChoiceExercise xp:50
+
+
+--- type:MultipleChoiceExercise xp:50 skills:1
 ## Vector Subsetting vs. List Subsetting
 
 All these single and double square brackets to perform subsetting on vectors, matrices, factors and now also lists might lead to some confusion. As a summarizing exercise on vector subsetting, consider the following 4 commands.
@@ -616,10 +616,10 @@ msg5 <- "Incorrect. Both B and D are false."
 test_mc(2, feedback_msgs = c(msg1, msg2, msg3, msg4, msg5))
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Extending a list (1)
 
 You already know that the `$` as well as `[[` can be used to select elements from lists. They can also be used to extend lists. To extend `shining_list` with some personal opinion, you could do one of the following things:
@@ -700,10 +700,10 @@ test_output_contains("str(shining_list)",
 success_msg("Awesome! Adding information one after the other can be pretty tedious; head over to the next exercise to learn about a more efficient way of adding more information to your list in a one-liner!")
 ```
 
-*** =skills
-1
 
---- type:NormalExercise xp:100
+
+
+--- type:NormalExercise xp:100 skills:1
 ## Extending a list (2)
 
 To extend a list with multiple elements at the same time, you can again use the combine function. To add both my opinion and your opinion on the movie:
@@ -794,10 +794,10 @@ test_output_contains("str(shining_list_ext)", incorrect_msg = "Make sure to insp
 success_msg("Great! You're ready for another challenge on lists. All work and no play makes you dull, right? ;-)")
 ```
 
-*** =skills
-1
 
---- type:ChallengeExercise xp:200
+
+
+--- type:ChallengeExercise xp:200 skills:1
 ## List your skills (2)
 
 Remember the `skills` list that you coded in the previous challenge? It contains a vector, a factor, a matrix and another list. It can't get any more diverse, can it? The `skills` list is already available in your workspace, with the appropriate naming. Now it's your turn: rebuild the list and select all necessary bits and pieces from it.
@@ -894,6 +894,6 @@ test_instruction(5, {
 success_msg("Great! Quite some skills you've got there! Learn all about data frames in the next chapter")
 ```
 
-*** =skills
-1
+
+
 
