@@ -44,7 +44,7 @@ and hit Enter. R should print out
 If you're done experimenting, click _Submit Answer_.
 
 *** =hint
-Simply experiment in the console on the bottom right by typing in simple calculations.
+Simply experiment in the console on the bottom right by typing in calculations.
 
 *** =pre_exercise_code
 ```{r eval=FALSE}
