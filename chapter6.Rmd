@@ -472,10 +472,13 @@ success_msg("Great! Feel free to have a look at the variables you've just create
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Only planets with rings
 
-You will often want to select an entire column, namely one specific variable from a data frame. If you want to select all elements of the variable `rings`, both `planets_df[,5]` and `planets_df[,"has_rings"]` do the trick. However, you can also use the `$` sign:
+You will often want to select an entire column, namely one specific variable from a data frame. If you want to select the column `diameter` from `planets_df`, you can use either on of the following:
+
 
 ```
-my_df$col_name
+planets_df[, 3]
+planets_df[, "diameter"]
+planets_df$diameter
 ```
 
 *** =instructions
@@ -518,8 +521,7 @@ rings_vector
 msg <- "Do not remove or overwrite the `planets_df` data frame!"
 test_object("planets_df", undefined_msg = msg, incorrect_msg = msg)
 
-test_object("rings_vector",
-            incorrect_msg = "It looks like `rings_vector` does not contain all the elements of the `has_rings` variable of`planets_df`.")
+test_object("rings_vector", incorrect_msg = "It looks like `rings_vector` does not contain all the elements of the `has_rings` variable of`planets_df`.")
 
 test_output_contains("rings_vector", incorrect_msg = "Don't forget to print `rings_vector`!")
 
@@ -534,9 +536,15 @@ You probably remember from high school that some planets in our solar system hav
 
 The `rings_vector` you've coded before is a logical vector. It's `TRUE` when the corresponding planets have rings and `FALSE` when they don't. To select those observations from `planets_df` that have rings, you can use the `rings_vector` and perform subsetting by logicals!
 
+To subset observations by logicals, put the logical vector and a comma inside square brackets, similar to this:
+
+```
+df[,logical_vector]
+```
+
 *** =instructions
 - Assign to `planets_with_rings_df` all data in the `planets_df` data set for the planets with rings, that is, where `rings_vector` is `TRUE`.
-- Print the resulting sub data frame
+- Print `planets_with_rings_df`.
 
 *** =hint
 Select elements from `planets_df` by using the square brackets. The `rings_vector` contains boolean values and R will select only those rows/columns were the vector element is `TRUE`. In this case, you want to select rows based on `rings_vector` and select all the columns.
@@ -555,6 +563,8 @@ rings_vector <- planets_df$has_rings
 
 # Select the information on planets with rings: planets_with_rings_df
 
+
+# Print planets_with_rings_df
 ```
 
 *** =solution
@@ -592,26 +602,19 @@ success_msg("Nice work, but this is a rather tedious solution. The next exercise
 
 So what exactly did you learn in the previous exercises? You selected a subset from a data frame (`planets_df`) based on whether or not a certain condition was true (rings or no rings), and you managed to pull out all relevant data. Pretty awesome! By now, NASA is probably already flirting with your CV!
 
-Instead of having to define a vector `rings_vector`, which you then use to subset `planets_df`, you could've also used:
+Instead of having to define a vector `rings_vector`, which you then use to subset `planets_df`, you could've also used either one of these:
 
 ```
+planets_df[planets_df$has_rings, ]
 planets_df[planets_df$has_rings == TRUE, ]
 ```
-
-You can reach the same thing with the [`subset()`](http://www.rdocumentation.org/packages/base/functions/subset). You should see the [`subset()`](http://www.rdocumentation.org/packages/base/functions/subset) function:
-
-```
-subset(planets_df, subset = has_rings == TRUE)
-``` 
-
-The first argument of [`subset()`](http://www.rdocumentation.org/packages/base/functions/subset) specifies the data set. The `subset` argument should be a logical expression that indicates which rows to keep. Can you see how it relates to the solution with square brackets? Notice that in the `subset()` version, you do not need to use the `$` notation to refer to `has_rings`; R handles that for you.
 
 *** =instructions
 - Create a data frame `small_planets_df` with planets that have a diameter smaller than the Earth. This means that the `diameter` variable should be smaller than 1, since diameter is a relative measure of the planet's diameter w.r.t that of planet Earth.
 - Build another data frame, `slow_planets_df`, with the observations that have a longer rotation period than Earth. This means that the absolute value (use the function `abs()`) of the `rotation` variable should be greater than 1.
 
 *** =hint
-Make use of the logical operators > and <. Use the abs() function for absolute values. 
+Make use of the logical operators `>` and `<`. Use the `abs()` function for absolute values. 
 
 *** =pre_exercise_code
 ```{r}
