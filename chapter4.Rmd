@@ -61,7 +61,7 @@ str(hand_factor)
 
 *** =sct
 ```{r}
-
+test_error()
 test_object("hand_factor",
             incorrect_msg = "Did you correctly convert `hand_vector` to a factor and assign the result to `hand_factor`?")
 test_function("str", "object",
@@ -343,6 +343,7 @@ summary(speed_factor)
 
 *** =sct
 ```{r}
+test_error()
 msg <- "Do not change anything about the command that defines `speed_vector`."
 test_object("speed_vector", undefined_msg = msg, incorrect_msg = msg)
 test_correct({

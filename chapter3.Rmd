@@ -62,6 +62,7 @@ star_wars_matrix <- matrix(box, nrow = 3, byrow = TRUE)
 
 *** =sct
 ```{r}
+test_error()
 msg <- "Do not change or remove the definition of `box`!"
 test_object("box", undefined_msg = msg, incorrect_msg = msg)
 test_correct({
@@ -117,6 +118,7 @@ star_wars_matrix <- rbind(new_hope, empire_strikes, return_jedi)
 
 *** =sct
 ```{r}
+test_error()
 msg = "Do not change anything about the box office variables `new_hope`, `empire_strikes` and `return_jedi`!"
 test_object("new_hope", undefined_msg = msg, incorrect_msg = msg)
 test_object("empire_strikes", undefined_msg = msg, incorrect_msg = msg)

@@ -64,7 +64,7 @@ dim(mtcars)
 
 *** =sct
 ```{r}
-
+test_error()
 test_function("head", "x", incorrect_msg = "Have you specified the correct parameter in the `head()` function? Make sure to pass it a data set you want to inspect, `mtcars` in this case.")
 test_function("tail", "x", incorrect_msg = "Have you specified the correct parameter in the `tail()` function? Make sure to pass it a data set you want to inspect, `mtcars` in this case.")
 test_output_contains("dim(mtcars)", incorrect_msg = "Don't forget to also call the `dim()` function on `mtcars`!")
@@ -742,9 +742,7 @@ success_msg("Nice one! This data frame is beginning to contain quite some inform
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Sorting
 
-Making and creating rankings is one of mankind's favorite affairs. These rankings can be useful (best universities in the world), entertaining (most influential movie stars) or pointless (best 007 look-a-like). Up to you for which purpose you want to use your R skills ;-). 
-
-In data analysis you will sort your data according to a certain variable in the data set. In R, this is done with the help of the function [`order()`](http://www.rdocumentation.org/packages/base/functions/order). 
+In data analysis you will often sort your data according to a certain variable in the data set. In R, this is done with the help of the function [`order()`](http://www.rdocumentation.org/packages/base/functions/order). 
 
 [`order()`](http://www.rdocumentation.org/packages/base/functions/order) is a function that gives you the ranked position of each element when it is applied on a variable, such as a vector for example:
 
@@ -757,7 +755,7 @@ this code returns the vector containing 2, 1 and 3; that's because 100 is the se
     
 ```
 a[order(a)]
-``` 
+```
 
 will thus give you the ordered vector (9, 100, 101), since it first picks the second element of `a`, then the first and then the last. Got it? If you are not sure, use the console to play with the [`order()`](http://www.rdocumentation.org/packages/base/functions/order) function. 
 
@@ -795,7 +793,7 @@ success_msg("Great! Now let's use the `order()` function to sort your data frame
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Sorting your data frame
 
-Alright, now let us do something useful with the [`order()`](http://www.rdocumentation.org/packages/base/functions/order) function! You would like to rearrange your data frame such that it starts with the largest planet and ends with the smallest one. A sort on the `diameter` column, as you will.
+Alright, now let us do something useful with the [`order()`](http://www.rdocumentation.org/packages/base/functions/order) function! You would like to rearrange your data frame such that it starts with the smallest planet and ends with the largest one. A sort on the `diameter` column, as you will.
 
 Suppose you have a data frame `df`, with three columns `a`, `b` and `c`. The following code will print a version of df that is sorted on the column `a`.
 
@@ -805,12 +803,12 @@ df[pos, ]
 ```
 
 *** =instructions
-- Assign to the variable `positions` the desired ordering for the new data frame that you will create in the next step. You can use the [`order()`](http://www.rdocumentation.org/packages/base/functions/order) function for that, with the additional argument `decreasing = TRUE`.
-- Now create the data frame `largest_first_df`, which contains the same information as `planets_df`, but with the planets in decreasing order of magnitude. Use the previously created variable `positions` as row indices inside square brackets to achieve this.
-- Print `largest_first_df` to see what you've accomplished.
+- Assign to the variable `positions` the desired ordering for the new data frame that you will create in the next step. You can use the [`order()`](http://www.rdocumentation.org/packages/base/functions/order) function for that.
+- Now create the data frame `smallest_first_df`, which contains the same information as `planets_df`, but with the planets in increasing order of magnitude. Use the previously created variable `positions` as row indices inside square brackets to achieve this.
+- Print `smallest_first_df` to see what you've accomplished.
 
 *** =hint
-- `order(planets_df$diameter, decreasing = TRUE)` will give you the ordering of the variable diameter from largest to smallest. This is wat you should assign to `positions`.
+- `order(planets_df$diameter)` will give you the ordering of the variable diameter from smallest to largest. This is wat you should assign to `positions`.
 - Use the variable positions then to select from the data frame `planets_df`: `planets_df[positions, ]`.
 
 *** =pre_exercise_code
@@ -825,24 +823,24 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/c
 # Create a desired ordering for planets_df: positions
 
 
-# Create a new, ordered data frame: largest_first_df
+# Create a new, ordered data frame: smallest_first_df
 
 
-# Print largest_first_df
+# Print smallest_first_df
 ```
 
 *** =solution
 ```{r}
-# 'planets_df' is pre-loaded in your workspace
+# planets_df is pre-loaded in your workspace
 
 # Create a desired ordering for planets_df: positions
-positions <- order(planets_df$diameter, decreasing = TRUE)
+positions <- order(planets_df$diameter)
 
-# Create a new, ordered data frame: largest_first_df
-largest_first_df <- planets_df[positions, ]
+# Create a new, ordered data frame: smallest_first_df
+smallest_first_df <- planets_df[positions, ]
 
-# Print largest_first_df
-largest_first_df
+# Print smallest_first_df
+smallest_first_df
 ```
 
 *** =sct
@@ -850,12 +848,10 @@ largest_first_df
 msg = "Do not remove or overwrite the `planets_df` data frame!"
 test_object("planets_df", undefined_msg = msg, incorrect_msg = msg)
 test_object("positions",
-            undefined_msg = "Please make sure to define a variable `positions`.",
             incorrect_msg = "It looks like `positions` does not contain all the correct ordering of the diameter column.")
-test_object("largest_first_df",
-            undefined_msg = "Please make sure to define a variable `largest_first_df`.",
-            incorrect_msg = "It looks like `largest_first_df` does not contain the positions of the ordered `planets_df`.")
-test_output_contains("largest_first_df")
+test_object("smallest_first_df",
+            incorrect_msg = "It looks like `smallest_first_df` does not contain the positions of the ordered `planets_df`.")
+test_output_contains("smallest_first_df", incorrect_msg = "Finish off by printing `smallest_first_df`.")
 success_msg("Wonderful! What does the resulting data frame look like? Order prevailed!")
 ```
 

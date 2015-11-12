@@ -234,7 +234,8 @@ test_object("my_list",
             incorrect_msg = "It looks like `my_list` does not contain the correct elements.")
 test_object("my_list", eq_condition = "equal",
             incorrect_msg = "It looks like `my_list` does not contain the correct naming for the components.");
-test_output_contains("my_list", incorrect_msg = "Don't forget to print `my_list` to the console! Simply add `my_list` on a new line in the editor.")
+test_output_contains("my_list", 
+                     incorrect_msg = "Don't forget to print `my_list` to the console! Simply add `my_list` on a new line in the script.")
 success_msg("Great! Not only do you know how to construct lists now, you can also name them; a skill that will prove most useful in practice. Continue to the next exercise.")
 ```
 

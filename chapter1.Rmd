@@ -636,6 +636,7 @@ class(var_char)
 
 *** =sct
 ```{r}
+test_error()
 msg <- "Do not remove or change the definition of the variablee `var`."
 test_object("var", undefined_msg = msg, incorrect_msg = msg)
 test_function("as.character", "x",
