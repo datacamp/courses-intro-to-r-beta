@@ -301,6 +301,7 @@ Rename the columns of `planets_df`. As `planets_df` is already created, you'll w
 - Name the `type_factor` column `type`.
 - You can keep the names `diameter` and `rotation`.
 - Change the name `rings` to `has_rings`.
+
 Finally, print `planets_df` after you renamed it (not its structure!).
 
 *** =hint
@@ -324,6 +325,9 @@ type_factor <- factor(type)
 planets_df <- data.frame(planets, type_factor, diameter, rotation, rings, stringsAsFactors = FALSE)
 
 # Improve the names of planets_df
+
+
+# Print planets_df
 
 ```
 
@@ -603,8 +607,8 @@ subset(planets_df, subset = has_rings == TRUE)
 The first argument of [`subset()`](http://www.rdocumentation.org/packages/base/functions/subset) specifies the data set. The `subset` argument should be a logical expression that indicates which rows to keep. Can you see how it relates to the solution with square brackets? Notice that in the `subset()` version, you do not need to use the `$` notation to refer to `has_rings`; R handles that for you.
 
 *** =instructions
-- Create a data frame `small_planets_df` with planets that have a diameter smaller than the Earth (so smaller than 1, since diameter is a relative measure of the planet's diameter w.r.t that of planet Earth).
-- Build another data frame, `slow_planets_df`, with the observations that have a longer rotation period than Earth (so absolute value of rotation greater than 1).
+- Create a data frame `small_planets_df` with planets that have a diameter smaller than the Earth. This means that the `diameter` variable should be smaller than 1, since diameter is a relative measure of the planet's diameter w.r.t that of planet Earth.
+- Build another data frame, `slow_planets_df`, with the observations that have a longer rotation period than Earth. This means that the absolute value (use the function `abs()`) of the `rotation` variable should be greater than 1.
 
 *** =hint
 Make use of the logical operators > and <. Use the abs() function for absolute values. 
@@ -619,6 +623,7 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/c
 # planets_df is pre-loaded in your workspace
 
 # Planets that are smaller than planet Earth: small_planets_df
+
 
 # Planets that rotate slower than planet Earth: slow_planets_df
 
@@ -789,16 +794,21 @@ success_msg("Great! Now let's use the `order()` function to sort your data frame
 
 Alright, now let us do something useful with the [`order()`](http://www.rdocumentation.org/packages/base/functions/order) function! You would like to rearrange your data frame such that it starts with the largest planet and ends with the smallest one. A sort on the `diameter` column, as you will.
 
+Suppose you have a data frame `df`, with three columns `a`, `b` and `c`. The following code will print a version of df that is sorted on the column `a`.
+
+```
+pos <- order(df$a)
+df[pos, ]
+```
+
 *** =instructions
 - Assign to the variable `positions` the desired ordering for the new data frame that you will create in the next step. You can use the [`order()`](http://www.rdocumentation.org/packages/base/functions/order) function for that, with the additional argument `decreasing = TRUE`.
-- Now create the data frame `largest_first_df`, which contains the same information as `planets_df`, but with the planets in decreasing order of magnitude. Use the previously created variable `positions` as row indices to achieve this.
+- Now create the data frame `largest_first_df`, which contains the same information as `planets_df`, but with the planets in decreasing order of magnitude. Use the previously created variable `positions` as row indices inside square brackets to achieve this.
 - Print `largest_first_df` to see what you've accomplished.
 
 *** =hint
-```
-order(planets_df$diameter, decreasing = TRUE)
-``` 
-will give you the ordering of the variable diameter from largest to smallest. This is wat you should assign to positions. Use the variable positions then to select from the data frame `planets_df`!
+- `order(planets_df$diameter, decreasing = TRUE)` will give you the ordering of the variable diameter from largest to smallest. This is wat you should assign to `positions`.
+- Use the variable positions then to select from the data frame `planets_df`: `planets_df[positions, ]`.
 
 *** =pre_exercise_code
 ```{r}
