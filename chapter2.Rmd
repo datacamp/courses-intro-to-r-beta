@@ -79,16 +79,16 @@ Before doing a first analysis, you decide to first collect all the winnings and 
 
 For `poker_vector`: 
 - On Monday you won \$140
-- Tuesday you lost \$50
+- Tuesday you **lost** \$50
 - Wednesday you won \$20 
-- Thursday you lost \$120
+- Thursday you **lost** \$120
 - Friday you won \$240
 
 For `roulette_vector`: 
-- On Monday you lost \$24
-- Tuesday you lost \$50
+- On Monday you **lost** \$24
+- Tuesday you **lost** \$50
 - Wednesday you won \$100
-- Thursday you lost \$350
+- Thursday you **lost** \$350
 - Friday you won \$10
 
 To be able to use this data in R, you decide to create the variables `poker_vector` and `roulette_vector`.
@@ -97,10 +97,14 @@ To be able to use this data in R, you decide to create the variables `poker_vect
 Assign the winnings/losses for roulette as a vector to the variable `roulette_vector`. Make sure to use the correct order.
 
 *** =hint
-To help you with this step, the editor already contains the code for creating `poker_vector`. Assign the correct values to `roulette_vector` based on the numbers in the assignment. Do not forget that losses are negative numbers.
+To help you with this step, the script already contains the code for creating `poker_vector`. Assign the correct values to `roulette_vector` based on the numbers in the assignment. Do not forget that losses are negative numbers.
+
+
+*** =pre_exercise_code
+```{r}
+```
 
 *** =sample_code
-
 ```{r}
 # Poker winnings from Monday to Friday
 poker_vector <- c(140, -50, 20, -120, 240)
@@ -121,8 +125,11 @@ roulette_vector <- c(-24, -50, 100, -350, 10)
 
 *** =sct
 ```{r}
-test_object("poker_vector", incorrect_msg = "Don't change how `poker_vector` is defined.")
-test_object("roulette_vector", incorrect_msg = "Make sure that you assign a vector with the correct values to `roulette_vector`.")
+test_object("poker_vector", 
+            incorrect_msg = "Don't change how `poker_vector` is defined.")
+test_object("roulette_vector", 
+            incorrect_msg = paste("Make sure that you assign a vector with the correct values to `roulette_vector`.",
+                                  "If you lost money, you should use a `-` sign."))
 success_msg("Very good! To check out the contents of your vectors, remember that you can always simply type the variable in the console and hit Enter. Proceed to the next exercise!")
 ```
 
@@ -139,20 +146,11 @@ some_vector <- c("Johnny", "Poker Player")
 names(some_vector) <- c("Name", "Profession")
 ```
 
-You can accomplish the exact same thing by using the equals sign inside [`c()`](http://www.rdocumentation.org/packages/base/functions/c):
-
-```
-some_vector <- c(Name = "Johnny", Profession = "Poker Player")
-```
-
 *** =instructions
-Go ahead and assign the days of the week as names to `poker_vector` and `roulette_vector`. In case you are not sure, the days of the week are: Monday, Tuesday, Wednesday, Thursday and Friday. R is case sensitive!
+`poker_vector` has already been named with the days of the week. Do the same thing for `roulette_vector`. Beware: R is case sensitive!
 
 *** =hint
-One way of naming `poker_vector` is by using `names(poker_vector)` and setting this to a vector with the days of the week: 
-```
-c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-```
+Assign `c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")` to `names(roulette_vector)`.
 
 *** =pre_exercise_code
 ```{r}
@@ -166,7 +164,10 @@ poker_vector <- c(140, -50, 20, -120, 240)
 # Roulette winnings from Monday to Friday
 roulette_vector <- c(-24, -50, 100, -350, 10)
 
-# Add names to both poker_vector and roulette_vector
+# Add names to poker_vector
+names(poker_vector) <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+
+# Add names to roulette_vector
 
 ```
 
@@ -178,14 +179,15 @@ poker_vector <- c(140, -50, 20, -120, 240)
 # Roulette winnings from Monday to Friday
 roulette_vector <- c(-24, -50, 100, -350, 10)
 
-# Add names to both poker_vector and roulette_vector
+# Add names to poker_vector
 names(poker_vector) <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+
+# Add names to roulette_vector
 names(roulette_vector) <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 ```
 
 *** =sct
 ```{r}
-
 msg <- "Do not change the values inside `%s`; they were already coded for you."
 test_object("poker_vector", incorrect_msg = sprintf(msg, "poker_vector"))
 test_object("roulette_vector", incorrect_msg = sprintf(msg, "roulette_vector"))
@@ -207,7 +209,7 @@ Just like you did with your poker and roulette returns, you can also create a va
 
 *** =instructions
 - Create a variable `days_vector` that contains the days of the week, from Monday to Friday.
-- Use that variable `days_vector` to set the names of `poker_vector` and `roulette_vector`.
+- Use this variable `days_vector` to set the names of `poker_vector` and `roulette_vector`.
 
 *** =hint
 You can use `names(poker_vector)` to set the names of the variable `poker_vector`. Make sure not to forget the parentheses around the days of the week.
@@ -228,7 +230,7 @@ roulette_vector <- c(-24, -50, 100, -350, 10)
 # Create the variable days_vector
 
  
-# Assign the names of the day to roulette_vector and poker_vector
+# Use days_vector to name roulette_vector and poker_vector
 
 ```
 
@@ -243,7 +245,7 @@ roulette_vector <- c(-24, -50, 100, -350, 10)
 # Create the variable days_vector
 days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 
-# Assign the names of the day to roulette_vector and poker_vector
+# Use days_vector to name roulette_vector and poker_vector
 names(poker_vector) <- days_vector
 names(roulette_vector) <- days_vector
 ```
@@ -376,7 +378,7 @@ names(roulette_vector) <- days_vector
 # Total winnings with roulette: total_roulette
 
 
-# Total winnings overall
+# Total winnings overall: print out the result
 
 ```
 
@@ -395,7 +397,7 @@ total_poker <- sum(poker_vector)
 # Total winnings with roulette: total_roulette
 total_roulette <-  sum(roulette_vector)
 
-# Total winnings overall
+# Total winnings overall: print out the result
 total_roulette + total_poker
 ```
 
@@ -414,86 +416,6 @@ test_object("total_roulette",
 test_output_contains("total_poker + total_roulette", incorrect_msg = "Print the sum of `total_poker` and `total_roulette` to the console.")
 success_msg("Oops, it seems like you are losing money. Time to rethink and adapt your strategy! This will require some deeper analysis...")
 ```
-
-
---- type:NormalExercise lang:r xp:100 skills:1
-## Comparing total winnings
-
-The previous exercise showed that you are losing money, now what? After a short brainstorm in your hotel's jacuzzi, you realize that a possible explanation might be that your skills in roulette are not as well developed as your skills in poker. You choose to use the `>` operator to reveal this.
-
-*** =instructions
-- Print out a logical vector of length 5 that tells whether your poker gains exceeded your roulette results on a daily basis.
-- Using `total_poker` and `total_roulette`, which are already coded, check if your total gains in poker are higher than for roulette by using a comparison. Simply print out the result.
-
-What do you conclude, should you focus on roulette or on poker?
-
-*** =hint
-You partly calculated the answer to this question in the previous exercise already!
-To check if 6 is larger than 5, you type `6 > 5`. This returns a variable with data type Logical (`TRUE` or `FALSE`).
-
-*** =pre_exercise_code
-```{r}
-# no pec
-```
-
-*** =sample_code
-```{r}
-# Casino winnings from Monday to Friday
-poker_vector <- c(140, -50, 20, -120, 240)
-roulette_vector <- c(-24, -50, 100, -350, 10)
-days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-names(poker_vector) <- days_vector
-names(roulette_vector) <- days_vector
-
-# When was poker better than roulette?
-
-
-# Calculate total_poker and total_roulette, as before
-total_poker <- sum(poker_vector)
-total_roulette <- sum(roulette_vector)
-
-# Should you choose poker?
-
-```
-
-*** =solution
-```{r}
-# Casino winnings from Monday to Friday
-poker_vector <- c(140, -50, 20, -120, 240)
-roulette_vector <- c(-24, -50, 100, -350, 10)
-days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-names(poker_vector) <- days_vector
-names(roulette_vector) <- days_vector
-
-# When was poker better than roulette?
-poker_vector > roulette_vector
-
-# Calculate total_poker and total_roulette, as before
-total_poker <- sum(poker_vector)
-total_roulette <- sum(roulette_vector)
-
-# Should you choose poker?
-total_poker > total_roulette
-```
-
-*** =sct
-```{r}
-msg <- "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
-test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
-test_object("poker_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
-test_object("roulette_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
-
-test_output_contains("poker_vector > roulette_vector", 
-                     incorrect_msg = paste("Have you printed out a logical vector that indicates when poker was better than roulette?",
-                                           "Use `poker_vector`, `roulette_vector` and the `>` operator."))
-msg <- "Do not change how `total_poker` and `total_roulette` are calculated."
-test_object("total_poker", incorrect_msg = msg)
-test_object("total_roulette", incorrect_msg = msg)
-
-test_output_contains("total_poker > total_roulette", incorrect_msg = "Make sure to include code that compares `total_poker` to `total_roulette`. It should answer the question \"Did I earn more with poker than with roulette?\"")
-success_msg("Great! Your hunch seemed to be right. It appears that the poker game is more your cup of tea than roulette.")
-```
-
 
 --- type:VideoExercise lang:r xp:50 skills:1
 ## Vector Subsetting
@@ -800,7 +722,20 @@ The (logical) comparison operators known to R are:
 - `==` for equal to each other
 - `!=` not equal to each other
 
-Experiment with these operators in the console. The result will be a logical vector, which you can use to perform subsetting! This means that instead of selecting a subset of days to investigate yourself like before, you can simply ask R to return only those days where you realized a positive return for poker.
+Experiment with these operators in the console:
+
+```
+lost_roulette_days <- roulette_vector < 0
+lost_roulette_days
+```
+
+The result will be a logical vector, which you can use to perform subsetting, like this example:
+
+```
+roulette_vector[lost_roulette_days]
+```
+
+The result is a subset of `roulette_vector` that contains only your losses in roulette.
 
 *** =instructions
 - Check if your poker winnings are positive on the different days of the week (i.e. > 0), and assign this to `selection_vector`.
@@ -808,6 +743,7 @@ Experiment with these operators in the console. The result will be a logical vec
 
 *** =hint
 - In order to check for which days your poker gains are positive, R should check for each element of `poker_vector` whether it is larger than zero. `some_vector > 0` is the way to tell R what you are after.
+- After creating `selection_vector`, you can use it to subset `poker_vector` like this: `poker_vector[selection_vector]`.
 
 *** =pre_exercise_code
 ```{r}

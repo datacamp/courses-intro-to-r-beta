@@ -77,7 +77,7 @@ In the script on the right you should type R code to solve the exercises. When y
 You can also execute R commands straight in the console. When you type in the console, your submission will not be checked for correctness!
 
 *** =instructions
-In the editor, add another line of code that calculates the sum of 6 and 12, and hit the _Submit Answer_ button.
+In the script, add another line of code that calculates the sum of 6 and 12, and hit the _Submit Answer_ button.
 
 *** =hint
 Simply add a line of R code that calculates the sum of 6 and 12, just like the example in the sample code!
@@ -110,15 +110,15 @@ success_msg("Awesome! See how the console shows the result of the R code you sub
 
 Adding comments to your code is extremely important to make sure that you and others can understand what your code is about. R makes use of the `#` sign to add comments, just like Twitter!
 
-Comments are not run as R code, so they will not influence your result. For example, _Calculate 3 + 4_ in the editor on the right is a comment and is ignored during execution.
+Comments are not run as R code, so they will not influence your result. For example, _Calculate 3 + 4_ in the script on the right is a comment and is ignored during execution.
 
 *** =instructions
-Add another comment in the editor on the right, _Calculate 6 + 12_, at the appropriate location.
+Add another comment in the script on the right, _Calculate 6 + 12_, at the appropriate location.
 
 *** =hint
 Simply add the line `# Calculate 6 + 12` above the R code that calculates 6 + 12.
 
-*** =pre_exercise_coe
+*** =pre_exercise_code
 ```{r}
 # no pec
 ```
@@ -132,7 +132,7 @@ Simply add the line `# Calculate 6 + 12` above the R code that calculates 6 + 12
 6 + 12
 ```
 
-*** =solution_code
+*** =solution
 ```{r}
 # Calculate 3 + 4
 3 + 4
@@ -169,7 +169,7 @@ The last two might need some explaining:
 - The modulo returns the remainder of the division of the number to the left by the number on its right, for example 5 modulo 3 or `5 %% 3` equals 2.
 
 *** =instructions
-- Type `2^5` in the editor to calculate 2 to the power 5.
+- Type `2^5` in the script to calculate 2 to the power 5.
 - Type `28 %% 6` to calculate 28 modulo 6.
 - Click _Submit Answer_ and have a look at the R output in the console.
 
@@ -225,7 +225,6 @@ Another example of the modulo operator: `9 %% 2` equals `1`.
 
 *** =sct
 ```{r}
-
 msg <- "Do not remove the examples that have already been coded for you!"
 test_output_contains("5 + 5", incorrect_msg = msg)
 test_output_contains("5 - 5", incorrect_msg = msg)
@@ -352,26 +351,19 @@ success_msg("Nice one! The great advantage of doing calculations with variables 
 
 If you assign a value to a variable, this variable is stored in the workspace. It's the place where all user-defined variables live. The command [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) lists the contents of this workspace. 
 
-`rm(<var_name>)` allows you to remove objects from the workspace again. Try the following code in the console:
-
 ```
 a <- 1
 b <- 2
 ls()
-rm(a)
-ls()
 ```
 
-The first two lines create the variables `a` and `b`. Calling [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) now shows you that `a` and `b` are in the workspace. After removing `a` with `rm(a)`, the same [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) command will show you that only `b` remains in the workspace. You could also remove both `a` and `b` in a one-liner: `rm(a, b)`.
+The first two lines create the variables `a` and `b`. Calling [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) now shows you that `a` and `b` are in the workspace. 
 
-The first line of the sample code is `rm(list = ls())`. This is a very useful command to clear everything from your workspace!
+Next to listing the objects of a workspace, you can also objects from the workspace again. You do this with `rm()`. `rm(a)`, for example, would remove `a` from the workspace again. `rm(list = ls())`, which is used in the beginning of your script, clears everything from the workspace.
 
 *** =instructions
-- List the contents of the workspace to check that the workspace is empty.
 - Create a variable, `horses`, equal to 3, and a variable `dogs`, equal to 7.
-- Print out the contents of the workspace again to see that indeed, these two variables are available.
-- Remove the `dogs` variable from the workspace.
-- Finally, print out the objects in your workspace once more to see that only `horses` and `animals` remain.
+- List the contents of your workspace with `ls()` to see that indeed, these two variables are in there.
 
 *** =hint
 All you need is a combination of [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) and [`rm()`](http://www.rdocumentation.org/packages/base/functions/rm) at the right time. Give it a try and let the feedback messages guide you.
@@ -386,19 +378,11 @@ All you need is a combination of [`ls()`](http://www.rdocumentation.org/packages
 # Clear the entire workspace
 rm(list = ls())
 
-# List the contents of your workspace
-
-
 # Create the variables horses and dogs
 
 
-# Inspect the contents of the workspace again
+# List the contents of your workspace
 
-
-# Remove dogs from the workspace
-
-
-# Inspect the objects in your workspace once more
 
 ```
 
@@ -407,34 +391,22 @@ rm(list = ls())
 # Clear the entire workspace
 rm(list = ls())
 
-# List the contents of your workspace
-ls()
-
 # Create the variables horses and dogs
 horses <- 3
 dogs <- 7
 
 # Inspect the contents of the workspace again
 ls()
-
-# Remove dogs from the workspace
-rm(dogs)
-
-# Inspect the objects in your workspace once more
-ls()
 ```
 
 *** =sct
 ```{r}
-test_output_contains("character(0)", 
-                     incorrect_msg = "Make sure to list the contents of your workspace when it is still empty! Don't remove `rm(list = ls())`, which helps you start off with a clean slate if you have been experimenting before.")
+test_student_typed("rm(list = ls())", not_typed_msg = "Do not remove the line `rm(list = ls())`.")
 test_object("horses")
-test_student_typed("dogs <- 7", not_typed_msg = "Make sure to assign the value 7 to a new variable `dogs`.")
+test_object("dogs")
 test_output_contains('c("dogs", "horses")',
-                     incorrect_msg = "Make sure to inspect the contents of the workspace after defining the variables `horses` and `dogs`")
-test_function("rm", not_called_msg = "Make sure to call the function `rm()` to remove the variable `horses`.")
-test_output_contains('"horses"', incorrect_msg = "Make sure to inspect the objects in your workspace after removing the `dogs` variable.")
-success_msg("Awesome! You can now build, inspect and manage your workspace, great!")
+                     incorrect_msg = "Make sure to inspect the objects in your workspace after creating `horses` and `dogs`.")
+success_msg("Awesome! You can now build up and inspect your workspace, great!")
 ```
 
 --- type:VideoExercise lang:r xp:50 skills:1
@@ -456,7 +428,7 @@ Some of R's most basic types to get started are:
 
 - Decimals values like `4.5` are called **numerics**.
 - Natural numbers like `4L` are called **integers**. Integers are also numerics.
-- Boolean values (`TRUE` or `FALSE`) are called **logical**.
+- Boolean values (`TRUE` or `FALSE`) are called **logical**. Capital letters are important here; `true` and `false` are not valid.
 - Text (or string) values are called **characters**.
 
 Note how the quotation marks on the right indicate that `"some text"` is a character.
@@ -468,7 +440,7 @@ Change the value of the:
 - `my_logical` variable to `FALSE`.
 
 *** =hint 
-Replace the values in the editor with the values that are provided in the exercise.
+Replace the values in the script with the values that are provided in the exercise.
 ```
 my_numeric <- 42
 ```
@@ -582,7 +554,7 @@ success_msg("Awesome, keep up the good work!")
 When you added the variables containing `5` and `"six"`, you got an error due to a mismatch in data types. You can avoid such embarrassing situations by checking the data type of a variable beforehand:
 
 ```
-class(<my_var>)
+class(my_var)
 ```
 
 In the workspace (you can see what it contains by typing [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) in the console), some variables have already been defined. Which statement concerning these variables are correct?
@@ -615,77 +587,63 @@ test_mc(correct = 4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Coercion: Taming your data
 
-As Filip explained in the video, coercion to transform your data from one type to another is perfectly possible. Next to the [`class()`](http://www.rdocumentation.org/packages/base/functions/class) function and the `is.*()` functions, you can use the `as.*()` functions to enforce data to change types. For example, 
+As Filip explained in the video, coercion to transform your data from one type to another is perfectly possible. Next to the [`class()`](http://www.rdocumentation.org/packages/base/functions/class) function and the `is.*()` functions, you can use the `as.*()` functions to enforce data to change types.
+
+Take this example:
 
 ```
 var <- "3"
 var_num <- as.numeric(var)
 ```
 
-converts the character string `"3"` in `var` to a numeric `3` and assigns it to `var_num`. Beware however, that it is not always possible to convert the types without information loss or errors:
-
-```
-as.integer("4.5")
-as.numeric("three")
-```
-
-The first line will convert the character string `"4.5"` to the integer `4`. The second one will convert the character string `"three"` to an `NA`.
+`var`, a character string, is converted into a numeric using `as.numeric()`. The resulting numeric is stored as `var_num`.
 
 *** =instructions
-- Convert `var1`, a logical, to a character and assign it to the variable `var1_char`.
-- Inspect the closs of `var1_char` by using [`class()`](http://www.rdocumentation.org/packages/base/functions/class) on it.
-- Try to coerce `var2` to a numeric and assign the result to `var2_num`. Was it successful?
+- Convert `var`, a logical, to a character. Assign to resulting character string to the variable `var_char`.
+- Inspect the closs of `var_char` by using [`class()`](http://www.rdocumentation.org/packages/base/functions/class) on it.
 
 *** =hints
-Use the [`as.character()`](http://www.rdocumentation.org/packages/base/functions/character) function to convert `var1` to a character. For `var2`, use [`as.numeric()`](http://www.rdocumentation.org/packages/base/functions/numeric).
+Use the [`as.character()`](http://www.rdocumentation.org/packages/base/functions/character) function to convert `var` to a character.
+
+*** =pre_exercise_code
+```{r}
+```
 
 *** =sample_code
 ```{r}
-# Create variables var1, var2
-var1 <- TRUE
-var2 <- "i"
+# Definition of var
+var <- TRUE
 
-# Convert var1 to a character: var1_char
-
-
-# Display the class of var1_char
+# Convert var to a character: var_char
 
 
-# Coerce var2 to a numeric: var2_num
-  
+# Display the class of var_char
+
+
 ```
 
 *** =solution
 ```{r}
-# Create variables var1, var2
-var1 <- TRUE
-var2 <- "i"
+# Definition of var
+var <- TRUE
 
-# Convert var1 to a character: var1_char
-var1_char <- as.character(var1)
+# Convert var to a character: var_char
+var_char <- as.character(var)
 
-# Display the class of var1_char
-class(var1_char)
-
-# Coerce var2 to a numeric: var2_num
-var2_num <- as.numeric(var2)
+# Display the class of var_char
+class(var_char)
 ```
 
 *** =sct
 ```{r}
-msg <- "Do not remove or change the definition of the variables `var1`, `var2` and `var3`."
-test_object("var1", undefined_msg = msg, incorrect_msg = msg)
-test_object("var2", undefined_msg = msg, incorrect_msg = msg)
+msg <- "Do not remove or change the definition of the variablee `var`."
+test_object("var", undefined_msg = msg, incorrect_msg = msg)
 test_function("as.character", "x",
-              not_called_msg = "Make sure to call the function `as.character()` to convert `var1` to a character.",
+              not_called_msg = "Make sure to call the function `as.character()` to convert `var` to a character.",
               incorrect_msg = "Have you passed the correct variable to the function `as.character()`?")
-test_object("var1_char")
+test_object("var_char")
 test_function("class", "x", 
-              not_called_msg = "Make sure to call the function `class()` to inspect the class of `var1_char()`.",
+              not_called_msg = "Make sure to call the function `class()` to inspect the class of `var_char()`.",
               incorrect_msg = "Have you passed the correct variable to the function `class()`?")
-test_function("as.numeric", "x",
-              not_called_msg = "Make sure to call the function `as.numeric()` to convert `var2` to a numeric.",
-              incorrect_msg = "Have you passed the correct variable to the function `as.numeric()`?")
-test_object("var2_num")
-success_msg("Bellissimo! The coercion of `var2` did not succeed, hence the warning.")
+success_msg("Bellissimo!")
 ```

@@ -286,68 +286,25 @@ success_msg("Phew, it seems that R is neutral ;-).")
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Ordered factors
 
-Since `"Right"` and `"Left"` are unordered (or nominal) factor levels, R returned a warning message, telling you that the greater than operator is not meaningful. As seen before, R attaches an equal value to the levels for such factors. 
+Sometimes you will deal with factors that do have a natural ordering between its categories. In this case, we have to tell R about it.
 
-But this is not always the case! Sometimes you will also deal with factors that do have a natural ordering between its categories. If this is the case, we have to make sure that we pass this information to R.
-
-Let us say that you are leading a research team of five data analysts and that you want to evaluate their performance. To do this, you track their speed, evaluate each analyst as `"Slow"`, `"OK"` or `"Fast"`, and save the results in `speed_vector`.
-
-*** =instructions
-As a first step, assign `speed_vector` knowing that: 
-
-- Analyst 1 is OK, 
-- Analyst 2 is Slow, 
-- Analyst 3 is Slow,
-- Analyst 4 is OK and
-- Analyst 5 is Fast.
-
-No need to specify these are factors yet.
-
-*** =hint
-Assign to `speed_vector` a vector containing character strings, `"Fast"`, `"Slow"` ...
-
-*** =pre_exercise_code
-```{r}
-# no pec
-```
-
-*** =sample_code
-```{r}
-# Create speed_vector
-
-```
-
-*** =solution
-```{r}
-# Create speed_vector
-speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast")
-```
-
-*** =sct
-```{r}
-
-test_object("speed_vector", 
-            incorrect_msg = "Make sure that you assigned the correct vector to speed_vector. Remember that R is case sensitive!")
-success_msg("A job well done! Continue to the next exercise.")
-```
-
-
---- type:NormalExercise lang:r xp:100 skills:1
-## Ordered factors (2)
+Suppose you're leading a research team of five data analysts and that you want to evaluate their performance. To do this, you track their speed, evaluate each analyst as `"Slow"`, `"OK"` or `"Fast"`, and save the results in `speed_vector`.
 
 `speed_vector` should be converted to an ordinal factor since its categories have a natural ordening. You already know how to do this. Here's a template to define an ordered factor once more:
 
 ```
-factor(some_vector, ordered = TRUE, levels = c("Level_1", "Level_2" ...))
+factor(some_vector, ordered = TRUE, levels = c("Level_1", "Level_2", ...))
 ``` 
 
 *** =instructions
-- Use the example code above to define `speed_factor`, that contains the speed information as an ordered factor.
+- Use the example code above to define `speed_factor`, that contains the speed information as an ordered factor. You can start from `speed_vector`, which is already created for you.
 - Print `speed_factor` to the console.
-- Generate a summary of `speed_factor`: automagically, R prints the factor levels in the right order.
+- Use `summary()` to generate a summary of `speed_factor`: automagically, R prints the factor levels in the right order.
 
 *** =hint
-Use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) to create `factor_speed_vector` based on `speed_character_vector`. The argument order should be set to `TRUE` since there is a natural ordering. The factor levels are in this case: `c("Slow", "Fast", "Ultra-fast")`.
+- Use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) to create `factor_speed_vector` based on `speed_character_vector`. 
+- The argument `ordered` should be set to `TRUE` since there is a natural ordering. 
+- The argument `levels` should be equal to `c("Slow", "Fast", "Ultra-fast")`.
 
 *** =pre_exercise_code
 ```{r}
@@ -386,8 +343,7 @@ summary(speed_factor)
 
 *** =sct
 ```{r}
-
-msg = "Do not change anything about the command that specifies the `speed_vector` variable."
+msg <- "Do not change anything about the command that defines `speed_vector`."
 test_object("speed_vector", undefined_msg = msg, incorrect_msg = msg)
 test_correct({
   test_object("speed_factor", eq_condition = "equal",
@@ -397,7 +353,9 @@ test_correct({
   test_function("factor", "levels")
   test_function("factor", "ordered")
 })
+test_output_contains("summary(speed_factor)", incorrect_msg = "Don't forget to summarise `speed_factor`. Use `summary()`.")
 success_msg("Great! Have a look at the console. It is now indicated that the Levels indeed have an order associated, with the `<` sign. Continue to the next exercise.");
+success_msg("A job well done! Continue to the next exercise.")
 ```
 
 
@@ -406,17 +364,13 @@ success_msg("Great! Have a look at the console. It is now indicated that the Lev
 
 Having a bad day at work, 'data analyst number two' enters your office and starts complaining that 'data analyst number five' is slowing down the entire project. Since you know that 'data analyst number two' has the reputation of being a smarty-pants, you first decide to check if his statement is true. 
 
-The fact that `speed_factor` is now ordered enables us to compare different elements (the data analysts in this case). You can simply do this by using the well-known operators.
+The fact that `speed_factor` is now ordered enables us to compare different elements (the data analysts in this case). You can simply do this by using a well-known operator: `>`.
 
 *** =instructions
-Check whether data analyst 2 is faster than data analyst 5 and assign the result to `compare_them`. Remember the `>` operator allows you to check whether one element is larger than the other.
+Check whether data analyst 2 is faster than data analyst 5. Simply print out the result, which should be a logical.
 
 *** =hint
-You can compare the elements of the vector with the `>` operator. Relevant for this case: 
-```
-vector[1] > vector[2]
-``` 
-checks whether the first element of vector is larger than the second element.
+`vector[1] > vector[2]` checks whether the first element of vector is larger than the second element.
 
 *** =pre_exercise_code
 ```{r}
@@ -426,37 +380,30 @@ checks whether the first element of vector is larger than the second element.
 *** =sample_code
 ```{r}
 # Definition of speed_vector and speed_factor
-speed_vector <- c("Fast", "Slow", "Slow", "Fast", "Ultra-fast")
-factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("Slow", "Fast", "Ultra-fast"))
+speed_factor <- factor(c("Fast", "Slow", "Slow", "Fast", "Ultra-fast"), 
+                       ordered = TRUE, levels = c("Slow", "Fast", "Ultra-fast"))
 
-# Compare DA2 with DA5: compare_them
-
-
-# Print compare_them: Is DA2 faster than DA5?
+# Compare data analyst 2 with data analyst 5
 
 ```
 
 *** =solution
 ```{r}
-# Definition of speed_vector and speed_factor
-speed_vector <- c("Fast", "Slow", "Slow", "Fast", "Ultra-fast")
-factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("Slow", "Fast", "Ultra-fast"))
+# Definition of speed_factor
+speed_factor <- factor(c("Fast", "Slow", "Slow", "Fast", "Ultra-fast"), 
+                       ordered = TRUE, levels = c("Slow", "Fast", "Ultra-fast"))
 
-# Compare DA2 with DA5: compare_them
-compare_them <- factor_speed_vector[2] > factor_speed_vector[5] 
-
-# Print compare_them: Is DA2 faster than DA5?
-compare_them
+# Compare data analyst 2 with data analyst 5
+speed_factor[2] > speed_factor[5]
 ```
 
 *** =sct
 ```{r}
-msg <- "Do not change anything about the commands that define `speed_vector` and `factor_speed_vector`!"
-test_object("speed_vector", undefined_msg = msg, incorrect_msg = msg)
-test_object("factor_speed_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
-test_object("compare_them",
-            undefined_msg = "Please make sure to define a variable `compare_them`.",
-            incorrect_msg = "It looks like `compare_them` does not compare the data analysts correctly. Make sure to check the indices again.");
+msg <- "Do not change anything about the command that defines `speed_factor`!"
+test_object("speed_factor", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
+test_output_contains("speed_factor[2] > speed_factor[5]", 
+                     incorrect_msg = paste("Have you correctly compared data analyst 2 to data analyst 5?",
+                                           "Use subsetting in combination with the `>` operator."))
 success_msg("Bellissimo! What does the result tell you? Data analyst two is complaining about the data analyst five while in fact he or she is the one slowing everything down!")
 ```
 

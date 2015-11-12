@@ -328,3 +328,80 @@ success_msg("Awesome! If you inspect the variable num_profitable_days, you'll se
 ```
 
 
+--- type:NormalExercise lang:r xp:100 skills:1
+## Comparing total winnings
+
+The previous exercise showed that you are losing money, now what? After a short brainstorm in your hotel's jacuzzi, you realize that a possible explanation might be that your skills in roulette are not as well developed as your skills in poker. You choose to use the `>` operator to reveal this.
+
+*** =instructions
+- Print out a logical vector of length 5 that tells whether your poker gains exceeded your roulette results on a daily basis.
+- Using `total_poker` and `total_roulette`, which are already coded, check if your total gains in poker are higher than for roulette by using a comparison. Simply print out the result.
+
+What do you conclude, should you focus on roulette or on poker?
+
+*** =hint
+You partly calculated the answer to this question in the previous exercise already!
+To check if 6 is larger than 5, you type `6 > 5`. This returns a variable with data type Logical (`TRUE` or `FALSE`).
+
+*** =pre_exercise_code
+```{r}
+# no pec
+```
+
+*** =sample_code
+```{r}
+# Casino winnings from Monday to Friday
+poker_vector <- c(140, -50, 20, -120, 240)
+roulette_vector <- c(-24, -50, 100, -350, 10)
+days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+names(poker_vector) <- days_vector
+names(roulette_vector) <- days_vector
+
+# When was poker better than roulette?
+
+
+# Calculate total_poker and total_roulette, as before
+total_poker <- sum(poker_vector)
+total_roulette <- sum(roulette_vector)
+
+# Should you choose poker?
+
+```
+
+*** =solution
+```{r}
+# Casino winnings from Monday to Friday
+poker_vector <- c(140, -50, 20, -120, 240)
+roulette_vector <- c(-24, -50, 100, -350, 10)
+days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+names(poker_vector) <- days_vector
+names(roulette_vector) <- days_vector
+
+# When was poker better than roulette?
+poker_vector > roulette_vector
+
+# Calculate total_poker and total_roulette, as before
+total_poker <- sum(poker_vector)
+total_roulette <- sum(roulette_vector)
+
+# Should you choose poker?
+total_poker > total_roulette
+```
+
+*** =sct
+```{r}
+msg <- "Do not change anything about the definition and naming of `poker_vector` and `roulette_vector`."
+test_object("days_vector", undefined_msg = msg, incorrect_msg = msg)
+test_object("poker_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
+test_object("roulette_vector", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
+
+test_output_contains("poker_vector > roulette_vector", 
+                     incorrect_msg = paste("Have you printed out a logical vector that indicates when poker was better than roulette?",
+                                           "Use `poker_vector`, `roulette_vector` and the `>` operator."))
+msg <- "Do not change how `total_poker` and `total_roulette` are calculated."
+test_object("total_poker", incorrect_msg = msg)
+test_object("total_roulette", incorrect_msg = msg)
+
+test_output_contains("total_poker > total_roulette", incorrect_msg = "Make sure to include code that compares `total_poker` to `total_roulette`. It should answer the question \"Did I earn more with poker than with roulette?\"")
+success_msg("Great! Your hunch seemed to be right. It appears that the poker game is more your cup of tea than roulette.")
+```
