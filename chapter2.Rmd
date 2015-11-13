@@ -205,14 +205,14 @@ If you want to become a good statistician, you have to become lazy. (If you are 
 
 In the previous exercises you probably experienced that it is boring and frustrating to type and retype information such as the days of the week. However, there is a more efficient way to do this, namely, to assign the days of the week vector to a variable! 
 
-Just like you did with your poker and roulette returns, you can also create a variable that contains the days of the week. This way you can use and re-use it.
+Just like you did with your poker and roulette returns, you can also create a variable that contains the days of the week. This way you can use and re-use it. This variable, `days_vector`, has already been coded for you.
 
 *** =instructions
-- Create a variable `days_vector` that contains the days of the week, from Monday to Friday.
-- Use this variable `days_vector` to set the names of `poker_vector` and `roulette_vector`.
+- Use the variable `days_vector` to set the names of `poker_vector`.
+- Use the variable `days_vector` to set the names of `roulette_vector`.
 
 *** =hint
-You can use `names(poker_vector)` to set the names of the variable `poker_vector`. Make sure not to forget the parentheses around the days of the week.
+You can use `names(poker_vector) <- ` to set the names of the variable `poker_vector`.
 
 *** =pre_exercise_code
 ```{r}
@@ -228,10 +228,12 @@ poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
 
 # Create the variable days_vector
-
+days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
  
-# Use days_vector to name roulette_vector and poker_vector
+# Use days_vector to name poker_vector
 
+
+# Use days_vector to name roulette_vector
 ```
 
 *** =solution
@@ -245,8 +247,10 @@ roulette_vector <- c(-24, -50, 100, -350, 10)
 # Create the variable days_vector
 days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 
-# Use days_vector to name roulette_vector and poker_vector
+# Use days_vector to name poker_vector
 names(poker_vector) <- days_vector
+
+# Use days_vector to name roulette_vector
 names(roulette_vector) <- days_vector
 ```
 
@@ -255,10 +259,12 @@ names(roulette_vector) <- days_vector
 msg <- "Do not change the values inside `%s`; they were already coded for you."
 test_object("poker_vector", incorrect_msg = sprintf(msg, "poker_vector"))
 test_object("roulette_vector", incorrect_msg = sprintf(msg, "roulette_vector"))
-test_object("days_vector", incorrect_msg = "Make sure that you assign the correct vector to `days_vector`. The names of the day should start with a capital letter!")
-msg <- "Make sure that you assign `days_vector` to the names of `%s`."
+test_object("days_vector", incorrect_msg = sprintf(msg, "days_vector"))
+
+msg <- "Make sure that you assign `days_vector` to the names of `%s`. Use the `names()` function."
 test_object("poker_vector", eq_condition = "equal", incorrect_msg = sprintf(msg, "poker_vector"))
 test_object("roulette_vector", eq_condition = "equal", incorrect_msg = sprintf(msg, "roulette_vector"))
+
 success_msg("Nice one! A word of advice: try to avoid code duplication at all times.")
 ```
 

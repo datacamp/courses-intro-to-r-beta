@@ -32,10 +32,13 @@ matrix(1:9, byrow = TRUE, nrow = 3)
 In the script, a vector `box` is defined that represents the box office numbers from the first three Star Wars movies. The first, third and fifth element correspond to the US box office revenue for the movies, the second, fourth and sixth element represent the non-US box office revenue.
 
 *** =instructions
-Construct a matrix with one row for each movie. The first column is for the US box office revenue, and the second column for the non-US box office revenue. Name the matrix `star_wars_matrix`.
+Construct a matrix `star_wars_matrix`:
+- Each row represents a movie.
+- The first column is for the US box office revenue, and the second column for the non-US box office revenue. 
+- Use the function `matrix()` with `box` as the first input, and the additional arguments `nrow` and `byrow`.
 
 *** =hint
-Make sure to set the `byrow` argument to `TRUE`. How many rows would you want?
+Set `nrow` to `3` and `byrow` to `TRUE` inside `matrix()`.
 
 *** =pre_exercise_code
 ```{r}
@@ -93,7 +96,15 @@ success_msg("Great job!")
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Analyzing matrices, you shall (2)
 
-Instead of as a single vector, the box office numbers for the three Star Wars movies are represented as three vectors. Remember the [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) function to paste together different vectors as if they were rows of a matrix? Try it out on these astronomical numbers!
+Instead of as a single vector, the box office numbers for the three Star Wars movies are represented as three vectors. Remember the [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) function to paste together different vectors as if they were rows of a matrix? Take this example, that pastes together 2 vectors as if they were rows of a matrix:
+
+```
+a <- c(1, 2, 3)
+b <- c(4, 5, 6)
+rbind(a, b)
+```
+
+Try a similar thing on the astronomical Star Wars numbers!
 
 *** =instructions
 Again, construct the matrix `star_wars_matrix` with one row for each movie.
@@ -531,8 +542,8 @@ m[,j]
 will help you out. Notice that the result of these subsetting operators are also vectors, but they're typically contain more than 1 element.
 
 *** =instructions
-- Select all US box office revenue from `star_wars_matrix`.
-- Extract the revenue information for "A New Hope".
+- Select all US box office revenue from `star_wars_matrix`, so the entire first column.
+- Extract all the revenue information for "A New Hope", so the entire first row.
 
 *** =hint
 - To select the first row from `star_wars_matrix`, you can use `star_wars_matrix[1,]`.
@@ -715,7 +726,9 @@ https://player.vimeo.com/external/141163423.m3u8?p=high,standard,mobile&s=097408
 
 Similar to what you have learned with vectors, the standard operators like `+`, `-`, `/`, `*`, etc. work in an element-wise way on matrices in R. 
 
-As a newly-hired data analyst for StarWarsStudios, it is your job is to find out how many visitors went to each movie for each geographical area. You already have the total revenue figures in `star_wars_matrix`. Assume that the price of a ticket was 5 dollars. Box office numbers divided by the ticket price gives you the number of visitors.
+As a newly-hired data analyst for StarWarsStudios, it is your job is to find out how many visitors went to each movie for each geographical area. 
+
+You already have the total revenue figures in `star_wars_matrix`. Assume that the price of a ticket was 5 dollars. Box office numbers divided by the ticket price gives you the number of visitors.
 
 *** =instructions
 - Assign the matrix with the estimated number of Non-US and US visitors (in millions) for the three movies to `visitors`.

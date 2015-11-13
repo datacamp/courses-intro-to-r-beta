@@ -248,7 +248,7 @@ Being a huge movie fan, you decide to start storing information on good movies w
 Start by creating a list for the movie "The Shining". The variables `actors` and `reviews` that you'll need have already been coded in the sample code.
 
 *** =instructions
-Create the variable `shining_list`. The list contains the movie title first as "title", then the actor names as "actors", and finally the review scores factor as "reviews". Pay attention to the correct naming!
+Create the variable `shining_list`. The list contains the movie title first as "title", then the actor names as "actors", and finally the review scores factor as "reviews". Make sure to adopt the same order, and pay attention to the correct naming!
 
 *** =hint
 Let's get you started with a chunk of code:
@@ -455,14 +455,6 @@ You already know that the `$` as well as `[[` can be used to select elements fro
 shining_list$my_opinion <- "Love it!"
 shining_list[["my_opinion"]] <- "Love it!"
 ```
-
-You can also use the [`c()`](http://www.rdocumentation.org/packages/base/functions/c) function to add an element:
-
-```
-shining_list <- c(shining_list, my_opinion = "Love it!")
-```
-
-Notice that the [`c()`](http://www.rdocumentation.org/packages/base/functions/c) function does not automatically update the `shining_list` object with the additional element. You'll have to explicitly assign the result of the [`c()`](http://www.rdocumentation.org/packages/base/functions/c) call to `shining_list` to work with the extended list later on.
 
 Being proud of your first list, you shared it with the members of your movie hobby club. However, one of the senior members, a guy named M. McDowell, noted that you forgot to add the release year (1980). Given your ambitions to become next year's president of the club, you decide to add this information to the list. To fully make up for your mistake, you also decide to add the name of the director (Stanley Kubrick). 
 
