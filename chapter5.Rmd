@@ -87,7 +87,7 @@ As mentioned before, lists can also contain other lists. This works just the sam
 
 *** =instructions
 - Construct a list, named `my_super_list`, that now contains the four predefined variables listed in the sample code (in the same order).
-- Print the structure of `my_super_list` with the `str()` function.
+- Print the structure of `my_super_list` with the [`str()`](http://www.rdocumentation.org/packages/utils/functions/str) function.
 
 *** =hint
 Just as in the previous exercise, use the [`list()`](http://www.rdocumentation.org/packages/base/functions/list) function. This time you have to add four components.
@@ -149,7 +149,7 @@ test_object("my_factor", undefined_msg = msg, incorrect_msg = msg)
 test_object("my_list", undefined_msg = msg, incorrect_msg = msg)
 test_object("my_super_list",
             incorrect_msg = "It looks like `my_super_list` does not contain the correct elements. It's also possible that the order is not correct. Have another look.")
-test_output_contains("str(my_super_list)", incorrect_msg = "Don't forget to display the structure of `my_super_list` using the `str()` function.")
+test_output_contains("str(my_super_list)", incorrect_msg = "Don't forget to display the structure of `my_super_list` using the [`str()`](http://www.rdocumentation.org/packages/utils/functions/str) function.")
 success_msg("Nice one! Can you see from the displayed structure how the vector, matrix and ordered factor appear twice: once in the top-level list and once in the embedded list. Next!")
 ```
 
@@ -164,7 +164,7 @@ my_list <- list(name1 = your_comp1,
                 name2 = your_comp2)
 ``` 
 
-If you want to name your lists after you've created them, you can use the `names()` function as you did with vectors. The following commands are fully equivalent to the assignment above:
+If you want to name your lists after you've created them, you can use the [`names()`](http://www.rdocumentation.org/packages/base/functions/names) function as you did with vectors. The following commands are fully equivalent to the assignment above:
 
 ```
 my_list <- list(your_comp1, your_comp2)
@@ -456,13 +456,13 @@ shining_list$my_opinion <- "Love it!"
 shining_list[["my_opinion"]] <- "Love it!"
 ```
 
-You can also use the `c()` function to add an element:
+You can also use the [`c()`](http://www.rdocumentation.org/packages/base/functions/c) function to add an element:
 
 ```
 shining_list <- c(shining_list, my_opinion = "Love it!")
 ```
 
-Notice that the `c()` function does not automatically update the `shining_list` object with the additional element. You'll have to explicitly assign the result of the `c()` call to `shining_list` to work with the extended list later on.
+Notice that the [`c()`](http://www.rdocumentation.org/packages/base/functions/c) function does not automatically update the `shining_list` object with the additional element. You'll have to explicitly assign the result of the [`c()`](http://www.rdocumentation.org/packages/base/functions/c) call to `shining_list` to work with the extended list later on.
 
 Being proud of your first list, you shared it with the members of your movie hobby club. However, one of the senior members, a guy named M. McDowell, noted that you forgot to add the release year (1980). Given your ambitions to become next year's president of the club, you decide to add this information to the list. To fully make up for your mistake, you also decide to add the name of the director (Stanley Kubrick). 
 
@@ -517,7 +517,7 @@ test_object("shining_list",
                                   "Make sure to use the correct names (\"year\" and \"director\"). Remember that R is case sensitive!"))
 
 test_output_contains("str(shining_list)", 
-                     incorrect_msg = "Do not forget to inspect the structure of `shining_list` using the `str()` function.")
+                     incorrect_msg = "Do not forget to inspect the structure of `shining_list` using the [`str()`](http://www.rdocumentation.org/packages/utils/functions/str) function.")
 
 success_msg("Congratulations on finishing up on this chapter!")
 ```

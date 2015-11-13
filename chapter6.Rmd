@@ -22,14 +22,14 @@ https://player.vimeo.com/external/138173996.m3u8?p=high,standard,mobile&s=fcc292
 
 Working with large data sets is not uncommon in data analysis. When you work with (extremely) large data sets and data frames, your first task as a data analyst is to develop a clear understanding of its structure and main elements. Therefore, it is often useful to show only a small part of the entire data set. 
 
-There are several ways to do this in R. The function [`head()`](http://www.rdocumentation.org/packages/utils/functions/head) enables you to show the first observations of a data frame (or any R object you pass to it). Unoriginally, the function [`tail()`](http://www.rdocumentation.org/packages/utils/functions/head) prints out the last observations in your data set. You can also use the function `dim()` to show the dimensions of your data set.
+There are several ways to do this in R. The function [`head()`](http://www.rdocumentation.org/packages/utils/functions/head) enables you to show the first observations of a data frame (or any R object you pass to it). Unoriginally, the function [`tail()`](http://www.rdocumentation.org/packages/utils/functions/head) prints out the last observations in your data set. You can also use the function [`dim()`](http://www.rdocumentation.org/packages/base/functions/dim) to show the dimensions of your data set.
 
 In this exercise, you'll be working with the `mtcars` dataset, that is available in R by default.
 
 *** =instructions
 - Print the first observations of the [`mtcars`](http://www.rdocumentation.org/packages/datasets/functions/mtcars) data set.
-- Use the `tail()` function to display the last observations.
-- Finally, display the overall dimensions of the [`mtcars`](http://www.rdocumentation.org/packages/datasets/functions/mtcars) data frame with `dim()`.
+- Use the [`tail()`](http://www.rdocumentation.org/packages/utils/functions/head) function to display the last observations.
+- Finally, display the overall dimensions of the [`mtcars`](http://www.rdocumentation.org/packages/datasets/functions/mtcars) data frame with [`dim()`](http://www.rdocumentation.org/packages/base/functions/dim).
 
 *** =hint
 You'll need [`head()`](http://www.rdocumentation.org/packages/utils/functions/head) to show the first observations in [`mtcars`](http://www.rdocumentation.org/packages/datasets/functions/mtcars).
@@ -65,9 +65,9 @@ dim(mtcars)
 *** =sct
 ```{r}
 test_error()
-test_function("head", "x", incorrect_msg = "Have you specified the correct parameter in the `head()` function? Make sure to pass it a data set you want to inspect, `mtcars` in this case.")
-test_function("tail", "x", incorrect_msg = "Have you specified the correct parameter in the `tail()` function? Make sure to pass it a data set you want to inspect, `mtcars` in this case.")
-test_output_contains("dim(mtcars)", incorrect_msg = "Don't forget to also call the `dim()` function on `mtcars`!")
+test_function("head", "x", incorrect_msg = "Have you specified the correct parameter in the [`head()`](http://www.rdocumentation.org/packages/utils/functions/head) function? Make sure to pass it a data set you want to inspect, `mtcars` in this case.")
+test_function("tail", "x", incorrect_msg = "Have you specified the correct parameter in the [`tail()`](http://www.rdocumentation.org/packages/utils/functions/head) function? Make sure to pass it a data set you want to inspect, `mtcars` in this case.")
+test_output_contains("dim(mtcars)", incorrect_msg = "Don't forget to also call the [`dim()`](http://www.rdocumentation.org/packages/base/functions/dim) function on `mtcars`!")
 
 success_msg("Wonderful! So, do you now have a good idea about what we have in the data set? For a full overview of the variables' meaning, type `?mtcars` in the console and read the help page. Continue to the next exercise!")
 ```
@@ -110,7 +110,7 @@ str(mtcars)
 *** =sct
 ```{r}
 test_function("str","object",incorrect_msg = "Make sure to check the structure of the `mtcars` data set.")
-test_output_contains("str(mtcars)", incorrect_msg = "Make sure that you use the `str()` function on `mtcars`.")
+test_output_contains("str(mtcars)", incorrect_msg = "Make sure that you use the [`str()`](http://www.rdocumentation.org/packages/utils/functions/str) function on `mtcars`.")
 success_msg("Nice work! Can you find all the information that is listed in the exercise's assignment? Continue to the next exercise.")
 ```
 
@@ -130,10 +130,10 @@ After doing some high-quality research on [Wikipedia](http://en.wikipedia.org/wi
 
 *** =instructions
 - Use the function [`data.frame()`](http://www.rdocumentation.org/packages/base/functions/data.frame) to construct `planets_df`.
-- Make sure that you've actually created a data frame with 8 observations and 5 variables with `str()`.
+- Make sure that you've actually created a data frame with 8 observations and 5 variables with [`str()`](http://www.rdocumentation.org/packages/utils/functions/str).
 
 *** =hint
-The `data.frame()` function takes as arguments the vectors that will become the columns of the data frame, separated by commas. The columns in this case are (in this order): `planet`, `type`, `diameter`, `rotation` and `rings`.
+The [`data.frame()`](http://www.rdocumentation.org/packages/base/functions/data.frame) function takes as arguments the vectors that will become the columns of the data frame, separated by commas. The columns in this case are (in this order): `planet`, `type`, `diameter`, `rotation` and `rings`.
 
 *** =pre_exercise_code
 ```{r}
@@ -199,7 +199,7 @@ success_msg("Great job! The structure of `planets_df` reveals that both the `pla
 
 In the previous exercise, you found out that both the `planets` and `type` columns of `planets_df` are factors. For the `type` column this makes sense, because a planet type is some kind of category. For the `planets` column, however, that contains the planet names, this is less logical.
 
-You can set the `stringsAsFactors` argument inside `data.frame()` to avoid that R automatically converts character vectors to factors:
+You can set the `stringsAsFactors` argument inside [`data.frame()`](http://www.rdocumentation.org/packages/base/functions/data.frame) to avoid that R automatically converts character vectors to factors:
 
 ```
 data.frame(vec1, vec2, ..., stringsAsFactors = FALSE)
@@ -213,7 +213,7 @@ Up to you now to adapt the way `planets_df` is constructed!
 - Display the structure of `planets_df` to check you coded things correctly.
 
 *** =hint
-Use the function `factor()` to encode `type` as a factor.
+Use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) to encode `type` as a factor.
 
 *** =pre_exercise_code
 ```{r}
@@ -269,8 +269,8 @@ test_object("diameter", undefined_msg = msg, incorrect_msg = msg)
 test_object("rotation", undefined_msg = msg, incorrect_msg = msg)
 test_object("rings", undefined_msg = msg, incorrect_msg = msg)
 
-test_object("type_factor", incorrect_msg = "Have you correctly created `type_factor`? Simply use the `factor()` function on `type`.")
-test_object("planets_df", incorrect_msg = "Have you correctly created `planets_df`? Make sure to use `type_factor` instead of `type` and set `stringsAsFactors` to `FALSE` inside `data.frame()`.")
+test_object("type_factor", incorrect_msg = "Have you correctly created `type_factor`? Simply use the [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) function on `type`.")
+test_object("planets_df", incorrect_msg = "Have you correctly created `planets_df`? Make sure to use `type_factor` instead of `type` and set `stringsAsFactors` to `FALSE` inside [`data.frame()`](http://www.rdocumentation.org/packages/base/functions/data.frame).")
 test_output_contains("str(planets_df)", incorrect_msg = "Don't forget to display the structure of `planets_df`.")
 
 success_msg("That looks more like it! Head over to the next exercise.")
@@ -296,7 +296,7 @@ names(my_df) <- c("name1", "name2", ...)
 Very proud of your first ever data frame, you show it to your friend Buzz. He's pretty impressed that you managed to include both factor and character columns, but he still finds the column names pretty odd. Time to make some improvements! The code that constructs the improved data frame, as you coded in the previous exercise, is already included.
 
 *** =instructions
-Rename the columns of `planets_df`. As `planets_df` is already created, you'll want to use the `names()` function. 
+Rename the columns of `planets_df`. As `planets_df` is already created, you'll want to use the [`names()`](http://www.rdocumentation.org/packages/base/functions/names) function. 
 - Name the `planets` column `name`.
 - Name the `type_factor` column `type`.
 - You can keep the names `diameter` and `rotation`.
@@ -611,10 +611,10 @@ planets_df[planets_df$has_rings == TRUE, ]
 
 *** =instructions
 - Create a data frame `small_planets_df` with planets that have a diameter smaller than the Earth. This means that the `diameter` variable should be smaller than 1, since diameter is a relative measure of the planet's diameter w.r.t that of planet Earth.
-- Build another data frame, `slow_planets_df`, with the observations that have a longer rotation period than Earth. This means that the absolute value (use the function `abs()`) of the `rotation` variable should be greater than 1.
+- Build another data frame, `slow_planets_df`, with the observations that have a longer rotation period than Earth. This means that the absolute value (use the function [`abs()`](http://www.rdocumentation.org/packages/base/functions/MathFun)) of the `rotation` variable should be greater than 1.
 
 *** =hint
-Make use of the logical operators `>` and `<`. Use the `abs()` function for absolute values. 
+Make use of the logical operators `>` and `<`. Use the [`abs()`](http://www.rdocumentation.org/packages/base/functions/MathFun) function for absolute values. 
 
 *** =pre_exercise_code
 ```{r}
@@ -655,9 +655,9 @@ test_object("small_planets_df",
             incorrect_msg = "It looks like `small_planets_df` does not contain the correct subset of `planets_df`.")
 
 test_object("slow_planets_df",
-            incorrect_msg = "It looks like `slow_planets_df` does not contains the correct subset of `planets_df`. Make sure to use the `abs()` function for absolute values.")
+            incorrect_msg = "It looks like `slow_planets_df` does not contains the correct subset of `planets_df`. Make sure to use the [`abs()`](http://www.rdocumentation.org/packages/base/functions/MathFun) function for absolute values.")
 
-success_msg("Great! Not only is the `subset()` function more concise, it is probably also more understandable for people who read your code. Continue to the next exercise.")
+success_msg("Great! Not only is the [`subset()`](http://www.rdocumentation.org/packages/base/functions/subset) function more concise, it is probably also more understandable for people who read your code. Continue to the next exercise.")
 ```
 
 
@@ -786,7 +786,7 @@ order(c(5,4,6,7))
 
 *** =sct
 ```{r}
-success_msg("Great! Now let's use the `order()` function to sort your data frame!")
+success_msg("Great! Now let's use the [`order()`](http://www.rdocumentation.org/packages/base/functions/order) function to sort your data frame!")
 ```
 
 

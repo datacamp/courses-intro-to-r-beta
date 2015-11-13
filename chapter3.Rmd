@@ -65,6 +65,18 @@ star_wars_matrix <- matrix(box, nrow = 3, byrow = TRUE)
 test_error()
 msg <- "Do not change or remove the definition of `box`!"
 test_object("box", undefined_msg = msg, incorrect_msg = msg)
+
+# Fix until testwhat gets updated again
+# TODO: Fix in testwhat
+test_object("star_wars_matrix", eval = FALSE)
+test_what(
+  expect_equal(
+    dim(get("star_wars_matrix", get_solution_env())), 
+    dim(get("star_wars_matrix", .GlobalEnv))),
+  feedback_msg = 
+    paste("Be sure to use the `byrow` and `nrow` arguments of the function `matrix()`",
+          "to form a matrix of the correct dimensions: 3 rows and 2 columns."))
+
 test_correct({
   test_object("star_wars_matrix",
               undefined_msg = "Please make sure to define a variable `star_wars_matrix`.",
@@ -81,13 +93,13 @@ success_msg("Great job!")
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Analyzing matrices, you shall (2)
 
-Instead of as a single vector, the box office numbers for the three Star Wars movies are represented as three vectors. Remember the `rbind()` function to paste together different vectors as if they were rows of a matrix? Try it out on these astronomical numbers!
+Instead of as a single vector, the box office numbers for the three Star Wars movies are represented as three vectors. Remember the [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) function to paste together different vectors as if they were rows of a matrix? Try it out on these astronomical numbers!
 
 *** =instructions
 Again, construct the matrix `star_wars_matrix` with one row for each movie.
 
 *** =hint
-Simply pass the three vectors to the `rbind()` function.
+Simply pass the three vectors to the [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) function.
 
 *** =pre_exercise_code
 ```{r}
@@ -127,7 +139,7 @@ test_correct({
   test_object("star_wars_matrix",
             incorrect_msg = "Did you assign the correct matrix containing the vector that holds all three movies to `star_wars_matrix`?")
 }, {
-  test_function("rbind", not_called_msg = "You should use the `rbind()` function to create the matrix.")
+  test_function("rbind", not_called_msg = "You should use the [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) function to create the matrix.")
 })
 success_msg("The force is actually with you! Continue to the next exercise.")
 ```
@@ -270,7 +282,7 @@ test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, inc
 
 test_function("rowSums", "x", 
               not_called_msg = "Have you used the function `rowSums()</code?",
-              incorrect_msg = "Did you use the `rowSums()` function on the correct vector?")
+              incorrect_msg = "Did you use the [`rowSums()`](http://www.rdocumentation.org/packages/base/functions/colSums) function on the correct vector?")
 
 test_object("worldwide_vector",
             incorrect_msg = "Have you specified `worldwide_vector` correctly?")
@@ -286,7 +298,7 @@ Your R workspace contains two matrices:
 Type the names of the matrices in the console and press enter if you want to have a closer look.
 
 *** =instructions
-Use `rbind()` to create `all_wars_matrix`, a new matrix with `star_wars_matrix` in the first three rows and `star_wars_matrix2` in the next three rows.
+Use [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) to create `all_wars_matrix`, a new matrix with `star_wars_matrix` in the first three rows and `star_wars_matrix2` in the next three rows.
 
 *** =hint
 You can check out the contents of the workspace by executing [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) in the console.
@@ -346,8 +358,8 @@ msg <- "Do not override the variables that have been defined for you in the work
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_object("star_wars_matrix2", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_object("all_wars_matrix",
-            incorrect_msg = "Did you use the `rbind()` function with the correct arguments to build `all_wars_matrix`?")
-success_msg("Wonderful! Continue with the next exercise and see how you can combine the results of the `rbind()` function with the `colSums()` function!")
+            incorrect_msg = "Did you use the [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) function with the correct arguments to build `all_wars_matrix`?")
+success_msg("Wonderful! Continue with the next exercise and see how you can combine the results of the [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) function with the [`colSums()`](http://www.rdocumentation.org/packages/base/functions/colSums) function!")
 ```
 
 
@@ -414,10 +426,10 @@ total_revenue_vector
 ```{r}
 msg <- "Do not override the variables that have been defined for you in the workspace."
 test_object("all_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
-test_function("colSums", "x", incorrect_msg = "Did you use the `colSums()` function on `all_wars_matrix`?")
+test_function("colSums", "x", incorrect_msg = "Did you use the [`colSums()`](http://www.rdocumentation.org/packages/base/functions/colSums) function on `all_wars_matrix`?")
 test_object("total_revenue_vector",
             undefined_msg = "Please make sure to define a variable `total_revenue_vector`.",
-            incorrect_msg = "Have you correctly assigned the result of `colSums()` to `total_revenue_vector?`")
+            incorrect_msg = "Have you correctly assigned the result of [`colSums()`](http://www.rdocumentation.org/packages/base/functions/colSums) to `total_revenue_vector?`")
 test_output_contains("total_revenue_vector", incorrect_msg = "Don't forget to print out `total_revenue_vector`.")
 success_msg("Wonderful!")
 ```
@@ -774,10 +786,10 @@ _Those who are familiar with linear algebra: this is not the standard matrix mul
 
 *** =instructions
 - Assign to `visitors` the matrix with your estimated number of Non-US and US visitors (in millions) for the three movies. Use ticket_prices_matrix` this time to take into account the movie-specific ticket prices.
-- Subset `visitors` so that you keep only the US visitors, and calculate the average number of this column. You have to use `mean()` here; this R function gives you the average of a numerical vector. Store the result in a variable `average_us_visitors`.
+- Subset `visitors` so that you keep only the US visitors, and calculate the average number of this column. You have to use [`mean()`](http://www.rdocumentation.org/packages/base/functions/mean) here; this R function gives you the average of a numerical vector. Store the result in a variable `average_us_visitors`.
 
 *** =hint
-- You can use the function `mean()` to calculate the average of the inputs to the function.
+- You can use the function [`mean()`](http://www.rdocumentation.org/packages/base/functions/mean) to calculate the average of the inputs to the function.
 - To get the number of visitors in the US, select the first column from `visitors` using `visitors[ ,1]`.
 
 *** =pre_exercise_code
@@ -827,7 +839,7 @@ msg <- "Do not change anything about the preset variables!"
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_object("ticket_prices_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_object("visitors", incorrect_msg = "It looks like `visitors` does not contain the correct value. Remember that you can divide two matrices.")
-test_object("average_us_visitors", incorrect_msg = "It looks like `average_us_visitors` does not contain the average of the US visitors. Use `mean()` in combination with a subset of `visitors`.")
+test_object("average_us_visitors", incorrect_msg = "It looks like `average_us_visitors` does not contain the average of the US visitors. Use [`mean()`](http://www.rdocumentation.org/packages/base/functions/mean) in combination with a subset of `visitors`.")
 success_msg("It's a fact: the R force is with you! You are now ready for the final exercise on matrices!")
 ```
 

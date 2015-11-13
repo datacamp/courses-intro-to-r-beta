@@ -22,11 +22,11 @@ https://player.vimeo.com/external/138173962.m3u8?p=high,standard,mobile&s=8e92ff
 
 In this and the following exercises, we'll be working with handedness as a categorical variable that can be either "Left" or "Right". In general, you're either left-handed, or you're right-handed and nothing else, so this complies with the conditions of a categorical variable.
 
-To create factors in R, you make use of the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor). The first thing you do is creating a vector that contains all the observations that belong to a limited number of categories. For example, `hand_vector` contains the handedness of 5 different individuals. Next, you pass this vector to the function `factor()`.
+To create factors in R, you make use of the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor). The first thing you do is creating a vector that contains all the observations that belong to a limited number of categories. For example, `hand_vector` contains the handedness of 5 different individuals. Next, you pass this vector to the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor).
 
 *** =instructions
 - Assign to `hand_factor` the character vector `hand_vector` converted to a factor. Look at the console and note that R prints out the factor levels below the actual values.
-- Have a look at the underlying structure of `hand_factor` using `str()`.
+- Have a look at the underlying structure of `hand_factor` using [`str()`](http://www.rdocumentation.org/packages/utils/functions/str).
 
 *** =hint
 Simply use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) on `hand_vector`. Have a look at the assignment, the answer is already there somewhere...
@@ -65,16 +65,16 @@ test_error()
 test_object("hand_factor",
             incorrect_msg = "Did you correctly convert `hand_vector` to a factor and assign the result to `hand_factor`?")
 test_function("str", "object",
-              not_called_msg = "Make sure to use the `str()` to show the structure of `hand_factor`",
-              incorrect_msg = "Have you correctly passed `hand_factor` to `str()`?")
-success_msg("Great! If you want to find out more about the `factor()` function, do not hesitate to type `?factor` in the console.");
+              not_called_msg = "Make sure to use the [`str()`](http://www.rdocumentation.org/packages/utils/functions/str) to show the structure of `hand_factor`",
+              incorrect_msg = "Have you correctly passed `hand_factor` to [`str()`](http://www.rdocumentation.org/packages/utils/functions/str)?")
+success_msg("Great! If you want to find out more about the [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) function, do not hesitate to type `?factor` in the console.");
 ```
 
 
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Factor levels
 
-When you first get a data set, you will often notice that it contains factors with specific factor levels. Of course, you can also change these factor levels. You can either do this with the `levels()` function, after you defined the factor, or using the `labels` argument inside `factor()`. The following options are equivalent:
+When you first get a data set, you will often notice that it contains factors with specific factor levels. Of course, you can also change these factor levels. You can either do this with the [`levels()`](http://www.rdocumentation.org/packages/base/functions/levels) function, after you defined the factor, or using the `labels` argument inside [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor). The following options are equivalent:
 
 ```
 my_vector <- c("L", "S", "L", "M", "M")
@@ -299,7 +299,7 @@ factor(some_vector, ordered = TRUE, levels = c("Level_1", "Level_2", ...))
 *** =instructions
 - Use the example code above to define `speed_factor`, that contains the speed information as an ordered factor. You can start from `speed_vector`, which is already created for you.
 - Print `speed_factor` to the console.
-- Use `summary()` to generate a summary of `speed_factor`: automagically, R prints the factor levels in the right order.
+- Use [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) to generate a summary of `speed_factor`: automagically, R prints the factor levels in the right order.
 
 *** =hint
 - Use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) to create `factor_speed_vector` based on `speed_character_vector`. 
@@ -354,7 +354,7 @@ test_correct({
   test_function("factor", "levels")
   test_function("factor", "ordered")
 })
-test_output_contains("summary(speed_factor)", incorrect_msg = "Don't forget to summarise `speed_factor`. Use `summary()`.")
+test_output_contains("summary(speed_factor)", incorrect_msg = "Don't forget to summarise `speed_factor`. Use [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary).")
 success_msg("Great! Have a look at the console. It is now indicated that the Levels indeed have an order associated, with the `<` sign. Continue to the next exercise.");
 success_msg("A job well done! Continue to the next exercise.")
 ```

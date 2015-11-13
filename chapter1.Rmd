@@ -359,11 +359,11 @@ ls()
 
 The first two lines create the variables `a` and `b`. Calling [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) now shows you that `a` and `b` are in the workspace. 
 
-Next to listing the objects of a workspace, you can also objects from the workspace again. You do this with `rm()`. `rm(a)`, for example, would remove `a` from the workspace again. `rm(list = ls())`, which is used in the beginning of your script, clears everything from the workspace.
+Next to listing the objects of a workspace, you can also objects from the workspace again. You do this with [`rm()`](http://www.rdocumentation.org/packages/base/functions/rm). `rm(a)`, for example, would remove `a` from the workspace again. `rm(list = ls())`, which is used in the beginning of your script, clears everything from the workspace.
 
 *** =instructions
 - Create a variable, `horses`, equal to 3, and a variable `dogs`, equal to 7.
-- List the contents of your workspace with `ls()` to see that indeed, these two variables are in there.
+- List the contents of your workspace with [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) to see that indeed, these two variables are in there.
 
 *** =hint
 All you need is a combination of [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) and [`rm()`](http://www.rdocumentation.org/packages/base/functions/rm) at the right time. Give it a try and let the feedback messages guide you.
@@ -596,7 +596,7 @@ var <- "3"
 var_num <- as.numeric(var)
 ```
 
-`var`, a character string, is converted into a numeric using `as.numeric()`. The resulting numeric is stored as `var_num`.
+`var`, a character string, is converted into a numeric using [`as.numeric()`](http://www.rdocumentation.org/packages/base/functions/numeric). The resulting numeric is stored as `var_num`.
 
 *** =instructions
 - Convert `var`, a logical, to a character. Assign to resulting character string to the variable `var_char`.
@@ -640,11 +640,11 @@ test_error()
 msg <- "Do not remove or change the definition of the variablee `var`."
 test_object("var", undefined_msg = msg, incorrect_msg = msg)
 test_function("as.character", "x",
-              not_called_msg = "Make sure to call the function `as.character()` to convert `var` to a character.",
-              incorrect_msg = "Have you passed the correct variable to the function `as.character()`?")
+              not_called_msg = "Make sure to call the function [`as.character()`](http://www.rdocumentation.org/packages/base/functions/character) to convert `var` to a character.",
+              incorrect_msg = "Have you passed the correct variable to the function [`as.character()`](http://www.rdocumentation.org/packages/base/functions/character)?")
 test_object("var_char")
 test_function("class", "x", 
-              not_called_msg = "Make sure to call the function `class()` to inspect the class of `var_char()`.",
-              incorrect_msg = "Have you passed the correct variable to the function `class()`?")
+              not_called_msg = "Make sure to call the function [`class()`](http://www.rdocumentation.org/packages/base/functions/class) to inspect the class of `var_char()`.",
+              incorrect_msg = "Have you passed the correct variable to the function [`class()`](http://www.rdocumentation.org/packages/base/functions/class)?")
 success_msg("Bellissimo!")
 ```
