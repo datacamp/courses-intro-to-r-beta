@@ -1117,7 +1117,7 @@ test_instruction(3, {
   test_object("view_count_1")
   test_object("view_count_2")
   test_or(
-    test_an_object("view_count_loud"),
+    test_an_object("total_views_loud"),
     test_output_contains("colSums(cbind(view_count_1, view_count_2)[,c(3,6,7)])")
   )
 })
@@ -1126,7 +1126,7 @@ test_instruction(4, {
   test_object("view_count_1")
   test_object("view_count_2")
   test_or(
-    test_an_object("view_count_loud"),
+    test_an_object("total_views_loud"),
     test_output_contains("colSums(cbind(view_count_1, view_count_2)[,c(3,6,7)])")
   )
 })
