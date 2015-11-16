@@ -155,7 +155,7 @@ success_msg("Nice one! Can you see from the displayed structure how the vector, 
 
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Create a named list
+## Create a named list (1)
 
 Well done! Let us keep this train going! To make the elements of your list clearer, you'll often want to name them: 
 

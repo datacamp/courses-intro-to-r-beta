@@ -115,7 +115,7 @@ success_msg("Nice work! Can you find all the information that is listed in the e
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Creating a data frame 
+## Creating a data frame (1)
 
 Since using built-in data sets is not even half the fun of creating your own data sets, the next exercises are based on your personally developed data set. So put your jet pack on because it is time for some good old fashioned space exploration! 
 
@@ -470,7 +470,7 @@ success_msg("Great! Feel free to have a look at the variables you've just create
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Only planets with rings
+## Only planets with rings (1)
 
 You will often want to select an entire column, namely one specific variable from a data frame. If you want to select the column `diameter` from `planets_df`, you can use either on of the following:
 

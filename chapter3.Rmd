@@ -19,7 +19,7 @@ https://player.vimeo.com/external/138173926.m3u8?p=high,standard,mobile&s=b0266d
 
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Analyzing matrices, you shall
+## Analyzing matrices, you shall (1)
 
 It is now time to get your hands dirty. In the following exercises you will analyze the box office numbers of the Star Wars franchise. May the force be with you!
 
@@ -722,7 +722,7 @@ https://player.vimeo.com/external/141163423.m3u8?p=high,standard,mobile&s=097408
 
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Arithmetic with matrices
+## Arithmetic with matrices (1)
 
 Similar to what you have learned with vectors, the standard operators like `+`, `-`, `/`, `*`, etc. work in an element-wise way on matrices in R. 
 

@@ -236,7 +236,7 @@ success_msg("Nice one!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Variable assignment
+## Variable assignment (1)
 
 A variable allows you store a value or an object in R. You can then later use this variable's name to easily access the value or the object that is stored within this variable. You use `<-` to assign a variable:
 
