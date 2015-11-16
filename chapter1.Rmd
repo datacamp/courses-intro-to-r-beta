@@ -280,7 +280,7 @@ my_apples
 ```{r}
 test_object("my_apples", incorrect_msg = "Have you correctly assigned 5 to `my_apples`? Write `my_apples <- 5` on a new line in the script.")
 test_output_contains("my_apples", incorrect_msg = "Have you explicitly told R to print out the `my_apples` variable to the console? Simply type `my_apples` on a new line.")
-success_msg("Great! You could also use `=` for variable assignment, but `<-` is typically prefered.")
+success_msg("Great! You could also use `=` for variable assignment, but `<-` is typically preferred.")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
