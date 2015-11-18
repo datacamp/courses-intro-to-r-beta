@@ -536,11 +536,11 @@ test_object("star_wars_matrix2", eq_condition = "equal", undefined_msg = msg, in
 
 # Fix untill testwhat gets updated again
 # TODO: Fix in testwhat
-test_object("star_wars_matrix", eval = FALSE)
+test_object("all_wars_matrix", eval = FALSE)
 test_what(
   expect_equal(
-    dim(get("star_wars_matrix", get_solution_env())), 
-    dim(get("star_wars_matrix", .GlobalEnv))),
+    dim(get("all_wars_matrix", get_solution_env())), 
+    dim(get("all_wars_matrix", .GlobalEnv))),
   feedback_msg = 
     paste("Be sure to use the the function `rbind()` with 2 arguments: `star_wars_matrix`",
           "and `star_wars_matrix2`. You should end up with a matrix",
