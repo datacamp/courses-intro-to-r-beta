@@ -443,6 +443,18 @@ test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, inc
 msg <- "The calculation of <code>world_wide_vector</code> has already been coded for you; don't change it."
 test_object("worldwide_vector", undefined_msg = msg, incorrect_msg = msg)
 
+# Fix untill testwhat gets updated again
+# TODO: Fix in testwhat
+test_object("star_wars_ext", eval = FALSE)
+test_what(
+  expect_equal(
+    dim(get("star_wars_ext", get_solution_env())), 
+    dim(get("star_wars_ext", .GlobalEnv))),
+  feedback_msg = 
+    paste("Be sure to use the the function `cbind()` with 2 arguments: `star_wars_matrix`",
+          "and `world_wide_vector`. You should end up with a matrix",
+          "of the correct dimensions: 3 rows and 3 columns."))
+
 test_object("star_wars_ext",
             undefined_msg = "Please make sure to define a variable <code>star_wars_ext</code>.",
             incorrect_msg = "Did you use the <code>cbind()</code> function with the correct arguments to build <code>star_wars_ext</code>?")
@@ -521,6 +533,7 @@ test_error()
 msg = "Do not override the variables that have been defined for you in the workspace (<code>star_wars_matrix</code> and <code>star_wars_matrix2</code>)."
 test_object("star_wars_matrix", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
 test_object("star_wars_matrix2", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
+
 
 test_object("all_wars_matrix", 
             undefined_msg = "Please make sure to define a variable <code>all_wars_matrix</code>.",
