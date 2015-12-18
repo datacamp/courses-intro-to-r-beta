@@ -1,0 +1,55 @@
+---
+output: html_document
+---
+## Factors
+
+Factors are defined as categorical variables that take on a few values. To define a variable as categorical use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor).
+
+What does R do?
+
+* screening for all values and defining them as factors.
+* sort them alphabetically
+* character values correspond to integer values (handy, in the case of long charcater strings)
+
+## Rename factors
+
+Moreover, the order has to be specified manually inside of the factor using the `levels` argument in the  [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) function.
+
+```{r, eval=FALSE}
+factor(my_var, levels = c("xy","xz","zy"))
+```
+
+And the level names can be defined manually using the [`levels()`](http://www.rdocumentation.org/packages/base/functions/levels) function
+
+```{r, eval=FALSE}
+levels(my_var) = c("na_xy", "na_xz", "na_zy")
+```
+
+or by using the `labels` argument inside of the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor)
+
+```{r, eval=F}
+factor(my_var, labels = c("na_xy","na_xz","na_zy"))
+
+```
+
+Remark: To rename levels, you always have to follow the original order of the levels. To avoid confusion and misspecification, it is suggested to use both `levels` and `labels` inside [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor).
+
+
+## Nominal vs Ordinal
+
+**Ordinal** variables contain a natural order among their levels, whereas **nominal** variables do not inherit any such order.
+
+First thing to know about **ordinal** variables is that they are as well defined with [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) but the argument `order` is specified as `TRUE`.
+R orders them alphabetically, unless specified otherwise.
+The ordinal structure is quite specific:
+* it is regarded in comparisons and operations
+* it reflects by `<` and `>` signs
+
+For example:
+```{r, eval=F}
+factor(my_ordinal, order = T, levels = c(1, 2, 3))
+```
+
+
+
+

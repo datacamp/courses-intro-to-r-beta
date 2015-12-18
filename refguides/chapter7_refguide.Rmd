@@ -1,0 +1,136 @@
+
+## Basic Graphics
+
+One of the most frequently used plotting functions in R is the [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot). This is a generic function: the type of plot produced is dependent on the type or class of the argument(s).
+
+```{r, eval=FALSE}
+x <- c(1, 2, 3, 4)
+plot(x) # this generates a plot of the values in the variable against their index
+
+x <- factor(c("Black", "White", "Green"))
+plot(x) # this generates a bar chart
+```
+
+```{r, eval=FALSE}
+x <- c(1, 2, 3)
+y <- c(1, 2, 3)
+plot(x, y) # this generates a scatter plot
+
+x <- factor(c("Black", "White", "Green"))
+y <- c(1, 2, 3)
+plot(x, y) # this generates boxplots of y for each level of x
+
+x <- factor(c("Black", "White", "Green"))
+y <- factor(c("Left", "Right", "Centre"))
+plot(x, y) # this generates stacked bar chart 
+```
+
+Histograms can be created using the [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist) function. This function takes in a continuous variable, `x`, for which the histogram is plotted. 
+
+```{r, eval=FALSE}
+hist(x, breaks = ``)
+```
+
+With the `breaks` argument you can specify the number of bins you want in the histogram.
+
+You can also check other graphics functions such as [`boxplot()`](http://www.rdocumentation.org/packages/graphics/functions/boxplot) and [`barplot()`]( http://www.rdocumentation.org/packages/raster/functions/barplot). 
+
+
+## Customizing Plots
+
+Now, you can modify your plot !
+
+```{r,eval=FALSE}
+plot(x,y, 
+      xlab = " ",     # changes the label of the horizontal axis 
+      ylab = " ",     # changes the label of the vertical axis 
+      main = " ",     # specifies the title of the plot 
+      type = " ",     # specifies the type of the plot i.e lines, points etc 
+      col = " ")      # specifies the color of the plot 
+```
+
+Type `?par` in your console to take a peek on the graphical parameters you can specify. 
+ 
+A few of them are 
+
+```{r,eval=FALSE}
+plot(x,y, 
+      xlab = " ",   
+      ylab = " ",  
+      main = " ",   
+      type = " ",   
+      col = " ",
+      col.main = " ",  # specifies the color of the main title
+      cex.axis = ` `,  # specifies the size of the fonts 
+      lty = ` `,       # specifies the line type
+      pch = ` `)       # specifies the plot symbol
+```
+
+### Important Note
+Since all the arguments are specified inside the [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot)
+function they are valid only for the specific plot. It is possible, though, to set the parameters of the graphs globally by using the [`par()`](http://www.rdocumentation.org/packages/graphics/functions/par) function. 
+
+
+## Multiple Plots
+
+R makes it easy to combine multiple plots into one overall graph, using either the [`par()`](http://www.rdocumentation.org/packages/graphics/functions/par)
+or [`layout()`](http://www.rdocumentation.org/packages/graphics/functions/layout) function.
+
+With [`par()`](http://www.rdocumentation.org/packages/graphics/functions/par), you can include the option `mfrow` to create a grid of `nrows` and `ncols` plots that are filled in by row. 
+
+```{r,eval=FALSE}
+par(mfrow = c(nrows, ncols))
+```
+
+If you use `mfcol`, it fills in the grid by columns.
+
+```{r,eval=FALSE}
+par(mfcol = c(nrows, ncols))
+```
+
+In order to reset the graphical parameters you can use: 
+
+```{r,eval=FALSE}
+par(mfrow = c(1, 1))
+```
+
+or equivalently,
+
+```{r,eval=FALSE}
+old_par <- par()
+```
+
+and invoke the `old_par` when you need to reset the parameters. 
+
+Another way is to use the [`layout()`](http://www.rdocumentation.org/packages/graphics/functions/layout) function which divides the plotting space into as many rows and columns as there are in matrix `mat`.
+
+```{r,eval=FALSE}
+layout(mat, ...)
+```
+
+Once more way to reset the graphical parameters, is to use:
+
+```{r,eval=FALSE}
+layout(1)
+```
+
+
+In order to add more information to your plot you can use the following fuunctions. 
+
+```{r,eval=FALSE}
+plot(x, y)
+abline()      # adds one or more straight lines
+lines()       # adds lines (careful how to specify the arguments, watch video for more info)
+points()      # adds points 
+text()        # adds text 
+segments()    # adds line segments between pairs of points
+```
+
+Take a look at the documentatin to get more insight into these functions [`abline()`](http://www.rdocumentation.org/packages/graphics/functions/abline),
+[`lines()`](http://www.rdocumentation.org/packages/graphics/functions/lines),
+[`points()`](http://www.rdocumentation.org/packages/graphics/functions/points),
+[`text()`](http://www.rdocumentation.org/packages/graphics/functions/text),
+and [`segments()`](http://www.rdocumentation.org/packages/graphics/functions/segments).
+
+
+
