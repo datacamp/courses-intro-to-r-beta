@@ -1,7 +1,7 @@
 --- 
 title_meta  : Chapter 1
 title       : Intro to basics
-description : "In this chapter, you will take your first steps with R. You will learn how to use the console as a calculator and how to assign variables. You will also get to know the basic data types in R. Let us get started!"
+description : "In this chapter, you will take your first steps with R. You will learn how to use the console as a calculator and how to assign variables. You will also get to know the basic data types in R. Let's get started!"
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch1_slides_v2.pdf
   
@@ -49,7 +49,7 @@ Simply add a line of R code that calculates the sum of 6 and 12, just like the e
 
 *** =sct
 ```{r}
-test_output_contains("18", incorrect_msg = "Make sure to add a line of R code, that calculates the sum of 6 and 12.")
+test_output_contains("18", incorrect_msg = "Make sure to add a line of R code that calculates the sum of 6 and 12.")
 success_msg("Awesome! See how the console shows the result of the R code you submitted?")
 ```
 
@@ -308,7 +308,7 @@ ls()
 
 The first two lines create the variables `a` and `b`. Calling [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) now shows you that `a` and `b` are in the workspace. 
 
-Next to listing the objects of a workspace, you can also objects from the workspace again. You do this with [`rm()`](http://www.rdocumentation.org/packages/base/functions/rm). `rm(a)`, for example, would remove `a` from the workspace again. `rm(list = ls())`, which is used in the beginning of your script, clears everything from the workspace.
+You can also remove variables from the workspace. You do this with [`rm()`](http://www.rdocumentation.org/packages/base/functions/rm). `rm(a)`, for example, would remove `a` from the workspace again. `rm(list = ls())`, which is used in the beginning of your script, clears everything from the workspace.
 
 *** =instructions
 - Create a variable, `horses`, equal to 3, and a variable `dogs`, equal to 7.
@@ -373,9 +373,9 @@ https://player.vimeo.com/external/138173888.m3u8?p=high,standard,mobile&s=2fa96f
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Discover Basic Data Types
 
-Some of R's most basic types to get started are:
+To get started, here are some of R's most basic data types:
 
-- Decimals values like `4.5` are called **numerics**.
+- Decimal values like `4.5` are called **numerics**.
 - Natural numbers like `4L` are called **integers**. Integers are also numerics.
 - Boolean values (`TRUE` or `FALSE`) are called **logical**. Capital letters are important here; `true` and `false` are not valid.
 - Text (or string) values are called **characters**.
@@ -405,7 +405,7 @@ assigns the value 42 to the variable `my_numeric`.
 # What is the answer to the universe?
 my_numeric <- 42.5
 
-# The quotation marks indicate that the variable is of type character
+# The quotation marks indicate that the variable is a character
 my_character <- "some text"
 
 # Change the value of my_logical
@@ -442,7 +442,7 @@ success_msg("Great work! Continue to the next exercise.")
 
 Common knowledge tells you not to add apples and oranges. But hey, that is what you just did! The `my_apples` and `my_oranges` variables both contained a number in the previous exercise. The `+` operator works with numeric variables in R. 
 
-However, If you try to add a numeric and a character string, R will complain.
+However, if you try to add a numeric and a character string, R will complain.
 
 *** =instructions
 - Click _Submit Answer_ and read the error message. Make sure you understand why this did not work.
@@ -536,7 +536,7 @@ test_mc(correct = 4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Coercion: Taming your data
 
-As Filip explained in the video, coercion to transform your data from one type to another is perfectly possible. Next to the [`class()`](http://www.rdocumentation.org/packages/base/functions/class) function and the `is.*()` functions, you can use the `as.*()` functions to enforce data to change types.
+As Filip explained in the video, coercion to transform your data from one type to another is perfectly possible. Next to the [`class()`](http://www.rdocumentation.org/packages/base/functions/class) function and the `is.*()` functions, you can use the `as.*()` functions to force data to change types.
 
 Take this example:
 
@@ -549,7 +549,7 @@ var_num <- as.numeric(var)
 
 *** =instructions
 - Convert `var`, a logical, to a character. Assign to resulting character string to the variable `var_char`.
-- Inspect the closs of `var_char` by using [`class()`](http://www.rdocumentation.org/packages/base/functions/class) on it.
+- Inspect the class of `var_char` by using [`class()`](http://www.rdocumentation.org/packages/base/functions/class) on it.
 
 *** =hints
 Use the [`as.character()`](http://www.rdocumentation.org/packages/base/functions/character) function to convert `var` to a character.
@@ -586,7 +586,7 @@ class(var_char)
 *** =sct
 ```{r}
 test_error()
-msg <- "Do not remove or change the definition of the variablee `var`."
+msg <- "Do not remove or change the definition of the variable `var`."
 test_object("var", undefined_msg = msg, incorrect_msg = msg)
 test_function("as.character", "x",
               not_called_msg = "Make sure to call the function [`as.character()`](http://www.rdocumentation.org/packages/base/functions/character) to convert `var` to a character.",
