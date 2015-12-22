@@ -20,7 +20,7 @@ https://player.vimeo.com/external/138173962.m3u8?p=high,standard,mobile&s=8e92ff
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Vector to factor
 
-In the following exercises, we'll be working with handedness as a categorical variable that can be either "Left" or "Right". In general, you're either left-handed, or you're right-handed and nothing else, so this complies with the conditions of a categorical variable.
+In the following exercises, we'll be working with handedness as a categorical variable that can be either "Left" or "Right". In general, you're either left-handed or you're right-handed (not both), so this complies with the conditions of a categorical variable.
 
 To create factors in R, you make use of the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor). The first thing you do is creating a vector that contains all the observations that belong to a limited number of categories. For example, `hand_vector` contains the handedness of 5 different individuals. Next, you pass this vector to the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor).
 
