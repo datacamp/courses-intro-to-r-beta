@@ -88,7 +88,7 @@ As mentioned before, lists can also contain other lists. This works just the sam
 *** =instructions
 - Construct a list, named `my_super_list`, that now contains the four predefined variables listed in the sample code (in the same order).
 - Print the structure of `my_super_list` with the [`str()`](http://www.rdocumentation.org/packages/utils/functions/str) function.
--Enter the variables in the following order: my_vector, my_matrix, my_factor, my_list
+-Enter the variables in the following order: `my_vector`, `my_matrix`, `my_factor`, `my_list`
 
 *** =hint
 Just as in the previous exercise, use the [`list()`](http://www.rdocumentation.org/packages/base/functions/list) function. This time you have to add four components.
