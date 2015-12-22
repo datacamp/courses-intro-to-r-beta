@@ -75,7 +75,7 @@ success_msg("Perfect! Let's practice some more with vector creation.")
 
 After one week in Las Vegas and still zero Ferraris in your garage, you decide that it is time to start using your data science superpowers.
 
-Before doing a first analysis, you decide to first collect all the winnings and losses for the last week: 
+Before doing your first analysis, you decide to collect all the winnings and losses for the last week: 
 
 For `poker_vector`: 
 - On Monday you won \$140
@@ -201,7 +201,7 @@ success_msg("Well done!")
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Naming a vector (2)
 
-If you want to become a good statistician, you have to become lazy. (If you are already lazy, chances are high you are one of those exceptional, natural-born statistical talents.)
+If you want to become a good statistician, you have to become lazy. (If you are already lazy, chances are high you are one of those exceptional, natural-born statistical talents!).
 
 In the previous exercises you probably experienced that it is boring and frustrating to type and retype information such as the days of the week. However, there is a more efficient way to do this, namely, to assign the days of the week vector to a variable! 
 
@@ -439,7 +439,7 @@ https://player.vimeo.com/external/138173916.m3u8?p=high,standard,mobile&s=d1f707
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Selection by index (1)
 
-After you figured that roulette is not your forte, you decide to compare your performance at the beginning of the working week compared to the end of it. You did have a couple of Margarita cocktails at the end of the week...
+After you figured that roulette is not your forte, you decide to compare your performance at the beginning of the week to your performance at the end of the week. You did have a couple of Margarita cocktails at the end of the week...
 
 To answer that question, you only want to focus on a selection of the `total_vector`. In other words, our goal is to select specific elements of the vector.
 
@@ -745,7 +745,7 @@ The result is a subset of `roulette_vector` that contains only your losses in ro
 
 *** =instructions
 - Check if your poker winnings are positive on the different days of the week (i.e. > 0), and assign this to `selection_vector`.
-- Assign the amounts that you won on the profitable days, so a vector, to the variable `poker_profits`, by using `selection_vector`.
+- Assign the amounts that you won on the profitable days to the variable `poker_profits` by using `selection_vector`.
 
 *** =hint
 - In order to check for which days your poker gains are positive, R should check for each element of `poker_vector` whether it is larger than zero. `some_vector > 0` is the way to tell R what you are after.
