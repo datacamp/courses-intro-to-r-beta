@@ -20,7 +20,7 @@ https://player.vimeo.com/external/138173962.m3u8?p=high,standard,mobile&s=8e92ff
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Vector to factor
 
-In this and the following exercises, we'll be working with handedness as a categorical variable that can be either "Left" or "Right". In general, you're either left-handed, or you're right-handed and nothing else, so this complies with the conditions of a categorical variable.
+In the following exercises, we'll be working with handedness as a categorical variable that can be either "Left" or "Right". In general, you're either left-handed, or you're right-handed and nothing else, so this complies with the conditions of a categorical variable.
 
 To create factors in R, you make use of the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor). The first thing you do is creating a vector that contains all the observations that belong to a limited number of categories. For example, `hand_vector` contains the handedness of 5 different individuals. Next, you pass this vector to the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor).
 
@@ -196,7 +196,7 @@ temperature_vector <- c("High", "Low", "High", "Low", "Medium")
 animal_factor <- factor(animal_vector)
 
 # Encode temperature_vector as a factor: temperature_factor
-temperature_factor <- factor(temperature_vector, order = TRUE, levels = c("Low", "Medium", "High"))
+temperature_factor <- factor(temperature_vector, ordered = TRUE, levels = c("Low", "Medium", "High"))
 
 # Print out animal_factor and temperature_factor
 animal_factor
@@ -299,12 +299,12 @@ factor(some_vector, ordered = TRUE, levels = c("Level_1", "Level_2", ...))
 *** =instructions
 - Use the example code above to define `speed_factor`, that contains the speed information as an ordered factor. You can start from `speed_vector`, which is already created for you.
 - Print `speed_factor` to the console.
-- Use [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) to generate a summary of `speed_factor`: automagically, R prints the factor levels in the right order.
+- Use [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) to generate a summary of `speed_factor`: automatically, R prints the factor levels in the right order.
 
 *** =hint
 - Use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) to create `factor_speed_vector` based on `speed_character_vector`. 
 - The argument `ordered` should be set to `TRUE` since there is a natural ordering. 
-- The argument `levels` should be equal to `c("Slow", "Fast", "Ultra-fast")`.
+- The argument `levels` should be equal to `c("Slow", "OK", "Fast")`.
 
 *** =pre_exercise_code
 ```{r}
@@ -363,7 +363,7 @@ success_msg("A job well done! Continue to the next exercise.")
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Comparing ordered factors
 
-Having a bad day at work, 'data analyst number two' enters your office and starts complaining that 'data analyst number five' is slowing down the entire project. Since you know that 'data analyst number two' has the reputation of being a smarty-pants, you first decide to check if his statement is true. 
+'Data analyst number two' is having a bad day at work. He enters your office and starts complaining that 'data analyst number five' is slowing down the entire project. Since you know that 'data analyst number two' has the reputation of being a smarty-pants, you first decide to check if his statement is true. 
 
 The fact that `speed_factor` is now ordered enables us to compare different elements (the data analysts in this case). You can simply do this by using a well-known operator: `>`.
 
