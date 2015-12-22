@@ -23,7 +23,7 @@ https://player.vimeo.com/external/138173926.m3u8?p=high,standard,mobile&s=b0266d
 
 It is now time to get your hands dirty. In the following exercises you will analyze the box office numbers of the Star Wars franchise. May the force be with you!
 
-As a reminder, have a look at this line of code, that constructs a matrix with the number 1 up to 9, filled row by row:
+As a reminder, look at this line of code that constructs a matrix with numbers 1 through 9, filled row by row:
 
 ```
 matrix(1:9, byrow = TRUE, nrow = 3)
@@ -251,7 +251,7 @@ sum_of_rows_vector <- rowSums(my_matrix)
 Calculate the worldwide box office figures for the three movies and put these in the vector named `worldwide_vector`.
 
 *** =hint
-The ['rowSums'](http://www.rdocumentation.org/packages/base/functions/colSums) function will calculate the total box office for each row of the `star_wars_matrix`, if you supply `star_wars_matrix` as an argument to that function by putting it between the brackets.
+The ['rowSums'](http://www.rdocumentation.org/packages/base/functions/colSums) function will calculate the total box office for each row of the `star_wars_matrix`, if you supply `star_wars_matrix` as an argument to that function by putting it between the parenthesis.
 
 *** =pre_exercise_code
 ```{r}
@@ -597,7 +597,7 @@ success_msg("Great! Continue to the next exercise.")
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Create submatrices
 
-Last but not least, there's the selection of entire matrices from bigger matrices. As soon as a vector is not sufficient to store the information you're selecting, you're ending up with a new matrix. If you want to a submatrix that comprises rows 1 and 4 and columns 2 and 3 of a matrix `m`, to following call will help you out:
+Last but not least, you can create submatrices from larger matrices. If a vector is not sufficient to store the information you want to select, you need to create a new matrix. If you want to a submatrix that comprises rows 1 and 4 and columns 2 and 3 of a matrix `m`, to following call will help you out:
 
 ```
 m[c(1,4), c(2,3)]
