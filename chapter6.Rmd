@@ -224,7 +224,8 @@ Use the function [`factor()`](http://www.rdocumentation.org/packages/base/functi
 ```{r}
 # Definition of vectors
 planets <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
-type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
+type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet",
+          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant","Gas giant")
 diameter <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
 rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
 rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
@@ -609,7 +610,7 @@ planets_df[planets_df$has_rings == TRUE, ]
 ```
 
 *** =instructions
-- Create a data frame `small_planets_df` with planets that have a diameter smaller than the Earth. This means that the `diameter` variable should be smaller than 1, since diameter is a relative measure of the planet's diameter with relation to planet Earth.
+- Create a data frame `small_planets_df` with planets that have a diameter smaller than the Earth. This means that the `diameter` variable should be smaller than 1, since diameter is a relative measure of the planet's diameter in relation to planet Earth.
 - Build another data frame, `slow_planets_df`, with the observations that have a longer rotation period than Earth. This means that the absolute value (use the function [`abs()`](http://www.rdocumentation.org/packages/base/functions/MathFun)) of the `rotation` variable should be greater than 1.
 
 *** =hint
@@ -639,7 +640,7 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/c
 small_planets_df <- planets_df[planets_df$diameter < 1, ]        # option 1
 small_planets_df  <- subset(planets_df, subset = diameter < 1)   # option 2
 
-# Planets that rotate faster than planet Earth: slow_planets_df
+# Planets that rotate slower than planet Earth: slow_planets_df
 slow_planets_df <- planets_df[abs(planets_df$rotation) > 1, ]      # option 1
 slow_planets_df <- subset(planets_df, subset = abs(rotation) > 1)  # option 2
 ```
