@@ -380,7 +380,7 @@ To get started, here are some of R's most basic data types:
 - Boolean values (`TRUE` or `FALSE`) are called **logical**. Capital letters are important here; `true` and `false` are not valid.
 - Text (or string) values are called **characters**.
 
-Note how the quotation marks on the right indicate that `"some text"` is a character.
+Note how the quotation marks on the right indicate that `"some text"` is of type character.
 
 *** =instructions
 Change the value of the:
