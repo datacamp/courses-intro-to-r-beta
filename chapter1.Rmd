@@ -405,7 +405,7 @@ assigns the value 42 to the variable `my_numeric`.
 # What is the answer to the universe?
 my_numeric <- 42.5
 
-# The quotation marks indicate that the variable is a character
+# The quotation marks indicate that the variable is of type character
 my_character <- "some text"
 
 # Change the value of my_logical
