@@ -299,7 +299,7 @@ factor(some_vector, ordered = TRUE, levels = c("Level_1", "Level_2", ...))
 *** =instructions
 - Use the example code above to define `speed_factor`, that contains the speed information as an ordered factor. You can start from `speed_vector`, which is already created for you.
 - Print `speed_factor` to the console.
-- Use [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) to generate a summary of `speed_factor`: automatically, R prints the factor levels in the right order.
+- Use [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) to generate a summary of `speed_factor`: automagically, R prints the factor levels in the right order.
 
 *** =hint
 - Use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) to create `factor_speed_vector` based on `speed_character_vector`. 
