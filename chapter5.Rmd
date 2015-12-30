@@ -459,8 +459,8 @@ shining_list[["my_opinion"]] <- "Love it!"
 Being proud of your first list, you shared it with the members of your movie hobby club. However, one of the senior members, a guy named M. McDowell, noted that you forgot to add the release year (1980). Given your ambitions to become next year's president of the club, you decide to add this information to the list. To fully make up for your mistake, you also decide to add the name of the director (Stanley Kubrick). 
 
 *** =instructions
-- Add the release year as a numeric to `shining_list` under the name "year".
-- Add the director to the list, `"Stanley Kubrick"`, with the name "director".
+- Add the release year as a numeric to `shining_list` under the name `year`.
+- Add the director to the list, `"Stanley Kubrick"`, with the name `director`.
 - Finally, inspect the structure of `shining_list`.
 
 *** =hint
