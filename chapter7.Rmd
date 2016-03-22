@@ -637,13 +637,6 @@ test_error()
 msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
-test_function("hist", "x")
-test_function("hist", "breaks")
-test_function("hist", "xlim")
-test_function("plot", "main")
-test_function("plot", "xlab")
-test_function("plot", "col")
-test_function("plot", "border")
 test_function("plot", c("x","breaks", "xlim", "main", "xlab", "col", "border"))
 
 success_msg("Nice! Can you see how a change of any of the arguments affects the histogram? Feel free to experiment some more before you head over to the challenge!")
@@ -814,10 +807,10 @@ test_error()
 msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
-test_function("par")
-test_function("par", "mfrow")
-test_function("plot", c("x","y"))
-test_function("hist", "x")
+test_function("par", index = 1)
+test_function("par", args = "mfrow", index = 2)
+test_function("plot", args = c("x","y"))
+test_function("hist", args = "x")
 success_msg("Nice! Notice how your plots appear in a vertical arrangement: the plot that you generated first, comes on top.")
 ```
 

@@ -1066,7 +1066,7 @@ test_object("pluto", incorrect_msg = "Do not change the data that is inside the 
 test_object("pluto", eq_condition = "equal",
             incorrect_msg = "Make sure to assign the correct names to the different columns in <code>pluto</code>. The hint can help you out.")
 
-test_function("planets_df_ext", incorrect_msg = "Have you correctly used <code>rbind()</code> to bind together <code>planets_df</code> and <code>pluto</code>?")
+test_object("planets_df_ext", incorrect_msg = "Have you correctly used <code>rbind()</code> to bind together <code>planets_df</code> and <code>pluto</code>?")
 
 test_output_contains("planets_df_ext", incorrect_msg = "Don't forget to print out <code>planets_df_ext</code>!")
 
