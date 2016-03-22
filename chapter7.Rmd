@@ -637,7 +637,7 @@ test_error()
 msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
-test_function("plot", c("x","breaks", "xlim", "main", "xlab", "col", "border"))
+test_function("hist", c("x","breaks", "xlim", "main", "xlab", "col", "border"))
 
 success_msg("Nice! Can you see how a change of any of the arguments affects the histogram? Feel free to experiment some more before you head over to the challenge!")
 ```
