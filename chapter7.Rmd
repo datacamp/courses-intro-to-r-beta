@@ -676,9 +676,11 @@ Next, make a plot of the `salary` (y-axis) and `experience` (x-axis) columns of 
 
 *** =pre_exercise_code
 ```{r eval=FALSE}
-salaries <- read.table("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/salaries.txt", header = TRUE)
-exp <- salaries$experience
-salaries <- salaries[,-c(3,4)]
+if(!exists("salaries")) {
+  salaries <- read.table("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/salaries.txt", header = TRUE)
+  exp <- salaries$experience
+  salaries <- salaries[,-c(3,4)]  
+}
 ```
 
 *** =solution
