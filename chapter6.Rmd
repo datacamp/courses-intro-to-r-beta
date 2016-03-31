@@ -1255,19 +1255,21 @@ countries_df2[order(countries_df2$population,decreasing=TRUE), ]
 ```{r eval=FALSE}
 test_instruction(1, {
   test_error()
-  test_an_object("countries_df_dem")
+  test_object("countries_df_dem")
 })
 test_instruction(2, {
   test_error()
-  test_an_object("countries_df2")
+  test_object("countries_df2")
 })
 test_instruction(3, {
   test_error()
-  test_output_contains("countries_df2[order(countries_df2$population,decreasing=TRUE), ]", env = get_solution_env())
+  test_object("countries_df2")
+  test_output_contains("countries_df2[order(countries_df2$population,decreasing=TRUE), ]")
 })
 test_instruction(4, {
   test_error()
-  test_output_contains("countries_df2[order(countries_df2$population,decreasing=TRUE), ]", env = get_solution_env())
+  test_object("countries_df2")
+  test_output_contains("countries_df2[order(countries_df2$population,decreasing=TRUE), ]")
 })
 success_msg("Perfect! This challenge concludes the chapter on data frames. Remember that data frames are extremely important in R, you will need them all the time! Next stop: basic graphics in R!")
 ```
