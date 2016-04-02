@@ -572,7 +572,7 @@ test_output_contains("my_fruit", incorrect_msg = "The output does not contain th
 success_msg("Awesome, keep up the good work!")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1
 ## What's that data type?
 
 When you added the variables containing `5` and `"six"`, you got an error due to a mismatch in data types. You can avoid such embarrassing situations by checking the data type of a variable beforehand:
