@@ -1,32 +1,18 @@
 --- 
 title_meta  : Chapter 7
-title       : Graphics
+title       : Graphics (not included anymore)
 description : R is known for its great graphical capabilities. This chapter familiarizes you with the basic functions to create plots in R. You'll also learn how to customize these plots and how to combine plots.
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch7_slides.pdf
 
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Basic Graphics
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/138174024
-```
-
-*** =video_stream
-```{r,eval=FALSE}
-https://player.vimeo.com/external/138174024.hd.mp4?s=734830b880a47e7cd6ec947f9de9a4e4&profile_id=119
-```
-
-*** =video_hls
-```{r,eval=FALSE}
-https://player.vimeo.com/external/138174024.m3u8?p=high,standard,mobile&s=120262a983107c7eeb7c48a38f11c7e8
-```
 
 
-
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Plotting factors
 
 To create basic visualizations in R, a great place to start is the [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot) function. This function is very generic, as the graphs it creates are different depending on the type of input information. 
@@ -46,13 +32,13 @@ In this and the following exercises, you'll be working with the `movies` data fr
 You'll have to use [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot) twice; once with a single argument, and once with two arguments. To select a column from a data frame, you can use `$`: `my_df$my_column`.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is already pre-loaded
 
 # Display the structure of movies
@@ -66,7 +52,7 @@ movies$genre <- factor(movies$genre)
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is already pre-loaded
 
 # Display the structure of movies
@@ -80,27 +66,24 @@ plot(movies$genre, movies$rating)
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
-test_output_contains("str(movies)", incorrect_msg = "Start with displaying the structure of the <code>movies</code> data frame.")
+test_output_contains("str(movies)", incorrect_msg = "Start with displaying the structure of the `movies` data frame.")
 
 test_function("plot", "x", index = 1, 
-              not_called_msg = "Make sure to use the <code>plot()</code> function with a single argument for the first instruction!",
-              incorrect_msg = "Have you passed the correct data to the first <code>plot()</code> function? You can use the dollar sign notation to select the <code>genre</code> column.")
+              not_called_msg = "Make sure to use the `plot()` function with a single argument for the first instruction!",
+              incorrect_msg = "Have you passed the correct data to the first `plot()` function? You can use the dollar sign notation to select the `genre` column.")
 
 test_function("plot", args = c("x","y"), index = 2,
-              not_called_msg = "Make sure to use the <code>plot()</code> function with two argument for the second instruction!",
-              incorrect_msg = "Have you passed the correct data to the second <code>plot()</code> function? First comes the <code>genre</code>, next the <code>rating</code>.")
+              not_called_msg = "Make sure to use the `plot()` function with two argument for the second instruction!",
+              incorrect_msg = "Have you passed the correct data to the second `plot()` function? First comes the `genre`, next the `rating`.")
 success_msg("Great! Use the _Next Plot_ and _Previous Plot_ buttons in the graphical window to inspect the different plots you've created. In the second plot, R realized that you passed a factor for the horizontal axis and a numerical vector for the vertical axis. R created a boxplot of the numerical values, for each category separately. Pretty cool if you ask me!")
 ```
 
-
-
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Plotting numerics
 
 In the previous exercise, you already saw that the combination of a factor and a numeric vector already gave the surprising result of a categorized set of boxplots. But what happens if you pass the [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot) function a single numeric vector? And what if you pass two vectors to [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot)? No theory on this one, let's simply learn by doing!
@@ -115,13 +98,13 @@ You will again be working with the `movies` data frame, which is already availab
 Again, use the dollar sign notation to select columns from your data frame. Variables on the x-axis come first in [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot), those on the y-axis come second.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is already pre-loaded
 
 # Plot the runtime variable of movies
@@ -133,7 +116,7 @@ movies$genre <- factor(movies$genre)
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is already pre-loaded
 
 # Plot the runtime variable of movies
@@ -144,26 +127,23 @@ plot(movies$rating, movies$runtime)
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function_v2("plot", "x", index = 1, 
-              not_called_msg = "Make sure to use the <code>plot()</code> function with a single argument for the first instruction!",
-              incorrect_msg = "Have you passed the correct data to the first <code>plot()</code> function? You can use the dollar sign notation to select the <code>runtime</code> column.")
+              not_called_msg = "Make sure to use the `plot()` function with a single argument for the first instruction!",
+              incorrect_msg = "Have you passed the correct data to the first `plot()` function? You can use the dollar sign notation to select the `runtime` column.")
 
 test_function_v2("plot", args = c("x","y"), index = 2,
-              not_called_msg = "Make sure to use the <code>plot()</code> function with two argument for the second instruction!",
-              incorrect_msg = "Have you passed the correct data to the second <code>plot()</code> function? First comes <code>rating</code>, next <code>runtime</code>.")
+              not_called_msg = "Make sure to use the `plot()` function with two argument for the second instruction!",
+              incorrect_msg = "Have you passed the correct data to the second `plot()` function? First comes `rating`, next `runtime`.")
 
-success_msg("Nice! If you use <code>plot()</code> with a single argument, you'll get an index plot, while with two arguments you'll get a classical scatterplot. From the second plot, there seems to be a light correlation between the length of a movie and its rating.")
+success_msg("Nice! If you use `plot()` with a single argument, you'll get an index plot, while with two arguments you'll get a classical scatterplot. From the second plot, there seems to be a light correlation between the length of a movie and its rating.")
 ```
 
-
-
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Create a Histogram
 
 Another function that Filip introduced in the video, is [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist). Basically, the [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist) function visualizes the distribution of your data by placing all values in bins and displaying the bin frequencies of each bin. Have a look at the usage of the [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist) function:
@@ -184,13 +164,13 @@ This slightly positive correlation has got you thinking about the `rating` varia
 You have to use [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist) twice. Use the dollar sign notation to select the columns from `movies`.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is already pre-loaded
 
 # Create a histogram for rating
@@ -201,7 +181,7 @@ movies$genre <- factor(movies$genre)
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is already pre-loaded
 
 # Create a histogram for rating
@@ -212,22 +192,20 @@ hist(movies$rating, breaks = 20)
 ```
 
 *** =sct
-```{r, eval = FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function_v2("hist", "x", index = 1)
 test_function_v2("hist", "x", index = 2)
 test_function_v2("hist", "breaks", index = 2)
 
-success_msg("Nice! The histograms give you quite a good idea of the <code>rating</code> variable. Compare both histograms, which one do you find most informative? Whatever your taste: choosing a suitable number of bins is important!")
+success_msg("Nice! The histograms give you quite a good idea of the `rating` variable. Compare both histograms, which one do you find most informative? Whatever your taste: choosing a suitable number of bins is important!")
 ```
 
 
-
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Other graphics functions
 
 Apart from the [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot) and [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist) function, there are many more easy-to-use and very useful functions in the `graphics` package. You'll experiment with just a few in this exercise. Giving you a full overview would take us too far, but feel free to check out the documentation on the functions if you are interested in learning more. To get more insight into the [`boxplot()`](http://www.rdocumentation.org/packages/graphics/functions/boxplot) function for example, simply type:
@@ -247,13 +225,13 @@ in the console, and an RDocumentation page will pop up!
 Use `table(movies$genre)` inside the [`pie()`](http://www.rdocumentation.org/packages/graphics/functions/pie) function.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is already pre-loaded
 
 # Create a boxplot of the runtime variable
@@ -267,7 +245,7 @@ movies$genre <- factor(movies$genre)
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is already pre-loaded
 
 # Create a boxplot of the runtime variable
@@ -281,30 +259,28 @@ pie(table(movies$genre))
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("boxplot", "x",
-              incorrect_msg = paste("Have you correctly possed the <code>runtime</code> variable of",
-                                    "<code>movies</code> to the <code>boxplot()</code> function?"))
+              incorrect_msg = paste("Have you correctly possed the `runtime` variable of",
+                                    "`movies` to the `boxplot()` function?"))
 
 test_function("plot", "x", 
-              incorrect_msg = paste("Have you passed the correct data frame to the <code>plot()</code> function?",
+              incorrect_msg = paste("Have you passed the correct data frame to the `plot()` function?",
                                     "Make sure that it's an entire data frame, containing the three columns in the listed order!"))
 
 test_function("pie", "x", 
               incorrect_msg = paste("Have you created a table of genre counts and subsequently",
-                                    "passed it to the <code>pie()</code> function? Try again."))
+                                    "passed it to the `pie()` function? Try again."))
 
 success_msg("Perfect! Know that there are many more functions to create the plots that you need in R!")
 ```
 
 
-
-
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## How does your salary compare?
 For your first visualization challenge, a new data set is available in the workspace: `salaries`. It contains the gross hourly salary in US Dollars (`salary`), according to your eduction (`degree`: 1 = did not finish high school, 2= Finished high school, 3= Higher Education) and experience in years (`experience`) of 65 different people. 
 
@@ -325,19 +301,19 @@ Finally you want to tailor your histogram some more. You can tell R to use a spe
 In this challenge, you want to get a good overview of what your salary is worth within your education class. First subset the `salaries` data frame such that it only contains observations with a `degree` of 3. Call this data frame `salaries_educ`. Next, build a histogram of the `salary` column of `salaries_educ`. In order to get a histogram that's specific enough, use 10 bins.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 salaries<-read.table("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/salaries.txt",header=T)
 salaries<-salaries[,-4]
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 salaries_educ <- salaries[salaries$degree == 3, ]
 hist(salaries_educ$salary, breaks = 10)
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_an_object("salaries_educ")
@@ -358,30 +334,14 @@ success_msg("Great! As you can see, there aren't that many people that make more
 ```
 
 
-
-
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Customizing Plots
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/138174037
-```
-
-*** =video_stream
-```{r,eval=FALSE}
-https://player.vimeo.com/external/138174037.hd.mp4?s=5c7a41a07567150c8aebdbb78b89c071&profile_id=119
-```
-
-*** =video_hls
-```{r,eval=FALSE}
-https://player.vimeo.com/external/138174037.m3u8?p=high,standard,mobile&s=7d2b41f7bad7599feccf26780f171518
-```
 
 
-
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Title and axis labels
 
 When you use the [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot) function by simply passing it the data you want to plot, you'll end up with a plot that is not very nice to look at. To make your plot more interpretable, a clear plot title as well as well-chosen axis labels are very important. You can use the arguments `main`, `xlab` and `ylab` for this. To add a subtitle to your plot, use `sub`.
@@ -399,21 +359,21 @@ Create a plot that has the following properties:
 To create the correct plot, start from `plot(movies$votes, movies$runtime)`.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", 
                    header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Create a customized plot
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Create a customized plot
@@ -425,9 +385,9 @@ plot(movies$votes, movies$runtime,
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("plot", "x")
@@ -442,9 +402,7 @@ success_msg("That's already much better, but there's more you can do!")
 ```
 
 
-
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Colors and shapes
 
 By default, R prints rather dark colors: scatter plots have dots, axis, labels and titles that are all black. Histograms have a grayish fill if you do not manually specify the options. 
@@ -467,13 +425,13 @@ Customize the plot from the previous exercise even further:
 You can simply extend the plot argument with the arguments `pch`, `col` and `col.main` respectively.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Customize the plot further
@@ -485,7 +443,7 @@ plot(movies$votes, movies$runtime,
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Customize the plot further
@@ -500,9 +458,9 @@ plot(movies$votes, movies$runtime,
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("plot", c("x","y","main","xlab","ylab","sub"))
@@ -516,8 +474,7 @@ success_msg("Great! Can you still remember the basic plot, without titles or lab
 
 
 
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Customize Everything!
 
 The last argument that Filip talked about was the `cex` argument and the other related `cex.*` arguments. With `cex.axis` for example, you can specify how much the font of the axis ticks should be made smaller or larger with respect to the general font size. You can do similar things with `cex.main` and `cex.lab`.
@@ -536,13 +493,13 @@ Customize the plot that has been coded on the right:
 - `cex.axis` equal to 0.8 means that the font size of the labels will be 80% of that of the overall font size of the plot.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Customize the plot further
@@ -550,7 +507,7 @@ plot(movies$votes, movies$year)
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Customize the plot further
@@ -564,9 +521,9 @@ plot(movies$votes, movies$year,
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("plot", c("x","y"))
@@ -583,8 +540,7 @@ success_msg("Cool! It seems that indeed more recent movies have gotten more vote
 
 
 
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Customizing Histograms
 
 Apart from specifying how many bins a histogram should contain, there are many other things you can specify. On the one hand, there are bin calculation related arguments, but there are also options to make your histogram better looking, like you did before with [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot).
@@ -604,13 +560,13 @@ Create a histogram of the `runtime` of all the observations in the `movies` data
 - To set the limits of the x-axis, you have to specify the `xlim` arguments. The histogram's title can be set with `main` as before. Also `xlab` can be used again to change the name of the x-axis.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Build a customized histogram
@@ -618,7 +574,7 @@ movies$genre <- factor(movies$genre)
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Build a customized histogram
@@ -632,9 +588,9 @@ hist(movies$runtime,
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("hist", c("x","breaks", "xlim", "main", "xlab", "col", "border"))
@@ -643,10 +599,9 @@ success_msg("Nice! Can you see how a change of any of the arguments affects the 
 ```
 
 
-
-
---- type:ChallengeExercise xp:200 skills:1
+--- type:ChallengeExercise lang:r xp:200 skills:1
 ## Does work experience influence your salary?
+
 Remember how you tried to figure out if you were making enough money based on your education? Well, in this challenge you will work with the same dataset, but this time you want to figure out whether experience has an important role in determining someone's salary. This data is however no longer available in the `salaries` dataframe, but in the vector `exp`. You will have to add it back into the dataframe `salaries`. 
 
 As before you are only interested in people with the same level of education as you. After you have worked hard preparing your dataframe, you will get to make a very fancy plot, in order to find out about the effect of experience on salary. Curious about the result?
@@ -675,16 +630,14 @@ Next, make a plot of the `salary` (y-axis) and `experience` (x-axis) columns of 
 - The axis ticks' font size is 120% of the overall font size (`cex.axis`).
 
 *** =pre_exercise_code
-```{r eval=FALSE}
-if(!exists("salaries")) {
-  salaries <- read.table("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/salaries.txt", header = TRUE)
-  exp <- salaries$experience
-  salaries <- salaries[,-c(3,4)]  
-}
+```{r}
+salaries <- read.table("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/salaries.txt", header = TRUE)
+exp <- salaries$experience
+salaries <- salaries[,-c(3,4)]
 ```
 
 *** =solution
-```{r eval=FALSE}
+```{r}
 salaries$experience <- exp
 salaries_educ <- salaries[salaries$degree == 3, ]
 plot(salaries_educ$experience, salaries_educ$salary, 
@@ -697,7 +650,7 @@ plot(salaries_educ$experience, salaries_educ$salary,
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 test_instruction(1, {
   test_error()
   test_an_object("salaries")
@@ -717,32 +670,14 @@ test_instruction(4, {
 success_msg("Great work! You are now able to play around with plots in R! You clearly see a positive correlation between work experience and salary, right? It's time for the final part of this introductory course! Let's finish this thing!")
 ```
 
-
-
-
---- type:VideoExercise xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1
 ## Multiple Plots
 
 *** =video_link
-```{r,eval=FALSE}
 //player.vimeo.com/video/138174049
-```
-
-*** =video_stream
-```{r,eval=FALSE}
-https://player.vimeo.com/external/138174049.hd.mp4?s=7d6009c52ac0fd2552108c337e48061e&profile_id=119
-```
-
-*** =video_hls
-```{r,eval=FALSE}
-https://player.vimeo.com/external/138174049.m3u8?p=high,standard,mobile&s=aa1672c0b88109eb9a4e9d3805c10c4b
-```
 
 
-
-
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Multiple plots with par()
 
 In publications or reports, it's often a good idea to combine different plots; this saves space but also allows readers to easily compare the plots. As Filip explained in the instructional video, you can use the [`par()`](http://www.rdocumentation.org/packages/graphics/functions/par) function to specify the `mfrow` argument. If you for example execute
@@ -766,14 +701,14 @@ You'll continue working with the `movies` data frame. It contains around 600 mov
 - You should use [`par()`](http://www.rdocumentation.org/packages/graphics/functions/par) twice: once to list all the graphical parameters; once to specify the grid.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 par(mfrow = c(1,1))
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # List all the graphical parameters
@@ -789,7 +724,7 @@ par(mfrow = c(1,1))
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # List all the graphical parameters
@@ -804,9 +739,9 @@ hist(movies$votes)
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("par", index = 1)
@@ -817,9 +752,7 @@ success_msg("Nice! Notice how your plots appear in a vertical arrangement: the p
 ```
 
 
-
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Complex layouts!
 
 The `mfrow` and `mfcol` functions work perfectly if you want to place your different subplots on a rectangular grid. But it's still a grid. With the [`layout()`](http://www.rdocumentation.org/packages/graphics/functions/layout) function, you can define more complex plot arrangements. In its most minimal use, [`layout()`](http://www.rdocumentation.org/packages/graphics/functions/layout) simply requires a matrix, that defines where each plot should be placed.
@@ -838,14 +771,14 @@ In this exercise, you're going to define a layout with three figures. The first 
 - Passing the vector `c(1,2,3,3)` to [`matrix()`](http://www.rdocumentation.org/packages/base/functions/matrix) while setting `nrow = 2` suffices to build the correct matrix.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 par(mfrow = c(1,1))
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Build the grid matrix
@@ -860,7 +793,7 @@ par(mfrow = c(1,1))
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Build the grid matrix
@@ -876,9 +809,9 @@ boxplot(movies$runtime)
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_object("grid")
@@ -886,13 +819,11 @@ test_function("layout")
 test_function_v2("plot", c("x","y"), index = 1)
 test_function_v2("plot", c("x","y"), index = 2)
 test_function("boxplot", "x")
-success_msg("Great! Feel free to experiment some more with the <code>layout()</code> function. It's great way of building very insightful plots.")
+success_msg("Great! Feel free to experiment some more with the `layout()` function. It's great way of building very insightful plots.")
 ```
 
 
-
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Complex layouts with customized plots
 
 Being able to place different subplots in fancy arrangements with [`layout()`](http://www.rdocumentation.org/packages/graphics/functions/layout) is a great tool to pimp your reports and publications, but of course you shouldn't forget about the plot customization you learned about before. `xlab`, `ylab`, `main`, `pch`, you name it: they can all facilitate a better understanding of the message you're trying to convey with your figures!
@@ -911,14 +842,14 @@ Feel free to customize these plots even further!
 - For the plot color, use `col`.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 par(mfrow = c(1,1))
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Build the grid matrix
@@ -934,7 +865,7 @@ boxplot(movies$runtime)
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Build the grid matrix
@@ -950,9 +881,9 @@ boxplot(movies$runtime, main = "Boxplot of Runtime", border = "darkgray")
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_object("grid")
@@ -978,9 +909,7 @@ success_msg("Nice! Instead of having very interpretable, clean plots, the differ
 ```
 
 
-
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Plot a linear regression
 
 Next to creating different plot arrangements with `mfrow`, `mfcol` or with the [`layout()`](http://www.rdocumentation.org/packages/graphics/functions/layout) function, the video also talked about adding layers to your plots. There are functions such as [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot) and [`hist()`](http://www.rdocumentation.org/packages/graphics/functions/hist) that build new figures, but there are also functions such as [`abline()`](http://www.rdocumentation.org/packages/graphics/functions/abline), [`text()`](http://www.rdocumentation.org/packages/graphics/functions/text), [`lines()`](http://www.rdocumentation.org/packages/graphics/functions/lines), [`segments()`](http://www.rdocumentation.org/packages/graphics/functions/segments). These functions add graphical elements to the current figure, instead of creating a new figure. These are great to add more information to your plots.
@@ -996,14 +925,14 @@ In this exercise, you will try to model the rating of a movie based on the numbe
 - To plot the straight line, use `abline(coef(movies_lm))`.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 par(mfrow = c(1,1))
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Fit a linear regression: movies_lm
@@ -1017,7 +946,7 @@ par(mfrow = c(1,1))
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Fit a linear regression: movies_lm
@@ -1031,16 +960,16 @@ abline(coef(movies_lm))
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
 
 test_data_frame("movies_lm", "coefficients", 
-                undefined_msg = "Have you defined <code>movies_lm</code>?", 
-                undefined_cols_msg = paste0("There should be a <code>coefficients</code> element in",
-                                            " the <code>movies_lm</code> model, but it wasn't found. Try again."),
-                incorrect_msg = "There's something wrong with the linear model you coded. Simply use <code>lm(movies$rating ~ movies$votes)</code>")
+                undefined_msg = "Have you defined `movies_lm`?", 
+                undefined_cols_msg = paste0("There should be a `coefficients` element in",
+                                            " the `movies_lm` model, but it wasn't found. Try again."),
+                incorrect_msg = "There's something wrong with the linear model you coded. Simply use `lm(movies$rating ~ movies$votes)`")
 test_function("plot", c("x","y"))
 test_function("coef")
 test_function("abline")
@@ -1048,9 +977,7 @@ success_msg("Great! There seems to be a positive correlation between the number 
 ```
 
 
-
-
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Customize your linear regression plot
 
 The scatter plot with an overlayed linear regression line that you built in the previous figure is a great start. But again, some customizations here and there wouldn't hurt right? And what about some text in your plot that gives some more information?
@@ -1073,14 +1000,14 @@ A model solution for the previous exercise has already been coded on the right. 
 - Among the usual arguments, you'll need `col`, `pch` and `cex` in [`plot()`](http://www.rdocumentation.org/packages/graphics/functions/plot). Inside [`abline()`](http://www.rdocumentation.org/packages/graphics/functions/abline), `lwd` and `col` will do the trick.
 
 *** =pre_exercise_code
-```{r, eval=FALSE}
+```{r}
 movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv", header = TRUE, stringsAsFactors = FALSE)
 movies$genre <- factor(movies$genre)
 par(mfrow = c(1,1))
 ```
 
 *** =sample_code
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Fit a linear regression (don't change)
@@ -1098,7 +1025,7 @@ yco <- 7
 ```
 
 *** =solution
-```{r, eval=FALSE}
+```{r}
 # movies is pre-loaded in your workspace
 
 # Fit a linear regression (don't change)
@@ -1123,11 +1050,11 @@ text(xco, yco, label = "More votes? Higher rating!")
 ```
 
 *** =sct
-```{r, eval=FALSE}
+```{r}
 test_error()
-msg <- "Do not overwrite the <code>movies</code> data frame; it has already been created for you!"
+msg <- "Do not overwrite the `movies` data frame; it has already been created for you!"
 test_object("movies", undefined_msg = msg, incorrect_msg = msg)
-msg1 <- "Do not change how <code>movies_lm</code> is calculated!"
+msg1 <- "Do not change how `movies_lm` is calculated!"
 test_object("movies_lm", undefined_msg = msg1, incorrect_msg = msg1)
 
 test_function("plot", c("x","y"))
@@ -1143,7 +1070,7 @@ test_function("abline", "lwd")
 test_function("abline", "col")
 test_function("abline", c("lwd","col"))
 
-msg2 <- "Don't change the variables <code>xco</code> and <code>yco</code>."
+msg2 <- "Don't change the variables `xco` and `yco`."
 test_object("xco", undefined_msg = msg2, incorrect_msg = msg2)
 test_object("yco", undefined_msg = msg2, incorrect_msg = msg2)
 
@@ -1155,9 +1082,7 @@ success_msg("Awesome! This is a plot that would fit right into one of IMDb's rep
 ```
 
 
-
-
---- type:MultipleChoiceExercise xp:100 skills:1
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1
 ## Multiple plots with different layers
 
 The previous exercises taught you how to make multiple plots in the same graphical window as well as to add more layers to the same plot. 
@@ -1169,7 +1094,7 @@ Which one of the code chunks gives you the following three subplots on a grid of
 - The second plot is a blue histogram of the `salary` variable. The x-axis should be labelled "Salary".
 - The third plot displays a boxplot for salary versus each level of the degree variable. The x-axis should be called "Level of degree", whereas the y-axis should be named "Salary". 
 
-```{r, eval = FALSE}
+```{r}
 # OPTION A
 par(mfrow = c(1,3))
 plot(salaries$degree, salaries$salary, 
@@ -1210,7 +1135,7 @@ plot(salaries$degree, salaries$salary,
 If you want your code to appear in 1 row and 3 columns; the `mfrow` parameter should be set to `c(1,3)`.
 
 *** =pre_exercise_code
-```{r eval=FALSE}
+```{r}
 salaries<-read.table("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/salaries.txt",header=T)
 salaries<-salaries[,-4]
 salaries$degree <- factor(salaries$degree)
@@ -1218,13 +1143,10 @@ salaries
 ```
 
 *** =sct
-```{r eval=FALSE}
+```{r}
 msg1 <- "The first chunck of code does not give you the wanted result. The relationship between salary and degree is depicted first instead of last. Also, the linear regression line is drawn in the wrong figure."
 msg2 <- "Great! the code chunck gives the result you wanted. What a nice set of graphs!"
 msg3 <- "You have been mislead! Everything in the code seems correct. But look at the first line of code again. Did we want our plots to appear in 3 rows and 1 column?"
 test_mc(2, feedback_msgs = c(msg1, msg2, msg3))
 ```
-
-
-
 

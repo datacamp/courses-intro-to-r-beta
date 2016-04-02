@@ -1,0 +1,166 @@
+--- type:NormalExercise lang:r xp:100 skills:1
+## Selection of data frame elements (2)
+
+Instead of using numerics to select elements of a data frame, you can also use the variable names to select columns of a data frame. 
+
+Suppose you want to select only the first 3 values in the `type` column. One way to do this is
+
+```
+planets_df[1:3,2]
+```
+
+A possible disadvantage of this approach is that you have to know (or look up) the position of the variable 'type', which gets hard if you have a lot of variables. It is often easier to just make use of the variable name:
+
+```
+planets_df[1:3,"type"]
+```
+
+*** =instructions
+- Select the diameter and rotation for the 3rd planet, Earth, and save it in `earth_data`.
+- Select for the last six rows only the diameter and assign this selection to `furthest_planets_diameter`.
+- Print `furthest_planets_diameter`.
+
+*** =hint
+You select elements of a data frame conveniently with the square brackets. Select `3:8` for the rows, and `"diameter"` for the columns.
+
+*** =pre_exercise_code
+```{r}
+planets <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
+          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
+diameter <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
+rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
+rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
+type_factor <- factor(type)
+planets_df <- data.frame(planets, type_factor, diameter, rotation, rings, stringsAsFactors = FALSE)
+names(planets_df) <- c("name", "type", "diameter", "rotation", "has_rings")
+rm(planets, type, diameter, rotation, rings, type_factor)
+```
+
+*** =sample_code
+```{r}
+# planets_df is pre-loaded
+
+# Diameter and rotation for Earth: earth_data 
+
+
+# Diameter for the last six rows: furthest_planets_diameter
+
+
+# Print furthest_planets_diameter
+```
+
+*** =solution
+```{r}
+# planets_df is pre-loaded
+
+# Diameter and rotation for Earth: earth_data 
+earth_data <- planets_df[3, c("diameter", "rotation")]
+
+# Diameter for the last six rows: furthest_planets_diameter
+furthest_planets_diameter <- planets_df[3:8,"diameter"]
+
+# Print furthest_planets_diamter
+furthest_planets_diameter
+```
+
+*** =sct
+```{r}
+test_error()
+msg <- "Do not remove or overwrite the `planets_df` data frame!"
+test_object("planets_df", undefined_msg = msg, incorrect_msg = msg)
+
+test_object("earth_data",
+            incorrect_msg = paste("Have you correctly created the <em>sub data frame` `earth_data`?",
+                                  "You can use a vector of strings to select the appropriate columns."))
+test_object("furthest_planets_diameter",
+            incorrect_msg = "For the second instruction, make sure that you select the last six rows and only the `diameter` column.")
+
+test_output_contains("furthest_planets_diameter", incorrect_msg = "Don't forget to print `furthest_planets_diameter`!")
+
+success_msg("Nice one! Continue to the next exercise!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Add observations
+
+Next to adding new variables to a data frame, you can also add observations. You can use the `rbind()` function for this. The `rbind()` function is capable of pasting together two data frames. The merge can only be successful when the names of both the data frames match, otherwise an error occurs. Suppose you have two data frames containing three columns each:
+
+```
+my_df1 <- data.frame(a = 1, b = 2, c = 3)
+my_df2 <- data.frame(a = 8, b = 9, c = 10)
+```
+
+You can merge these as follows:
+
+```
+uber_df <- rbind(my_df1, my_df2)
+```
+
+In the 90s, it was still widely believed that Pluto was the ninth planet of our solar system revolving around the sun. However, new discoveries have led this planet to be labeled as a "Dwarf planet". Because everybody deep down has a fascination for the nineties, let's pretend that Pluto is still a planet and add its information to `planets_df`.
+
+*** =instructions
+- The data for `pluto` is already there; you just have to add the appropriate names such that it matches the names of `planets_df`. You can choose how.
+- Add the `pluto` data frame to `planets_df` and assign the result to `planets_df_ext`.
+- Inspect the resulting data frame by printing it out.
+
+*** =hint
+`pluto` should have the names "name", "type", "diameter", "rotation" and "has_rings".
+
+*** =pre_exercise_code
+```{r}
+planets <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
+          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
+diameter <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
+rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
+rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
+type_factor <- factor(type)
+planets_df <- data.frame(planets, type_factor, diameter, rotation, rings, stringsAsFactors = FALSE)
+names(planets_df) <- c("name", "type", "diameter", "rotation", "has_rings")
+rm(planets, type, diameter, rotation, rings, type_factor)
+```
+
+*** =sample_code
+```{r}
+# planets_df is pre-loaded (without the columns moon and mass)
+
+# Name pluto correctly
+pluto <- data.frame("Pluto", "Terrestrial planet", 0.18, -6.38, FALSE)
+
+# Bind planets_df and pluto together: planets_df_ext
+
+# Print out planets_df_ext
+
+```
+
+*** =solution
+```{r}
+# planets_df is pre-loaded (without the columns moon and mass)
+
+# Name pluto correctly
+pluto <- data.frame(name = "Pluto", type = "Terrestrial planet", diameter = 0.18, rotation = -6.38, has_rings = FALSE)
+
+# Bind planets_df and pluto together: planets_df_ext
+planets_df_ext <- rbind(planets_df, pluto)
+
+# Print out planets_df_ext
+planets_df_ext
+```
+
+*** =sct
+```{r}
+msg <- "Do not remove or overwrite the `planets_df` data frame!"
+test_object("planets_df", undefined_msg = msg, incorrect_msg = msg)
+
+test_object("pluto", incorrect_msg = "Do not change the data that is inside the `pluto` data frame.")
+test_object("pluto", eq_condition = "equal",
+            incorrect_msg = "Make sure to assign the correct names to the different columns in `pluto`. The hint can help you out.")
+
+test_function("planets_df_ext", incorrect_msg = "Have you correctly used `rbind()` to bind together `planets_df` and `pluto`?")
+
+test_output_contains("planets_df_ext", incorrect_msg = "Don't forget to print out `planets_df_ext`!")
+
+success_msg("Perfect! Subsetting and extending dataframes has no mysteries anymore! Let's train our sorting skills now!")
+```
+
