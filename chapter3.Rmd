@@ -69,7 +69,7 @@ test_what(
   expect_equal(
     dim(get("star_wars_matrix", get_solution_env())), 
     dim(get("star_wars_matrix", .GlobalEnv))),
-  feedback_msg = 
+  feedback = 
     paste("Be sure to use the `byrow` and `nrow` arguments of the function `matrix()`",
           "to form a matrix of the correct dimensions: 3 rows and 2 columns."))
 
@@ -147,7 +147,7 @@ test_what(
   expect_equal(
     dim(get("star_wars_matrix", get_solution_env())), 
     dim(get("star_wars_matrix", .GlobalEnv))),
-  feedback_msg = 
+  feedback = 
     paste("Be sure to use the the function `rbind()` with 3 arguments: `new_hope`,",
           "`empire_strikes` and `return_jedi`. You should end up with a matrix",
           "of the correct dimensions: 3 rows and 2 columns."))
