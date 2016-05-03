@@ -1,0 +1,112 @@
+---
+output: html_document
+---
+
+## R: The true basics  
+
+
+### R as calculator
+
+After R is started, there is a console awaiting for input. At the prompt (`>`), you can enter numbers and perform calculations. 
+
+```{r}
+ 3*2
+```
+A few arithmetic operators are:  
+
+- Addition: `+`
+- Subtraction: `-`
+- Multiplication: `*`
+- Division: `/`
+- Exponentiation: `^`
+- Modulo: `%%`
+
+
+### Variable assignment and Operations
+
+You can assign values to variables with the assignment operator `<-`. Just typing the variable by itself at the prompt will print out the value. 
+
+```{r}
+ x <- 3
+ x
+ y <- 9
+ y
+```
+
+You can also perform arithmetic operations with variables. Look at the result of multiplying `x` and `y`, we defined previously:
+
+```{r}
+ y * x
+```
+
+As you work in R and create new variables it can be easy to lose track of what variables you have defined. To get a list of all the variables that have been defined use [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls). And if you need to remove variables, you can use `rm(<var_name>)`. 
+
+
+### Comment your code
+
+Adding comments to your code helps others understanding it. Comments in R are ignored by the parser. Any text that could be typed after the `#` character and on the same line is taken to be a comment, unless the `#` character is inside a quoted string. For example,
+
+```{r}
+ x <- 24 # this is a comment 
+ y <- "  #... but this is not."
+```
+
+
+## Basic Data Types 
+
+There are several basic R data types that are of frequent occurrence in routine R calculations. We will try to understand a few of them better by using the [`class()`](http://www.rdocumentation.org/packages/base/functions/class) function. 
+
+- Decimal values are called numerics in R. You can perform arithmetic operations on them.
+```{r}
+ x <- 12.3
+ x
+ class(x)
+```
+
+- A special type of numeric is an integer. You can specify that a number is an integer using the following syntax.
+```{r}
+ y <- 3L
+ y
+ class(y)
+```
+
+Another way is to invoke the [`as.integer()`](http://www.rdocumentation.org/packages/base/functions/integer) function. 
+
+```{r}
+ y <- as.integer(3)
+ y
+ class(y)
+```
+
+And one can convert an integer value to a numeric value by [`as.numeric()`](http://www.rdocumentation.org/packages/base/functions/numeric).  
+
+- A character object is used to represent string values in R.
+
+```{r}
+ z <- "Good morning!"
+ z
+ class(z)
+```
+
+You can convert objects into character values with the [`as.character()`](http://www.rdocumentation.org/packages/base/functions/numeric) function. 
+
+- Another important data type is the logical type. There are two predefined variables, `TRUE` and `FALSE`. 
+
+```{r}
+ a <- TRUE
+ a
+ class(a)
+```
+
+You can also see the data type of a variable by invoking one of the following `is.*()` functions. The result is a logical statement `TRUE` or `FALSE`. 
+
+```{r, eval=FALSE}
+ is.numeric()      #to evaluate if type = numeric
+ is.integer()      #to evaluate if type = integer
+ is.character()    #to evaluate if type = character
+```
+
+
+
+
+

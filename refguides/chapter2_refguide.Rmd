@@ -1,0 +1,121 @@
+
+## Create and Name Vectors
+
+A vector is a sequence of data elements of the same basic type. You can have character, numerical, logical vectors and many more. To create one you can use the [`c()`](http://www.rdocumentation.org/packages/onion/functions/c) function. Here is a numeric vector:
+
+```{r}
+c(12, 7, 4) 
+```
+
+And a character one, assigned to the variable `types_water`.
+
+```{r}
+types_water <- c("Fresh", "Brackish", "Seawater")
+```
+
+As in the previous chapter, you can verify if `types_water` is a vector by 
+
+```{r}
+is.vector(types_water)
+```
+
+You can also name the elements of your vector by the [`names()`](http://www.rdocumentation.org/packages/nlme/functions/Names) function or create a named vector to begin with. 
+
+```{r}
+numeric_vector <- c(12, 7, 4) 
+name <- c("months/year", "days/week", "weeks/month")
+names(numeric_vector) <- name
+numeric_vector 
+```
+
+In our example, the `numeric_vector ` contains three elements. To see how many elements your vector contains, use:
+
+```{r}
+length(numeric_vector)
+```
+
+### Important Note
+A vector can only contain elements of the same type. If you try to build a vector of different data types, R performs coersion. It trasnfroms all the elements to the same data type.  
+
+```{r}
+new_vector <- c("ice-cream", TRUE, 2)
+new_vector
+```
+
+You can verify that now `new_vector` is a character vector by invoking: 
+
+```{r}
+class(new_vector)
+```
+
+
+## Vector Calculus
+
+Computations on vectors are performed in an element-wise fashion. Ckeck it out.
+
+```{r}
+vector1 <- c(5, 2, 39, 106)
+vector2 <- c(300, 5, 1 , 0)
+vector3 <- vector1 + vector2
+vector3
+```
+
+You can use all the arithemtic operations you learned in Chapter 1!
+
+If you want to sum up all the elements of your vector you can use
+
+```{r}
+sum(vector3)
+```
+
+Moreover, you can use relational operators like `<` and `>` to compare two vectors. Remember the comparison is performed again element-wise.
+
+```{r}
+vector1 < vector2
+```
+
+## Vector Subsetting
+
+Suppose you need to select an element of your vector. You can use `[...]`.
+
+```{r}
+numeric_vector[1]
+```
+
+The number inside the brackets corresponds to the element you want to select, here the first one has been selected. 
+
+If you are dealing with a named vector you can use the names of the elements to select them. 
+
+```{r}
+numeric_vector["months/year"]
+```
+
+If you need to select more than one elements you can use another vector! Take a minute to understand the following syntax 
+
+```{r}
+numeric_vector[c(1,3)]
+```
+
+And also the order matters!
+
+```{r}
+numeric_vector[c(3,1)]
+```
+
+If you want to select all but one elements 
+
+```{r}
+numeric_vector[-2]
+```
+
+Notice that the last and the [ante-penultimate](https://en.wiktionary.org/wiki/antepenultimate) examples give the same result! 
+
+Another way to subset a vector is use a logical vector. The logical vector has to have the same length as the one you want to subset. Only the elements that correspond to `TRUE` will be kept. 
+
+```{r}
+numeric_vector[c(TRUE, FALSE, TRUE)]
+```
+
+Again we get the same result! If your logical vector is shorter than the vector you are subsetting, R recycles the logical vector that you passed until it has the same length as the one you subset. For further explanations about how recycling works, go to the videos. 
+
+

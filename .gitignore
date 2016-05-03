@@ -11,3 +11,6 @@
 !datasets/
 !datasets/*.R
 !datasets/*.RData
+!refguides/
+!refguides/*
+

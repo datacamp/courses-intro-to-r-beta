@@ -1,0 +1,83 @@
+## Create and Name Matrices
+
+Matrices are not very different from vectors; both are data structures that store elements of the same type:
+
+A matrix is a 2-dimensional array consisting of rows and columns. Matrices and dataframes are different since the latter can only contain numeric vectors and can be considered as a natural extension of a vector.
+You can build them easily with the function [`matrix()`](http://www.rdocumentation.org/packages/gmp/functions/matrix).
+
+```{r, eval= F }
+matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL) 
+```
+
+Only the number of rows `nrow` and columns `ncol` need to be specified. However, the argument `byrow` can be used to specify whether the matrix is filled up row-wise or column-wise.
+
+```{r}
+my_matrix <- matrix(c(9,2,5, 1,3,4, 1,2,7), nrow = 3, ncol = 3, byrow = TRUE)
+my_matrix
+```
+
+
+Per default, the rows and columns do not have names. The argument `dimnames` can change that by defining a list with names such as `dimnames = list(c(r1, r2...), c(c1, c2,...)` depending on the number of rows and columns.
+
+Since matrices are just several vectors that you can put together, they can also be build by pasting rows or columns with [`rbind()`](http://www.rdocumentation.org/packages/dplyr/functions/rbind) or [`cbind()`](http://www.rdocumentation.org/packages/marray/functions/cbind) instead of using the function [`matrix()`](http://www.rdocumentation.org/packages/gmp/functions/matrix).
+
+A matrix is defined as an atomic vector. Thus, it is possible to create a matrix based on two matrices that do not necessary contain numbers, as seen in the first video exercise. Then you have created a dataframe or a list by applying coercion.
+
+
+## Subsetting Matrices
+> Like any other data object, you can draw subsets from the matrices. They can be built using the square brackets `[]` on the matrix object and specifying the row and column that is to be subtracted. You can then maintain a single matrix element:
+
+```{r}
+my_matrix[1, 2]
+```
+
+Otherwise rows and columns can be specifiyed by simply defining the number of the row or the column:
+
+```{r}
+my_matrix[1,]
+my_matrix[, 2]
+```
+
+If only a single number is defined, R returns the value of the position defined inside of the subset:
+
+```{r}
+my_matrix[1]
+```
+
+Remark: R counts the positions inside of a matrix from the first row value to the last row value in the first column, then the first row value to the last row value in the second column. 
+
+Furthermore, you can subset multiple elements of a matrix vector by defining the row or columns and the position of the value. As seen in the video lectures you can use the concatenate function [`c()`](http://www.rdocumentation.org/packages/onion/functions/c) to either retain a single value of a specific position or a sub-matrix.
+
+```{r}
+my_matrix[2, c(2, 3)]
+my_matrix[c(2, 3), c(2, 3)]
+```
+
+In a similar manner, matrices can be subsetted by names instead of indices of rows and columns.
+Alternatively, logical vectors can be used to subset, when both rows and columns are defined!
+
+```{r}
+my_matrix[c(F, F, T), c(F, F, T)]
+```
+
+## Matrix calculus
+
+R has two easy functions to let you sum up the values of the rows and columns:
+
+* [`rowSums()`](http://www.rdocumentation.org/packages/base/functions/colSums) 
+* [`colSums()`](http://www.rdocumentation.org/packages/base/functions/colSums)
+
+And of course any arithmetic operation can be proceeded on a matrix as well:
+
+* calculate a scalar 
+* any other operations (`/`, `+`, `-`) 
+
+In general, all matrix operations are done element-wise.
+
+Remark: Matrix recycling is automatically done when a matrix calculation is done between two unequal matrices or between a matrix and a vector. This has to be handled very carefully, since R might recylces in a way you don't want it to recycle.
+
+
+
+
+
+

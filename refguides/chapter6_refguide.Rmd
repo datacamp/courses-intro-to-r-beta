@@ -1,0 +1,123 @@
+---
+output: html_document
+---
+## Explore dataframes
+
+Data sets
+
+* consist of observations
+* corresponding to variables
+* stored in a dataframe
+
+Matrices on the other hand are only useful for atomic vectors, and lists would require too much coding.
+
+What is a dataframe?
+
+* built to specifically store data
+* matrix form: with rows as observations and columns as variables
+* allows for elements of all types (logicals, numerics, characters)
+
+How to create a dataframe?
+
+* import data from CSV files
+* import from a database (i.e. SQL)
+* import from other statistical software etc...
+
+Remark: Dataframes are basically lists with n elements corresponding to each column of the dataframe. The elements of the lists are of length of the number of observations BUT the number of observations has to be equal.
+
+In general, you can define a data frame inside R using the function [`data.frame()`](http://www.rdocumentation.org/packages/R.utils/functions/dataFrame).
+
+```{r, eval = F}
+data.frame(..., row.names = NULL, check.rows = FALSE, check.names = TRUE, 
+           stringsAsFactors = default.stringsAsFactors()))
+```
+
+## Subset a dataframe
+
+Due to the nature of a dataframe, you use the subsetting syntax of lists and matrices.
+
+To draw a subset from a matrix, you apply the square brackets and choose a row and a column
+
+```{r, eval = FALSE}
+my_df[3, 2]
+```
+
+The indices can be columns names as well! 
+As before, to get the only one of the rows you would specify which one you want to keep and leave the column argument empty. Same applies for keeping only one variable but all the observations.
+
+```{r, eval=FALSE}
+my_df[3,  ]  # only the third row is subsetted
+my_df[ , 2]  # only the secnd column in subsetted
+
+```
+
+This can be generalized to the situation where you want to select only some variables but keep all the observations; or select only a few observations:
+
+```{r, eval=FALSE}
+my_df[c(3,2), c(3,2)]
+```
+
+Remark: Any built subset leads to a _new dataframe_ and not a vector, as it was the case before.
+
+How to use the list syntax to select elements?
+
+* Either by using the dollar sign (`$`)
+
+```{r, eval= F}
+my_df$variable1
+```
+
+* Or by using double brackets (`[[...]]`)
+
+```{r, eval = F}
+my_df[[variable1]]
+```
+
+Remark: Now, the result is a vector. If instead of double square brackets, single square brackets are used, then a _new list_ is created.
+
+## Extend your dataframe
+
+You can extend your dataframe by adding a column
+ 
+ * by using the dollar sign (`$`)
+```{r, eval=F}
+my_df$new_column <- new_column
+```
+
+ * by using double square brackets (`[[...]]`)
+```{r, eval=F}
+my_df[["new_column"]] <- new_column
+```
+
+ * using [`cbind()`](http://www.rdocumentation.org/packages/marray/functions/cbind)
+```{r, eval=FALSE}
+cbind(my_df, new_column)
+```
+
+The dataframe can be extended by adding a rows. Since rows corresponds to lists, it is necessary to create a new dataframe with [`data.frame()`](http://www.rdocumentation.org/packages/R.utils/functions/dataFrame) and combine the original one and the new one.
+
+* by using [`rbind()`](http://www.rdocumentation.org/packages/dplyr/functions/rbind) 
+```{r, eval=FALSE}
+rbind(my_df, new_df)
+```
+
+## Sort a dataframe
+
+In general, the function [`sort()`](http://www.rdocumentation.org/packages/arules/functions/sort)
+can be applied. However, to sort the rows in a data frame, you can use the [`order()`](http://www.rdocumentation.org/packages/base/functions/order) function.
+
+```{r, eval= F}
+rank <- order(my_df$variable1)
+```
+
+The order function
+
+* returns a vector with rank/position of each element
+* the first value indicates the rank of the element in the vector/matrix
+* [`order()`](http://www.rdocumentation.org/packages/base/functions/order) can be used inside of a subset
+
+```{r, eval=FALSE}
+my_df[order(my_df, decreasing = TRUE), ]
+```
+
+For more information, have a look at the exercises!
