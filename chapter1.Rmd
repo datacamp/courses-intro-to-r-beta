@@ -5,14 +5,14 @@ description : "In this chapter, you will take your first steps with R. You will 
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch1_slides_v2.pdf
   
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:1a1ba28cd4
 ## Meet R
 
 *** =video_link
 //player.vimeo.com/video/144351865
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:5714863ba8
 ## Your first R script
 
 In the script on the right you should type R code to solve the exercises. When you hit the _Submit Answer_ button, every line of code in the script is interpreted and executed by R and you get a message that indicates whether or not your code was correct. The output of your submission is shown in the R console.
@@ -48,7 +48,7 @@ success_msg("Awesome! See how the console shows the result of the R code you sub
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:ab37530088
 ## Documenting your code
 
 Adding comments to your code is extremely important to make sure that you and others can understand what your code is about. R makes use of the `#` sign to add comments, just like Twitter!
@@ -96,7 +96,7 @@ success_msg("Great! Looks better, doesn't it?")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:9d8a3d0b88
 ## R as a calculator
 
 In its most basic form R can be used as a scientific calculator. Consider the following arithmetic operators:
@@ -180,7 +180,7 @@ success_msg("Nice one!")
 ```
 
 
---- type:MultipleChoiceExercise xp:50 skills:1
+--- type:MultipleChoiceExercise xp:50 skills:1 key:9d8819fb2e
 ## R's pros and cons
 
 As Filip explained in the video, there are things that make R the awesome and immensely popular language that it is today. On the other hand, there are also aspects about R that are less attractive. Which of the following statements are true regarding this statistical programming language developed by Ihaka and Gentleman in the nineties?
@@ -217,7 +217,7 @@ test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4, msg5))
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:6b6fb4974c
 ## Variable assignment (1)
 
 A variable allows you store a value or an object in R. You can then later use this variable's name to easily access the value or the object that is stored within this variable. You use `<-` to assign a variable:
@@ -267,7 +267,7 @@ success_msg("Good job! Notice that R does not print the value of a variable to t
 
 
 
---- type:NormalExercise xp:100 skills:1
+--- type:NormalExercise xp:100 skills:1 key:a5b8028834
 ## Variable assignment (2)
 
 Suppose you have a fruit basket with five apples. You want to store the number of apples in a variable with the name `my_apples`. 
@@ -310,7 +310,7 @@ success_msg("Great! You could also use `=` for variable assignment, but `<-` is 
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:a0cb1bea96
 ## Variable assignment (3)
 
 Every tasty fruit basket needs oranges, so you decide to add six oranges. You decide to create the variable `my_oranges` and assign the value 6 to it. Next, you want to calculate how many pieces of fruit you have in total. Since you have given meaningful names to these values, you can now code this in a clear way:
@@ -373,7 +373,7 @@ success_msg("Nice one! The great advantage of doing calculations with variables 
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:6192f64167
 ## The workspace
 
 If you assign a value to a variable, this variable is stored in the workspace. It's the place where all user-defined variables live. The command [`ls()`](http://www.rdocumentation.org/packages/base/functions/ls) lists the contents of this workspace. 
@@ -437,7 +437,7 @@ success_msg("Awesome! You can now build up and inspect your workspace, great!")
 ```
 
 
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:9f9019501e
 ## Basic Data Types
 
 *** =video_link
@@ -445,7 +445,7 @@ success_msg("Awesome! You can now build up and inspect your workspace, great!")
 
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:1866cdd202
 ## Discover Basic Data Types
 
 To get started, here are some of R's most basic data types:
@@ -512,7 +512,7 @@ test_object("my_logical",
 success_msg("Great work! Continue to the next exercise.")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:c52153af0b
 ## Back to Apples and Oranges
 
 Common knowledge tells you not to add apples and oranges. But hey, that is what you just did! The `my_apples` and `my_oranges` variables both contained a number in the previous exercise. The `+` operator works with numeric variables in R. 
@@ -572,7 +572,7 @@ test_output_contains("my_fruit", incorrect_msg = "The output does not contain th
 success_msg("Awesome, keep up the good work!")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:7806ca24d2
 ## What's that data type?
 
 When you added the variables containing `5` and `"six"`, you got an error due to a mismatch in data types. You can avoid such embarrassing situations by checking the data type of a variable beforehand:
@@ -608,7 +608,7 @@ msg4 <- "Nice one. Let's step it up a notch and start coercing variables!"
 test_mc(correct = 4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:c75fe45544
 ## Coercion: Taming your data
 
 As Filip explained in the video, coercion to transform your data from one type to another is perfectly possible. Next to the [`class()`](http://www.rdocumentation.org/packages/base/functions/class) function and the `is.*()` functions, you can use the `as.*()` functions to force data to change types.
