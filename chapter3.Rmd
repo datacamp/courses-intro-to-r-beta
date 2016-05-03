@@ -5,14 +5,14 @@ description : In this chapter you will learn how to work with matrices in R. By 
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch3_slides.pdf
   
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:82d8734b17
 ## Create and Name Matrices
 
 *** =video_link
 //player.vimeo.com/video/138173926
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:834a0e546c
 ## Analyzing matrices, you shall (1)
 
 It is now time to get your hands dirty. In the following exercises you will analyze the box office numbers of the Star Wars franchise. May the force be with you!
@@ -86,7 +86,7 @@ success_msg("Great job!")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:0dfb4c5e70
 ## Analyzing matrices, you shall (2)
 
 Instead of as a single vector, the box office numbers for the three Star Wars movies are represented as three vectors. Remember the [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) function to paste together different vectors as if they were rows of a matrix? Take this example, that pastes together 2 vectors as if they were rows of a matrix:
@@ -164,7 +164,7 @@ success_msg("The force is actually with you! Continue to the next exercise.")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:ca3dbb8a9f
 ## Naming a matrix
 
 To help you remember what is stored in `star_wars_matrix`, you would like to add the names of the movies for the rows. Not only does this help you to read the data, but it is also useful to select certain elements from the matrix later. 
@@ -243,7 +243,7 @@ success_msg("Great! You're on your way of becoming an R jedi!")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:3b60b1a49a
 ## Calculating the worldwide box office 
 
 The single most important thing for a movie in order to become an instant legend in Tinseltown is its worldwide box office figures. 
@@ -309,7 +309,7 @@ test_object("worldwide_vector",
 success_msg("Well done! Continue to the next exercise.")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:4e0c938d72
 ## Adding a row
 
 Your R workspace contains two matrices: 
@@ -383,7 +383,7 @@ success_msg("Wonderful! Continue with the next exercise and see how you can comb
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:30a0c39c10
 ## The total box office revenue for the entire saga
 
 Just like every [`cbind()`](http://www.rdocumentation.org/packages/base/functions/cbind) has a [`rbind()`](http://www.rdocumentation.org/packages/base/functions/cbind), every [`colSums()`](http://www.rdocumentation.org/packages/base/functions/colSums) has a [`rowSums()`](http://www.rdocumentation.org/packages/base/functions/colSums). 
@@ -455,14 +455,14 @@ success_msg("Wonderful!")
 ```
 
 
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:7ab632b301
 ## Subsetting Matrices
 
 *** =video_link
 //player.vimeo.com/video/138173935
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:b4007d31b3
 ## Select elements
 
 In the previous video, Filip explained how subsetting, using square brackets, extended from vectors to matrices. In general, the following line selects an element that's on row `i` and column `j` from a matrix `m`:
@@ -527,7 +527,7 @@ success_msg("Great! That wasn't too hard was it? Head over to the next exercise.
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:3b3ab3e40a
 ## Select rows and columns
 
 In the previous exercise, you covered the selection of a single element from a matrix. The result was a vector of length 1. However, as the matrix is two-dimensional, you can also extract one-dimensional parts from it. More specifically, to select all elements on row `i` of a matrix `m`, you use:
@@ -597,7 +597,7 @@ success_msg("Great! Continue to the next exercise.")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:32d3cedaba
 ## Create submatrices
 
 Last but not least, you can create submatrices from larger matrices. If a vector is not sufficient to store the information you want to select, you need to create a new matrix. If you want to create a submatrix that comprises rows 1 and 4 and columns 2 and 3 of a matrix `m`, to following call will help you out:
@@ -651,7 +651,7 @@ success_msg("Nice one! You could have used both `star_wars_matrix[c(1,3), c(1,2)
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:a6e32664a3
 ## Alternative ways of subsetting
 
 Just as with vectors, you can also subset matrices using names and logical vectors. Of course, you can only subset by name if the matrix you're working with actually has names associated with it. Logical vectors on the other hand, can always be used to select the element(s) of interest.
@@ -711,13 +711,13 @@ success_msg("Awesome! Remember that you can combine subsetting by indices, by na
 ```
 
 
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:f49d1498f5
 ## Matrix Arithmetic
 
 *** =video_link
 //player.vimeo.com/video/141163423
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:c099d6de31
 ## Arithmetic with matrices (1)
 
 Similar to what you have learned with vectors, the standard operators like `+`, `-`, `/`, `*`, etc. work in an element-wise way on matrices in R. 
@@ -784,7 +784,7 @@ success_msg("Great! What do these results tell you? A staggering 92 million peop
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:57d4c926e3
 ## Arithmetic with matrices (2)
 
 Just like `2 * my_matrix` multiplies every element of `my_matrix` by 2, `my_matrix1 * my_matrix2` creates a matrix where each element is the product of the corresponding elements in `my_matrix1` and `my_matrix2`. 
