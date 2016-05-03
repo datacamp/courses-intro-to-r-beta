@@ -5,14 +5,14 @@ description : Lists, as opposed to vectors, can hold components of different typ
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch5_slides.pdf
 
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:d4fe5a84ef
 ## Create and Name Lists
 
 *** =video_link
 //player.vimeo.com/video/138173972
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:b14f9472dd
 ## Create a list
 
 Just a quick refresher: A list in R allows you to gather a variety of objects in an ordered way. These objects can be matrices, vectors, factors, data frames, even other lists, etc. It is not even required that these objects are related to each other. You can construct a list with the [`list()`](http://www.rdocumentation.org/packages/base/functions/list) function:
@@ -74,7 +74,7 @@ success_msg("Wonderful! Your skillset is growing at a staggering pace! Head over
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:849f04f218
 ## Listception: lists in lists
 
 As mentioned before, lists can also contain other lists. This works just the same as storing other types of R objects in a list. Next to the variables `my_vector`, `my_matrix` and `my_factor` from the previous exercise, now also `my_list` is predefined. Up to you to merge them in a new list; a super list!
@@ -148,7 +148,7 @@ success_msg("Nice one! Can you see from the displayed structure how the vector, 
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:f37117a766
 ## Create a named list (1)
 
 Well done! Let us keep this train going! To make the elements of your list clearer, you'll often want to name them: 
@@ -234,7 +234,7 @@ success_msg("Great! Not only do you know how to construct lists now, you can als
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:dc5f4f6f30
 ## Create a named list (2)
 
 Being a huge movie fan, you decide to start storing information on good movies with the help of lists. 
@@ -292,14 +292,14 @@ success_msg("Perfect!")
 ```
 
 
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:a5e5ff2680
 ## Subset and Extend Lists
 
 *** =video_link
 //player.vimeo.com/video/138173990
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:1e3b5f4b0a
 ## Selecting elements from a list
 
 Your list will often be built out of numerous elements and components. Therefore, getting a single element, multiple elements, or a component out of it is not always straightforward.
@@ -374,7 +374,7 @@ success_msg("Nice! That was still pretty easy, right? Always be aware of this di
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:cbda2853c3
 ## Chaining your selections
 
 Besides selecting entire list elements, it's also possible that you have to access specific parts of these components themselves. It's perfectly possible to _chain your subsetting operations_ in R.
@@ -435,7 +435,7 @@ test_object("second_review",
 success_msg("Great! Selecting elements from lists is rather easy isn't it? Continue to the next exercise.")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:35ba0d6f0d
 ## Extending a list
 
 You already know that the `$` as well as `[[` can be used to select elements from lists. They can also be used to extend lists. To extend `shining_list` with some personal opinion, you could do one of the following things:
