@@ -5,14 +5,14 @@ description : We take you on a trip to Vegas, where you will learn how to analyz
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch2_slides.pdf
   
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:b91dd847a0
 ## Create and Name Vectors
 
 *** =video_link
 //player.vimeo.com/video/138173896
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:2d1cb04427
 ## Create a vector (1)
 
 Feeling lucky? You better, because we'll take you on a trip to Las Vegas!
@@ -64,7 +64,7 @@ test_object("logical_vector", incorrect_msg = "Make sure that you assign the cor
 success_msg("Perfect! Let's practice some more with vector creation.")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:c6e056b9c3
 ## Create a vector (2)
 
 After one week in Las Vegas and still zero Ferraris in your garage, you decide that it is time to start using your data science superpowers.
@@ -128,7 +128,7 @@ success_msg("Very good! To check out the contents of your vectors, remember that
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:ebb5aae2ff
 ## Naming a vector (1)
 
 As a data analyst, it is important to have a clear view on the data that you are using. Understanding what each element refers to is essential. 
@@ -192,7 +192,7 @@ success_msg("Well done!")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:5c026ed9fb
 ## Naming a vector (2)
 
 If you want to become a good statistician, you have to become lazy. (If you are already lazy, chances are high you are one of those exceptional, natural-born statistical talents!)
@@ -262,14 +262,14 @@ test_object("roulette_vector", eq_condition = "equal", incorrect_msg = sprintf(m
 success_msg("Nice one! A word of advice: try to avoid code duplication at all times.")
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:b47466f033
 ## Vector Arithmetic
 
 *** =video_link
 //player.vimeo.com/video/141163398
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:6b17fc50b9
 ## Calculate your earnings
 
 Now that you understand how R does arithmetic calculations with vectors, it is time to get those Ferraris in your garage! First, you need to understand what the overall profit or loss per day of the week was. The total daily profit is the sum of the profit/loss you realized on poker per day, and the profit/loss you realized on roulette per day.
@@ -338,7 +338,7 @@ success_msg("Great! Continue to the next exercise.")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:a9a1a50a31
 ## Calculate total winnings: sum()
 
 Based on the previous analysis, it looks like you had a mix of good and bad days. This is not what your ego expected, and you wonder if there may be a (very very very) tiny chance you have lost money over the week in total? 
@@ -413,14 +413,14 @@ success_msg("Oops, it seems like you are losing money. Time to rethink and adapt
 ```
 
 
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:513029f4ac
 ## Vector Subsetting
 
 *** =video_link
 //player.vimeo.com/video/138173916
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:6112e74425
 ## Selection by index (1)
 
 After you figured that roulette is not your forte, you decide to compare your performance at the beginning of the week to your performance at the end of the week. You did have a couple of Margarita cocktails at the end of the week...
@@ -486,7 +486,7 @@ success_msg("Great! R also makes it possible to select multiple elements from a 
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:ae2832fbd1
 ## Selection by index (2) 
 
 How about analyzing your midweek results? 
@@ -561,7 +561,7 @@ test_object("roulette_endweek",
 success_msg("Well done! Another way to find the mid-week results is `poker_vector[2:4]`. Continue to the next exercise to specialize in vector selection some more!");
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:5919f3fc05
 ## Selection by name
 
 Another way to tackle the previous exercise is by using the names of the vector elements (Monday, Tuesday, ...) instead of their numeric positions. For example, 
@@ -628,7 +628,7 @@ test_object("poker_tuesday")
 success_msg("Good job! Head over to the next exercise.");
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:22121c6c46
 ## Selection by logicals (1)
 
 There are basically three ways to subset vectors: by using the indices, by using the names (if the vectors are named) and by using logical vectors. Filip already told you about the internals in the instructional video. As a refresher, have a look at the following statements to select elements from `poker_vector`, which are all equivalent:
@@ -699,7 +699,7 @@ success_msg("Nice one! Using logical vectors to perform subsetting might seem so
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:aa2e5f6e97
 ## Selection by logicals (2)
 
 By making use of a combination of comparison operators and subsetting using logicals, you can investigate your casino performance in a more pro-active way.
