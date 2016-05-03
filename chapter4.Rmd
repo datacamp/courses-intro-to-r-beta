@@ -5,14 +5,14 @@ description : Very often, data falls into a limited number of categories.In R, c
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch4_slides.pdf
 
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:c9cff655dd
 ## Factors
 
 *** =video_link
 //player.vimeo.com/video/138173962
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:36ba783482
 ## Vector to factor
 
 In the following exercises, we'll be working with handedness as a categorical variable that can be either "Left" or "Right". In general, you're either left-handed or you're right-handed (not both), so this complies with the conditions of a categorical variable.
@@ -66,7 +66,7 @@ success_msg("Great! If you want to find out more about the [`factor()`](http://w
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:56d9d5409e
 ## Factor levels
 
 When you first get a data set, you will often notice that it contains factors with specific factor levels. Of course, you can also change these factor levels. You can either do this with the [`levels()`](http://www.rdocumentation.org/packages/base/functions/levels) function, after you defined the factor, or using the `labels` argument inside [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor). The following options are equivalent:
@@ -138,7 +138,7 @@ success_msg("Wonderful! Proceed to the next exercise.")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:e09996c475
 ## Nominal versus Ordinal, Unordered versus Ordered
 
 Remember that there are two types of categorical variables? On the one hand there's the _nominal categorical variable_, which does not have an implied order. The _ordinal categorical variable_, on the other hand, does have a natural ordering.
@@ -219,7 +219,7 @@ success_msg("Awesome! You correctly figured out that `animal_factor` shouldn't b
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:f6eb0a5c5f
 ## Left better than right?
 
 In `survey_factor` you have a two-level factor, containing "Left" and "Right". But how does R value these relatively to each other? In other words, who does R think is better, left or right?
@@ -279,7 +279,7 @@ success_msg("Phew, it seems that R is neutral ;-).")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:d65e71390a
 ## Ordered factors
 
 Sometimes you will deal with factors that do have a natural ordering between its categories. In this case, we have to tell R about it.
@@ -356,7 +356,7 @@ success_msg("A job well done! Continue to the next exercise.")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:e23011c42b
 ## Comparing ordered factors
 
 'Data analyst number two' is having a bad day at work. He enters your office and starts complaining that 'data analyst number five' is slowing down the entire project. Since you know that 'data analyst number two' has the reputation of being a smarty-pants, you first decide to check if his statement is true. 
