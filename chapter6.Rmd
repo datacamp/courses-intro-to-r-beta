@@ -5,13 +5,13 @@ description : Most data sets you will be working with will be stored as a data f
 attachments : 
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch6_slides.pdf
 
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:d4bde604ab
 ## Explore the Data Frame
 
 *** =video_link
 //player.vimeo.com/video/138173996
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:d4ddcf9a7d
 ## Have a look at your data set
 
 Working with large data sets is not uncommon in data analysis. When you work with (extremely) large data sets and data frames, your first task as a data analyst is to develop a clear understanding of its structure and main elements. Therefore, it is often useful to show only a small part of the entire data set. 
@@ -67,7 +67,7 @@ success_msg("Wonderful! So, do you now have a good idea about what we have in th
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:c8f389fdbd
 ## Have a look at the structure
 
 Another method that is often used to get a rapid overview of your data is the function [`str()`](http://www.rdocumentation.org/packages/utils/functions/str). The function [`str()`](http://www.rdocumentation.org/packages/utils/functions/str) shows you the structure of your data set. For a data frame it tells you:
@@ -110,7 +110,7 @@ success_msg("Nice work! Can you find all the information that is listed in the e
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:f09c0189ac
 ## Creating a data frame (1)
 
 Since using built-in data sets is not even half the fun of creating your own data sets, the next exercises are based on your personally developed data set. So put your jet pack on because it is time for some good old fashioned space exploration! 
@@ -190,7 +190,7 @@ test_output_contains("str(planets_df)", incorrect_msg = "Don't forget to display
 success_msg("Great job! The structure of `planets_df` reveals that both the `planets` as the `type` column are factors, and not character vectors. That's not really what you want, right?")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:7090dc3538
 ## Creating a data frame (2)
 
 In the previous exercise, you found out that both the `planets` and `type` columns of `planets_df` are factors. For the `type` column this makes sense, because a planet type is some kind of category. For the `planets` column, however, that contains the planet names, this is less logical.
@@ -273,7 +273,7 @@ success_msg("That looks more like it! Head over to the next exercise.")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:a80ae7fbe8
 ## Rename the data frame columns
 
 As a data frame is actually a list containing same-length vectors under the hood, it's possible to name and rename data frames just as you did with lists. To create a data frame and name it in one and the same call you can use:
@@ -364,14 +364,14 @@ test_output_contains("planets_df", incorrect_msg = "Don't forget to print `plane
 success_msg("Nice one! This is going fast!")
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1
+--- type:VideoExercise lang:r xp:50 skills:1 key:9a2f941de8
 ## Subset, Extend & Sort Data Frames
 
 *** =video_link
 //player.vimeo.com/video/138174008
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:b6125af738
 ## Selection of data frame elements
 
 Similar to matrices, you select elements from a data frame with the help of square brackets `[ ]`. By using a comma, you can indicate what to select from the rows and the columns respectively:
@@ -460,7 +460,7 @@ test_object("furthest_planets_df",
 success_msg("Great! Feel free to have a look at the variables you've just created. Apart from selecting elements from your data frame by index, you can also use the column names.")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:7aa0a94261
 ## Only planets with rings (1)
 
 You will often want to select an entire column, namely one specific variable from a data frame. If you want to select the column `diameter` from `planets_df`, you can use either on of the following:
@@ -518,7 +518,7 @@ success_msg("Great! Continue to the next exercise and discover yet another way o
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:d6245c1bb1
 ## Only planets with rings (2)
 
 You probably remember from high school that some planets in our solar system have rings and others do not. But due to other priorities at that time (read: puberty) you can not recall their names, let alone their rotation speed, etc. Could R help you out?
@@ -586,7 +586,7 @@ success_msg("Nice work, but this is a rather tedious solution. The next exercise
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:c1a08e245c
 ## Only planets with rings but shorter
 
 So what exactly did you learn in the previous exercises? You selected a subset from a data frame (`planets_df`) based on whether or not a certain condition was true (rings or no rings), and you managed to pull out all relevant data. Pretty awesome! By now, NASA is probably already flirting with your CV!
@@ -650,7 +650,7 @@ success_msg("Great! Not only is the [`subset()`](http://www.rdocumentation.org/p
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:e9ca3eeb99
 ## Add variable/column
 
 There are many cases in which you'll want to add more variables to your data frame. This comes down to adding a column to the data frame. The exact same techniques to select columns from a data frame can be used here. To add a column `new_column` to `my_df`, with data from `my_vec`, you can use one of the following calls:
@@ -729,7 +729,7 @@ success_msg("Nice one! This data frame is beginning to contain quite some inform
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:8e5ade7078
 ## Sorting
 
 In data analysis you will often sort your data according to a certain variable in the data set. In R, this is done with the help of the function [`order()`](http://www.rdocumentation.org/packages/base/functions/order). 
@@ -780,7 +780,7 @@ success_msg("Great! Now let's use the [`order()`](http://www.rdocumentation.org/
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:ec87541ef1
 ## Sorting your data frame
 
 Alright, now let us do something useful with the [`order()`](http://www.rdocumentation.org/packages/base/functions/order) function! You would like to rearrange your data frame such that it starts with the smallest planet and ends with the largest one. A sort on the `diameter` column, if you will.
