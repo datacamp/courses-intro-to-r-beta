@@ -1,3 +1,5 @@
-# Introduction to R
+# Introduction to R (beta)
 
-This repository contains the source files for the introduction to R course (id 732).
+[**Link to Course**](https://www.datacamp.com/courses/732)
+
+This course should be updated through [DataCamp Teach](https://www.datacamp.com/teach).
