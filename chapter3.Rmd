@@ -27,6 +27,7 @@ In the script, a vector `box` is defined that represents the box office numbers 
 
 *** =instructions
 Construct a matrix `star_wars_matrix`:
+
 - Each row represents a movie.
 - The first column is for the US box office revenue, and the second column for the non-US box office revenue. 
 - Use the function `matrix()` with `box` as the first input, and the additional arguments `nrow` and `byrow`.
