@@ -293,6 +293,7 @@ Very proud of your first ever data frame, you show it to your friend Buzz. He's 
 
 *** =instructions
 Rename the columns of `planets_df`. As `planets_df` is already created, you'll want to use the [`names()`](http://www.rdocumentation.org/packages/base/functions/names) function. 
+
 - Name the `planets` column `name`.
 - Name the `type_factor` column `type`.
 - You can keep the names `diameter` and `rotation`.
