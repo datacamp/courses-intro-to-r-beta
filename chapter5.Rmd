@@ -246,9 +246,9 @@ Create the variable `shining_list`. The list contains the movie title first as "
 
 *** =hint
 Let's get you started with a chunk of code:
-```
-shining_list <- list(title = "The Shining")
-```
+
+        shining_list <- list(title = "The Shining")
+        
 Can you complete the rest? You still have to add `actors_vector` and `reviews_factor` with the appropriate names.
 
 *** =pre_exercise_code
