@@ -459,6 +459,7 @@ Note how the quotation marks on the right indicate that `"some text"` is of type
 
 *** =instructions
 Change the value of the:
+
 - `my_numeric` variable to `42`.
 - `my_character` variable to `"forty-two"`. Note that the quotation marks indicate that `"forty-two"` is a character.
 - `my_logical` variable to `FALSE`.
