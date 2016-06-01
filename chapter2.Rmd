@@ -11,6 +11,9 @@ attachments :
 *** =video_link
 //player.vimeo.com/video/138173896
 
+*** =video_hls
+//videos.datacamp.com/transcoded/732_intro_to_r/v1/hls-ch2_1.master.m3u8
+
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:2d1cb04427
 ## Create a vector (1)
@@ -268,6 +271,9 @@ success_msg("Nice one! A word of advice: try to avoid code duplication at all ti
 *** =video_link
 //player.vimeo.com/video/141163398
 
+*** =video_hls
+//videos.datacamp.com/transcoded/732_intro_to_r/v1/hls-ch2_2.master.m3u8
+
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:6b17fc50b9
 ## Calculate your earnings
@@ -418,6 +424,9 @@ success_msg("Oops, it seems like you are losing money. Time to rethink and adapt
 
 *** =video_link
 //player.vimeo.com/video/138173916
+
+*** =video_hls
+//videos.datacamp.com/transcoded/732_intro_to_r/v1/hls-ch2_3.master.m3u8
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:6112e74425
