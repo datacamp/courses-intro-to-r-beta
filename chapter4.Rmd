@@ -1,8 +1,8 @@
---- 
+---
 title_meta  : Chapter 4
 title       : Factors
 description : Very often, data falls into a limited number of categories.In R, categorical data is stored in factors. Given the importance of these factors in data analysis, you should start learning how to create, subset and compare them now!
-attachments : 
+attachments :
   slides_link: https://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/slides/ch4_slides.pdf
 
 --- type:VideoExercise lang:r xp:50 skills:1 key:c9cff655dd
@@ -82,7 +82,7 @@ my_factor <- factor(my_vector)
 levels(my_factor) <- c("Large", "Medium", "Small")
 
 # Option 2
-my_factor <- factor(my_vector, 
+my_factor <- factor(my_vector,
                     levels = c("S", "M", "L"),
                     labels = c("Small", "Medium", "Large"))
 ```
@@ -134,8 +134,7 @@ msg <- "Do not change the definition of `survey_vector`!"
 test_object("survey_vector", undefined_msg = msg, incorrect_msg = msg)
 msg <- "Have you correctly converted `survey_vector` to a factor? Make sure to correctly specify the new factor levels (R is case sensitive!)."
 test_object("survey_factor")
-test_or(test_object("survey_factor", eq_condition = "equal", undefined_msg = msg),
-        test_an_object("survey_factor_2", eq_condition = "equal", undefined_msg =  msg))
+test_object("survey_factor", eq_condition = "equal", undefined_msg = msg)
 test_output_contains("survey_factor", incorrect_msg = "Don't forget to print `survey_factor`!")
 success_msg("Wonderful! Proceed to the next exercise.")
 ```
@@ -146,13 +145,13 @@ success_msg("Wonderful! Proceed to the next exercise.")
 
 Remember that there are two types of categorical variables? On the one hand there's the _nominal categorical variable_, which does not have an implied order. The _ordinal categorical variable_, on the other hand, does have a natural ordering.
 
-By default, the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) transforms a vector into an unordered factor. To create an ordered factor, you have to add two additional arguments: `ordered` and `levels`. 
+By default, the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) transforms a vector into an unordered factor. To create an ordered factor, you have to add two additional arguments: `ordered` and `levels`.
 
 ```
-factor(some_vector, 
-       ordered = TRUE, 
+factor(some_vector,
+       ordered = TRUE,
        levels = c("Level_1", "Level_2" ...))
-``` 
+```
 
 By setting the argument `ordered` to `TRUE`, you indicate that the factor is ordered. With the argument `levels` you give the values of the factor in the correct order.
 
@@ -263,10 +262,10 @@ survey_vector <- c("R", "L", "L", "R", "R")
 survey_factor <- factor(survey_vector, levels = c("R", "L"), labels = c("Right", "Left"))
 
 # First element from survey_factor: right
-right <- survey_factor[1] 
+right <- survey_factor[1]
 
 # Second element from survey_factor: left
-left <- survey_factor[2] 
+left <- survey_factor[2]
 
 # Right 'greater than' left?
 right > left
@@ -293,7 +292,7 @@ Suppose you're leading a research team of five data analysts and that you want t
 
 ```
 factor(some_vector, ordered = TRUE, levels = c("Level_1", "Level_2", ...))
-``` 
+```
 
 *** =instructions
 - Use the example code above to define `speed_factor`, that contains the speed information as an ordered factor. You can start from `speed_vector`, which is already created for you.
@@ -301,8 +300,8 @@ factor(some_vector, ordered = TRUE, levels = c("Level_1", "Level_2", ...))
 - Use [`summary()`](http://www.rdocumentation.org/packages/base/functions/summary) to generate a summary of `speed_factor`: automagically, R prints the factor levels in the right order.
 
 *** =hint
-- Use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) to create `factor_speed_vector` based on `speed_character_vector`. 
-- The argument `ordered` should be set to `TRUE` since there is a natural ordering. 
+- Use the function [`factor()`](http://www.rdocumentation.org/packages/base/functions/factor) to create `factor_speed_vector` based on `speed_character_vector`.
+- The argument `ordered` should be set to `TRUE` since there is a natural ordering.
 - The argument `levels` should be equal to `c("Slow", "OK", "Fast")`.
 
 *** =pre_exercise_code
@@ -313,7 +312,7 @@ factor(some_vector, ordered = TRUE, levels = c("Level_1", "Level_2", ...))
 *** =sample_code
 ```{r}
 # Create speed_vector
-speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast") 
+speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast")
 
 # Convert speed_vector to ordered speed_factor
 
@@ -328,7 +327,7 @@ speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast")
 *** =solution
 ```{r}
 # Create speed_vector
-speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast") 
+speed_vector <- c("OK", "Slow", "Slow", "OK", "Fast")
 
 # Convert speed_vector to ordered speed_factor
 speed_factor <- factor(speed_vector, ordered = TRUE, levels = c("Slow", "OK", "Fast"))
@@ -362,7 +361,7 @@ success_msg("A job well done! Continue to the next exercise.")
 --- type:NormalExercise lang:r xp:100 skills:1 key:e23011c42b
 ## Comparing ordered factors
 
-'Data analyst number two' is having a bad day at work. He enters your office and starts complaining that 'data analyst number five' is slowing down the entire project. Since you know that 'data analyst number two' has the reputation of being a smarty-pants, you first decide to check if his statement is true. 
+'Data analyst number two' is having a bad day at work. He enters your office and starts complaining that 'data analyst number five' is slowing down the entire project. Since you know that 'data analyst number two' has the reputation of being a smarty-pants, you first decide to check if his statement is true.
 
 The fact that `speed_factor` is now ordered enables us to compare different elements (the data analysts in this case). You can simply do this by using a well-known operator: `>`.
 
@@ -380,7 +379,7 @@ Check whether data analyst 2 is faster than data analyst 5. Simply print out the
 *** =sample_code
 ```{r}
 # Definition of speed_vector and speed_factor
-speed_factor <- factor(c("Fast", "Slow", "Slow", "Fast", "Ultra-fast"), 
+speed_factor <- factor(c("Fast", "Slow", "Slow", "Fast", "Ultra-fast"),
                        ordered = TRUE, levels = c("Slow", "Fast", "Ultra-fast"))
 
 # Compare data analyst 2 with data analyst 5
@@ -390,7 +389,7 @@ speed_factor <- factor(c("Fast", "Slow", "Slow", "Fast", "Ultra-fast"),
 *** =solution
 ```{r}
 # Definition of speed_factor
-speed_factor <- factor(c("Fast", "Slow", "Slow", "Fast", "Ultra-fast"), 
+speed_factor <- factor(c("Fast", "Slow", "Slow", "Fast", "Ultra-fast"),
                        ordered = TRUE, levels = c("Slow", "Fast", "Ultra-fast"))
 
 # Compare data analyst 2 with data analyst 5
@@ -401,7 +400,7 @@ speed_factor[2] > speed_factor[5]
 ```{r}
 msg <- "Do not change anything about the command that defines `speed_factor`!"
 test_object("speed_factor", eq_condition = "equal", undefined_msg = msg, incorrect_msg = msg)
-test_output_contains("speed_factor[2] > speed_factor[5]", 
+test_output_contains("speed_factor[2] > speed_factor[5]",
                      incorrect_msg = paste("Have you correctly compared data analyst 2 to data analyst 5?",
                                            "Use subsetting in combination with the `>` operator."))
 success_msg("Bellissimo! What does the result tell you? Data analyst two is complaining about the data analyst five while in fact he or she is the one slowing everything down!")
