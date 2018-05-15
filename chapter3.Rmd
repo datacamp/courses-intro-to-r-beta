@@ -67,16 +67,6 @@ test_error()
 msg <- "Do not change or remove the definition of `box`!"
 test_object("box", undefined_msg = msg, incorrect_msg = msg)
 
-# TODO: Fix in testwhat
-test_object("star_wars_matrix", eval = FALSE)
-test_what(
-  expect_equal(
-    dim(get("star_wars_matrix", get_solution_env())), 
-    dim(get("star_wars_matrix", .GlobalEnv))),
-  feedback = 
-    paste("Be sure to use the `byrow` and `nrow` arguments of the function `matrix()`",
-          "to form a matrix of the correct dimensions: 3 rows and 2 columns."))
-
 test_correct({
   test_object("star_wars_matrix",
               undefined_msg = "Please make sure to define a variable `star_wars_matrix`.",
@@ -143,20 +133,6 @@ msg = "Do not change anything about the box office variables `new_hope`, `empire
 test_object("new_hope", undefined_msg = msg, incorrect_msg = msg)
 test_object("empire_strikes", undefined_msg = msg, incorrect_msg = msg)
 test_object("return_jedi", undefined_msg = msg, incorrect_msg = msg)
-
-# Fix untill testwhat gets updated again
-# TODO: Fix in testwhat
-test_object("star_wars_matrix", eval = FALSE)
-test_what(
-  expect_equal(
-    dim(get("star_wars_matrix", get_solution_env())), 
-    dim(get("star_wars_matrix", .GlobalEnv))),
-  feedback = 
-    paste("Be sure to use the the function `rbind()` with 3 arguments: `new_hope`,",
-          "`empire_strikes` and `return_jedi`. You should end up with a matrix",
-          "of the correct dimensions: 3 rows and 2 columns."))
-
-
 
 test_correct({
   test_object("star_wars_matrix",
